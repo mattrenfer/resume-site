@@ -132,7 +132,10 @@ export default class Portfolio extends Component {
                   Click on "View All Mock-Ups" to view other viable options.
                 </p>
               </div>
-              <a href="/member-guide.pdf" className="modal-popup__details">
+              <a
+                href="/portfolio/member-portal-mock-ups.pdf"
+                className="modal-popup__details"
+              >
                 View All Mock-Ups
               </a>
             </div>
@@ -217,7 +220,7 @@ export default class Portfolio extends Component {
                 </ul>
               </div>
               <a
-                href="https://matthewrenfer.com/portfolio/rn-to-bsn.html"
+                href="/portfolio/rn-to-bsn.html"
                 className="modal-popup__details"
               >
                 Live Preview
