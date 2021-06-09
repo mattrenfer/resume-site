@@ -45,18 +45,38 @@ export default class Resume extends Component {
                     <div className="resume-block">
                       <div className="resume-block__header">
                         <h4 className="h3">{item.InstitutionName}</h4>
-                        <p className="resume-block__header-meta">
-                          <span> {item.specialization}</span>
 
-                          <span className="resume-block__header-date">
+                        <p className="resume-block__header-meta">
+                          <span>
                             {" "}
-                            <em className="date">
-                              {item.MonthOfEarning} {item.YearOfEarning}
-                            </em>
+                            {item.specialization}
+                            {item.certificates &&
+                              item.certificates.map((item) => {
+                                return (
+                                  <p>
+                                    &bull; {item.name} (
+                                    <a href={item.url} target="_blank">
+                                      View
+                                    </a>
+                                    )
+                                  </p>
+                                );
+                              })}
                           </span>
+
+                          {typeof item.MonthOfEarning !== "undefined" &&
+                          typeof item.YearOfEarning !== "undefined" ? (
+                            <span className="resume-block__header-date">
+                              {" "}
+                              <em className="date">
+                                {item.MonthOfEarning} {item.YearOfEarning}
+                              </em>
+                            </span>
+                          ) : (
+                            <span></span>
+                          )}
                         </p>
                       </div>
-                      <p>{item.Achievements}</p>
                     </div>
                   );
                 })}

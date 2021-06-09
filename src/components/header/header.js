@@ -25,12 +25,7 @@ export default class Header extends Component {
                 </li>
                 <li>
                   <a className="smoothscroll" href="#portfolio">
-                    Work
-                  </a>
-                </li>
-                <li>
-                  <a className="smoothscroll" href="#contact">
-                    Contact
+                    Portfolio
                   </a>
                 </li>
               </ul>

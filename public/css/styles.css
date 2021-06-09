@@ -1645,7 +1645,7 @@ body {
   * ## links
   * ------------------------------------------------------------------- */
 a {
-  color: var(--color-1);
+  color: #f06100;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -2700,7 +2700,7 @@ button.btn--pill {
   content: "";
   display: block;
   height: 100%;
-  background-color: var(--color-gray-18);
+  background-color: #f08800;
 }
 
 .skill-bars-fat li .percent5::before {
@@ -3055,7 +3055,7 @@ button.btn--pill {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: var(--color-1);
+  background-color: #f02400;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -3491,6 +3491,8 @@ button.btn--pill {
     color: white;
   }
   .s-header__nav ul li::before {
+    /* HIDE NUMBERS */
+    display: none;
     content: counter(ctr, decimal-leading-zero);
     counter-increment: ctr;
     font-size: var(--text-xs);
@@ -4265,8 +4267,8 @@ button.btn--pill {
 
 .modal-popup__details:hover,
 .modal-popup__details:focus {
-  background-color: var(--color-1);
-  border-color: var(--color-1);
+  background-color: #f02400;
+  border-color: #6d6d6d;
   color: white;
 }
 
@@ -4760,7 +4762,7 @@ button.btn--pill {
 
 .ss-go-top a:hover,
 .ss-go-top a:focus {
-  background-color: var(--color-1);
+  background-color: #f02400;
 }
 
 .ss-go-top svg {

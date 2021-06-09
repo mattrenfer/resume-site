@@ -1,5 +1,5 @@
 let resumeData = {
-  imagebaseurl: "https://mattrenfer.github.io/",
+  imagebaseurl: "/",
   name: "Matthew Russell Renfer",
   role: "Professional Developer",
   address1: "1133 Villa Drive NE",
@@ -9,7 +9,7 @@ let resumeData = {
   email: "mr.renfer@gmail.com",
 
   aboutMe:
-    "I've been making websites since I was a young teenager on my first computer. While I went to school for writing and pursued an early career in journalism, the web always seemed to beckon me back. Everywhere I went in my career, there was a dire need for someone with solid web skills to help with the organization. In 2015, I committed fully to field as a Senior Web Developer, assisting with the latter stages of a website redesign. It's been an exciting career ever since, and I am always eager to learn the web's ever-changing nature and expand my toolkit.",
+    "While I went to school for writing and pursued an early career in journalism, the web always seemed to beckon me back. Everywhere I went in my career, there was a dire need for someone with solid web skills to help with the organization. In 2015, I committed fully to field as a Senior Web Developer, assisting with the latter stages of a website redesign. It's been an exciting career ever since, and I am always eager to learn the web's ever-changing nature and expand my toolkit.",
 
   work: [
     {
@@ -40,14 +40,30 @@ let resumeData = {
       specialization: "BA in English: Professional Writing",
       MonthOfEarning: "May",
       YearOfEarning: "2008",
-      Achievements: "Achievements",
     },
     {
-      InstitutionName: "Udemy",
-      specialization: "Certifications",
-      MonthOfEarning: "September",
-      YearOfEarning: "2020",
-      Achievements: "Achievements",
+      InstitutionName: "Certifications",
+      certificates: [
+        {
+          name: "The Modern React Bootcamp (Hooks, Context, NextJS, Router)",
+          url: "/images/certificate-react.jpg",
+        },
+
+        {
+          name: "The Web Development Bootcamp",
+          url: "/images/certificate-web-dev-bootcamp.jpg",
+        },
+
+        {
+          name: "Become a WordPress Developer: Unlocking Power With Code",
+          url: "/images/certificate-wordpress.jpg",
+        },
+
+        {
+          name: "User Experience Design Essentials – Adobe XD UI UX Design",
+          url: "/images/certificate-UI.jpg",
+        },
+      ],
     },
   ],
 };

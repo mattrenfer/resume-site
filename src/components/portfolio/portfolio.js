@@ -7,9 +7,44 @@ export default class Portfolio extends Component {
         <section id="portfolio" className="s-portfolio target-section">
           <div className="row s-portfolio__header">
             <div className="column large-12">
-              <h3>Snapshots of my work</h3>
+              <h3>Portfolio</h3>
             </div>
           </div>
+          <div className="row collapse block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack folio-list">
+            <div className="column folio-item">
+              <a href="#modal-01" className="folio-item__thumb">
+                <img
+                  src="images/portfolio/covenant-member-guide.jpg"
+                  srcSet="images/portfolio/covenant-member-guide.jpg, 
+                                 images/portfolio/covenant-member-guide.jpg"
+                  alt=""
+                />
+              </a>
+            </div>{" "}
+            {/* end folio-item */}
+            <div className="column folio-item">
+              <a href="#modal-02" className="folio-item__thumb">
+                <img
+                  src="images/portfolio/member-portal-ui.jpg"
+                  srcSet="images/portfolio/member-portal-ui.jpg, 
+                                 images/portfolio/member-portal-ui.jpg"
+                  alt=""
+                />
+              </a>
+            </div>{" "}
+            {/* end folio-item */}
+            <div className="column folio-item">
+              <a href="#modal-03" className="folio-item__thumb">
+                <img
+                  src="images/portfolio/tactic-edge.jpg"
+                  srcSet="images/portfolio/tactic-edge.jpg, 
+                                 images/portfolio/tactic-edge.jpg"
+                  alt=""
+                />
+              </a>
+            </div>{" "}
+          </div>
+          {/* end folio-item */}
           <div className="row collapse block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack folio-list">
             <div className="column folio-item">
               <a href="#modal-01" className="folio-item__thumb">
@@ -50,6 +85,87 @@ export default class Portfolio extends Component {
         =========================================================== */}
           <div id="modal-01" hidden>
             <div className="modal-popup">
+              <img
+                src="images/portfolio/gallery/covenant-member-guide.jpg"
+                alt=""
+              />
+              <div className="modal-popup__desc">
+                <h5>
+                  Covenant Member Guide - <em>Tactic Edge Solutions</em>
+                </h5>
+                <p>
+                  Our client requested a redesign of their member guide site,
+                  which was much too cluttered. We simplified the design and
+                  added pagination functionality to flip through the content
+                  like a published document.
+                </p>
+                Web functionality shown:
+                <ul>
+                  <li>Pagination</li>
+                  <li>Table of Contents</li>
+                </ul>
+              </div>
+              <a
+                href="https://memberguide.covenantshare.org/"
+                className="modal-popup__details"
+              >
+                Live Preview
+              </a>
+            </div>
+          </div>{" "}
+          {/* end modal */}
+          <div id="modal-02" hidden>
+            <div className="modal-popup">
+              <img src="images/portfolio/gallery/member-portal-ui.jpg" alt="" />
+              <div className="modal-popup__desc">
+                <h5>
+                  Member Portal UI - <em>Tactic Edge Solutions</em>
+                </h5>
+                <p>
+                  Our organization needed a redesigned back-end experience for
+                  our users that looked modern and cleanly displayed the
+                  information. The following photo is the chosen design,
+                  centering the experience and improving the design as well as
+                  information visibility.
+                </p>
+                <p>
+                  Click on "View All Mock-Ups" to view other viable options.
+                </p>
+              </div>
+              <a href="/member-guide.pdf" className="modal-popup__details">
+                View All Mock-Ups
+              </a>
+            </div>
+          </div>{" "}
+          {/* end modal */}
+          <div id="modal-03" hidden>
+            <div className="modal-popup">
+              <img src="images/portfolio/gallery/tactic-edge.jpg" alt="" />
+              <div className="modal-popup__desc">
+                <h5>
+                  Tactic Edge Website - <em>Tactic Edge Solutions</em>
+                </h5>
+                <p>
+                  The Tactic Edge website was in need of a more descriptive
+                  website that also cleaned up the look and allowed the user to
+                  scroll through more content per page. The resulting redesign
+                  summarized what we offered on the homepage and categorized
+                  most of the content into two main buckets: services and
+                  solutions. It also clarified the call to action of requesting
+                  a quote and/or contacting us for more information.
+                </p>
+              </div>
+              <a
+                href="https://www.tacticedge.com/"
+                className="modal-popup__details"
+              >
+                Live Preview
+              </a>
+            </div>
+          </div>{" "}
+          {/* end modal */}
+          <div id="modal-04" hidden>
+            <div className="modal-popup">
               <img src="images/portfolio/gallery/webbstock.jpg" alt="" />
               <div className="modal-popup__desc">
                 <h5>
@@ -68,10 +184,6 @@ export default class Portfolio extends Component {
                   <li>Ticking countdown to the event date &amp;time</li>
                   <li>Hidden rollover and accordion content</li>
                 </ul>
-                <ul className="modal-popup__cat">
-                  <li>Branding</li>
-                  <li>Product Design</li>
-                </ul>
               </div>
               <a
                 href="https://matthewrenfer.com/portfolio/webbstock.html"
@@ -82,7 +194,7 @@ export default class Portfolio extends Component {
             </div>
           </div>{" "}
           {/* end modal */}
-          <div id="modal-02" hidden>
+          <div id="modal-05" hidden>
             <div className="modal-popup">
               <img
                 src="images/portfolio/gallery/program-landing-pages.jpg"
@@ -113,7 +225,7 @@ export default class Portfolio extends Component {
             </div>
           </div>{" "}
           {/* end modal */}
-          <div id="modal-03" hidden>
+          <div id="modal-06" hidden>
             <div className="modal-popup">
               <img src="images/portfolio/gallery/senior-show.jpg" alt="" />
               <div className="modal-popup__desc">
