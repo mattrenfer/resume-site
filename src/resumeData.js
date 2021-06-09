@@ -9,7 +9,7 @@ let resumeData = {
   email: "mr.renfer@gmail.com",
 
   aboutMe:
-    "While I went to school for writing and pursued an early career in journalism, the web always seemed to beckon me back. Everywhere I went in my career, there was a dire need for someone with solid web skills to help with the organization. In 2015, I committed fully to field as a Senior Web Developer, assisting with the latter stages of a website redesign. It's been an exciting career ever since, and I am always eager to learn the web's ever-changing nature and expand my toolkit.",
+    "Since I can remember I've always thought in logical, systematic ways and thoroughly enjoyed teaching myself how to go about the best way to build something. I've been making websites since the early dawn of the internet. To be sure, a lot has changed since then--which is why I am always eager to learn newer technologies and expand my web development toolkit. In the last couple years, I've learned a great deal about mobile responsiveness, back-end development, and web applications.",
 
   work: [
     {
