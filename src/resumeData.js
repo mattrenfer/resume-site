@@ -12,7 +12,7 @@ let resumeData = {
   instagram: "https://www.instagram.com/mattrenfer/",
 
   aboutMe:
-    "I have always been a problem-solver who thinks in logical, systematic ways and thoroughly enjoys exploring the best way to build something. I've been making websites since the early dawn of the internet. A lot has changed since then--which is why I am always eager to learn newer technologies and expand my web development toolkit, keeping companies and organizations ahead of the curve.",
+    "I have always been a problem-solver who thinks in logical, systematic ways who thoroughly enjoys exploring the best way to build something. I've been making websites since the early dawn of the internet. A lot has changed since then--which is why I am always eager to learn newer technologies and expand my web development toolkit, keeping companies and organizations ahead of the curve.",
 
   work: [
     {
