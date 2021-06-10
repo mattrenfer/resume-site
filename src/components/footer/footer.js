@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 export default class Footer extends Component {
   render() {
+    let resumeData = this.props.resumeData;
     return (
       <React.Fragment>
         {/*generated code*/}
@@ -9,23 +10,18 @@ export default class Footer extends Component {
             <div className="column large-4 medium-6 w-1000-stack s-footer__social-block">
               <ul className="s-footer__social">
                 <li>
-                  <a href="#0">
+                  <a href={resumeData.linkedin}>
+                    <i className="fab fa-linkedin-in" aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a href={resumeData.facebook}>
                     <i className="fab fa-facebook-f" aria-hidden="true" />
                   </a>
                 </li>
                 <li>
-                  <a href="#0">
-                    <i className="fab fa-twitter" aria-hidden="true" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#0">
+                  <a href={resumeData.instagram}>
                     <i className="fab fa-instagram" aria-hidden="true" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#0">
-                    <i className="fab fa-linkedin-in" aria-hidden="true" />
                   </a>
                 </li>
               </ul>

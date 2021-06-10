@@ -7,9 +7,12 @@ let resumeData = {
   state: "GA",
   phone: "203 788 8782",
   email: "mr.renfer@gmail.com",
+  facebook: "https://www.facebook.com/matt.renfer",
+  linkedin: "https://www.linkedin.com/in/mattrenfer/",
+  instagram: "https://www.instagram.com/mattrenfer/",
 
   aboutMe:
-    "Since I can remember I've always thought in logical, systematic ways and thoroughly enjoyed teaching myself how to go about the best way to build something. I've been making websites since the early dawn of the internet. To be sure, a lot has changed since then--which is why I am always eager to learn newer technologies and expand my web development toolkit. In the last couple years, I've learned a great deal about mobile responsiveness, back-end development, and web applications.",
+    "I have always been a problem-solver who thinks in logical, systematic ways and thoroughly enjoys exploring the best way to build something. I've been making websites since the early dawn of the internet. A lot has changed since then--which is why I am always eager to learn newer technologies and expand my web development toolkit, keeping companies and organizations ahead of the curve.",
 
   work: [
     {
