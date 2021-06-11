@@ -4272,6 +4272,21 @@ button.btn--pill {
   color: white;
 }
 
+/* ------------------------------------------------------------------- 
+  * responsive:
+  * portfolio
+  * ------------------------------------------------------------------- */
+@media screen and (max-width: 400px) {
+  .modal-popup__desc p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .modal-popup h5 {
+    font-size: 14px;
+  }
+}
+
 /* ===================================================================
   * # CTA
   *

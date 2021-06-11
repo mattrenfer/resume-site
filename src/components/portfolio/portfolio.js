@@ -99,15 +99,18 @@ export default class Portfolio extends Component {
                   added pagination functionality to flip through the content
                   like a published document.
                 </p>
-                Web functionality shown:
-                <ul>
-                  <li>Pagination</li>
-                  <li>Table of Contents</li>
-                </ul>
+                <p>
+                  Web functionality shown:
+                  <ul>
+                    <li>Pagination</li>
+                    <li>Table of Contents</li>
+                  </ul>
+                </p>
               </div>
               <a
                 href="https://memberguide.covenantshare.org/"
                 className="modal-popup__details"
+                target="_blank"
               >
                 Live Preview
               </a>
@@ -128,13 +131,11 @@ export default class Portfolio extends Component {
                   centering the experience and improving the design as well as
                   information visibility.
                 </p>
-                <p>
-                  Click on "View All Mock-Ups" to view other viable options.
-                </p>
               </div>
               <a
                 href="/portfolio/member-portal-mock-ups.pdf"
                 className="modal-popup__details"
+                target="_blank"
               >
                 View All Mock-Ups
               </a>
@@ -161,6 +162,7 @@ export default class Portfolio extends Component {
               <a
                 href="https://www.tacticedge.com/"
                 className="modal-popup__details"
+                target="_blank"
               >
                 Live Preview
               </a>
@@ -179,18 +181,18 @@ export default class Portfolio extends Component {
                   a landing page that showcased a partnered music festival with
                   the town of Boiling Springs.
                 </p>
-                Web functionality shown:
-                <ul>
-                  <li>
-                    Responsive two-column layout (guitar &amp; countdown + copy)
-                  </li>
-                  <li>Ticking countdown to the event date &amp;time</li>
-                  <li>Hidden rollover and accordion content</li>
-                </ul>
+                <p>
+                  Web functionality shown:
+                  <ul>
+                    <li>Ticking countdown to the event date &amp;time</li>
+                    <li>Hidden rollover and accordion content</li>
+                  </ul>
+                </p>
               </div>
               <a
                 href="/portfolio/webbstock.html"
                 className="modal-popup__details"
+                target="_blank"
               >
                 Live Preview
               </a>
@@ -215,13 +217,11 @@ export default class Portfolio extends Component {
                   theme for all landing pages with drop-ins for unique program
                   images, copy and contact form.
                 </p>
-                <ul className="modal-popup__cat">
-                  <li>Branding</li>
-                </ul>
               </div>
               <a
                 href="/portfolio/rn-to-bsn.html"
                 className="modal-popup__details"
+                target="_blank"
               >
                 Live Preview
               </a>
@@ -243,9 +243,6 @@ export default class Portfolio extends Component {
                   gallery of their work, and a video of their artist's
                   statement.
                 </p>
-                <ul className="modal-popup__cat">
-                  <li>Product Design</li>
-                </ul>
               </div>
             </div>
           </div>{" "}
