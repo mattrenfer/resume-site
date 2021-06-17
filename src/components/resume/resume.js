@@ -102,7 +102,7 @@ export default class Resume extends Component {
                   <li>
                     <div className="progress percent85" />
                     <strong>Strong</strong>
-                    <em>React, WordPress, Bootcamp</em>
+                    <em>React, WordPress, Bootcamp, AWS</em>
                   </li>
                   <li>
                     <div className="progress percent70" />
