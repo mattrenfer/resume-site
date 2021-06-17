@@ -15,6 +15,11 @@ export default class Footer extends Component {
                   </a>
                 </li>
                 <li>
+                  <a href={resumeData.github} target="_blank">
+                    <i className="fab fa-github-square" aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
                   <a href={resumeData.facebook}>
                     <i className="fab fa-facebook-f" aria-hidden="true" />
                   </a>
