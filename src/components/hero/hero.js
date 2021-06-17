@@ -22,13 +22,16 @@ export default class Hero extends Component {
                   on the web.
                 </h3>
                 <div className="s-hero__content-social">
-                  <a href={resumeData.linkedin}>
+                  <a href={resumeData.linkedin} target="_blank">
                     <i className="fab fa-linkedin" aria-hidden="true" />
                   </a>
-                  <a href={resumeData.facebook}>
+                  <a href={resumeData.github} target="_blank">
+                    <i className="fab fa-github-square" aria-hidden="true" />
+                  </a>
+                  <a href={resumeData.facebook} target="_blank">
                     <i className="fab fa-facebook-square" aria-hidden="true" />
                   </a>
-                  <a href={resumeData.instagram}>
+                  <a href={resumeData.instagram} target="_blank">
                     <i className="fab fa-instagram" aria-hidden="true" />
                   </a>
                 </div>
