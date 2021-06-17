@@ -4093,6 +4093,11 @@ button.btn--pill {
   * # portfolio
   *
   * ------------------------------------------------------------------- */
+
+.cert-view:hover {
+  color: #951700;
+}
+
 .s-portfolio {
   background-color: var(--color-gray-1);
   padding-top: calc(6 * var(--space));

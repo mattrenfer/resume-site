@@ -55,7 +55,11 @@ export default class Resume extends Component {
                                 return (
                                   <p>
                                     &bull; {item.name} (
-                                    <a href={item.url} target="_blank">
+                                    <a
+                                      className="cert-view"
+                                      href={item.url}
+                                      target="_blank"
+                                    >
                                       View
                                     </a>
                                     )
