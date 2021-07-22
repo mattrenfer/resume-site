@@ -58,7 +58,6 @@ export default class About extends Component {
               </div>
             </div>
           </div>{" "}
-          {/* end row */}
         </section>
       </React.Fragment>
     );

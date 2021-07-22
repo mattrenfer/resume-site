@@ -4,7 +4,6 @@ export default class Footer extends Component {
     let resumeData = this.props.resumeData;
     return (
       <React.Fragment>
-        {/*generated code*/}
         <footer className="s-footer">
           <div className="row">
             <div className="column large-4 medium-6 w-1000-stack s-footer__social-block">
@@ -43,7 +42,6 @@ export default class Footer extends Component {
               </svg>
             </a>
           </div>{" "}
-          {/* end ss-go-top */}
         </footer>
       </React.Fragment>
     );

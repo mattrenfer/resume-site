@@ -3,7 +3,6 @@ export default class Portfolio extends Component {
   render() {
     return (
       <React.Fragment>
-        {/*generated code*/}
         <section id="portfolio" className="s-portfolio target-section">
           <div className="row s-portfolio__header">
             <div className="column large-12">

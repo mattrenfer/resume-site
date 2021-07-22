@@ -3,7 +3,6 @@ export default class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        {/*generated code*/}
         <header className="s-header">
           <div className="row s-header__nav-wrap">
             <nav className="s-header__nav">
@@ -31,7 +30,6 @@ export default class Header extends Component {
               </ul>
             </nav>
           </div>{" "}
-          {/* end row */}
           <a className="s-header__menu-toggle" href="#0" title="Menu">
             <span className="s-header__menu-icon" />
           </a>
