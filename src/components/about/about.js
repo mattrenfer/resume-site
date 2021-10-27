@@ -21,15 +21,11 @@ export default class About extends Component {
                 <div className="column w-1000-stack">
                   <h3>Contact Details</h3>
                   <p>
-                    {resumeData.name}
-                    <br />
-                    {resumeData.address1} <br />
-                    {resumeData.city}, {resumeData.state} <br />
-                    <a href={"tel: " + resumeData.phone}>{resumeData.phone}</a>
-                    <br />
-                    <a href={"mailto: " + resumeData.email}>
+                    <a href={resumeData.facebookMessenger} target="_blank"> 
+                    Message Me on Facebook
+                    </a>    
+                     <br />      
                       {resumeData.email}
-                    </a>
                   </p>
                 </div>
                 <div className="column w-1000-stack">
