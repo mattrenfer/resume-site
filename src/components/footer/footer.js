@@ -14,7 +14,7 @@ export default class Footer extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href={resumeData.github} target="_blank">
+                  <a href={resumeData.github} target="_blank" rel="noreferrer">
                     <i className="fab fa-github-square" aria-hidden="true" />
                   </a>
                 </li>

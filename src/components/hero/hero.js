@@ -15,23 +15,35 @@ export default class Hero extends Component {
                 </h2>
                 <br />
                 <h3>
-                  I'm an {resumeData.city}-based{" "}
+                  I&apos;m an {resumeData.city}-based{" "}
                   <span>front-end developer</span> &amp;{" "}
                   <span>UI/UX designer</span> with more than a decade of
                   experience creating accessible and intuitive user experiences
                   on the web.
                 </h3>
                 <div className="s-hero__content-social">
-                  <a href={resumeData.linkedin} target="_blank">
+                  <a
+                    href={resumeData.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <i className="fab fa-linkedin" aria-hidden="true" />
                   </a>
-                  <a href={resumeData.github} target="_blank">
+                  <a href={resumeData.github} target="_blank" rel="noreferrer">
                     <i className="fab fa-github-square" aria-hidden="true" />
                   </a>
-                  <a href={resumeData.facebook} target="_blank">
+                  <a
+                    href={resumeData.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <i className="fab fa-facebook-square" aria-hidden="true" />
                   </a>
-                  <a href={resumeData.instagram} target="_blank">
+                  <a
+                    href={resumeData.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <i className="fab fa-instagram" aria-hidden="true" />
                   </a>
                 </div>

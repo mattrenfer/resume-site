@@ -21,7 +21,11 @@ export default class About extends Component {
                 <div className="column w-1000-stack">
                   <h3>Contact Details</h3>
                   <p>
-                    <a href={resumeData.facebookMessenger} target="_blank">
+                    <a
+                      href={resumeData.facebookMessenger}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Message Me on Facebook
                     </a>
                     <br />
@@ -33,6 +37,7 @@ export default class About extends Component {
                     href={resumeData.imagebaseurl + "resume.pdf"}
                     className="btn btn--download"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

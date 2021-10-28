@@ -110,6 +110,7 @@ export default class Portfolio extends Component {
                 href="https://memberguide.covenantshare.org/"
                 className="modal-popup__details"
                 target="_blank"
+                rel="noreferrer"
               >
                 Live Preview
               </a>
@@ -162,6 +163,7 @@ export default class Portfolio extends Component {
                 href="https://www.tacticedge.com/"
                 className="modal-popup__details"
                 target="_blank"
+                rel="noreferrer"
               >
                 Live Preview
               </a>
@@ -235,12 +237,12 @@ export default class Portfolio extends Component {
                   Annual Senior Show - <em>Gardner-Webb University</em>
                 </h5>
                 <p>
-                  The university's art department was in need of a digital home
-                  to showcase 16 students' final projects due to COVID-19. The
-                  showcase needed an initial entry point per student. Once
-                  there, each students' project page includes a profile, a
-                  gallery of their work, and a video of their artist's
-                  statement.
+                  The university&apos;s art department was in need of a digital
+                  home to showcase 16 students&apos; final projects due to
+                  COVID-19. The showcase needed an initial entry point per
+                  student. Once there, each students&apos; project page includes
+                  a profile, a gallery of their work, and a video of their
+                  artist&apos;s statement.
                 </p>
               </div>
             </div>

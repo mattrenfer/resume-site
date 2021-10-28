@@ -13,7 +13,7 @@ export default class Resume extends Component {
               {resumeData.work &&
                 resumeData.work.map((item) => {
                   return (
-                    <div className="resume-block">
+                    <div className="resume-block" key={item.id}>
                       <div className="resume-block__header">
                         <h4 className="h3">{item.CompanyName}</h4>
                         <p className="resume-block__header-meta">
@@ -42,7 +42,7 @@ export default class Resume extends Component {
               {resumeData.education &&
                 resumeData.education.map((item) => {
                   return (
-                    <div className="resume-block">
+                    <div className="resume-block" key={item.id}>
                       <div className="resume-block__header">
                         <h4 className="h3">{item.InstitutionName}</h4>
 
@@ -53,12 +53,13 @@ export default class Resume extends Component {
                             {item.certificates &&
                               item.certificates.map((item) => {
                                 return (
-                                  <p>
+                                  <p key={item.id}>
                                     &bull; {item.name} (
                                     <a
                                       className="cert-view"
                                       href={item.url}
                                       target="_blank"
+                                      rel="noreferrer"
                                     >
                                       View
                                     </a>

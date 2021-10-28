@@ -18,6 +18,7 @@ let resumeData = {
 
   work: [
     {
+      id: "a",
       CompanyName: "Soltech",
       specialization: "Interface Engineer",
       MonthOfJoining: "July",
@@ -25,6 +26,7 @@ let resumeData = {
       MonthOfLeaving: "Present",
     },
     {
+      id: "b",
       CompanyName: "Tactic Edge Solutions",
       specialization: "Senior Web Developer",
       MonthOfJoining: "October",
@@ -35,6 +37,7 @@ let resumeData = {
         "The position was an opportunity to expand web knowledge and toolkit. It involved launching and maintaining multiple WordPress sites, as well as assisting in the development of features in customer-facing web applications. It also involved creating mock-ups and implementing inprovements to the user experiences and interfaces of web applications.",
     },
     {
+      id: "c",
       CompanyName: "Gardner-Webb University",
       specialization: "Senior Web Developer",
       MonthOfJoining: "November",
@@ -48,30 +51,36 @@ let resumeData = {
 
   education: [
     {
+      id: "a",
       InstitutionName: "Western Connecticut State University",
       specialization: "BA in English: Professional Writing",
       MonthOfEarning: "May",
       YearOfEarning: "2008",
     },
     {
+      id: "b",
       InstitutionName: "Certifications",
       certificates: [
         {
+          id: "a",
           name: "The Modern React Bootcamp (Hooks, Context, NextJS, Router)",
           url: "/images/certificate-react.jpg",
         },
 
         {
+          id: "b",
           name: "The Web Development Bootcamp",
           url: "/images/certificate-web-dev-bootcamp.jpg",
         },
 
         {
+          id: "c",
           name: "Become a WordPress Developer: Unlocking Power With Code",
           url: "/images/certificate-wordpress.jpg",
         },
 
         {
+          id: "d",
           name: "User Experience Design Essentials – Adobe XD UI UX Design",
           url: "/images/certificate-UI.jpg",
         },
