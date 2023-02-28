@@ -98,17 +98,17 @@ export default class Resume extends Component {
                   <li>
                     <div className="progress percent100" />
                     <strong>Proficient</strong>
-                    <em>HTML5, CSS3, JavaScript</em>
+                    <em>HTML, CSS, JavaScript, PHP</em>
                   </li>
                   <li>
                     <div className="progress percent85" />
                     <strong>Strong</strong>
-                    <em>React, WordPress, Bootcamp, AWS</em>
+                    <em>WordPress, React, Vue</em>
                   </li>
                   <li>
                     <div className="progress percent70" />
                     <strong>Familiar</strong>
-                    <em>PHP, Python, C#</em>
+                    <em>React Native, Ionic, NextJS, Redux, Elementor</em>
                   </li>
                 </ul>
               </div>{" "}

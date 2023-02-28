@@ -14,7 +14,7 @@ let resumeData = {
   facebookMessenger: "http://m.me/matt.renfer",
 
   aboutMe:
-    "I have always been a problem-solver who thinks in logical, systematic ways and thoroughly enjoys exploring the best way to build something. I've been making websites since the early dawn of the internet. A lot has changed since then--which is why I am always eager to learn newer technologies and expand my web development toolkit, keeping companies and organizations ahead of the curve.",
+    "I have always been a problem-solver who thinks in logical, systematic ways and who thoroughly enjoys exploring the best way to build something. I've been making websites since the early dawn of the internet. A lot has changed since then, which is why I am always eager to learn newer technologies and expand my web development toolkit, keeping companies and organizations ahead of the curve.",
 
   work: [
     {
@@ -24,6 +24,9 @@ let resumeData = {
       MonthOfJoining: "July",
       YearOfJoining: "2021",
       MonthOfLeaving: "Present",
+      Achievements:
+      "As an Interface Engineer, I am responsible for creating a polished user interface for the website or application as per the client's requirements. I leverage technologies such as WordPress, React & Vue, along with their various plugins/libraries, to accomplish this goal to the best of my abilities.",
+      
     },
     {
       id: "b",
