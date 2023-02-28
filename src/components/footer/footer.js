@@ -31,8 +31,8 @@ export default class Footer extends Component {
               </ul>
             </div>
             <div className="column large-7 medium-6 w-1000-stack ss-copyright">
-              <span>Matthew Russell Renfer - Professional Web Developer</span>
-              <span>2023</span>
+              <span>{resumeData.name} - {resumeData.role}</span>
+              <span>{new Date().getFullYear()}</span>
             </div>
           </div>
           <div className="ss-go-top">

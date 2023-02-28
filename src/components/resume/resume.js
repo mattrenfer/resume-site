@@ -10,25 +10,25 @@ export default class Resume extends Component {
               <h3 className="section-header-allcaps">Career</h3>
             </div>
             <div className="column large-9 tab-12">
-              {resumeData.work &&
-                resumeData.work.map((item) => {
+              {resumeData.career &&
+                resumeData.career.map((item) => {
                   return (
                     <div className="resume-block" key={item.id}>
                       <div className="resume-block__header">
-                        <h4 className="h3">{item.CompanyName}</h4>
+                        <h4 className="h3">{item.companyName}</h4>
                         <p className="resume-block__header-meta">
                           <span> {item.specialization}</span>
-
+                            {" "}
                           <span className="resume-block__header-date">
                             {" "}
                             <em className="date">
-                              {item.MonthOfJoining} {item.YearOfJoining} -{" "}
-                              {item.MonthOfLeaving} {item.YearOfLeaving}
+                              {item.monthOfJoining} {item.yearOfJoining} -{" "}
+                              {item.monthOfLeaving} {item.yearOfLeaving}
                             </em>
                           </span>
                         </p>
                       </div>
-                      <p>{item.Achievements}</p>
+                      <p>{item.description}</p>
                     </div>
                   );
                 })}
@@ -44,8 +44,7 @@ export default class Resume extends Component {
                   return (
                     <div className="resume-block" key={item.id}>
                       <div className="resume-block__header">
-                        <h4 className="h3">{item.InstitutionName}</h4>
-
+                        <h4 className="h3">{item.institutionName}</h4>
                         <p className="resume-block__header-meta">
                           <span>
                             {" "}
@@ -69,12 +68,12 @@ export default class Resume extends Component {
                               })}
                           </span>
 
-                          {typeof item.MonthOfEarning !== "undefined" &&
-                          typeof item.YearOfEarning !== "undefined" ? (
+                          {typeof item.monthOfEarning !== "undefined" &&
+                          typeof item.yearOfEarning !== "undefined" ? (
                             <span className="resume-block__header-date">
                               {" "}
                               <em className="date">
-                                {item.MonthOfEarning} {item.YearOfEarning}
+                                {item.monthOfEarning} {item.yearOfEarning}
                               </em>
                             </span>
                           ) : (
@@ -87,7 +86,6 @@ export default class Resume extends Component {
                 })}
             </div>
           </div>{" "}
-          {/* s-resume__section */}
           <div className="row s-resume__section">
             <div className="column large-3 tab-12">
               <h3 className="section-header-allcaps">Skills</h3>
@@ -95,29 +93,21 @@ export default class Resume extends Component {
             <div className="column large-9 tab-12">
               <div className="resume-block">
                 <ul className="skill-bars-fat">
-                  <li>
-                    <div className="progress percent100" />
-                    <strong>Proficient</strong>
-                    <em>HTML, CSS, JavaScript, PHP</em>
-                  </li>
-                  <li>
-                    <div className="progress percent85" />
-                    <strong>Strong</strong>
-                    <em>WordPress, React, Vue</em>
-                  </li>
-                  <li>
-                    <div className="progress percent70" />
-                    <strong>Familiar</strong>
-                    <em>React Native, Ionic, NextJS, Redux, Elementor</em>
-                  </li>
+                  {resumeData.skills && 
+                    resumeData.skills.map((item) => {
+                    return (
+                      <li key={(item.key)}>
+                        <div className={item.skillLevel} />
+                        <strong>{item.title}</strong>
+                        <em>{item.description}</em>
+                      </li>
+                    );
+                  })}
                 </ul>
-              </div>{" "}
-              {/* end resume-block */}
+              </div>
             </div>
-          </div>{" "}
-          {/* s-resume__section */}
-        </section>{" "}
-        {/* end s-resume */}
+          </div>
+        </section>
       </React.Fragment>
     );
   }

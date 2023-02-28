@@ -11,7 +11,7 @@ export default class Hero extends Component {
               <div className="s-hero__content-about">
                 <h1>{resumeData.name}</h1>
                 <h2>
-                  <em>Professional Web Developer</em>
+                  <em>{resumeData.role}</em>
                 </h2>
                 <br />
                 <h3>
@@ -48,10 +48,8 @@ export default class Hero extends Component {
                   </a>
                 </div>
               </div>{" "}
-              {/* end s-hero__content-about */}
             </div>
           </div>{" "}
-          {/* s-hero__content */}
           <div className="s-hero__scroll">
             <a href="#about" className="s-hero__scroll-link smoothscroll">
               <span className="scroll-arrow">
@@ -72,9 +70,7 @@ export default class Hero extends Component {
               <span className="scroll-text">Scroll Down</span>
             </a>
           </div>{" "}
-          {/* s-hero__scroll */}
         </section>{" "}
-        {/* end s-hero */}
       </React.Fragment>
     );
   }
