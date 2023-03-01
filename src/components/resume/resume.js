@@ -97,7 +97,7 @@ export default class Resume extends Component {
                     resumeData.skills.map((item) => {
                     return (
                       <li key={(item.key)}>
-                        <div className={item.skillLevel} />
+                        <div className={"progress percent"+item.skill} />
                         <strong>{item.title}</strong>
                         <em>{item.description}</em>
                       </li>

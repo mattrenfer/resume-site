@@ -94,19 +94,19 @@ let resumeData = {
       id: 1,
       title: "Proficient",
       description: "HTML, CSS, JavaScript, PHP",
-      skillLevel: "progress percent100",
+      skill: 100,
     },
     {
       id: 2,
       title: "Strong",
       description: "WordPress, React, Vue",
-      skillLevel: "progress percent85",
+      skill: 85,
     },
     {
       id: 3,
       title: "Familiar",
       description: "React Native, Ionic, NextJS, Redux, Elementor",
-      skillLevel: "progress percent75",
+      skill: 75,
     },
   ],
 
