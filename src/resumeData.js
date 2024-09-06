@@ -90,6 +90,27 @@ let resumeData = {
     },
   ],
 
+  technicalSkills: [
+    {
+      id: 1,
+      title: "Proficient",
+      description: "HTML, CSS, JavaScript, WordPress, Elementor, WP Rocket",
+      skill: 100,
+    },
+    {
+      id: 2,
+      title: "Strong",
+      description: "React, Vue, PHP",
+      skill: 85,
+    },
+    {
+      id: 3,
+      title: "Familiar",
+      description: "React Native, Ionic, NextJS, Redux",
+      skill: 75,
+    },
+  ],
+
   skills: [
     {
       id: 1,
@@ -116,7 +137,7 @@ let resumeData = {
       id: 1,
       name: "Blog Expansion & Redesign",
       companyName: "SnapCare Blog",
-      description: `In an effort to increase product visibility, SnapCare sought to expand and redesign their site's blog. This included building a custom section theme, as well as adding custom functionality such as: linked author bios, related articles, category/tags, and improved search. These features were built by customizing WordPress and designing in Elementor.`,
+      description: `In an effort to increase product visibility, SnapCare sought to expand and redesign their site's blog. This included building a unique section theme, as well as adding custom functionality such as: linked author bios, related articles, category/tags, and improved search. These features were built by customizing WordPress and designing in Elementor.`,
       thumbnail: "images/portfolio/snapcare-blog.jpg",
       link: "https://snapcare.com/blog",
       linkText: "Live Preview",
