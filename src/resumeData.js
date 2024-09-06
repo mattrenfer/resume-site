@@ -93,19 +93,19 @@ let resumeData = {
     {
       id: 1,
       title: "Proficient",
-      description: "HTML, CSS, JavaScript, PHP",
+      description: "HTML, CSS, JavaScript, WordPress, Elementor, WP Rocket",
       skill: 100,
     },
     {
       id: 2,
       title: "Strong",
-      description: "WordPress, React, Vue",
+      description: "React, Vue, PHP",
       skill: 85,
     },
     {
       id: 3,
       title: "Familiar",
-      description: "React Native, Ionic, NextJS, Redux, Elementor",
+      description: "React Native, Ionic, NextJS, Redux",
       skill: 75,
     },
   ],
