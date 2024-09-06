@@ -1,6 +1,6 @@
 let resumeData = {
-  publicURL: process.env.PUBLIC_URL,
-  imagebaseurl: "/",
+  publicUrl: process.env.PUBLIC_URL,
+  imageBaseUrl: "/",
   resumeVersion: "?v=2",
   name: "Matthew Russell Renfer",
   role: "Interface Engineer",
@@ -25,8 +25,7 @@ let resumeData = {
       yearOfJoining: "2021",
       monthOfLeaving: "Present",
       description:
-      "As an Interface Engineer, I am responsible for creating a polished & intuitive user interface for websites and applications that meet both the client's requirements and quality standards. I leverage technologies such as WordPress, React & Vue, along with their supported plugins/libraries, to accomplish these goals to the best of my ability.",
-      
+        "As an Interface Engineer, I am responsible for creating a polished & intuitive user interface for websites and applications that meet both the client's requirements and quality standards. I leverage technologies such as WordPress, React & Vue, along with their supported plugins/libraries, to accomplish these goals to the best of my ability.",
     },
     {
       id: 2,
@@ -37,7 +36,7 @@ let resumeData = {
       monthOfLeaving: "May",
       yearOfLeaving: "2021",
       description:
-        "The position was an opportunity to expand web knowledge and toolkit. It involved launching and maintaining multiple WordPress sites, as well as assisting in the development of features in customer-facing web applications. It also involved creating mock-ups and implementing inprovements to the user experiences and interfaces of web applications.",
+        "The position was an opportunity to expand web knowledge and toolkit. It involved launching and maintaining multiple WordPress sites, as well as assisting in the development of features in customer-facing web applications. It also involved creating mock-ups and implementing improvements to the user experiences and interfaces of web applications.",
     },
     {
       id: 3,
@@ -115,6 +114,16 @@ let resumeData = {
   portfolio: [
     {
       id: 1,
+      name: "Website Redesign",
+      companyName: "SnapCare",
+      description: `SnapNurse rebranded their company to SnapCare, which included a wholesale redesign of their website. The new site is sleeker, more intuitive and runs on a WPEngine/WordPress/Elementor tech stack. I was the sole web developer on the project working in collaboration with marketing efforts to finish the project from scratch within a tight deadline.`,
+      thumbnail: "images/portfolio/snapcare.jpg",
+      link: "https://snapcare.com",
+      linkText: "Live Preview",
+      listTitle: "Web Functionality Shown",
+    },
+    {
+      id: 2,
       name: "Covenant Member Guide",
       companyName: "Tactic Edge Solutions",
       description: `Our client requested a redesign of their member guide site,
@@ -130,13 +139,11 @@ let resumeData = {
           id: 1,
           text: "Pagination",
         },
-        { id: 2,
-          text: "Table of Contents",
-        },
+        { id: 2, text: "Table of Contents" },
       ],
     },
     {
-      id: 2,
+      id: 3,
       name: "Member Portal UI",
       companyName: "Tactic Edge Solutions",
       description: `Our organization needed a redesigned back-end experience for
@@ -149,7 +156,7 @@ let resumeData = {
       linkText: "View All Mock-Ups",
     },
     {
-      id: 3,
+      id: 4,
       name: "Tactic Edge Website",
       companyName: "Tactic Edge Solutions",
       description: `The Tactic Edge website was in need of a more descriptive
@@ -164,7 +171,7 @@ let resumeData = {
       linkText: "Live Preview",
     },
     {
-      id: 4,
+      id: 5,
       name: "Webbstock Landing Page",
       companyName: "Gardner-Webb University",
       description: `Gardner-Webb University Gardner-Webb University was in need of
@@ -179,13 +186,11 @@ let resumeData = {
           id: 1,
           text: "Ticking countdown to the event date & time",
         },
-        { id: 2,
-          text: "Hidden rollover and accordion content",
-        },
+        { id: 2, text: "Hidden rollover and accordion content" },
       ],
     },
     {
-      id: 5,
+      id: 6,
       name: "Program Landing Pages",
       companyName: "Gardner-Webb University",
       description: `University marketing requested 50+ landing pages for a number
@@ -198,7 +203,7 @@ let resumeData = {
       linkText: "Live Preview",
     },
     {
-      id: 6,
+      id: 7,
       name: "Annual Senior Show ",
       companyName: "Gardner-Webb University",
       description: `The university's art department was in need of a digital
@@ -208,7 +213,7 @@ let resumeData = {
       a profile, a gallery of their work, and a video of their
       artist's statement.`,
       thumbnail: "images/portfolio/senior-show.jpg",
-    }
+    },
   ],
 };
 
