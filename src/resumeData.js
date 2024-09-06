@@ -1,4 +1,5 @@
 let resumeData = {
+  publicURL: process.env.PUBLIC_URL,
   imagebaseurl: "/",
   resumeVersion: "?v=1",
   name: "Matthew Russell Renfer",
