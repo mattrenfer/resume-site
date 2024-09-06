@@ -34,7 +34,7 @@ export default class About extends Component {
                 </div>
                 <div className="column w-1000-stack">
                   <a
-                    href={`${resumeData.publicURL}/resume.pdf${resumeData.resumeVersion}`}
+                    href={`${resumeData.publicURL}/resume-2024.pdf${resumeData.resumeVersion}`}
                     className="btn btn--download"
                     target="_blank"
                     rel="noreferrer"
