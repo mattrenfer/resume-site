@@ -114,16 +114,24 @@ let resumeData = {
   portfolio: [
     {
       id: 1,
+      name: "Blog Expansion & Redesign",
+      companyName: "SnapCare Blog",
+      description: `In an effort to increase product visibility, SnapCare sought to expand and redesign their site's blog. This included building a custom section theme, as well as adding custom functionality such as: linked author bios, related articles, category/tags, and improved search. These features were built by customizing WordPress and designing in Elementor.`,
+      thumbnail: "images/portfolio/snapcare-blog.jpg",
+      link: "https://snapcare.com/blog",
+      linkText: "Live Preview",
+    },
+    {
+      id: 2,
       name: "Website Redesign",
       companyName: "SnapCare",
       description: `SnapNurse rebranded their company to SnapCare, which included a wholesale redesign of their website. The new site is sleeker, more intuitive and runs on a WPEngine/WordPress/Elementor tech stack. I was the sole web developer on the project working in collaboration with marketing efforts to finish the project from scratch within a tight deadline.`,
       thumbnail: "images/portfolio/snapcare.jpg",
       link: "https://snapcare.com",
       linkText: "Live Preview",
-      listTitle: "Web Functionality Shown",
     },
     {
-      id: 2,
+      id: 3,
       name: "Covenant Member Guide",
       companyName: "Tactic Edge Solutions",
       description: `Our client requested a redesign of their member guide site,
@@ -143,7 +151,7 @@ let resumeData = {
       ],
     },
     {
-      id: 3,
+      id: 4,
       name: "Member Portal UI",
       companyName: "Tactic Edge Solutions",
       description: `Our organization needed a redesigned back-end experience for
@@ -156,7 +164,7 @@ let resumeData = {
       linkText: "View All Mock-Ups",
     },
     {
-      id: 4,
+      id: 5,
       name: "Tactic Edge Website",
       companyName: "Tactic Edge Solutions",
       description: `The Tactic Edge website was in need of a more descriptive
@@ -171,7 +179,7 @@ let resumeData = {
       linkText: "Live Preview",
     },
     {
-      id: 5,
+      id: 6,
       name: "Webbstock Landing Page",
       companyName: "Gardner-Webb University",
       description: `Gardner-Webb University Gardner-Webb University was in need of
@@ -190,7 +198,7 @@ let resumeData = {
       ],
     },
     {
-      id: 6,
+      id: 7,
       name: "Program Landing Pages",
       companyName: "Gardner-Webb University",
       description: `University marketing requested 50+ landing pages for a number
@@ -203,7 +211,7 @@ let resumeData = {
       linkText: "Live Preview",
     },
     {
-      id: 7,
+      id: 8,
       name: "Annual Senior Show ",
       companyName: "Gardner-Webb University",
       description: `The university's art department was in need of a digital
