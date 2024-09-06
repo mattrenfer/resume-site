@@ -1,5 +1,6 @@
 let resumeData = {
   imagebaseurl: "/",
+  resumeVersion: "?v=1",
   name: "Matthew Russell Renfer",
   role: "Interface Engineer",
   city: "Atlanta",
