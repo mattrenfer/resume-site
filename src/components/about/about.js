@@ -15,7 +15,16 @@ export default class About extends Component {
             </div>
             <div className="column large-9 tab-12 s-about__content">
               <h3>About Me</h3>
-              <p>{resumeData.aboutMe}</p>
+              {/* <p>{resumeData.aboutMe}</p> */}
+              <p>
+              I have always been a problem-solver who thinks in logical, systematic ways&mdash;engaging the creative process along the way. A big part of what I love in my career is birthing ideas into practical, impactful solutions.
+              </p>
+              <p>I`ve been making websites since the early dawn of the internet. A lot has changed since then, which is why I am always eager to learn newer technologies and expand my web development toolkit, keeping companies and organizations ahead of the curve.
+              </p>
+              <p>Creating intuitive user experiences is important to me. The journey a user takes through a website should be easy to follow and even enjoyable.
+              </p>
+              <p>Collaboration and positivity are central to how I work. Great results come from great teams, and I value environments where efficiency meets balance. After all, it`s not just about the work we do, but how we do it.
+              </p>
               <hr />
               <div className="row s-about__content-bottom">
                 <div className="column w-1000-stack">
