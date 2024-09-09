@@ -107,35 +107,6 @@ export default class Resume extends Component {
               </div>
             </div>
           </div>
-          <div className="row s-resume__section">
-            <div className="column large-3 tab-12">
-              <h3 className="section-header-allcaps">Professional Skills</h3>
-            </div>
-            <div className="column large-3 tab-12">
-              <div className="resume-block">
-                <strong>Core Competencies</strong>
-                <ul>
-                  <li>Collaboration</li>
-                  <li>Teamwork</li>
-                  <li>Communication</li>
-                  <li>Problem-solving</li>
-                  <li>Collaboration</li>
-
-                </ul>
-              </div>
-            </div>
-            <div className="column large-3 tab-12">
-              <div className="resume-block">
-                <ul>
-                  <li>Collaboration</li>
-                  <li>Collaboration</li>
-                  <li>Collaboration</li>
-                  <li>Collaboration</li>
-                  <li>Collaboration</li>  
-                </ul>
-              </div>
-            </div>
-          </div>
         </section>
       </React.Fragment>
     );
