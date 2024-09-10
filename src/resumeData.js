@@ -153,6 +153,15 @@ let resumeData = {
     },
     {
       id: 3,
+      name: "Soltech.net",
+      companyName: "Soltech",
+      description: `I am the unofficially designated developer for Soltech's website, which runs on WP Engine/WordPress. Updates to the site range from regular system/plugin version upgrades to adding new blog features to implementing site-wide functionality, such as a revamped top navigation.`,
+      thumbnail: "images/portfolio/soltech.jpg",
+      link: "https://soltech.net",
+      linkText: "Live Preview",
+    },
+    {
+      id: 4,
       name: "Covenant Member Guide",
       companyName: "Tactic Edge Solutions",
       description: `Our client requested a redesign of their member guide site,
@@ -172,7 +181,7 @@ let resumeData = {
       ],
     },
     {
-      id: 4,
+      id: 5,
       name: "Member Portal UI",
       companyName: "Tactic Edge Solutions",
       description: `Our organization needed a redesigned back-end experience for
@@ -185,7 +194,7 @@ let resumeData = {
       linkText: "View All Mock-Ups",
     },
     {
-      id: 5,
+      id: 6,
       name: "Tactic Edge Website",
       companyName: "Tactic Edge Solutions",
       description: `The Tactic Edge website was in need of a more descriptive
@@ -200,7 +209,7 @@ let resumeData = {
       linkText: "Live Preview",
     },
     {
-      id: 6,
+      id: 7,
       name: "Webbstock Landing Page",
       companyName: "Gardner-Webb University",
       description: `Gardner-Webb University Gardner-Webb University was in need of
@@ -219,7 +228,7 @@ let resumeData = {
       ],
     },
     {
-      id: 7,
+      id: 8,
       name: "Program Landing Pages",
       companyName: "Gardner-Webb University",
       description: `University marketing requested 50+ landing pages for a number
@@ -232,7 +241,7 @@ let resumeData = {
       linkText: "Live Preview",
     },
     {
-      id: 8,
+      id: 9,
       name: "Annual Senior Show ",
       companyName: "Gardner-Webb University",
       description: `The university's art department was in need of a digital
