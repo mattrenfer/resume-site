@@ -17,9 +17,8 @@ export default class Hero extends Component {
                 <h3>
                   I&apos;m an {resumeData.city}-based{" "}
                   <span>front-end developer</span> &amp;{" "}
-                  <span>UI/UX designer</span> with more than a decade of
-                  experience creating accessible and intuitive user experiences
-                  on the web.
+                  <span>UI/UX designer</span> with more than 15 years of
+                  experience creating intuitive digital user experiences.
                 </h3>
                 <div className="s-hero__content-social">
                   <a

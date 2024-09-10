@@ -140,7 +140,7 @@ let resumeData = {
       description: `In an effort to increase product visibility, SnapCare sought to expand and redesign their site's blog. This included building a unique section theme, as well as adding custom functionality such as: linked author bios, related articles, category/tags, and improved search. These features were built by customizing WordPress and designing in Elementor.`,
       thumbnail: "images/portfolio/snapcare-blog.jpg",
       link: "https://snapcare.com/blog",
-      linkText: "Live Preview",
+      linkText: "Live Site",
     },
     {
       id: 2,
@@ -149,7 +149,7 @@ let resumeData = {
       description: `SnapNurse rebranded their company to SnapCare, which included a wholesale redesign of their website. The new site is sleeker, more intuitive and runs on a WPEngine/WordPress/Elementor tech stack. I was the sole web developer on the project working in collaboration with marketing efforts to finish the project from scratch within a tight deadline.`,
       thumbnail: "images/portfolio/snapcare.jpg",
       link: "https://snapcare.com",
-      linkText: "Live Preview",
+      linkText: "Live Site",
     },
     {
       id: 3,
@@ -158,7 +158,7 @@ let resumeData = {
       description: `I am the unofficially designated developer for Soltech's website, which runs on WP Engine/WordPress. Updates to the site range from regular system/plugin version upgrades to adding new blog features to implementing site-wide functionality, such as a revamped top navigation.`,
       thumbnail: "images/portfolio/soltech.jpg",
       link: "https://soltech.net",
-      linkText: "Live Preview",
+      linkText: "Live Site",
     },
     {
       id: 4,
@@ -170,7 +170,7 @@ let resumeData = {
       like a published document.`,
       thumbnail: "images/portfolio/covenant-member-guide.jpg",
       link: "https://memberguide.covenantshare.org/",
-      linkText: "Live Preview",
+      linkText: "Live Site",
       listTitle: "Web Functionality Shown",
       listItems: [
         {
@@ -191,7 +191,7 @@ let resumeData = {
       information visibility.`,
       thumbnail: "images/portfolio/member-portal-ui.jpg",
       link: "/portfolio/member-portal-mock-ups.pdf",
-      linkText: "View All Mock-Ups",
+      linkText: "View Mock-Ups",
     },
     {
       id: 6,
@@ -205,8 +205,6 @@ let resumeData = {
       solutions. It also clarified the call to action of requesting
       a quote and/or contacting us for more information.`,
       thumbnail: "images/portfolio/tactic-edge.jpg",
-      link: "https://www.tacticedge.com/",
-      linkText: "Live Preview",
     },
     {
       id: 7,
