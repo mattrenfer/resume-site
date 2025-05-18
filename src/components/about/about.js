@@ -28,8 +28,7 @@ export default class About extends Component {
                                 dawn of the internet. A lot has changed since
                                 then, which is why I am always eager to learn
                                 newer technologies and expand my web development
-                                toolkit, keeping companies and organizations
-                                ahead of the curve.
+                                toolkit, keeping clients ahead of the curve.
                             </p>
                             <p>
                                 Creating intuitive user experiences is important
@@ -49,20 +48,20 @@ export default class About extends Component {
                                 <div className='column w-1000-stack'>
                                     <h3>Contact Details</h3>
                                     <p>
-                                        <a
+                                        {/* <a
                                             href={resumeData.facebookMessenger}
                                             target='_blank'
                                             rel='noreferrer'
                                         >
                                             Message Me on Facebook
-                                        </a>
+                                        </a> */}
                                         <br />
                                         {resumeData.email}
                                     </p>
                                 </div>
                                 <div className='column w-1000-stack'>
                                     <a
-                                        href={`${resumeData.publicUrl}/resume-2024.pdf${resumeData.resumeVersion}`}
+                                        href={`${resumeData.publicUrl}/matthew.renfer-resume-2025.pdf${resumeData.resumeVersion}`}
                                         className='btn btn--download'
                                         target='_blank'
                                         rel='noreferrer'
