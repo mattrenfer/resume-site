@@ -1,11 +1,11 @@
 let resumeData = {
     publicUrl: process.env.PUBLIC_URL,
     imageBaseUrl: '/',
-    resumeVersion: '?v=3',
+    resumeVersion: '?v=4',
     name: 'Matthew Russell Renfer',
     role: 'Digital Solutions Engineer',
-    email: 'renfercreative [at] gmail.com',
-    companyName: 'Renfer Creative LLC',
+    email: 'renferdigitalsolutions [at] gmail.com',
+    companyName: 'Renfer Digital Solutions LLC',
     facebook: 'https://www.facebook.com/matt.renfer',
     linkedin: 'https://www.linkedin.com/in/mattrenfer/',
     instagram: 'https://www.instagram.com/mattrenfer/',
@@ -18,13 +18,13 @@ let resumeData = {
     career: [
         {
             id: 1,
-            companyName: 'Renfer Creative LLC',
+            companyName: 'Renfer Digital Solutions LLC',
             specialization: 'Owner/Digital Solutions Engineer',
             monthOfJoining: 'May',
             yearOfJoining: '2025',
             monthOfLeaving: 'Present',
             description:
-                'I operate under Renfer Creative LLC, partnering with clients from project kickoff through post-launch support to define and implement cohesive digital presences.',
+                'I operate under Renfer Digital Solutions LLC, partnering with clients from project kickoff through post-launch support to define and implement cohesive digital presences.',
         },
         {
             id: 2,
