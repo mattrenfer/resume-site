@@ -35,7 +35,7 @@ let resumeData = {
             monthOfLeaving: 'June',
             yearOfLeaving: '2025',
             description:
-                "As an Interface Engineer, I am responsible for creating a polished & intuitive user interface for websites and applications that meet both the client's requirements and quality standards. I leverage technologies such as WordPress, React & Vue, along with their supported plugins/libraries, to accomplish these goals to the best of my ability.",
+                "As an Interface Engineer, I was responsible for creating polished & intuitive user interfaces for websites and applications that met both the client's requirements and quality standards. I leveraged technologies such as WordPress, React & Vue, along with their supported plugins/libraries, to accomplish these goals to the best of my ability.",
         },
         {
             id: 3,
