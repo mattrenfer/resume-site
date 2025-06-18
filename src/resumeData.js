@@ -20,7 +20,7 @@ let resumeData = {
             id: 1,
             companyName: 'Renfer Digital Solutions LLC',
             specialization: 'Owner/Digital Solutions Engineer',
-            monthOfJoining: 'May',
+            monthOfJoining: 'June',
             yearOfJoining: '2025',
             monthOfLeaving: 'Present',
             description:
@@ -32,7 +32,8 @@ let resumeData = {
             specialization: 'Interface Engineer',
             monthOfJoining: 'July',
             yearOfJoining: '2021',
-            monthOfLeaving: 'Present',
+            monthOfLeaving: 'June',
+            yearOfLeaving: '2025',
             description:
                 "As an Interface Engineer, I am responsible for creating a polished & intuitive user interface for websites and applications that meet both the client's requirements and quality standards. I leverage technologies such as WordPress, React & Vue, along with their supported plugins/libraries, to accomplish these goals to the best of my ability.",
         },
