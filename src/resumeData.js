@@ -55,7 +55,7 @@ let resumeData = {
             monthOfJoining: 'November',
             yearOfJoining: '2010',
             monthOfLeaving: 'October',
-            uearOfLeaving: '2020',
+            yearOfLeaving: '2020',
             description:
                 'My accomplishments as the Senior Web Developer for Gardner-Webb University were both expansive and impactful. The position fielded inquiries from every department and included satisfying requests from faculty, staff and students alike. They ranged from more simple updates (using HTML/CSS), to launching newly designed sections and landing pages (using CSS/Bootcamp), to creating database-driven web applications (using JavaScript/ASP.NET). Additionally, the position was responsible for developing university marketing campaigns on the web to promote student enrollment.',
         },
