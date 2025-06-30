@@ -1,7 +1,7 @@
 let resumeData = {
     publicUrl: process.env.PUBLIC_URL,
     imageBaseUrl: '/',
-    resumeVersion: '?v=5',
+    resumeVersion: '?v=6',
     name: 'Matthew Russell Renfer',
     role: 'Digital Solutions Engineer',
     email: 'renferdigitalsolutions [at] gmail.com',
@@ -35,7 +35,7 @@ let resumeData = {
             monthOfLeaving: 'June',
             yearOfLeaving: '2025',
             description:
-                "As an Interface Engineer, I was responsible for creating polished & intuitive user interfaces for websites and applications that met both the client's requirements and quality standards. I leveraged technologies such as WordPress, React & Vue, along with their supported plugins/libraries, to accomplish these goals to the best of my ability.",
+                'As an Interface Engineer at Soltech, I designed and developed responsive, user-centered websites and applications using a variety of tech stacks. I maintained high-profile sites like soltech.net on WP Engine, collaborated across teams to translate project goals into polished front-end solutions, integrated third-party tools, and contributed to scalable, maintainable codebases across a variety of client projects and industries.',
         },
         {
             id: 3,
@@ -57,7 +57,7 @@ let resumeData = {
             monthOfLeaving: 'October',
             yearOfLeaving: '2020',
             description:
-                'My accomplishments as the Senior Web Developer for Gardner-Webb University were both expansive and impactful. The position fielded inquiries from every department and included satisfying requests from faculty, staff and students alike. They ranged from more simple updates (using HTML/CSS), to launching newly designed sections and landing pages (using CSS/Bootcamp), to creating database-driven web applications (using JavaScript/ASP.NET). Additionally, the position was responsible for developing university marketing campaigns on the web to promote student enrollment.',
+                'My accomplishments as the Senior Web Developer for Gardner-Webb University were both expansive and impactful. The position fielded inquiries from every department and included satisfying requests from faculty, staff and students alike. They ranged from more simple updates (using HTML/CSS), to launching newly designed sections and landing pages (using CSS/Bootstrap), to creating database-driven web applications (using JavaScript/ASP.NET). Additionally, the position was responsible for developing university marketing campaigns on the web to promote student enrollment.',
         },
     ],
 
