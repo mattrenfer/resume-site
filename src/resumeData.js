@@ -1,10 +1,10 @@
 let resumeData = {
     publicUrl: process.env.PUBLIC_URL,
     imageBaseUrl: '/',
-    resumeVersion: '?v=6',
+    resumeVersion: '?v=7',
     name: 'Matthew Russell Renfer',
-    role: 'Digital Solutions Engineer',
-    email: 'renferdigitalsolutions [at] gmail.com',
+    role: 'Software Engineer',
+    email: 'mr.renfer [at] gmail.com',
     companyName: 'Renfer Digital Solutions LLC',
     facebook: 'https://www.facebook.com/matt.renfer',
     linkedin: 'https://www.linkedin.com/in/mattrenfer/',
@@ -96,6 +96,12 @@ let resumeData = {
                     name: 'User Experience Design Essentials – Adobe XD UI UX Design',
                     url: '/images/certificate-UI.jpg',
                 },
+
+                {
+                    id: 5,
+                    name: 'Structured Vibe Coding with AI Coding Agents',
+                    url: '/images/certificate-vibe-coding.pdf',
+                },
             ],
         },
     ],
@@ -103,21 +109,23 @@ let resumeData = {
     technicalSkills: [
         {
             id: 1,
-            title: 'Proficient',
+            title: 'Technical Skills',
             description:
-                'HTML, CSS, JavaScript, WordPress, Elementor, WP Rocket, Responsive Design',
+                'JavaScript (ES6+), TypeScript, React, Next.js, Node.js (Express/Nest.js), PHP, WordPress, Laravel, REST/GraphQL APIs, Docker, CI/CD (GitHub Actions), MySQL, PostgreSQL, MongoDB, AWS',
             skill: 100,
         },
         {
             id: 2,
-            title: 'Strong',
-            description: 'React, Next.js, Vue, Node.js, Express.JS, PHP',
+            title: 'System Design & Architecture',
+            description:
+                'API Integration, Headless CMS, Scalable Front-End Systems, Database Design, Responsive Design, Performance Optimization',
             skill: 85,
         },
         {
             id: 3,
-            title: 'Familiar',
-            description: 'Nest.js, React Native, Ionic',
+            title: 'Soft Skills & Collaboration',
+            description:
+                'Cross-Functional Collaboration, Agile Workflows, Communication & Problem Solving, Project Ownership, Adaptability, Continuous Learning, Client relations',
             skill: 75,
         },
     ],
@@ -167,7 +175,7 @@ let resumeData = {
             id: 3,
             name: 'Soltech.net',
             companyName: 'Soltech',
-            description: `I am the unofficially designated developer for Soltech's website, which runs on WP Engine/WordPress. Updates to the site range from regular system/plugin version upgrades to adding new blog features to implementing site-wide functionality, such as a revamped top navigation.`,
+            description: `Maintained and enhanced Soltech's flagship site, which runs on WP Engine/WordPress. Updates to the site range from regular system/plugin version upgrades to adding new blog features to implementing site-wide functionality, such as a revamped top navigation.`,
             thumbnail: 'images/portfolio/soltech.jpg',
             link: 'https://soltech.net',
             linkText: 'Live Site',

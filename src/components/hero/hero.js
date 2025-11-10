@@ -15,9 +15,9 @@ export default class Hero extends Component {
                                 </h2>
                                 <br />
                                 <h3>
-                                    <span>Collaborative</span> developer & UX
-                                    strategist with 15+ years of experience
-                                    delivering <span>intuitive, scalable</span>{' '}
+                                    <span>Collaborative</span> software engineer
+                                    & UX strategist with 15+ years of experience
+                                    building performant, <span>scalable</span>{' '}
                                     digital solutions.
                                 </h3>
                                 <div className='s-hero__content-social'>

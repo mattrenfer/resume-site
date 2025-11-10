@@ -61,7 +61,7 @@ export default class About extends Component {
                                 </div>
                                 <div className='column w-1000-stack'>
                                     <a
-                                        href={`${resumeData.publicUrl}/renfer-digital-solutions-resume.pdf${resumeData.resumeVersion}`}
+                                        href={`${resumeData.publicUrl}/Interface Engineer - Matthew Renfer.pdf${resumeData.resumeVersion}`}
                                         className='btn btn--download'
                                         target='_blank'
                                         rel='noreferrer'
