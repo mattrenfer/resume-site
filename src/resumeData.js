@@ -113,6 +113,7 @@ let resumeData = {
             description:
                 'JavaScript (ES6+), TypeScript, React, Next.js, Node.js (Express/Nest.js), PHP, WordPress, Laravel, REST/GraphQL APIs, Docker, CI/CD (GitHub Actions), MySQL, PostgreSQL, MongoDB, AWS',
             skill: 100,
+            icon: 'fas fa-code',
         },
         {
             id: 2,
@@ -120,6 +121,7 @@ let resumeData = {
             description:
                 'API Integration, Headless CMS, Scalable Front-End Systems, Database Design, Responsive Design, Performance Optimization',
             skill: 85,
+            icon: 'fas fa-sitemap',
         },
         {
             id: 3,
@@ -127,6 +129,7 @@ let resumeData = {
             description:
                 'Cross-Functional Collaboration, Agile Workflows, Communication & Problem Solving, Project Ownership, Adaptability, Continuous Learning, Client relations',
             skill: 75,
+            icon: 'fas fa-users',
         },
     ],
 
