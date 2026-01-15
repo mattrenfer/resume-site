@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import siteConfig from '../../siteConfig';
 export default class Footer extends Component {
     render() {
-        let resumeData = this.props.resumeData;
         return (
             <React.Fragment>
                 <footer className='s-footer'>
@@ -9,7 +9,12 @@ export default class Footer extends Component {
                         <div className='column large-4 medium-6 w-1000-stack s-footer__social-block'>
                             <ul className='s-footer__social'>
                                 <li>
-                                    <a href={resumeData.linkedin}>
+                                    <a
+                                        href={
+                                            siteConfig.personal.socialMedia
+                                                .linkedin
+                                        }
+                                    >
                                         <i
                                             className='fab fa-linkedin-in'
                                             aria-hidden='true'
@@ -18,7 +23,10 @@ export default class Footer extends Component {
                                 </li>
                                 <li>
                                     <a
-                                        href={resumeData.github}
+                                        href={
+                                            siteConfig.personal.socialMedia
+                                                .github
+                                        }
                                         target='_blank'
                                         rel='noreferrer'
                                     >
@@ -29,7 +37,12 @@ export default class Footer extends Component {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={resumeData.facebook}>
+                                    <a
+                                        href={
+                                            siteConfig.personal.socialMedia
+                                                .facebook
+                                        }
+                                    >
                                         <i
                                             className='fab fa-facebook-f'
                                             aria-hidden='true'
@@ -37,7 +50,12 @@ export default class Footer extends Component {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={resumeData.instagram}>
+                                    <a
+                                        href={
+                                            siteConfig.personal.socialMedia
+                                                .instagram
+                                        }
+                                    >
                                         <i
                                             className='fab fa-instagram'
                                             aria-hidden='true'
@@ -49,7 +67,8 @@ export default class Footer extends Component {
                         <div className='column large-7 medium-6 w-1000-stack ss-copyright'>
                             <span>
                                 &copy; {new Date().getFullYear()}{' '}
-                                {resumeData.companyName}. All rights reserved
+                                {siteConfig.personal.companyName} | All rights
+                                reserved
                             </span>
                         </div>
                     </div>

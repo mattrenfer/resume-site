@@ -3,3 +3,135 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* Typewriter cursor blink */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Highlight text animation */
+.highlight {
+  position: relative;
+  color: var(--color-1, #11ABB0);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-1, #11ABB0), var(--color-2, #F06000));
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineGrow 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes underlineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Portfolio overlay effects */
+.folio-item__thumb {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.folio-item__thumb img {
+  transition: transform 0.4s ease;
+  display: block;
+  width: 100%;
+}
+
+.folio-item__thumb:hover img {
+  transform: scale(1.1);
+}
+
+.folio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(17, 171, 176, 0.9), rgba(240, 96, 0, 0.9));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.folio-item__thumb:hover .folio-overlay {
+  opacity: 1;
+}
+
+.folio-overlay-content {
+  text-align: center;
+  color: white;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.folio-item__thumb:hover .folio-overlay-content {
+  transform: translateY(0);
+}
+
+.folio-overlay-content h4 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.folio-overlay-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Portfolio modal image fixes */
+.modal-popup {
+  padding: 2rem 0 0 0 !important;
+  max-height: 90vh;
+}
+
+.modal-popup img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+}
+
+.modal-popup__desc {
+  padding: 0 2rem 1.5rem !important;
+}
+
+/* BasicLightbox overlay adjustments */
+.basicLightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.basicLightbox__placeholder {
+  max-width: 90vw;
+  max-height: 90vh;
+}

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\n2026 Site Modernization: React 18, Modern Animations & Unified Config\n\nUpgraded entire portfolio to modern standards with React 18 functional \ncomponents, professional animation library (Framer Motion), interactive \nparticle system, and centralized configuration architecture. Implemented \nsingle source of truth pattern allowing all customization through one \nconfig file. Added scroll-triggered animations, 3D tilt effects, particle \ninteractions, and comprehensive performance optimizations.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
