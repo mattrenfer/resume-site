@@ -3996,7 +3996,10 @@ button.btn--pill {
     padding-top: var(--vspace-5);
   }
   .s-about__pic {
-    display: none;
+    width: var(--vspace-3_5);
+    height: var(--vspace-3_5);
+    border-width: 1rem;
+    margin: 0 auto var(--vspace-1);
   }
 }
 

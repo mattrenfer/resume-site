@@ -1,40 +1,73 @@
-import React, { Component } from "react";
-export default class Header extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <header className="s-header">
-          <div className="row s-header__nav-wrap">
-            <nav className="s-header__nav">
-              <ul>
-                <li className="current">
-                  <a className="smoothscroll" href="#hero">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a className="smoothscroll" href="#about">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a className="smoothscroll" href="#resume">
-                    Resume
-                  </a>
-                </li>
-                <li>
-                  <a className="smoothscroll" href="#portfolio">
-                    Portfolio
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>{" "}
-          <a className="s-header__menu-toggle" href="#0" title="Menu">
-            <span className="s-header__menu-icon" />
-          </a>
-        </header>
-      </React.Fragment>
-    );
-  }
+import React, { useState, useEffect, useCallback } from "react";
+
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = useCallback((e) => {
+    e.preventDefault();
+    setMenuOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    if (window.matchMedia('(max-width: 800px)').matches) {
+      setMenuOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('menu-is-open');
+    } else {
+      document.body.classList.remove('menu-is-open');
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.matchMedia('(min-width: 801px)').matches) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <header className="s-header">
+      <div className="row s-header__nav-wrap">
+        <nav className="s-header__nav">
+          <ul>
+            <li className="current">
+              <a className="smoothscroll" href="#hero" onClick={closeMenu}>
+                Home
+              </a>
+            </li>
+            <li>
+              <a className="smoothscroll" href="#about" onClick={closeMenu}>
+                About
+              </a>
+            </li>
+            <li>
+              <a className="smoothscroll" href="#resume" onClick={closeMenu}>
+                Resume
+              </a>
+            </li>
+            <li>
+              <a className="smoothscroll" href="#portfolio" onClick={closeMenu}>
+                Portfolio
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <a
+        className={`s-header__menu-toggle${menuOpen ? ' is-clicked' : ''}`}
+        href="#0"
+        title="Menu"
+        onClick={toggleMenu}
+      >
+        <span className="s-header__menu-icon" />
+      </a>
+    </header>
+  );
 }

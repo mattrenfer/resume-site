@@ -102,7 +102,8 @@ const siteConfig = {
 
         // Tagline/description with highlighted words
         // Use {highlight:word} syntax to mark words for highlighting
-        tagline: '{highlight:Collaborative} Software Engineer & UX Strategist with 15+ years industry experience building performant, {highlight:scalable} digital solutions.',
+        tagline:
+            '{highlight:Collaborative} Software Engineer & UX Strategist with 15+ years industry experience building performant, {highlight:scalable} digital solutions.',
 
         // Scroll indicator animation
         scrollIndicator: {
@@ -257,18 +258,18 @@ const siteConfig = {
     // 10. CAREER HISTORY
     // ============================================================================
     career: [
+        // {
+        //     id: 1,
+        //     companyName: 'Renfer Digital Solutions LLC',
+        //     specialization: 'Owner/Digital Solutions Engineer',
+        //     monthOfJoining: 'June',
+        //     yearOfJoining: '2025',
+        //     monthOfLeaving: 'Present',
+        //     description:
+        //         'I operate under Renfer Digital Solutions LLC, partnering with clients from project kickoff through post-launch support to define and implement cohesive digital presences.',
+        // },
         {
             id: 1,
-            companyName: 'Renfer Digital Solutions LLC',
-            specialization: 'Owner/Digital Solutions Engineer',
-            monthOfJoining: 'June',
-            yearOfJoining: '2025',
-            monthOfLeaving: 'Present',
-            description:
-                'I operate under Renfer Digital Solutions LLC, partnering with clients from project kickoff through post-launch support to define and implement cohesive digital presences.',
-        },
-        {
-            id: 2,
             companyName: 'Soltech',
             specialization: 'Interface Engineer',
             monthOfJoining: 'July',
@@ -279,7 +280,7 @@ const siteConfig = {
                 'As an Interface Engineer at Soltech, I designed and developed responsive, user-centered websites and applications using a variety of tech stacks. I maintained high-profile sites like soltech.net on WP Engine, collaborated across teams to translate project goals into polished front-end solutions, integrated third-party tools, and contributed to scalable, maintainable codebases across a variety of client projects and industries.',
         },
         {
-            id: 3,
+            id: 2,
             companyName: 'Tactic Edge Solutions',
             specialization: 'Senior Web Developer',
             monthOfJoining: 'October',
@@ -290,7 +291,7 @@ const siteConfig = {
                 'The position was an opportunity to expand web knowledge and toolkit. It involved launching and maintaining multiple WordPress sites, as well as assisting in the development of features in customer-facing web applications. It also involved creating mock-ups and implementing improvements to the user experiences and interfaces of web applications.',
         },
         {
-            id: 4,
+            id: 3,
             companyName: 'Gardner-Webb University',
             specialization: 'Senior Web Developer',
             monthOfJoining: 'November',

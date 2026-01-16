@@ -66,9 +66,8 @@ export default class Footer extends Component {
                         </div>
                         <div className='column large-7 medium-6 w-1000-stack ss-copyright'>
                             <span>
-                                &copy; {new Date().getFullYear()}{' '}
-                                {siteConfig.personal.companyName} | All rights
-                                reserved
+                                &copy; {new Date().getFullYear()} Matthew Renfer
+                                | All rights reserved
                             </span>
                         </div>
                     </div>
