@@ -1,38 +1,26 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import resumeData from './resumeData';
+import siteConfig from './siteConfig';
 
 test('renders app component without crashing', () => {
     render(<App />);
 });
 
-test('renders hero section with name from resumeData', () => {
+test('renders hero section with name from siteConfig', () => {
     render(<App />);
-    const nameElement = screen.getByText(resumeData.name);
+    const nameElement = screen.getByText(siteConfig.personal.name);
     expect(nameElement).toBeInTheDocument();
 });
 
-test('renders hero section with role from resumeData', () => {
+test('renders status badge', () => {
     render(<App />);
-    const roleElement = screen.getByText(resumeData.role);
-    expect(roleElement).toBeInTheDocument();
+    const statusElement = screen.getByText(/Got room for your project/i);
+    expect(statusElement).toBeInTheDocument();
 });
 
-// test('renders navigation menu', () => {
-//     render(<App />);
-//     const homeLink = screen.getAllByText(/home/i);
-//     const aboutLink = screen.getAllByText(/about/i);
-//     const resumeLink = screen.getAllByText(/resume/i);
-//     const portfolioLink = screen.getAllByText(/portfolio/i);
-//     expect(homeLink).toBeInTheDocument();
-//     expect(aboutLink).toBeInTheDocument();
-//     expect(resumeLink).toBeInTheDocument();
-//     expect(portfolioLink).toBeInTheDocument();
-// });
-
-test('resumeData object has required properties', () => {
-    expect(resumeData).toHaveProperty('name');
-    expect(resumeData).toHaveProperty('role');
-    expect(resumeData.name).toBeTruthy();
-    expect(resumeData.role).toBeTruthy();
+test('siteConfig object has required properties', () => {
+    expect(siteConfig).toHaveProperty('personal.name');
+    expect(siteConfig).toHaveProperty('personal.role');
+    expect(siteConfig.personal.name).toBeTruthy();
+    expect(siteConfig.personal.role).toBeTruthy();
 });

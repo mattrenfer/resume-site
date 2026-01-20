@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,6 +57,17 @@ export default function Header() {
               <a className="smoothscroll" href="#portfolio" onClick={closeMenu}>
                 Portfolio
               </a>
+            </li>
+            <li className="header-cta-item">
+              <motion.a
+                className="smoothscroll header-cta"
+                href="#work-with-me"
+                onClick={closeMenu}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Work with me
+              </motion.a>
             </li>
           </ul>
         </nav>

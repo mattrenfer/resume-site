@@ -27,6 +27,7 @@ const siteConfig = {
         portfolioTilt: true, // Enable 3D tilt on portfolio cards
         soundEffects: false, // Enable sound effects on interactions
         analytics: false, // Enable analytics tracking
+        floatingWidget: true, // Show floating contact widget
     },
 
     // ============================================================================

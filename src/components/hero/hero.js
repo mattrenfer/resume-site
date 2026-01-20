@@ -196,6 +196,26 @@ const Hero = ({ resumeData }) => {
                             </em>
                         </motion.h2>
 
+                        <motion.div
+                            className='status-badge'
+                            variants={itemVariants}
+                            animate={{
+                                boxShadow: [
+                                    '0 0 0 0 rgba(17, 171, 176, 0.4)',
+                                    '0 0 0 8px rgba(17, 171, 176, 0)',
+                                ],
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: 'easeOut',
+                            }}
+                        >
+                            <span className='status-dot'>●</span>
+                            <span className='status-text'>Available for your next project</span>
+                            <span className='status-types'>Contract • Part-Time • Full-Time</span>
+                        </motion.div>
+
                         <br />
 
                         <motion.h3 variants={itemVariants}>

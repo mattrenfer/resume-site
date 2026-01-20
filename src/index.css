@@ -135,3 +135,99 @@ body {
   max-width: 90vw;
   max-height: 90vh;
 }
+
+/* Status Badge - Hero availability indicator */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.8rem;
+  background: rgba(17, 171, 176, 0.1);
+  border: 1px solid rgba(17, 171, 176, 0.3);
+  border-radius: 50px;
+  margin: 2rem 0 1rem;
+}
+
+.status-badge .status-dot {
+  color: #00e676;
+  font-size: 1.4rem;
+  animation: pulse-dot 2s ease-in-out infinite;
+  line-height: 1;
+}
+
+.status-badge .status-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.status-badge .status-types {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Status badge mobile */
+@media screen and (max-width: 600px) {
+  .status-badge {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .status-badge .status-types {
+    border-left: none;
+    padding-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Header CTA Link - underline style */
+.header-cta-item {
+  margin-left: 1rem;
+}
+
+.header-cta {
+  position: relative;
+  color: var(--color-1, #11ABB0) !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-cta::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-1, #11ABB0), var(--color-2, #F06000));
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header-cta:hover {
+  color: var(--color-2, #F06000) !important;
+}
+
+/* Mobile header CTA adjustments */
+@media screen and (max-width: 800px) {
+  .header-cta-item {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
