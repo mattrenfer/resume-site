@@ -38,24 +38,19 @@ export default function Header() {
       <div className="row s-header__nav-wrap">
         <nav className="s-header__nav">
           <ul>
-            <li className="current">
-              <a className="smoothscroll" href="#hero" onClick={closeMenu}>
-                Home
-              </a>
-            </li>
             <li>
               <a className="smoothscroll" href="#about" onClick={closeMenu}>
-                About
+                about me
               </a>
             </li>
             <li>
               <a className="smoothscroll" href="#resume" onClick={closeMenu}>
-                Resume
+                experience
               </a>
             </li>
             <li>
               <a className="smoothscroll" href="#portfolio" onClick={closeMenu}>
-                Portfolio
+                my work
               </a>
             </li>
             <li className="header-cta-item">
@@ -66,7 +61,7 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Work with me
+                let&apos;s connect
               </motion.a>
             </li>
           </ul>

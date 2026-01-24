@@ -93,10 +93,9 @@
   background: var(--color-1, #11ABB0);
   color: white;
   font-family: var(--font-1, sans-serif);
-  font-size: var(--text-xs, 1.2rem);
+  font-size: 1.5rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.05em;
   text-decoration: none;
   border-radius: var(--border-radius, 5px);
   border: none;

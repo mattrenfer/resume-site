@@ -47,21 +47,21 @@ const WorkWithMe = () => {
             icon: 'fas fa-rocket',
             question: 'Quick project?',
             title: 'Contract',
-            description: 'Project-based work with defined scope',
+            description: 'A focused project with clear goals',
         },
         {
             id: 2,
             icon: 'fas fa-sync-alt',
             question: 'Ongoing thing?',
             title: 'Part-Time',
-            description: 'Consistent support on your schedule',
+            description: 'Ongoing work, flexible hours',
         },
         {
             id: 3,
             icon: 'fas fa-users',
             question: 'Want me on your team?',
             title: 'Full-Time',
-            description: 'Full commitment to your mission',
+            description: 'Join your team full-time',
         },
     ];
 
@@ -79,7 +79,7 @@ const WorkWithMe = () => {
                         Need a hand?
                     </motion.h3>
                     <motion.p className="work-with-me__subtitle" variants={itemVariants}>
-                        I&apos;m available for new opportunities
+                        Here&apos;s how we could collaborate
                     </motion.p>
 
                     <motion.div
@@ -109,15 +109,14 @@ const WorkWithMe = () => {
                     </motion.div>
 
                     <motion.div className="work-with-me__cta" variants={itemVariants}>
-                        <motion.a
+                        <a
                             href={`mailto:${config.personal.email.replace(" [at] ", "@")}`}
-                            className="btn btn--primary work-with-me__button"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            className="work-with-me__button"
                         >
-                            Get In Touch
-                        </motion.a>
+                            Say hello
+                        </a>
                     </motion.div>
+
                 </motion.div>
             </div>
         </section>

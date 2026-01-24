@@ -105,7 +105,7 @@ const Portfolio = ({ resumeData }) => {
                 transition={{ duration: 0.6 }}
             >
                 <div className='column large-12'>
-                    <h3>Portfolio</h3>
+                    <h3>my work</h3>
                 </div>
             </motion.div>
 

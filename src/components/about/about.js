@@ -86,34 +86,27 @@ const About = ({ resumeData }) => {
                     <motion.h3 variants={itemVariants}>About Me</motion.h3>
 
                     <motion.p variants={itemVariants}>
-                        I have always been a problem-solver who thinks
-                        in logical, systematic ways&mdash;engaging the
-                        creative process along the way. A big part of
-                        what I love in my career is birthing ideas into
-                        practical, impactful solutions.
+                        I started building websites as a teenager &mdash; not
+                        because I wanted to be a programmer, but because I
+                        wanted to tell stories through code. The early web felt like a
+                        frontier where it was possible to create something from
+                        nothing. That sense of possibility hasn&apos;t left me.
                     </motion.p>
 
                     <motion.p variants={itemVariants}>
-                        I&apos;ve been making websites since the early
-                        dawn of the internet. A lot has changed since
-                        then, which is why I am always eager to learn
-                        newer technologies and expand my web development
-                        toolkit, keeping clients ahead of the curve.
+                        Every project is a blank canvas. The code, the design,
+                        the interactions &mdash; they should all serve the story
+                        you&apos;re trying to tell. And the journey someone takes
+                        through that story should feel effortless, even
+                        enjoyable.
                     </motion.p>
 
                     <motion.p variants={itemVariants}>
-                        Creating intuitive user experiences is important
-                        to me. The journey a user takes to get where
-                        they need to go should be easy to follow and
-                        even enjoyable.
-                    </motion.p>
-
-                    <motion.p variants={itemVariants}>
-                        Collaboration and positivity are central to how
-                        I work. Great results come from great teams, and
-                        I value environments where efficiency meets
-                        balance. After all, it&apos;s not just about the
-                        work we do, but how we do it.
+                        I&apos;ve spent 15+ years collaborating with people to
+                        bring their ideas to life. The best projects happen
+                        when we figure out together what that canvas should
+                        become. It&apos;s not just about the work we do, but
+                        how we do it.
                     </motion.p>
 
                     <motion.hr variants={itemVariants} />
@@ -122,13 +115,7 @@ const About = ({ resumeData }) => {
                         className='row s-about__content-bottom'
                         variants={itemVariants}
                     >
-                        <div className='column w-1000-stack'>
-                            <h3>Contact Details</h3>
-                            <p>
-                                <br />
-                                {resumeData.personal.email}
-                            </p>
-                        </div>
+
                         <div className='column w-1000-stack'>
                             <motion.a
                                 href={`${resumeData.system.publicUrl}/${resumeData.personal.resume.fileName}${resumeData.personal.resume.version}`}

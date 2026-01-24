@@ -97,7 +97,7 @@ const FloatingWidget = () => {
                                     className="floating-widget__title"
                                     variants={itemVariants}
                                 >
-                                    Let&apos;s talk!
+                                    Hey 👋
                                 </motion.p>
                                 <motion.div
                                     className="floating-widget__links"
@@ -139,10 +139,8 @@ const FloatingWidget = () => {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                             >
-                                <span className="floating-widget__wave">
-                                    <i className="fas fa-comment-dots" />
-                                </span>
-                                <span className="floating-widget__label">Get in touch</span>
+                                <span className="floating-widget__label">Hey there!</span>
+                                <span className="floating-widget__wave">👋</span>
                             </motion.button>
                         )}
                     </AnimatePresence>

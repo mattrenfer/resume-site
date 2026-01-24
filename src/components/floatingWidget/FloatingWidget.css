@@ -8,31 +8,30 @@
 .floating-widget__button {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 1rem 1.6rem;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
   border-radius: 50px;
   background: linear-gradient(135deg, var(--color-1, #11ABB0), var(--color-2, #F06000));
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(17, 171, 176, 0.4);
+  box-shadow: 0 4px 16px rgba(17, 171, 176, 0.35);
   transition: box-shadow 0.3s ease;
 }
 
 .floating-widget__button:hover {
-  box-shadow: 0 6px 25px rgba(17, 171, 176, 0.6);
-}
-
-.floating-widget__wave {
-  color: white;
-  font-size: 1.6rem;
-  display: inline-block;
+  box-shadow: 0 6px 20px rgba(17, 171, 176, 0.5);
 }
 
 .floating-widget__label {
   color: white;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
+}
+
+.floating-widget__wave {
+  font-size: 1.4rem;
+  display: inline-block;
 }
 
 @keyframes wave {
@@ -130,15 +129,15 @@
   }
 
   .floating-widget__button {
-    padding: 0.8rem 1.2rem;
-  }
-
-  .floating-widget__wave {
-    font-size: 1.4rem;
+    padding: 0.7rem 1.2rem;
   }
 
   .floating-widget__label {
     font-size: 1.2rem;
+  }
+
+  .floating-widget__wave {
+    font-size: 1.3rem;
   }
 
   .floating-widget__expanded {
