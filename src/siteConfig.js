@@ -89,9 +89,9 @@ const siteConfig = {
     hero: {
         // Typewriter effect - roles that cycle through
         roles: [
-            'Creative Problem Solver',
-            'Code Composer',
-            'User Experience Strategist',
+            'Website & Application Builder',
+            'User Experience Wayfinder',
+            'Storyteller Through Code',
             'Bug Squasher',
         ],
 
@@ -104,7 +104,7 @@ const siteConfig = {
         // Tagline/description with highlighted words
         // Use {highlight:word} syntax to mark words for highlighting
         tagline:
-            '{highlight:Collaborative} Software Engineer & UX Strategist with 15+ years industry experience building performant, {highlight:scalable} digital solutions.',
+            '15+ years building experiences on the web. Still approaching every one like a {highlight:blank canvas} waiting for {highlight:your story}.',
 
         // Scroll indicator animation
         scrollIndicator: {

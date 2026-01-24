@@ -189,12 +189,26 @@ const Hero = ({ resumeData }) => {
                             {resumeData.personal.name}
                         </motion.h1>
 
+                        <motion.p className="hero-subtitle" variants={itemVariants}>
+                            Software Engineer
+                        </motion.p>
+
                         <motion.h2 variants={itemVariants}>
                             <em>
                                 {displayRole}
                                 <span className='cursor-blink'>|</span>
                             </em>
                         </motion.h2>
+
+                        <motion.h3 variants={itemVariants}>
+                            {config.hero.tagline.split(/(\{highlight:.*?\})/).map((part, index) => {
+                                const highlightMatch = part.match(/\{highlight:(.*?)\}/);
+                                if (highlightMatch) {
+                                    return <span key={index} className='highlight'>{highlightMatch[1]}</span>;
+                                }
+                                return part;
+                            })}
+                        </motion.h3>
 
                         <motion.div
                             className='status-badge'
@@ -215,18 +229,6 @@ const Hero = ({ resumeData }) => {
                             <span className='status-text'>Available for your next project</span>
                             <span className='status-types'>Contract • Part-Time • Full-Time</span>
                         </motion.div>
-
-                        <br />
-
-                        <motion.h3 variants={itemVariants}>
-                            {config.hero.tagline.split(/(\{highlight:.*?\})/).map((part, index) => {
-                                const highlightMatch = part.match(/\{highlight:(.*?)\}/);
-                                if (highlightMatch) {
-                                    return <span key={index} className='highlight'>{highlightMatch[1]}</span>;
-                                }
-                                return part;
-                            })}
-                        </motion.h3>
 
                         <motion.div
                             className='s-hero__content-social'

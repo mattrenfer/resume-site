@@ -19,6 +19,31 @@ body {
   }
 }
 
+/* Hero layout adjustments - push content up for breathing room */
+.s-hero__content {
+  padding-top: 12vh !important;
+  padding-bottom: 10vh !important;
+}
+
+/* Keep scroll indicator above the fold and centered */
+.s-hero__scroll {
+  position: absolute !important;
+  bottom: 3vh !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Hero subtitle - Software Engineer */
+.hero-subtitle {
+  color: var(--color-1, #11ABB0);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0.5rem 0 1.5rem;
+  opacity: 0.9;
+}
+
 /* Highlight text animation */
 .highlight {
   position: relative;
@@ -138,14 +163,16 @@ body {
 
 /* Status Badge - Hero availability indicator */
 .status-badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 0.8rem 1.8rem;
   background: rgba(17, 171, 176, 0.1);
   border: 1px solid rgba(17, 171, 176, 0.3);
   border-radius: 50px;
-  margin: 2rem 0 1rem;
+  margin: 1.5rem auto 1.5rem;
+  width: fit-content;
 }
 
 .status-badge .status-dot {
@@ -177,6 +204,13 @@ body {
   50% {
     opacity: 0.4;
   }
+}
+
+/* Ensure social links stay centered after status badge */
+.s-hero__content-social {
+  display: flex !important;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Status badge mobile */
