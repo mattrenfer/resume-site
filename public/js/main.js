@@ -303,9 +303,9 @@
 
         ssPreloader();
         ssParallax();
-        ssMoveHeader();
-        ssMobileMenu();
-        ssScrollSpy();
+        // ssMoveHeader(); // Disabled - using SectionNav instead of header
+        // ssMobileMenu(); // Disabled - using SectionNav instead of header
+        // ssScrollSpy(); // Disabled - using SectionNav instead of header
         ssSwiper();
         ssLightbox();
         ssAlertBoxes();

@@ -185,6 +185,8 @@ const Hero = ({ resumeData }) => {
             >
                 <div className='column'>
                     <div className='s-hero__content-about'>
+                        
+
                         <motion.h1 variants={itemVariants}>
                             {resumeData.personal.name}
                         </motion.h1>
@@ -196,7 +198,17 @@ const Hero = ({ resumeData }) => {
                             </em>
                         </motion.h2>
 
-                        <br />
+               
+
+                        <motion.div
+                            className='s-hero__avatar'
+                            variants={itemVariants}
+                        >
+                            <img
+                                src={resumeData.about.profileImage}
+                                alt={resumeData.personal.name}
+                            />
+                        </motion.div>
 
                         <motion.h3 variants={itemVariants}>
                             {config.hero.tagline.split(/(\{highlight:.*?\})/).map((part, index) => {
@@ -272,7 +284,7 @@ const Hero = ({ resumeData }) => {
                 transition={{ delay: 1.5, duration: 1 }}
             >
                 <motion.a
-                    href='#about'
+                    href='#specialties'
                     className='s-hero__scroll-link smoothscroll'
                     animate={{ y: [0, 10, 0] }}
                     transition={{

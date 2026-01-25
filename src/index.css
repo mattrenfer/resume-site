@@ -135,3 +135,73 @@ body {
   max-width: 90vw;
   max-height: 90vh;
 }
+
+/* ============================================
+   Hero Content Positioning
+   ============================================ */
+.s-hero__content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  justify-content: center !important;
+}
+
+@media screen and (max-width: 800px) {
+  .s-hero__content {
+    padding-top: 0 !important;
+  }
+}
+
+/* ============================================
+   Hero Avatar
+   ============================================ */
+.s-hero__avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.s-hero__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 800px) {
+  .s-hero__avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ============================================
+   Resume Download & Contact
+   ============================================ */
+.s-resume__download {
+  text-align: center;
+  padding-bottom: var(--vspace-2, 4rem);
+  margin-bottom: var(--vspace-1, 2rem);
+}
+
+.s-resume__contact {
+  margin-top: var(--vspace-2, 4rem);
+  padding-top: var(--vspace-1_5, 3rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.s-resume__contact .section-header-allcaps {
+  justify-content: center;
+  margin-bottom: var(--vspace-0_5, 1rem);
+}
+
+.resume-contact__email {
+  font-size: 1.4rem;
+  color: var(--color-1, #11ABB0);
+  font-weight: 500;
+}
+

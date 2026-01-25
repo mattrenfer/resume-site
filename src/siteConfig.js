@@ -89,7 +89,7 @@ const siteConfig = {
         // Typewriter effect - roles that cycle through
         roles: [
             'Creative Problem Solver',
-            'Code Composer',
+            'Collaborator',
             'User Experience Strategist',
             'Bug Squasher',
         ],
@@ -255,7 +255,34 @@ const siteConfig = {
     },
 
     // ============================================================================
-    // 10. CAREER HISTORY
+    // 10. TESTIMONIALS
+    // ============================================================================
+    testimonials: [
+        {
+            id: 1,
+            quote: "Matt is an exceptional developer who consistently delivers high-quality work. His attention to detail and ability to translate complex requirements into elegant solutions made him invaluable to our team.",
+            name: "Sarah Mitchell",
+            title: "Project Manager",
+            company: "Soltech",
+        },
+        {
+            id: 2,
+            quote: "Working with Matt was a pleasure. He brought creativity and technical expertise to every project, always going above and beyond to ensure the end product exceeded expectations.",
+            name: "David Chen",
+            title: "Director of Engineering",
+            company: "Tactic Edge Solutions",
+        },
+        {
+            id: 3,
+            quote: "Matt's ability to understand user needs and create intuitive interfaces is remarkable. He transformed our web presence and made a lasting impact on our digital strategy.",
+            name: "Jennifer Adams",
+            title: "Marketing Director",
+            company: "Gardner-Webb University",
+        },
+    ],
+
+    // ============================================================================
+    // 11. CAREER HISTORY
     // ============================================================================
     career: [
         // {
@@ -304,7 +331,7 @@ const siteConfig = {
     ],
 
     // ============================================================================
-    // 11. EDUCATION & CERTIFICATIONS
+    // 12. EDUCATION & CERTIFICATIONS
     // ============================================================================
     education: [
         {
@@ -348,8 +375,36 @@ const siteConfig = {
     ],
 
     // ============================================================================
-    // 12. TECHNICAL SKILLS
+    // 13. SPECIALTIES (2x2 Grid Layout)
     // ============================================================================
+    specialties: [
+        {
+            id: 1,
+            title: 'Technical Skills',
+            skills: 'JavaScript, TypeScript, React, Next.js, Vue, Node.js, Express, Nest.js, PHP, WordPress, REST/GraphQL APIs, Docker, CI/CD, MySQL, PostgreSQL, MongoDB, AWS, Vercel, Supabase',
+            blurb: 'In the past 5 years, I shifted from a web developer to a software engineer—expanding my toolkit to include modern frameworks, cloud infrastructure, and full-stack capabilities that power scalable, production-ready applications.',
+        },
+        {
+            id: 2,
+            title: 'System Design & Architecture',
+            skills: 'API Integration, Headless CMS, Scalable Front-End Systems, Database Design, Responsive Design, Performance Optimization',
+            blurb: 'While computers compile code, people write and use software. Good software scales well technically, but great software also scales in how easily teams can maintain, extend, and reason about it.',
+        },
+        {
+            id: 3,
+            title: 'Product Design Philosophy',
+            skills: 'User-Centered Design, Intuitive UX Patterns, Wireframing & Prototyping, Accessibility (a11y), Design System Thinking, User Journey Mapping',
+            blurb: 'A big part of what I love in my career is birthing ideas into practical, impactful solutions. The journey a user takes should be easy to follow and even enjoyable.',
+        },
+        {
+            id: 4,
+            title: 'Soft Skills & Collaboration',
+            skills: 'Cross-Functional Collaboration, Agile Workflows, Communication & Problem Solving, Project Ownership, Adaptability, Continuous Learning, Client Relations',
+            blurb: 'Collaboration and positivity are central to how I work. Great results come from great teams, and I value environments where efficiency meets balance.',
+        },
+    ],
+
+    // Legacy technical skills (kept for compatibility)
     technicalSkills: [
         {
             id: 1,
@@ -401,7 +456,7 @@ const siteConfig = {
     ],
 
     // ============================================================================
-    // 13. PORTFOLIO PROJECTS
+    // 14. PORTFOLIO PROJECTS
     // ============================================================================
     portfolio: [
         {
@@ -500,7 +555,7 @@ const siteConfig = {
     ],
 
     // ============================================================================
-    // 14. SYSTEM SETTINGS (Don't usually need to change these)
+    // 15. SYSTEM SETTINGS (Don't usually need to change these)
     // ============================================================================
     system: {
         publicUrl: process.env.PUBLIC_URL,

@@ -1,0 +1,100 @@
+/* Specialties Section - 2x2 Grid Layout with Dark Background */
+
+/* Dark section background */
+#specialties.s-specialties {
+    background-color: var(--color-gray-19, #0a0a0a);
+    padding-top: var(--vspace-5, 10rem);
+    padding-bottom: var(--vspace-4, 8rem);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Centered header at top */
+.s-specialties .specialties-header {
+    text-align: center;
+}
+
+.s-specialties .section-header-allcaps {
+    justify-content: center;
+    color: white;
+}
+
+/* Grid layout */
+.specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.specialty-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.specialty-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-1, #11ABB0);
+    margin-bottom: 1rem;
+}
+
+.specialty-skills {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.specialty-blurb {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-top: auto;
+}
+
+/* Row divider between top and bottom rows */
+.specialties-grid .specialty-item:nth-child(1),
+.specialties-grid .specialty-item:nth-child(2) {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile: Single column stack */
+@media screen and (max-width: 800px) {
+    #specialties.s-specialties {
+        padding-top: var(--vspace-4, 8rem);
+        padding-bottom: var(--vspace-3, 6rem);
+    }
+
+    .specialties-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .specialty-title {
+        font-size: 0.95rem;
+    }
+
+    .specialty-skills {
+        font-size: 1rem;
+    }
+
+    .specialty-blurb {
+        font-size: 1.05rem;
+    }
+
+    .specialties-grid .specialty-item:nth-child(1),
+    .specialties-grid .specialty-item:nth-child(2),
+    .specialties-grid .specialty-item:nth-child(3) {
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .specialties-grid .specialty-item:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}
