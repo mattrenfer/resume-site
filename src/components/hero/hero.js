@@ -4,7 +4,7 @@ import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
 import config from '../../siteConfig';
 
-const Hero = ({ resumeData }) => {
+const Hero = ({ siteConfig }) => {
     const [displayRole, setDisplayRole] = useState('');
     const [roleIndex, setRoleIndex] = useState(0);
 
@@ -35,95 +35,100 @@ const Hero = ({ resumeData }) => {
     }, []);
 
     // Memoize particles configuration
-    const particlesConfig = useMemo(() => ({
-        background: {
-            opacity: 0,
-        },
-        fpsLimit: config.particles.fpsLimit,
-        particles: {
-            color: {
-                value: config.theme.particleColors,
+    const particlesConfig = useMemo(
+        () => ({
+            background: {
+                opacity: 0,
             },
-            links: {
-                color: config.particles.links.color,
-                distance: config.particles.links.distance,
-                enable: config.particles.links.enable,
-                opacity: config.particles.links.opacity,
-                width: config.particles.links.width,
-            },
-            move: {
-                enable: true,
-                speed: config.particles.speed,
-                direction: config.particles.direction,
-                random: true,
-                straight: false,
-                outModes: {
-                    default: 'bounce',
+            fpsLimit: config.particles.fpsLimit,
+            particles: {
+                color: {
+                    value: config.theme.particleColors,
                 },
-            },
-            number: {
-                density: {
-                    enable: config.particles.density.enable,
-                    area: config.particles.density.area,
+                links: {
+                    color: config.particles.links.color,
+                    distance: config.particles.links.distance,
+                    enable: config.particles.links.enable,
+                    opacity: config.particles.links.opacity,
+                    width: config.particles.links.width,
                 },
-                value: config.particles.number,
-            },
-            opacity: {
-                value: config.particles.opacity,
-                random: true,
-                animation: {
-                    enable: config.particles.opacityAnimation.enable,
-                    speed: config.particles.opacityAnimation.speed,
-                    minimumValue:
-                        config.particles.opacityAnimation.minimumValue,
-                },
-            },
-            shape: {
-                type: config.particles.shapes,
-            },
-            size: {
-                value: {
-                    min: config.particles.sizeMin,
-                    max: config.particles.sizeMax,
-                },
-                random: true,
-            },
-        },
-        interactivity: {
-            events: {
-                onHover: {
-                    enable: config.particles.interactivity.hover.enable,
-                    mode: config.particles.interactivity.hover.mode,
-                },
-                onClick: {
-                    enable: config.particles.interactivity.click.enable,
-                    mode: config.particles.interactivity.click.mode,
-                },
-            },
-            modes: {
-                grab: {
-                    distance: config.particles.interactivity.grab.distance,
-                    links: {
-                        opacity:
-                            config.particles.interactivity.grab.lineLinked
-                                .opacity,
+                move: {
+                    enable: true,
+                    speed: config.particles.speed,
+                    direction: config.particles.direction,
+                    random: true,
+                    straight: false,
+                    outModes: {
+                        default: 'bounce',
                     },
                 },
-                repulse: {
-                    distance: config.particles.interactivity.repulse.distance,
-                    duration: config.particles.interactivity.repulse.duration,
-                    speed: config.particles.interactivity.repulse.speed,
+                number: {
+                    density: {
+                        enable: config.particles.density.enable,
+                        area: config.particles.density.area,
+                    },
+                    value: config.particles.number,
                 },
-                push: {
-                    quantity: 4,
+                opacity: {
+                    value: config.particles.opacity,
+                    random: true,
+                    animation: {
+                        enable: config.particles.opacityAnimation.enable,
+                        speed: config.particles.opacityAnimation.speed,
+                        minimumValue:
+                            config.particles.opacityAnimation.minimumValue,
+                    },
                 },
-                remove: {
-                    quantity: 2,
+                shape: {
+                    type: config.particles.shapes,
+                },
+                size: {
+                    value: {
+                        min: config.particles.sizeMin,
+                        max: config.particles.sizeMax,
+                    },
+                    random: true,
                 },
             },
-        },
-        detectRetina: true,
-    }), []);
+            interactivity: {
+                events: {
+                    onHover: {
+                        enable: config.particles.interactivity.hover.enable,
+                        mode: config.particles.interactivity.hover.mode,
+                    },
+                    onClick: {
+                        enable: config.particles.interactivity.click.enable,
+                        mode: config.particles.interactivity.click.mode,
+                    },
+                },
+                modes: {
+                    grab: {
+                        distance: config.particles.interactivity.grab.distance,
+                        links: {
+                            opacity:
+                                config.particles.interactivity.grab.lineLinked
+                                    .opacity,
+                        },
+                    },
+                    repulse: {
+                        distance:
+                            config.particles.interactivity.repulse.distance,
+                        duration:
+                            config.particles.interactivity.repulse.duration,
+                        speed: config.particles.interactivity.repulse.speed,
+                    },
+                    push: {
+                        quantity: 4,
+                    },
+                    remove: {
+                        quantity: 2,
+                    },
+                },
+            },
+            detectRetina: true,
+        }),
+        [],
+    );
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -144,6 +149,21 @@ const Hero = ({ resumeData }) => {
             transition: {
                 type: 'spring',
                 stiffness: 100,
+            },
+        },
+    };
+
+    const imageVariants = {
+        hidden: { opacity: 0, scale: 0.8, rotate: -10 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            transition: {
+                type: 'spring',
+                stiffness: 100,
+                damping: 10,
+                duration: 0.8,
             },
         },
     };
@@ -186,7 +206,7 @@ const Hero = ({ resumeData }) => {
                 <div className='column'>
                     <div className='s-hero__content-about'>
                         <motion.h1 variants={itemVariants}>
-                            {resumeData.personal.name}
+                            {siteConfig.personal.name}
                         </motion.h1>
 
                         <motion.h2 variants={itemVariants}>
@@ -198,14 +218,43 @@ const Hero = ({ resumeData }) => {
 
                         <br />
 
+                        <motion.div
+                            className='column tab-12'
+                            initial='hidden'
+                            whileInView='visible'
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={imageVariants}
+                        >
+                            <motion.img
+                                className='s-about__pic'
+                                src={siteConfig.about.profileImage}
+                                alt='Profile'
+                                whileHover={{
+                                    scale: 1.05,
+                                    rotate: 2,
+                                    transition: { duration: 0.3 },
+                                }}
+                            />
+                        </motion.div>
+
                         <motion.h3 variants={itemVariants}>
-                            {config.hero.tagline.split(/(\{highlight:.*?\})/).map((part, index) => {
-                                const highlightMatch = part.match(/\{highlight:(.*?)\}/);
-                                if (highlightMatch) {
-                                    return <span key={index} className='highlight'>{highlightMatch[1]}</span>;
-                                }
-                                return part;
-                            })}
+                            {config.hero.tagline
+                                .split(/(\{highlight:.*?\})/)
+                                .map((part, index) => {
+                                    const highlightMatch =
+                                        part.match(/\{highlight:(.*?)\}/);
+                                    if (highlightMatch) {
+                                        return (
+                                            <span
+                                                key={index}
+                                                className='highlight'
+                                            >
+                                                {highlightMatch[1]}
+                                            </span>
+                                        );
+                                    }
+                                    return part;
+                                })}
                         </motion.h3>
 
                         <motion.div
@@ -213,7 +262,7 @@ const Hero = ({ resumeData }) => {
                             variants={itemVariants}
                         >
                             <motion.a
-                                href={resumeData.personal.socialMedia.linkedin}
+                                href={siteConfig.personal.socialMedia.linkedin}
                                 target='_blank'
                                 rel='noreferrer'
                                 variants={socialVariants}
@@ -225,7 +274,7 @@ const Hero = ({ resumeData }) => {
                                 />
                             </motion.a>
                             <motion.a
-                                href={resumeData.personal.socialMedia.github}
+                                href={siteConfig.personal.socialMedia.github}
                                 target='_blank'
                                 rel='noreferrer'
                                 variants={socialVariants}
@@ -237,7 +286,7 @@ const Hero = ({ resumeData }) => {
                                 />
                             </motion.a>
                             <motion.a
-                                href={resumeData.personal.socialMedia.facebook}
+                                href={siteConfig.personal.socialMedia.facebook}
                                 target='_blank'
                                 rel='noreferrer'
                                 variants={socialVariants}
@@ -249,7 +298,7 @@ const Hero = ({ resumeData }) => {
                                 />
                             </motion.a>
                             <motion.a
-                                href={resumeData.personal.socialMedia.instagram}
+                                href={siteConfig.personal.socialMedia.instagram}
                                 target='_blank'
                                 rel='noreferrer'
                                 variants={socialVariants}
@@ -265,7 +314,7 @@ const Hero = ({ resumeData }) => {
                 </div>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
                 className='s-hero__scroll'
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -298,7 +347,7 @@ const Hero = ({ resumeData }) => {
                     </span>
                     <span className='scroll-text'>Scroll Down</span>
                 </motion.a>
-            </motion.div>
+            </motion.div> */}
         </section>
     );
 };

@@ -89,9 +89,10 @@ const siteConfig = {
         // Typewriter effect - roles that cycle through
         roles: [
             'Creative Problem Solver',
-            'Code Composer',
             'User Experience Strategist',
+            'Collaborator',
             'Bug Squasher',
+            'Continuous Learner',
         ],
 
         // Typewriter settings
@@ -307,13 +308,6 @@ const siteConfig = {
     // 11. EDUCATION & CERTIFICATIONS
     // ============================================================================
     education: [
-        {
-            id: 1,
-            institutionName: 'Western Connecticut State University',
-            specialization: 'BA in English: Professional Writing',
-            monthOfEarning: 'May',
-            yearOfEarning: '2008',
-        },
         {
             id: 2,
             institutionName: 'Certifications',

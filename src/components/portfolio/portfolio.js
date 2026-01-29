@@ -12,7 +12,7 @@ const TiltCard = ({ children }) => {
                 scale: 1.05,
                 speed: 300,
                 glare: true,
-                'max-glare': 0.3
+                'max-glare': 0.3,
             });
         }
 
@@ -23,10 +23,14 @@ const TiltCard = ({ children }) => {
         };
     }, []);
 
-    return <div ref={tiltRef} style={{ height: '100%' }}>{children}</div>;
+    return (
+        <div ref={tiltRef} style={{ height: '100%' }}>
+            {children}
+        </div>
+    );
 };
 
-const Portfolio = ({ resumeData }) => {
+const Portfolio = ({ siteConfig }) => {
     // Reinitialize BasicLightbox after component mounts
     useEffect(() => {
         // Wait for DOM to be ready
@@ -40,27 +44,30 @@ const Portfolio = ({ resumeData }) => {
                 return;
             }
 
-            folioLinks.forEach((link) => {
+            folioLinks.forEach(link => {
                 const modalbox = link.getAttribute('href');
                 const modalElement = document.querySelector(modalbox);
 
                 if (modalElement) {
                     const instance = window.basicLightbox.create(modalElement, {
-                        onShow: function(instance) {
-                            document.addEventListener("keydown", function(evt) {
-                                evt = evt || window.event;
-                                if (evt.keyCode === 27) {
-                                    instance.close();
-                                }
-                            });
-                        }
+                        onShow: function (instance) {
+                            document.addEventListener(
+                                'keydown',
+                                function (evt) {
+                                    evt = evt || window.event;
+                                    if (evt.keyCode === 27) {
+                                        instance.close();
+                                    }
+                                },
+                            );
+                        },
                     });
                     modals.push(instance);
                 }
             });
 
             folioLinks.forEach((link, index) => {
-                link.addEventListener("click", function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
                     if (modals[index]) {
                         modals[index].show();
@@ -70,16 +77,16 @@ const Portfolio = ({ resumeData }) => {
         }, 500); // Small delay to ensure DOM is ready
 
         return () => clearTimeout(timer);
-    }, [resumeData.portfolio]);
+    }, [siteConfig.portfolio]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1
-            }
-        }
+                staggerChildren: 0.1,
+            },
+        },
     };
 
     const itemVariants = {
@@ -90,9 +97,9 @@ const Portfolio = ({ resumeData }) => {
             transition: {
                 type: 'spring',
                 stiffness: 100,
-                damping: 12
-            }
-        }
+                damping: 12,
+            },
+        },
     };
 
     return (
@@ -112,12 +119,12 @@ const Portfolio = ({ resumeData }) => {
             <motion.div
                 className='row collapse block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack folio-list'
                 variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
+                initial='hidden'
+                whileInView='visible'
                 viewport={{ once: true, amount: 0.1 }}
             >
-                {resumeData.portfolio &&
-                    resumeData.portfolio.map((item) => {
+                {siteConfig.portfolio &&
+                    siteConfig.portfolio.map(item => {
                         return (
                             <motion.div
                                 className='column folio-item'
@@ -129,8 +136,8 @@ const Portfolio = ({ resumeData }) => {
                                         href={'#modal-0' + item.id}
                                         className='folio-item__thumb'
                                     >
-                                        <div className="folio-overlay">
-                                            <div className="folio-overlay-content">
+                                        <div className='folio-overlay'>
+                                            <div className='folio-overlay-content'>
                                                 <h4>{item.name}</h4>
                                                 <p>{item.companyName}</p>
                                             </div>
@@ -139,7 +146,7 @@ const Portfolio = ({ resumeData }) => {
                                             src={item.thumbnail}
                                             srcSet={item.thumbnail}
                                             alt={item.name}
-                                            loading="lazy"
+                                            loading='lazy'
                                         />
                                     </a>
                                 </TiltCard>
@@ -148,19 +155,12 @@ const Portfolio = ({ resumeData }) => {
                     })}
             </motion.div>
 
-            {resumeData.portfolio &&
-                resumeData.portfolio.map(item => {
+            {siteConfig.portfolio &&
+                siteConfig.portfolio.map(item => {
                     return (
-                        <div
-                            id={'modal-0' + item.id}
-                            key={item.id}
-                            hidden
-                        >
+                        <div id={'modal-0' + item.id} key={item.id} hidden>
                             <div className='modal-popup'>
-                                <img
-                                    src={item.thumbnail}
-                                    alt={item.name}
-                                />
+                                <img src={item.thumbnail} alt={item.name} />
                                 <div className='modal-popup__desc'>
                                     <h5>
                                         {item.name} -{' '}

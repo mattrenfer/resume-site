@@ -1,38 +1,30 @@
 import { render, screen } from '@testing-library/react';
+import siteConfig from './siteConfig';
+import React from 'react';
 import App from './App';
-import resumeData from './resumeData';
 
 test('renders app component without crashing', () => {
     render(<App />);
 });
 
-test('renders hero section with name from resumeData', () => {
+test('renders hero section with name from siteConfig', () => {
     render(<App />);
-    const nameElement = screen.getByText(resumeData.name);
+    const nameElement = screen.getByText(siteConfig.personal.name);
     expect(nameElement).toBeInTheDocument();
 });
 
-test('renders hero section with role from resumeData', () => {
+test('hero section uses roles from siteConfig', () => {
     render(<App />);
-    const roleElement = screen.getByText(resumeData.role);
-    expect(roleElement).toBeInTheDocument();
+    // Hero uses a typewriter for roles, so the first role may not be in DOM yet.
+    // Assert that the hero role heading exists and config has roles.
+    const heroHeading = screen.getByRole('heading', { level: 2 });
+    expect(heroHeading).toBeInTheDocument();
+    expect(siteConfig.hero.roles.length).toBeGreaterThan(0);
 });
 
-// test('renders navigation menu', () => {
-//     render(<App />);
-//     const homeLink = screen.getAllByText(/home/i);
-//     const aboutLink = screen.getAllByText(/about/i);
-//     const resumeLink = screen.getAllByText(/resume/i);
-//     const portfolioLink = screen.getAllByText(/portfolio/i);
-//     expect(homeLink).toBeInTheDocument();
-//     expect(aboutLink).toBeInTheDocument();
-//     expect(resumeLink).toBeInTheDocument();
-//     expect(portfolioLink).toBeInTheDocument();
-// });
-
-test('resumeData object has required properties', () => {
-    expect(resumeData).toHaveProperty('name');
-    expect(resumeData).toHaveProperty('role');
-    expect(resumeData.name).toBeTruthy();
-    expect(resumeData.role).toBeTruthy();
+test('siteConfig object has required properties', () => {
+    expect(siteConfig.personal).toHaveProperty('name');
+    expect(siteConfig.hero.roles[0]).toBeTruthy();
+    expect(siteConfig.personal.name).toBeTruthy();
+    expect(siteConfig.hero.roles[0]).toBeTruthy();
 });
