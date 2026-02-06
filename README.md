@@ -7,82 +7,69 @@ A cutting-edge portfolio website featuring interactive animations, 3D effects, a
 ## ✨ Features
 
 ### 🎨 **Visual Excellence**
-- **Interactive Particle System** - Dynamic constellation background with collision detection
-- **Custom Cursor** - Smooth spring physics with context-aware states
-- **3D Tilt Effects** - Portfolio cards with realistic depth and glare
-- **Scroll Animations** - Professional entrance effects triggered by scroll position
-- **Typewriter Effect** - Rotating role titles with smooth transitions
-- **Gradient Progress Bar** - Real-time scroll position indicator
+
+-   **Interactive Particle System** - Dynamic constellation background with collision detection
+-   **Custom Cursor** - Smooth spring physics with context-aware states
+-   **3D Tilt Effects** - Portfolio cards with realistic depth and glare
+-   **Scroll Animations** - Professional entrance effects triggered by scroll position
+-   **Typewriter Effect** - Rotating role titles with smooth transitions
+-   **Gradient Progress Bar** - Real-time scroll position indicator
 
 ### ⚡ **Performance Optimized**
-- **60fps animations** across all interactions
-- **Request Animation Frame** throttling for cursor
-- **Motion values** for zero-cost DOM updates
-- **Intersection Observer** for scroll triggers (no scroll listeners)
-- **GPU-accelerated transforms** only
-- **Lazy loading** for images
-- **Passive event listeners** throughout
+
+-   **60fps animations** across all interactions
+-   **Request Animation Frame** throttling for cursor
+-   **Motion values** for zero-cost DOM updates
+-   **Intersection Observer** for scroll triggers (no scroll listeners)
+-   **GPU-accelerated transforms** only
+-   **Lazy loading** for images
+-   **Passive event listeners** throughout
 
 ### 📱 **Responsive & Accessible**
-- Mobile-first design
-- Touch device detection (cursor disabled on mobile)
-- Keyboard navigation preserved
-- Screen reader compatible
-- Semantic HTML maintained
+
+-   Mobile-first design
+-   Touch device detection (cursor disabled on mobile)
+-   Keyboard navigation preserved
+-   Screen reader compatible
+-   Semantic HTML maintained
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **React 18** - Modern hooks, concurrent features
-- **Framer Motion** - Professional animation library
-- **tsParticles** - High-performance particle system
-- **Vanilla Tilt** - 3D tilt effects
-- **CSS Variables** - Dynamic theming foundation
-- **ES6+** - Modern JavaScript features
-
----
-
-## 📚 Documentation
-
-### For Customization
-👉 **[CUSTOMIZATION_GUIDE.md](./CUSTOMIZATION_GUIDE.md)**
-- Change colors, fonts, animations
-- Add your own personality
-- Easter eggs and fun additions
-- Theme switcher implementation
-- 15+ customization ideas with code
-
-### For Technical Discussions
-👉 **[TECHNICAL_OVERVIEW.md](./TECHNICAL_OVERVIEW.md)**
-- Complete implementation breakdown
-- Architecture decisions explained
-- Performance optimization strategies
-- Employer talking points
-- Interview question prep
+-   **React 18** - Modern hooks, concurrent features
+-   **Framer Motion** - Professional animation library
+-   **tsParticles** - High-performance particle system
+-   **Vanilla Tilt** - 3D tilt effects
+-   **CSS Variables** - Dynamic theming foundation
+-   **ES6+** - Modern JavaScript features
 
 ---
 
 ## 🚀 Quick Start
 
 ### Installation
+
 ```bash
 npm install
 ```
 
 ### Development
+
 ```bash
 npm start
 # Opens on http://localhost:3000
 ```
 
 ### Production Build
+
 ```bash
 npm run build
 # Creates optimized build in /build folder
 ```
 
 ### Deploy to GitHub Pages
+
 ```bash
 npm run deploy
 # Deploys to gh-pages branch
@@ -120,97 +107,81 @@ public/
 
 ## 🎯 Key Components
 
-### Custom Cursor
-**File:** `src/components/CustomCursor/CustomCursor.js`
-
-High-performance cursor with:
-- Motion values for direct DOM updates
-- RAF throttling (60fps)
-- Spring physics for smooth movement
-- Context-aware states ("VIEW", "DOWNLOAD")
-
 ### Hero Particle System
+
 **File:** `src/components/hero/hero.js`
 
 Interactive background with:
-- 50 particles with dynamic linking
-- Collision detection & bouncing
-- Typewriter role rotation
-- Staggered content entrance
+
+-   50 particles with dynamic linking
+-   Collision detection & bouncing
+-   Typewriter role rotation
+-   Staggered content entrance
 
 ### Portfolio 3D Cards
+
 **File:** `src/components/portfolio/portfolio.js`
 
 Enhanced project showcase with:
-- Vanilla Tilt 3D effects (15° max tilt)
-- Gradient hover overlays
-- Image zoom on hover
-- Scroll-triggered stagger entrance
+
+-   Vanilla Tilt 3D effects (15° max tilt)
+-   Gradient hover overlays
+-   Image zoom on hover
+-   Scroll-triggered stagger entrance
 
 ---
 
 ## 🎨 Customization Quick Wins
 
 ### Change Colors
+
 Edit `public/css/styles.css` (lines 111-152):
+
 ```css
---color-1: hsla(182, 82%, 38%, 1);  /* Primary */
---color-2: hsla(24, 100%, 47%, 1);  /* Accent */
+--color-1: hsla(182, 82%, 38%, 1); /* Primary */
+--color-2: hsla(24, 100%, 47%, 1); /* Accent */
 ```
 
 ### Change Typewriter Roles
+
 Edit `src/components/hero/hero.js` (line 8):
+
 ```javascript
-const roles = [
-  'Your Role Here',
-  'Another Title',
-  'Third Option'
-];
+const roles = ['Your Role Here', 'Another Title', 'Third Option'];
 ```
 
 ### Adjust Particle Count
+
 Edit `src/components/hero/hero.js` (line 65):
+
 ```javascript
 value: 50,  // Current (change to 20-100)
 ```
-
-### Disable Custom Cursor
-Edit `src/App.js`:
-```javascript
-// Comment out:
-// <CustomCursor />
-```
-
-👉 **See [CUSTOMIZATION_GUIDE.md](./CUSTOMIZATION_GUIDE.md) for 15+ more ideas**
 
 ---
 
 ## 🐛 Troubleshooting
 
 ### Portfolio modals don't open
-- Ensure `public/js/main.js` is loaded
-- Check browser console for errors
-- BasicLightbox library must be present
+
+-   Ensure `public/js/main.js` is loaded
+-   Check browser console for errors
+-   BasicLightbox library must be present
 
 ### Animations are laggy
-- Reduce particle count (hero.js line 65)
-- Disable custom cursor temporarily
-- Check Chrome DevTools Performance tab
-- Try disabling other browser extensions
+
+-   Reduce particle count (hero.js line 65)
+-   Disable custom cursor temporarily
+-   Check Chrome DevTools Performance tab
+-   Try disabling other browser extensions
 
 ### Build fails
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules package-lock.json
 npm install
 npm run build
-```
-
-### Cursor feels slow
-Edit `src/components/CustomCursor/CustomCursor.js` (line 13):
-```javascript
-// Increase stiffness for snappier feel
-const springConfig = { damping: 25, stiffness: 600, mass: 0.5 };
 ```
 
 ---
@@ -230,34 +201,31 @@ Lighthouse:      95+ (Performance)
 ## 🎓 What This Project Demonstrates
 
 ### Technical Skills
-- ✅ Modern React patterns (hooks, functional components)
-- ✅ Animation expertise (Framer Motion orchestration)
-- ✅ Performance optimization (RAF, motion values, passive listeners)
-- ✅ JavaScript mastery (ES6+, async, callbacks)
-- ✅ CSS proficiency (variables, animations, transforms)
+
+-   ✅ Modern React patterns (hooks, functional components)
+-   ✅ Animation (Framer Motion orchestration)
+-   ✅ Performance optimization (RAF, motion values, passive listeners)
+-   ✅ JavaScript mastery (ES6+, async, callbacks)
+-   ✅ CSS proficiency (variables, animations, transforms)
 
 ### Soft Skills
-- ✅ Attention to detail (60fps animations)
-- ✅ User experience focus (accessibility, mobile)
-- ✅ Problem-solving (performance bottlenecks)
-- ✅ Modernization ability (legacy → current)
-- ✅ Documentation (2 comprehensive guides)
+
+-   ✅ Attention to detail (60fps animations)
+-   ✅ User experience focus (accessibility, mobile)
+-   ✅ Problem-solving (performance bottlenecks)
+-   ✅ Modernization ability (legacy → current)
 
 ---
 
 ## 🚀 Future Enhancements
 
 Potential additions for next iteration:
-- [ ] TypeScript migration
-- [ ] Theme switcher (dark/light/neon)
-- [ ] Resume section animations
-- [ ] Blog with MDX
-- [ ] Contact form with validation
-- [ ] Analytics integration
-- [ ] Service worker (offline)
-- [ ] Storybook component library
-- [ ] Internationalization (i18n)
-- [ ] A/B testing framework
+
+-   [ ] TypeScript migration
+-   [ ] Theme switcher (dark/light/neon)
+-   [ ] Resume section animations
+-   [ ] Blog
+-   [ ] Contact form with validation
 
 ---
 
@@ -273,4 +241,4 @@ Potential additions for next iteration:
 
 **Built with ❤️ and way too much ☕**
 
-*Last updated: January 2026*
+_Last updated: January 2026_
