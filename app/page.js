@@ -1,14 +1,13 @@
-import React from 'react';
 import Hero from './components/hero/hero';
 import About from './components/about/about';
-import Resume from './components/resume/resume';
 import Specialties from './components/specialties/specialties';
 import Portfolio from './components/portfolio/portfolio';
+import Resume from './components/resume/resume';
 import Footer from './components/footer/footer';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import siteConfig from './siteConfig';
 
-function App() {
+export default function Home() {
     return (
         <div className='App'>
             {siteConfig.features.scrollProgress && <ScrollProgress />}
@@ -21,5 +20,3 @@ function App() {
         </div>
     );
 }
-
-export default App;

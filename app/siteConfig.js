@@ -497,7 +497,8 @@ const siteConfig = {
     // 14. SYSTEM SETTINGS (Don't usually need to change these)
     // ============================================================================
     system: {
-        publicUrl: process.env.PUBLIC_URL,
+        // Assets are served from the site root in Next.js (public/ maps to /).
+        publicUrl: '',
         imageBaseUrl: '/',
     },
 };

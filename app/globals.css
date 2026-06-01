@@ -123,15 +123,52 @@ body {
   padding: 0 2rem 1.5rem !important;
 }
 
-/* BasicLightbox overlay adjustments */
-.basicLightbox {
+/* Portfolio lightbox (React modal — replaces BasicLightbox) */
+.folio-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  overflow-y: auto;
+  animation: folioModalFade 0.25s ease;
 }
 
-.basicLightbox__placeholder {
+@keyframes folioModalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.folio-modal {
+  position: relative;
   max-width: 90vw;
   max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.folio-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  z-index: 1;
+  border: none;
+  background: transparent;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #333;
+  cursor: pointer;
+}
+
+.folio-modal__close:hover {
+  color: var(--color-1, #11ABB0);
+}
+
+/* Smooth-scroll for in-page anchor links (e.g. footer "back to top").
+   Replaces the Ceevee main.js Jump.js / ssSmoothScroll behavior. */
+html {
+  scroll-behavior: smooth;
 }

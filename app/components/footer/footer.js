@@ -1,6 +1,21 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 
 const Footer = ({ siteConfig }) => {
+    // Show the "back to top" button once the user has scrolled down a bit.
+    // Replaces the Ceevee main.js ssBackToTop() behavior.
+    const [showGoTop, setShowGoTop] = useState(false);
+
+    useEffect(() => {
+        const pxShow = 900;
+        const onScroll = () => setShowGoTop(window.scrollY >= pxShow);
+
+        onScroll(); // sync on mount in case the page loads already scrolled
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <React.Fragment>
             <footer className='s-footer'>
@@ -67,7 +82,7 @@ const Footer = ({ siteConfig }) => {
                         </span>
                     </div>
                 </div>
-                <div className='ss-go-top'>
+                <div className={`ss-go-top${showGoTop ? ' link-is-visible' : ''}`}>
                     <a className='smoothscroll' title='Back to Top' href='#top'>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
