@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import './globals.css';
+import './globals.scss';
 
 export const metadata = {
     title: 'Matthew Russell Renfer - Software Engineer',
@@ -19,11 +19,9 @@ export const viewport = {
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>
-            <head>
-                {/* Ceevee design system + vendor styles (served from public/). */}
-                <link rel='stylesheet' href='/css/styles.css' />
-                <link rel='stylesheet' href='/css/vendor.css' />
-            </head>
+            {/* The Ceevee template + vendor CSS are imported at the top of
+                globals.css (not linked here) so that globals.css overrides
+                them correctly — see the comment in that file. */}
             {/* id="top" is the anchor target for the footer "back to top" link.
                 No ss-preload class: the preloader was retired, and adding it
                 without ss-loaded would leave .s-hero permanently hidden. */}

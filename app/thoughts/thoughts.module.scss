@@ -3,9 +3,43 @@
    --color-1 teal, --color-text) so it feels native to matthewrenfer.com while
    optimizing for long-form readability. */
 
-.thoughts {
+$dark: #282828;
+$light: #c0c0ba;
+$gray-shade-0: #eff0f0;
+$gray-shade-1: #e0e0e0;
+$gray-shade-2: #929393;
+$gray-shade-3: #636565;
+$teal: var(--color-1); // follows the global palette; revert to #11abb0 to decouple
+$forest-green: #2a4030;
+$burgundy: #c47a86;
+$navy: #2a3f5c;
+
+$bg-dark: #282828;
+$bg-light: #c0c0ba;
+
+$font-dark: #c0c0ba;
+$font-light: #282828;
+
+$link-dark: $teal;
+$link-light: $teal;
+
+/* Toggle between light & dark themes */
+
+/* Light Theme /* 
+
+/* .thoughts {
     background: #fff;
     color: var(--color-text, #282828);
+    font-family: var(--font-1, 'Inter', sans-serif);
+    min-height: 100vh;
+    padding: 8rem 2rem 6rem;
+} */
+
+/* Dark Theme */
+
+.thoughts {
+    background: $bg-dark;
+    color: $font-dark;
     font-family: var(--font-1, 'Inter', sans-serif);
     min-height: 100vh;
     padding: 8rem 2rem 6rem;
@@ -14,7 +48,7 @@
 /* Shared centered reading column */
 .inner,
 .article {
-    max-width: 40rem; /* ~65 characters at this size */
+    max-width: 60rem; /* ~65 characters at this size */
     margin: 0 auto;
 }
 
@@ -29,7 +63,7 @@
     letter-spacing: 0.25em;
     font-size: 1.3rem;
     font-weight: 600;
-    color: var(--color-1, #11abb0);
+    color: $burgundy;
     margin: 0 0 0.75rem;
 }
 
@@ -40,7 +74,7 @@
     font-size: 4.2rem;
     line-height: 1.15;
     margin: 0;
-    color: var(--color-text-dark, #000);
+    color: $font-dark;
 }
 
 /* ---- Index post list ---- */
@@ -51,7 +85,7 @@
 }
 
 .postItem {
-    border-top: 1px solid var(--color-gray-2, #e0e0e0);
+    border-top: 1px solid $gray-shade-1;
 }
 
 .postLink {
@@ -72,7 +106,7 @@
     font-weight: 600;
     line-height: 1.2;
     margin: 0 0 0.5rem;
-    color: var(--color-text-dark, #000);
+    color: $font-dark;
 }
 
 .postDate {
@@ -80,7 +114,7 @@
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-text-light, #929393);
+    color: $gray-shade-2;
     margin-bottom: 1rem;
 }
 
@@ -88,12 +122,12 @@
     font-size: 1.7rem;
     line-height: 1.6;
     margin: 0;
-    color: var(--color-gray-10, #636565);
+    color: $gray-shade-3;
 }
 
 .empty {
     font-size: 1.8rem;
-    color: var(--color-text-light, #929393);
+    color: $gray-shade-2;
 }
 
 /* ---- Individual post ---- */
@@ -103,7 +137,7 @@
 }
 
 .backLink a {
-    color: var(--color-1, #11abb0);
+    color: $teal;
     text-decoration: none;
 }
 
@@ -121,14 +155,14 @@
     font-weight: 600;
     line-height: 1.15;
     margin: 0 0 1rem;
-    color: var(--color-text-dark, #000);
+    color: $font-dark;
 }
 
 .articleDate {
     font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-text-light, #929393);
+    color: $gray-shade-1;
 }
 
 /* ---- Rendered markdown body ---- */
@@ -156,7 +190,7 @@
 }
 
 .prose a {
-    color: var(--color-1, #11abb0);
+    color: $link-dark;
     text-decoration: underline;
     text-underline-offset: 2px;
 }
@@ -174,9 +208,9 @@
 .prose blockquote {
     margin: 2em 0;
     padding-left: 1.4em;
-    border-left: 3px solid var(--color-1, #11abb0);
+    border-left: 3px solid $teal;
     font-style: italic;
-    color: var(--color-gray-10, #636565);
+    color: $font-dark;
 }
 
 .prose code {
@@ -208,7 +242,7 @@
 
 .prose hr {
     border: none;
-    border-top: 1px solid var(--color-gray-2, #e0e0e0);
+    border-top: 1px solid $gray-shade-1;
     margin: 3em 0;
 }
 
@@ -218,7 +252,7 @@
 }
 
 .backHome a {
-    color: var(--color-1, #11abb0);
+    color: $link-dark;
     text-decoration: none;
 }
 

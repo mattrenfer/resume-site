@@ -1,29 +1,22 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import VanillaTilt from 'vanilla-tilt';
 
-const TiltCard = ({ children }) => {
+const TiltCard = ({ children, enabled = true, options }) => {
     const tiltRef = useRef(null);
 
     useEffect(() => {
-        if (tiltRef.current) {
-            VanillaTilt.init(tiltRef.current, {
-                max: 15,
-                scale: 1.05,
-                speed: 300,
-                glare: true,
-                'max-glare': 0.3,
-            });
-        }
+        if (!enabled || !tiltRef.current) return;
+
+        const node = tiltRef.current;
+        VanillaTilt.init(node, options);
 
         return () => {
-            if (tiltRef.current && tiltRef.current.vanillaTilt) {
-                tiltRef.current.vanillaTilt.destroy();
-            }
+            if (node.vanillaTilt) node.vanillaTilt.destroy();
         };
-    }, []);
+    }, [enabled, options]);
 
     return (
         <div ref={tiltRef} style={{ height: '100%' }}>
@@ -37,6 +30,20 @@ const Portfolio = ({ siteConfig }) => {
     // the old window.basicLightbox dependency: clicking a thumbnail opens a
     // modal for that item; Escape / overlay click / close button dismiss it.
     const [activeItem, setActiveItem] = useState(null);
+
+    // 3D tilt: gated by the feature toggle, parameters read from siteConfig
+    // so app/siteConfig.js actually controls the effect.
+    const tiltEnabled = siteConfig.features.portfolioTilt;
+    const tiltOptions = useMemo(
+        () => ({
+            max: siteConfig.portfolioTilt.maxTilt,
+            scale: siteConfig.portfolioTilt.scale,
+            speed: siteConfig.portfolioTilt.speed,
+            glare: siteConfig.portfolioTilt.glare,
+            'max-glare': siteConfig.portfolioTilt.maxGlare,
+        }),
+        [siteConfig.portfolioTilt],
+    );
 
     useEffect(() => {
         if (!activeItem) return;
@@ -105,7 +112,10 @@ const Portfolio = ({ siteConfig }) => {
                                 key={item.id}
                                 variants={itemVariants}
                             >
-                                <TiltCard>
+                                <TiltCard
+                                    enabled={tiltEnabled}
+                                    options={tiltOptions}
+                                >
                                     <a
                                         href={'#modal-0' + item.id}
                                         className='folio-item__thumb'

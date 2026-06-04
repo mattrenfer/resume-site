@@ -23,8 +23,8 @@ const siteConfig = {
     // ============================================================================
     features: {
         scrollProgress: true, // Show scroll progress bar at top
-        particleBackground: true, // Enable particle system in hero
-        portfolioTilt: true, // Enable 3D tilt on portfolio cards
+        particleBackground: false, // Enable particle system in hero
+        portfolioTilt: false, // Enable 3D tilt on portfolio cards
         soundEffects: false, // Enable sound effects on interactions
         analytics: false, // Enable analytics tracking
     },
@@ -35,18 +35,18 @@ const siteConfig = {
     theme: {
         // Primary brand colors (used throughout site)
         colors: {
-            primary: '#11ABB0', // Teal - main accent color
-            secondary: '#F06000', // Orange - secondary accent
+            primary: '#3d6e6a', // Teal - main accent color
+            secondary: '#ac4e00', // Orange - secondary accent
             // Alternative color schemes (uncomment to use):
             // primary: '#FF00FF',       // Neon Purple
             // secondary: '#FF1493',     // Hot Pink
         },
 
         // Particle colors (matches theme.colors by default)
-        particleColors: ['#11ABB0', '#F06000'],
+        particleColors: ['#3d6e6a', '#8c3d24'],
 
         // Animation mode
-        reducedMotion: false, // Respect prefers-reduced-motion (future)
+        reducedMotion: true, // Respect prefers-reduced-motion (future)
     },
 
     // ============================================================================
@@ -118,7 +118,7 @@ const siteConfig = {
     // 5. PARTICLES - Background particle system configuration
     // ============================================================================
     particles: {
-        enabled: true, // Master toggle for particles
+        enabled: false, // Master toggle for particles
 
         number: 50, // Particle count (20-100)
         // Performance: 20-30 = minimal, 50 = balanced, 80-100 = dense

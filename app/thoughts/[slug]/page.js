@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import {
-    getPublishedSlugs,
-    getPostBySlug,
-    formatDate,
-} from '@/lib/posts';
-import styles from '../thoughts.module.css';
+import { getPublishedSlugs, getPostBySlug, formatDate } from '@/lib/posts';
+import styles from '../thoughts.module.scss';
 
 // Static export: enumerate every published slug at build time. Any path not
 // listed here 404s (dynamicParams off) since there's no server to render them.

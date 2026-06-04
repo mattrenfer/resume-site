@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getAllPosts, formatDate } from '@/lib/posts';
-import styles from './thoughts.module.css';
+import styles from './thoughts.module.scss';
 
 export const metadata = {
     title: 'Thoughts — Matthew Renfer',
@@ -16,7 +16,9 @@ export default function ThoughtsIndex() {
             <div className={styles.inner}>
                 <header className={styles.masthead}>
                     <p className={styles.kicker}>Thoughts</p>
-                    <h1 className={styles.tagline}>Yeah, I&apos;ve got some...</h1>
+                    <h1 className={styles.tagline}>
+                        Yeah, I&apos;ve got some...
+                    </h1>
                 </header>
 
                 {posts.length === 0 ? (

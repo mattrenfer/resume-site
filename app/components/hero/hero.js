@@ -10,6 +10,20 @@ const Hero = ({ siteConfig }) => {
     const [displayRole, setDisplayRole] = useState('');
     const [roleIndex, setRoleIndex] = useState(0);
 
+    // Particle colors track the CSS custom properties (--color-1/--color-2), so
+    // the whole site has ONE source of truth for color. Falls back to the
+    // siteConfig values during server render, where getComputedStyle is absent.
+    const [particleColors] = useState(() => {
+        if (typeof window === 'undefined') return config.theme.particleColors;
+        const root = getComputedStyle(document.documentElement);
+        const c1 = root.getPropertyValue('--color-1').trim();
+        const c2 = root.getPropertyValue('--color-2').trim();
+        return [
+            c1 || config.theme.particleColors[0],
+            c2 || config.theme.particleColors[1],
+        ];
+    });
+
     // Typewriter effect
     useEffect(() => {
         const currentRole =
@@ -45,10 +59,10 @@ const Hero = ({ siteConfig }) => {
             fpsLimit: config.particles.fpsLimit,
             particles: {
                 color: {
-                    value: config.theme.particleColors,
+                    value: particleColors,
                 },
                 links: {
-                    color: config.particles.links.color,
+                    color: particleColors[0],
                     distance: config.particles.links.distance,
                     enable: config.particles.links.enable,
                     opacity: config.particles.links.opacity,
@@ -129,7 +143,7 @@ const Hero = ({ siteConfig }) => {
             },
             detectRetina: true,
         }),
-        [],
+        [particleColors],
     );
 
     const containerVariants = {
@@ -184,19 +198,21 @@ const Hero = ({ siteConfig }) => {
     return (
         <section id='hero' className='s-hero target-section'>
             <div className='s-hero__bg'>
-                <Particles
-                    id='hero-particles'
-                    init={particlesInit}
-                    options={particlesConfig}
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        zIndex: 1,
-                    }}
-                />
+                {siteConfig.features.particleBackground && (
+                    <Particles
+                        id='hero-particles'
+                        init={particlesInit}
+                        options={particlesConfig}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            zIndex: 1,
+                        }}
+                    />
+                )}
             </div>
 
             <motion.div
