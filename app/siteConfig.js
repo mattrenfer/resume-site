@@ -23,7 +23,6 @@ const siteConfig = {
     // ============================================================================
     features: {
         scrollProgress: true, // Show scroll progress bar at top
-        particleBackground: false, // Enable particle system in hero
         portfolioTilt: false, // Enable 3D tilt on portfolio cards
         soundEffects: false, // Enable sound effects on interactions
         analytics: false, // Enable analytics tracking
@@ -41,9 +40,6 @@ const siteConfig = {
             // primary: '#FF00FF',       // Neon Purple
             // secondary: '#FF1493',     // Hot Pink
         },
-
-        // Particle colors (matches theme.colors by default)
-        particleColors: ['#3d6e6a', '#8c3d24'],
 
         // Animation mode
         reducedMotion: true, // Respect prefers-reduced-motion (future)
@@ -115,93 +111,7 @@ const siteConfig = {
     },
 
     // ============================================================================
-    // 5. PARTICLES - Background particle system configuration
-    // ============================================================================
-    particles: {
-        enabled: false, // Master toggle for particles
-
-        number: 50, // Particle count (20-100)
-        // Performance: 20-30 = minimal, 50 = balanced, 80-100 = dense
-
-        density: {
-            enable: true,
-            area: 1000, // Particles per pixel area
-        },
-
-        // Particle appearance
-        shapes: ['circle', 'triangle'], // Options: circle, triangle, square, polygon, star
-        sizeMin: 1,
-        sizeMax: 3,
-        opacity: 0.5,
-
-        // Particle movement
-        speed: 1, // Movement speed (0.5-3)
-        // Performance: Lower = better performance
-        direction: 'none', // Options: none, top, bottom, left, right
-
-        // Particle connections
-        links: {
-            enable: true,
-            distance: 150, // Max distance to draw connections
-            color: '#11ABB0', // Link color (matches theme.colors.primary)
-            opacity: 0.3,
-            width: 1,
-        },
-
-        // Animation settings
-        opacityAnimation: {
-            enable: true,
-            speed: 1,
-            minimumValue: 0.1,
-        },
-
-        collisions: {
-            enable: false, // Particle collisions (performance cost)
-        },
-
-        // Interactivity settings - controls how particles react to user interaction
-        interactivity: {
-            enabled: true, // Master toggle for all interactions
-
-            // Mouse hover behavior
-            hover: {
-                enable: true, // Enable hover effects
-                mode: 'grab', // Options: 'grab', 'repulse', 'bubble', 'connect', or disable
-                speed: 0.3, // Transition speed when particles move (0.1-1.0, lower = smoother)
-                // 'grab' draws connections to nearby particles
-                // 'repulse' pushes particles away from cursor
-                // 'bubble' makes particles grow near cursor
-            },
-
-            // Grab effect settings (when hover.mode = 'grab')
-            grab: {
-                distance: 140, // Distance to connect particles to cursor (pixels)
-                duration: 0.4, // Time it takes for connections to appear/disappear (seconds)
-                lineLinked: {
-                    opacity: 0.5, // Opacity of grab lines (0-1)
-                },
-            },
-
-            // Repulse effect settings (when hover.mode = 'repulse')
-            repulse: {
-                distance: 200, // Distance particles move away from cursor
-                duration: 0.4, // Time for particles to move away/return (seconds)
-                speed: 1, // Speed of repulsion (0.1-3.0)
-            },
-
-            // Click behavior - scramble effect on user click
-            click: {
-                enable: true, // Enable click effects
-                mode: 'repulse', // Options: 'push' (add particles), 'remove', 'repulse'
-                // 'repulse' creates the scramble effect you want
-            },
-        },
-
-        fpsLimit: 60, // Frame rate cap
-    },
-
-    // ============================================================================
-    // 6. PORTFOLIO CARDS - 3D tilt effect settings
+    // 5. PORTFOLIO CARDS - 3D tilt effect settings
     // ============================================================================
     portfolioTilt: {
         enabled: true, // Master toggle

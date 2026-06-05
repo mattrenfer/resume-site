@@ -1,28 +1,12 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Particles from 'react-tsparticles';
-import { loadSlim } from 'tsparticles-slim';
 import config from '../../siteConfig';
 
 const Hero = ({ siteConfig }) => {
     const [displayRole, setDisplayRole] = useState('');
     const [roleIndex, setRoleIndex] = useState(0);
-
-    // Particle colors track the CSS custom properties (--color-1/--color-2), so
-    // the whole site has ONE source of truth for color. Falls back to the
-    // siteConfig values during server render, where getComputedStyle is absent.
-    const [particleColors] = useState(() => {
-        if (typeof window === 'undefined') return config.theme.particleColors;
-        const root = getComputedStyle(document.documentElement);
-        const c1 = root.getPropertyValue('--color-1').trim();
-        const c2 = root.getPropertyValue('--color-2').trim();
-        return [
-            c1 || config.theme.particleColors[0],
-            c2 || config.theme.particleColors[1],
-        ];
-    });
 
     // Typewriter effect
     useEffect(() => {
@@ -44,107 +28,6 @@ const Hero = ({ siteConfig }) => {
 
         return () => clearInterval(typeInterval);
     }, [roleIndex]);
-
-    // Memoize particles initialization
-    const particlesInit = useCallback(async engine => {
-        await loadSlim(engine);
-    }, []);
-
-    // Memoize particles configuration
-    const particlesConfig = useMemo(
-        () => ({
-            background: {
-                opacity: 0,
-            },
-            fpsLimit: config.particles.fpsLimit,
-            particles: {
-                color: {
-                    value: particleColors,
-                },
-                links: {
-                    color: particleColors[0],
-                    distance: config.particles.links.distance,
-                    enable: config.particles.links.enable,
-                    opacity: config.particles.links.opacity,
-                    width: config.particles.links.width,
-                },
-                move: {
-                    enable: true,
-                    speed: config.particles.speed,
-                    direction: config.particles.direction,
-                    random: true,
-                    straight: false,
-                    outModes: {
-                        default: 'bounce',
-                    },
-                },
-                number: {
-                    density: {
-                        enable: config.particles.density.enable,
-                        area: config.particles.density.area,
-                    },
-                    value: config.particles.number,
-                },
-                opacity: {
-                    value: config.particles.opacity,
-                    random: true,
-                    animation: {
-                        enable: config.particles.opacityAnimation.enable,
-                        speed: config.particles.opacityAnimation.speed,
-                        minimumValue:
-                            config.particles.opacityAnimation.minimumValue,
-                    },
-                },
-                shape: {
-                    type: config.particles.shapes,
-                },
-                size: {
-                    value: {
-                        min: config.particles.sizeMin,
-                        max: config.particles.sizeMax,
-                    },
-                    random: true,
-                },
-            },
-            interactivity: {
-                events: {
-                    onHover: {
-                        enable: config.particles.interactivity.hover.enable,
-                        mode: config.particles.interactivity.hover.mode,
-                    },
-                    onClick: {
-                        enable: config.particles.interactivity.click.enable,
-                        mode: config.particles.interactivity.click.mode,
-                    },
-                },
-                modes: {
-                    grab: {
-                        distance: config.particles.interactivity.grab.distance,
-                        links: {
-                            opacity:
-                                config.particles.interactivity.grab.lineLinked
-                                    .opacity,
-                        },
-                    },
-                    repulse: {
-                        distance:
-                            config.particles.interactivity.repulse.distance,
-                        duration:
-                            config.particles.interactivity.repulse.duration,
-                        speed: config.particles.interactivity.repulse.speed,
-                    },
-                    push: {
-                        quantity: 4,
-                    },
-                    remove: {
-                        quantity: 2,
-                    },
-                },
-            },
-            detectRetina: true,
-        }),
-        [particleColors],
-    );
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -197,23 +80,8 @@ const Hero = ({ siteConfig }) => {
 
     return (
         <section id='hero' className='s-hero target-section'>
-            <div className='s-hero__bg'>
-                {siteConfig.features.particleBackground && (
-                    <Particles
-                        id='hero-particles'
-                        init={particlesInit}
-                        options={particlesConfig}
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            zIndex: 1,
-                        }}
-                    />
-                )}
-            </div>
+            {/* Background gradient comes from the .s-hero__bg CSS layer. */}
+            <div className='s-hero__bg'></div>
 
             <motion.div
                 className='row s-hero__content'
@@ -331,41 +199,6 @@ const Hero = ({ siteConfig }) => {
                     </div>
                 </div>
             </motion.div>
-
-            {/* <motion.div
-                className='s-hero__scroll'
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5, duration: 1 }}
-            >
-                <motion.a
-                    href='#about'
-                    className='s-hero__scroll-link smoothscroll'
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{
-                        repeat: Infinity,
-                        duration: 2,
-                        ease: 'easeInOut',
-                    }}
-                >
-                    <span className='scroll-arrow'>
-                        <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            width={24}
-                            height={24}
-                            viewBox='0 0 24 24'
-                            style={{
-                                fill: 'rgba(0, 0, 0, 1)',
-                                transform: '',
-                                msFilter: '',
-                            }}
-                        >
-                            <path d='M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z' />
-                        </svg>
-                    </span>
-                    <span className='scroll-text'>Scroll Down</span>
-                </motion.a>
-            </motion.div> */}
         </section>
     );
 };
