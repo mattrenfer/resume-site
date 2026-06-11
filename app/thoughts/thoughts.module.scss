@@ -1,263 +1,304 @@
-/* /thoughts — reading-first layout.
-   Reuses the site's global tokens (--font-1 Inter, --font-2 IBM Plex Serif,
-   --color-1 teal, --color-text) so it feels native to matthewrenfer.com while
-   optimizing for long-form readability. */
+/* /thoughts — dark "journal" reading aesthetic.
+   Self-contained palette (local to this page) so it can serve as the design
+   north star before the homepage is reskinned to match. */
 
-$dark: #282828;
-$light: #c0c0ba;
-$gray-shade-0: #eff0f0;
-$gray-shade-1: #e0e0e0;
-$gray-shade-2: #929393;
-$gray-shade-3: #636565;
-$teal: var(--color-1); // follows the global palette; revert to #11abb0 to decouple
-$forest-green: #2a4030;
-$burgundy: #c47a86;
-$navy: #2a3f5c;
+/* ---- Palette ---- */
+$bg: #282828; // charcoal page base
+$surface: #323230; // cards, code wells
+$border: #404040; // dividers, rules
+$heading: #deded8; // h1 / h2 / h3, titles
+$text: #c0c0ba; // body copy
+$muted: #6b6b65; // dates, captions
+$accent: #c47a86; // links, highlights
+$accent-hover: #d49aa4; // link hover
+$accent-navy: #2a3f5c; // reserved: tags, badges
+$accent-green: #2c4232; // reserved: icons, decorative
+$blockquote: #343432; // pull-quote background
 
-$bg-dark: #282828;
-$bg-light: #c0c0ba;
+$serif: 'Lora', Georgia, serif; // /thoughts reads in Lora (homepage stays on --font-2 for now)
+$sans: var(--font-1, 'Inter', sans-serif);
 
-$font-dark: #c0c0ba;
-$font-light: #282828;
-
-$link-dark: $teal;
-$link-light: $teal;
-
-/* Toggle between light & dark themes */
-
-/* Light Theme /* 
-
-/* .thoughts {
-    background: #fff;
-    color: var(--color-text, #282828);
-    font-family: var(--font-1, 'Inter', sans-serif);
-    min-height: 100vh;
-    padding: 8rem 2rem 6rem;
-} */
-
-/* Dark Theme */
-
+/* ---- Page ---- */
 .thoughts {
-    background: $bg-dark;
-    color: $font-dark;
-    font-family: var(--font-1, 'Inter', sans-serif);
     min-height: 100vh;
     padding: 8rem 2rem 6rem;
+    color: $text;
+    font-family: $serif;
+    background-color: $bg;
+    // faint top light for depth
+    background-image: radial-gradient(
+        ellipse 120% 80% at 50% -10%,
+        rgba(255, 255, 255, 0.035),
+        rgba(0, 0, 0, 0) 60%
+    );
 }
 
 /* Shared centered reading column */
 .inner,
 .article {
-    max-width: 60rem; /* ~65 characters at this size */
+    max-width: 50rem; // ~68–70 characters of Lora — the long-form sweet spot
     margin: 0 auto;
 }
 
 /* ---- Index masthead ---- */
 .masthead {
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 .kicker {
-    font-family: var(--font-1, 'Inter', sans-serif);
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
+    margin: 0 0 1rem;
+    font-family: $sans;
     font-size: 1.3rem;
     font-weight: 600;
-    color: $burgundy;
-    margin: 0 0 0.75rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: $accent;
 }
 
 .tagline {
-    font-family: var(--font-2, 'IBM Plex Serif', serif);
-    font-weight: 400;
-    font-style: italic;
-    font-size: 4.2rem;
-    line-height: 1.15;
     margin: 0;
-    color: $font-dark;
+    font-family: $serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 4.4rem;
+    line-height: 1.1;
+    color: $heading;
+
+    // small ornamental rule beneath the tagline
+    &::after {
+        content: '';
+        display: block;
+        width: 5rem;
+        height: 2px;
+        margin: 2rem auto 0;
+        background: $accent;
+        opacity: 0.8;
+    }
 }
 
 /* ---- Index post list ---- */
 .postList {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .postItem {
-    border-top: 1px solid $gray-shade-1;
+    border-top: 1px solid $border;
+
+    &:last-child {
+        border-bottom: 1px solid $border;
+    }
 }
 
 .postLink {
     display: block;
-    padding: 2.5rem 0;
-    text-decoration: none;
+    padding: 2.75rem 0;
     color: inherit;
-    transition: opacity 0.2s ease;
-}
+    text-decoration: none;
 
-.postLink:hover {
-    opacity: 0.7;
+    &:hover .postTitle {
+        color: $accent;
+    }
 }
 
 .postTitle {
-    font-family: var(--font-2, 'IBM Plex Serif', serif);
-    font-size: 2.6rem;
+    margin: 0 0 0.6rem;
+    font-family: $serif;
+    font-size: 2.8rem;
     font-weight: 600;
     line-height: 1.2;
-    margin: 0 0 0.5rem;
-    color: $font-dark;
+    color: $heading;
+    transition: color 0.2s ease;
 }
 
 .postDate {
     display: block;
-    font-size: 1.3rem;
+    margin-bottom: 1.1rem;
+    font-family: $sans;
+    font-size: 1.2rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: $gray-shade-2;
-    margin-bottom: 1rem;
+    color: $muted;
 }
 
 .postExcerpt {
-    font-size: 1.7rem;
-    line-height: 1.6;
     margin: 0;
-    color: $gray-shade-3;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: $text;
 }
 
 .empty {
-    font-size: 1.8rem;
-    color: $gray-shade-2;
+    font-size: 1.9rem;
+    font-style: italic;
+    color: $muted;
 }
 
 /* ---- Individual post ---- */
 .backLink {
-    font-size: 1.4rem;
-    margin: 0 0 2rem;
-}
+    margin: 0 0 2.5rem;
+    font-family: $sans;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 
-.backLink a {
-    color: $teal;
-    text-decoration: none;
-}
+    a {
+        color: $accent;
+        text-decoration: none;
 
-.backLink a:hover {
-    text-decoration: underline;
+        &:hover {
+            color: $accent-hover;
+        }
+    }
 }
 
 .articleHeader {
     margin-bottom: 3.5rem;
+    text-align: center;
 }
 
 .articleTitle {
-    font-family: var(--font-2, 'IBM Plex Serif', serif);
-    font-size: 3.8rem;
+    margin: 0 0 1.2rem;
+    font-family: $serif;
+    font-size: 4rem;
     font-weight: 600;
-    line-height: 1.15;
-    margin: 0 0 1rem;
-    color: $font-dark;
+    line-height: 1.12;
+    color: $heading;
 }
 
 .articleDate {
-    font-size: 1.4rem;
+    font-family: $sans;
+    font-size: 1.3rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: $gray-shade-1;
+    color: $muted;
 }
 
 /* ---- Rendered markdown body ---- */
 .prose {
     font-size: 2rem;
-    line-height: 1.7;
-}
+    line-height: 1.75;
 
-.prose p {
-    margin: 0 0 1.6em;
-}
+    p {
+        margin: 0 0 1.5em;
+    }
 
-.prose h2 {
-    font-family: var(--font-2, 'IBM Plex Serif', serif);
-    font-size: 2.8rem;
-    line-height: 1.25;
-    margin: 2em 0 0.6em;
-}
+    // drop cap on the opening paragraph — a journal flourish.
+    // Sized in body-lines, not rem: ~4.6em ≈ a clean 2-line cap in Lora,
+    // so exactly two lines of text stack beside it. Bump to ~6.5em for 3 lines.
+    > p:first-of-type::first-letter {
+        float: left;
+        margin: 0.04em 0.12em 0 0;
+        font-family: $serif;
+        font-size: 4.6em;
+        font-weight: 600;
+        line-height: 0.72;
+        color: $accent;
+    }
 
-.prose h3 {
-    font-family: var(--font-2, 'IBM Plex Serif', serif);
-    font-size: 2.3rem;
-    line-height: 1.3;
-    margin: 1.8em 0 0.6em;
-}
+    h2,
+    h3 {
+        font-family: $serif;
+        color: $heading;
+    }
 
-.prose a {
-    color: $link-dark;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
+    h2 {
+        font-size: 2.9rem;
+        line-height: 1.25;
+        margin: 1.8em 0 0.5em;
+    }
 
-.prose ul,
-.prose ol {
-    margin: 0 0 1.6em;
-    padding-left: 1.4em;
-}
+    h3 {
+        font-size: 2.3rem;
+        line-height: 1.3;
+        margin: 1.6em 0 0.5em;
+    }
 
-.prose li {
-    margin-bottom: 0.5em;
-}
+    a {
+        color: $accent;
+        text-decoration: underline;
+        text-underline-offset: 2px;
 
-.prose blockquote {
-    margin: 2em 0;
-    padding-left: 1.4em;
-    border-left: 3px solid $teal;
-    font-style: italic;
-    color: $font-dark;
-}
+        &:hover {
+            color: $accent-hover;
+        }
+    }
 
-.prose code {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.85em;
-    background: var(--color-gray-1, #eff0f0);
-    padding: 0.15em 0.4em;
-    border-radius: 3px;
-}
+    ul,
+    ol {
+        margin: 0 0 1.5em;
+        padding-left: 1.4em;
+    }
 
-.prose pre {
-    background: var(--color-gray-1, #eff0f0);
-    padding: 1.5rem;
-    border-radius: 6px;
-    overflow-x: auto;
-    margin: 0 0 1.6em;
-}
+    li {
+        margin-bottom: 0.5em;
+    }
 
-.prose pre code {
-    background: none;
-    padding: 0;
-}
+    blockquote {
+        margin: 2em 0;
+        padding: 1.2em 1.4em;
+        background: $blockquote;
+        border-left: 3px solid $accent;
+        font-style: italic;
+        color: $text;
+    }
 
-.prose img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
+    code {
+        font-family: var(--font-mono, monospace);
+        font-size: 0.82em;
+        background: $surface;
+        padding: 0.15em 0.4em;
+        border-radius: 3px;
+    }
 
-.prose hr {
-    border: none;
-    border-top: 1px solid $gray-shade-1;
-    margin: 3em 0;
+    pre {
+        margin: 0 0 1.5em;
+        padding: 1.5rem;
+        background: $surface;
+        border: 1px solid $border;
+        border-radius: 4px;
+        overflow-x: auto;
+
+        code {
+            background: none;
+            padding: 0;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 3px;
+    }
+
+    // centered ornamental divider
+    hr {
+        border: none;
+        margin: 3em auto;
+        width: 6rem;
+        height: 2px;
+        background: $accent;
+        opacity: 0.6;
+    }
 }
 
 .backHome {
     margin-top: 5rem;
-    font-size: 1.4rem;
-}
+    font-family: $sans;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 
-.backHome a {
-    color: $link-dark;
-    text-decoration: none;
-}
+    a {
+        color: $accent;
+        text-decoration: none;
 
-.backHome a:hover {
-    text-decoration: underline;
+        &:hover {
+            color: $accent-hover;
+        }
+    }
 }
 
 /* ---- Responsive ---- */
@@ -267,14 +308,14 @@ $link-light: $teal;
     }
 
     .tagline {
-        font-size: 3.2rem;
+        font-size: 3.4rem;
     }
 
     .articleTitle {
-        font-size: 3rem;
+        font-size: 3.1rem;
     }
 
     .prose {
-        font-size: 1.8rem;
+        font-size: 1.85rem;
     }
 }
