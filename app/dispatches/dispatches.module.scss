@@ -1,32 +1,28 @@
-/* /thoughts — dark "journal" reading aesthetic.
-   Self-contained palette (local to this page) so it can serve as the design
-   north star before the homepage is reskinned to match. */
+/* /dispatches — mock of an alternate posts index ("field correspondent"
+   register). Shares the dark journal palette with /thoughts; the signature
+   is the "Dispatch No. N — Filed: <date>" filing line on each entry. */
 
-/* ---- Palette ---- */
+/* ---- Palette (kept in sync with thoughts.module.scss for now) ---- */
 $bg: #282828; // charcoal page base
 $surface: #323230; // cards, code wells
 $border: #404040; // dividers, rules
-$heading: #deded8; // h1 / h2 / h3, titles
+$heading: #deded8; // titles
 $text: #c0c0ba; // body copy
 $muted: #6b6b65; // dates, captions
 $accent: #c47a86; // links, highlights
 $accent-hover: #d49aa4; // link hover
-$accent-navy: #2a3f5c; // reserved: tags, badges
-$accent-green: #2c4232; // reserved: icons, decorative
-$blockquote: #343432; // pull-quote background
+$blockquote: #343432;
 
-$serif: 'Lora', Georgia, serif; // /thoughts reads in Lora (homepage stays on --font-2 for now)
+$serif: 'Lora', Georgia, serif;
 $sans: var(--font-1, 'Inter', sans-serif);
 
 /* ---- Page ---- */
-.thoughts {
+.dispatches {
     min-height: 100vh;
     padding: 8rem 2rem 6rem;
     color: $text;
     font-family: $serif;
     background-color: $bg;
-    // top "spotlight" for depth — raise the white alpha to intensify,
-    // push the transparent stop further down to widen its reach
     background-image: radial-gradient(
         ellipse 120% 90% at 50% -10%,
         rgba(255, 255, 255, 0.075),
@@ -34,20 +30,44 @@ $sans: var(--font-1, 'Inter', sans-serif);
     );
 }
 
-/* Shared centered reading column */
-.inner,
+.inner {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
 .article {
     max-width: 50rem; // ~68–70 characters of Lora — the long-form sweet spot
     margin: 0 auto;
 }
 
-/* ---- Index masthead ---- */
+/* ---- Masthead ---- */
 .masthead {
-    margin-bottom: 5rem;
+    margin-bottom: 4.5rem;
     text-align: center;
 }
 
 .kicker {
+    margin: 0;
+    font-family: $serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 4.4rem;
+    line-height: 1.1;
+    color: $heading;
+
+    // ornamental rule beneath the title
+    &::after {
+        content: '';
+        display: block;
+        width: 5rem;
+        height: 2px;
+        margin: 1.8rem auto 0;
+        background: $accent;
+        opacity: 0.8;
+    }
+}
+
+.tagline {
     margin: 0 0 1rem;
     font-family: $sans;
     font-size: 1.3rem;
@@ -55,30 +75,10 @@ $sans: var(--font-1, 'Inter', sans-serif);
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: $accent;
-}
-
-.tagline {
-    margin: 0;
-    font-family: $serif;
     font-style: italic;
-    font-weight: 500;
-    font-size: 4.4rem;
-    line-height: 1.1;
-    color: $heading;
-
-    // small ornamental rule beneath the tagline
-    &::after {
-        content: '';
-        display: block;
-        width: 5rem;
-        height: 2px;
-        margin: 2rem auto 0;
-        background: $accent;
-        opacity: 0.8;
-    }
 }
 
-/* ---- Index post list ---- */
+/* ---- Post list ---- */
 .postList {
     margin: 0;
     padding: 0;
@@ -104,6 +104,29 @@ $sans: var(--font-1, 'Inter', sans-serif);
     }
 }
 
+/* The signature filing line: "Dispatch No. 1 — Filed: May 28, 2026" */
+.dispatchMeta {
+    margin: 0 0 0.9rem;
+    font-family: $sans;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.dispatchNo {
+    color: $accent;
+}
+
+.sep {
+    color: $muted;
+}
+
+.filed {
+    color: $muted;
+    font-weight: 500;
+}
+
 .postTitle {
     margin: 0 0 0.6rem;
     font-family: $serif;
@@ -112,16 +135,6 @@ $sans: var(--font-1, 'Inter', sans-serif);
     line-height: 1.2;
     color: $heading;
     transition: color 0.2s ease;
-}
-
-.postDate {
-    display: block;
-    margin-bottom: 1.1rem;
-    font-family: $sans;
-    font-size: 1.2rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: $muted;
 }
 
 .postExcerpt {
@@ -138,6 +151,7 @@ $sans: var(--font-1, 'Inter', sans-serif);
 }
 
 /* ---- Individual post ---- */
+
 .backLink {
     margin: 0 0 2.5rem;
     font-family: $sans;
@@ -285,6 +299,7 @@ $sans: var(--font-1, 'Inter', sans-serif);
     }
 }
 
+/* ---- Footer ---- */
 .backHome {
     margin-top: 5rem;
     font-family: $sans;
@@ -304,19 +319,11 @@ $sans: var(--font-1, 'Inter', sans-serif);
 
 /* ---- Responsive ---- */
 @media (max-width: 600px) {
-    .thoughts {
+    .dispatches {
         padding: 5rem 1.5rem 4rem;
     }
 
-    .tagline {
+    .kicker {
         font-size: 3.4rem;
-    }
-
-    .articleTitle {
-        font-size: 3.1rem;
-    }
-
-    .prose {
-        font-size: 1.85rem;
     }
 }
