@@ -56,6 +56,7 @@ jobs:
           ssh -i ~/.ssh/deploy_key \
             "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}" \
             "set -e; \
+             sudo mkdir -p '${{ secrets.LIGHTSAIL_TARGET }}'; \
              sudo find '${{ secrets.LIGHTSAIL_TARGET }}' -mindepth 1 -delete; \
              sudo tar xzf /tmp/site.tar.gz -C '${{ secrets.LIGHTSAIL_TARGET }}'; \
              rm -f /tmp/site.tar.gz"

@@ -20,9 +20,12 @@ Add these under **Settings → Secrets and variables → Actions → New reposit
 | `LIGHTSAIL_HOST` | Server hostname or static IP | `matthewrenfer.com` |
 | `LIGHTSAIL_USER` | SSH user | `bitnami` |
 | `LIGHTSAIL_SSH_KEY` | **Full contents** of the private key (the Lightsail `.pem`), including the `-----BEGIN/END-----` lines | _(paste key)_ |
-| `LIGHTSAIL_TARGET` | nginx document root | `/opt/bitnami/nginx/html` |
+| `LIGHTSAIL_TARGET` | nginx document root | `/opt/bitnami/nginx/html/resume-site/build` |
 
-> Confirm the document root on the box with: `cat /opt/bitnami/nginx/conf/nginx.conf | grep root`
+> Confirm the document root on the box with: `grep -R root /opt/bitnami/nginx/conf/nginx.conf`.
+> On this instance the served root is **`/opt/bitnami/nginx/html/resume-site/build`**
+> (the port-80 server block) — NOT the bare `.../html`. The public domain is fronted
+> by a CDN that fetches the origin over HTTP:80, so that block is the one that matters.
 
 ### 2. Server write permissions
 
