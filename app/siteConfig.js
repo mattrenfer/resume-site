@@ -178,7 +178,7 @@ const siteConfig = {
             yearOfJoining: '2026',
             monthOfLeaving: 'July',
             yearOfLeaving: '2026',
-            description: `I developed customer-facing features on a headless E-commerce platform (Next.js + Optimizely CMS). To help make make visible user behavior that the team was once previously blind to, I implemented persistent UTM tracking and cross-domain attribution, and built the Looker Studio dashboards that gave the team its first real view of where users came from and where they went. When the purchase flow broke in production and it wasn't clear whether it was a front-end or back-end issue, I took it, isolated it to the front end, and shipped a hotfix that got checkout working again.`,
+            description: `I developed customer-facing features on a headless E-commerce platform (Next.js + Optimizely CMS). To help make visible user behavior the team was previously blind to, I implemented persistent UTM tracking and cross-domain attribution and built Looker Studio dashboards to provide a view of where users came from and where they went. When the purchase flow broke in production and it wasn't clear whether it was a front-end or back-end issue, I took it, isolated it to the front end, and shipped a hotfix that got checkout working again.`,
         },
         {
             id: 2,
