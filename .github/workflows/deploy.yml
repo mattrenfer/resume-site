@@ -44,12 +44,18 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "${{ secrets.LIGHTSAIL_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Deploy with rsync
-        # Trailing slash on "out/" copies the *contents* into TARGET.
-        # --delete removes files on the server that no longer exist in the build,
-        # so TARGET must be a directory dedicated to this site.
+      - name: Deploy over SSH (tar)
+        # The Lightsail box is EOL Debian with no rsync, so ship the static
+        # export as a tarball over SSH and swap it into place. The target is
+        # wiped first (equivalent to rsync --delete), so it must be a directory
+        # dedicated to this site.
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key" \
-            out/ \
-            "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}:${{ secrets.LIGHTSAIL_TARGET }}"
+          tar czf site.tar.gz -C out .
+          scp -i ~/.ssh/deploy_key site.tar.gz \
+            "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}:/tmp/site.tar.gz"
+          ssh -i ~/.ssh/deploy_key \
+            "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}" \
+            "set -e; \
+             sudo find '${{ secrets.LIGHTSAIL_TARGET }}' -mindepth 1 -delete; \
+             sudo tar xzf /tmp/site.tar.gz -C '${{ secrets.LIGHTSAIL_TARGET }}'; \
+             rm -f /tmp/site.tar.gz"

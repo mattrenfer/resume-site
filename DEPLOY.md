@@ -53,13 +53,14 @@ Reload after any nginx change: `sudo /opt/bitnami/ctlscript.sh restart nginx`
 
 ## How it works
 
-1. Push to `main` → GitHub Action runs `npm ci && npm run build`.
-2. The Action rsyncs `out/` to `LIGHTSAIL_TARGET` with `--delete`
-   (files removed from the build are removed from the server).
+1. Push to `main` → GitHub Action runs `npm install && npm run build` (on Node 24).
+2. The Action tars `out/`, `scp`s it to the server, wipes `LIGHTSAIL_TARGET`,
+   and extracts the new build into it (the box is EOL Debian with no rsync, so
+   this replaces the old rsync step; `tar` + `ssh` are all that's needed).
 3. nginx serves the new static files immediately — no restart needed.
 
-`--delete` means the target directory is owned entirely by this site. Don't store
-unrelated files there.
+The target is wiped and re-extracted on every deploy, so it's owned entirely by
+this site — don't store unrelated files there.
 
 ## Manual deploy
 
