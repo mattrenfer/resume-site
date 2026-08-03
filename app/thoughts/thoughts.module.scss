@@ -15,7 +15,8 @@ $accent-navy: #2a3f5c; // reserved: tags, badges
 $accent-green: #2c4232; // reserved: icons, decorative
 $blockquote: #343432; // pull-quote background
 
-$serif: 'Lora', Georgia, serif; // /thoughts reads in Lora (homepage stays on --font-2 for now)
+$serif:
+    'Lora', Georgia, serif; // /thoughts reads in Lora (homepage stays on --font-2 for now)
 $sans: var(--font-1, 'Inter', sans-serif);
 
 /* ---- Page ---- */
@@ -152,6 +153,10 @@ $sans: var(--font-1, 'Inter', sans-serif);
         &:hover {
             color: $accent-hover;
         }
+    }
+
+    &:last-child {
+        margin-top: 5rem;
     }
 }
 

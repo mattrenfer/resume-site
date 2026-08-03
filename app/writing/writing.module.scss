@@ -1,8 +1,8 @@
-/* /dispatches — mock of an alternate posts index ("field correspondent"
-   register). Shares the dark journal palette with /thoughts; the signature
-   is the "Dispatch No. N — Filed: <date>" filing line on each entry. */
+/* /writing — shared styles for the writing hub and its collections
+   (Dispatches, Poetry). Dark "journal" palette, self-contained here as the
+   design north star before the homepage is reskinned to match. */
 
-/* ---- Palette (kept in sync with thoughts.module.scss for now) ---- */
+/* ---- Palette ---- */
 $bg: #282828; // charcoal page base
 $surface: #323230; // cards, code wells
 $border: #404040; // dividers, rules
@@ -11,13 +11,15 @@ $text: #c0c0ba; // body copy
 $muted: #6b6b65; // dates, captions
 $accent: #c47a86; // links, highlights
 $accent-hover: #d49aa4; // link hover
+$accent-navy: #2a3f5c; // filing-stamp badge (Dispatch No.)
+$accent-green: #2c4232; // decorative field-mark
 $blockquote: #343432;
 
 $serif: 'Lora', Georgia, serif;
 $sans: var(--font-1, 'Inter', sans-serif);
 
-/* ---- Page ---- */
-.dispatches {
+/* ---- Page shell (every /writing page) ---- */
+.page {
     min-height: 100vh;
     padding: 8rem 2rem 6rem;
     color: $text;
@@ -40,7 +42,7 @@ $sans: var(--font-1, 'Inter', sans-serif);
     margin: 0 auto;
 }
 
-/* ---- Masthead ---- */
+/* ---- Masthead (collection & hub title) ---- */
 .masthead {
     margin-bottom: 4.5rem;
     text-align: center;
@@ -78,7 +80,46 @@ $sans: var(--font-1, 'Inter', sans-serif);
     font-style: italic;
 }
 
-/* ---- Post list ---- */
+/* ---- Hub: a section per collection ---- */
+.hubSection {
+    margin-bottom: 4.5rem;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.sectionHeading {
+    margin: 0 0 0.5rem;
+    font-family: $sans;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: $accent;
+    border-bottom: 1px solid $border;
+    padding-bottom: 1rem;
+}
+
+.viewAll {
+    margin: 1.5rem 0 0;
+    font-family: $sans;
+    font-size: 1.2rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: right;
+
+    a {
+        color: $accent;
+        text-decoration: none;
+
+        &:hover {
+            color: $accent-hover;
+        }
+    }
+}
+
+/* ---- List (shared by dispatches & poetry) ---- */
 .postList {
     margin: 0;
     padding: 0;
@@ -99,32 +140,53 @@ $sans: var(--font-1, 'Inter', sans-serif);
     color: inherit;
     text-decoration: none;
 
-    &:hover .postTitle {
+    &:hover .postTitle,
+    &:hover .poemTitle {
         color: $accent;
     }
 }
 
-/* The signature filing line: "Dispatch No. 1 — Filed: May 28, 2026" */
+/* The signature filing block, two lines:
+     [ DISPATCH No. 1 ]   ← navy filing-stamp badge
+     Filed: May 28, 2026  ← muted small-caps beneath */
 .dispatchMeta {
-    margin: 0 0 0.9rem;
+    margin: 0 0 1.1rem;
     font-family: $sans;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
 }
 
 .dispatchNo {
-    color: $accent;
-}
-
-.sep {
-    color: $muted;
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+    background: $accent-navy;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $heading;
 }
 
 .filed {
-    color: $muted;
+    display: block;
+    margin-top: 0.85rem;
+    font-family: $sans;
+    font-size: 1.2rem;
     font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $muted;
+
+    // small green field-mark before the date
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        margin-right: 0.6rem;
+        background: $accent-green;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        vertical-align: middle;
+    }
 }
 
 .postTitle {
@@ -144,14 +206,25 @@ $sans: var(--font-1, 'Inter', sans-serif);
     color: $text;
 }
 
+/* Poetry list: title only, no meta */
+.poemTitle {
+    margin: 0;
+    font-family: $serif;
+    font-style: italic;
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: $heading;
+    transition: color 0.2s ease;
+}
+
 .empty {
     font-size: 1.9rem;
     font-style: italic;
     color: $muted;
 }
 
-/* ---- Individual post ---- */
-
+/* ---- Individual item (article/poem) ---- */
 .backLink {
     margin: 0 0 2.5rem;
     font-family: $sans;
@@ -166,6 +239,9 @@ $sans: var(--font-1, 'Inter', sans-serif);
         &:hover {
             color: $accent-hover;
         }
+    }
+    &:last-child {
+        margin-top: 15rem;
     }
 }
 
@@ -183,15 +259,33 @@ $sans: var(--font-1, 'Inter', sans-serif);
     color: $heading;
 }
 
-.articleDate {
-    font-family: $sans;
-    font-size: 1.3rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: $muted;
+/* Poem header: italic title + small ornamental rule, no filing line */
+.poemHeader {
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
-/* ---- Rendered markdown body ---- */
+.poemHeadTitle {
+    margin: 0;
+    font-family: $serif;
+    font-style: italic;
+    font-size: 3.4rem;
+    font-weight: 500;
+    line-height: 1.15;
+    color: $heading;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 4rem;
+        height: 2px;
+        margin: 1.6rem auto 0;
+        background: $accent;
+        opacity: 0.7;
+    }
+}
+
+/* ---- Rendered markdown body (dispatches) ---- */
 .prose {
     font-size: 2rem;
     line-height: 1.75;
@@ -299,6 +393,37 @@ $sans: var(--font-1, 'Inter', sans-serif);
     }
 }
 
+/* ---- Poem body: verse, not prose (no drop cap; stanza spacing) ---- */
+.poemBody {
+    font-size: 2rem;
+    line-height: 1.7;
+    text-align: center; // verse reads centered here; switch to left if preferred
+
+    // remark-breaks turns single newlines into <br>, so lines stay intact;
+    // paragraphs (blank lines in source) become stanzas.
+    p {
+        margin: 0 0 1.8em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    a {
+        color: $accent;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+
+        &:hover {
+            color: $accent-hover;
+        }
+    }
+}
+
 /* ---- Footer ---- */
 .backHome {
     margin-top: 5rem;
@@ -319,11 +444,20 @@ $sans: var(--font-1, 'Inter', sans-serif);
 
 /* ---- Responsive ---- */
 @media (max-width: 600px) {
-    .dispatches {
+    .page {
         padding: 5rem 1.5rem 4rem;
     }
 
     .kicker {
         font-size: 3.4rem;
+    }
+
+    .articleTitle {
+        font-size: 3.1rem;
+    }
+
+    .prose,
+    .poemBody {
+        font-size: 1.85rem;
     }
 }
