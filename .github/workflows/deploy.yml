@@ -22,7 +22,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Match the npm 11 lockfile format generated locally (Node 24 ships
+          # npm 11); Node 20's npm 10 mis-resolves cross-platform optional deps
+          # and fails `npm ci` with bogus "missing @emnapi/* from lock file".
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
