@@ -2,9 +2,9 @@ import Script from 'next/script';
 import './globals.scss';
 
 export const metadata = {
-    title: 'Matthew Russell Renfer - Software Engineer',
+    title: 'Matthew Russell Renfer - Front-End Engineer',
     description:
-        'Collaborative Software Engineer & UX strategist with 15+ years industry experience delivering performant, scalable digital solutions.',
+        'Collaborative Front-End Engineer & UX strategist with 15+ years industry experience delivering performant, scalable digital solutions.',
     icons: {
         icon: '/favicon.ico',
         apple: '/logo192.png',
