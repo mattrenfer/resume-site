@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { getAllPosts, formatDate } from '@/lib/posts';
+import siteConfig from '@/app/siteConfig';
 import styles from '../writing.module.scss';
 
 export const metadata = {
@@ -8,6 +10,9 @@ export const metadata = {
 };
 
 export default function DispatchesIndex() {
+    // Whole section is gated by one flag in siteConfig; off = 404.
+    if (!siteConfig.features.dispatches) notFound();
+
     const posts = getAllPosts('posts'); // newest-first
     const total = posts.length;
 

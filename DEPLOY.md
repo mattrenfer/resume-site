@@ -36,7 +36,7 @@ sudo chown -R bitnami:bitnami /opt/bitnami/nginx/html
 ### 3. nginx routing (optional but recommended)
 
 The export uses `trailingSlash: true`, so pages are emitted as real directories
-(`/thoughts/index.html`, `/thoughts/<slug>/index.html`). Bitnami's default config
+(`/writing/index.html`, `/writing/poetry/<slug>/index.html`). Bitnami's default config
 serves these correctly. To return the custom 404 page for unknown paths, ensure the
 server block has:
 

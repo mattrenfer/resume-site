@@ -7,7 +7,7 @@ status: draft
 ---
 
 (Draft. Not published yet — this file exists to prove the status filter works.
-Because `status` is `draft`, this post should NOT appear on /thoughts or be
-reachable at its slug until you change it to `published`.)
+Keep drafts out of the `posts/` folder until they're ready — the folder is the
+publish gate now, so anything here goes live under /writing/dispatches.)
 
 Working notes toward the longer piece on division. Nothing here is finished.

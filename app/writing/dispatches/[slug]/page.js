@@ -6,10 +6,13 @@ import {
     getPostBySlug,
     formatDate,
 } from '@/lib/posts';
+import siteConfig from '@/app/siteConfig';
 import styles from '../../writing.module.scss';
 
 // Static export: enumerate every published slug at build time. Any path not
 // listed here 404s (dynamicParams off) since there's no server to render them.
+// (An empty array is illegal for a dynamic route under `output: export`, so we
+// always enumerate; the feature flag is enforced in the component below.)
 export function generateStaticParams() {
     return getPublishedSlugs('posts').map(slug => ({ slug }));
 }
@@ -17,6 +20,7 @@ export function generateStaticParams() {
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }) {
+    if (!siteConfig.features.dispatches) return {};
     const post = await getPostBySlug(params.slug, 'posts');
     if (!post) return {};
     return { title: `${post.title} — Dispatches — Matthew Renfer` };
@@ -30,6 +34,9 @@ function dispatchNumber(slug) {
 }
 
 export default async function DispatchPage({ params }) {
+    // Feature gate: when Dispatches is off, these routes render as 404s.
+    if (!siteConfig.features.dispatches) notFound();
+
     const post = await getPostBySlug(params.slug, 'posts');
     if (!post) notFound();
 

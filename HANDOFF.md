@@ -33,7 +33,7 @@ delete `.next/`, and restart.
 | `app/globals.scss` | **Your override layer** + imports the Ceevee `styles.css`/`vendor.css` |
 | `public/css/styles.css` | Ceevee template (trimmed; being phased out in the redesign) |
 | `app/siteConfig.js` | Site content + config |
-| `app/thoughts/` | The writing platform: index, `[slug]`, `thoughts.module.scss` |
+| `app/writing/` | The writing platform: hub + `dispatches/` & `poetry/` (each with index + `[slug]`), `writing.module.scss` |
 | `lib/posts.js` | Markdown pipeline (gray-matter + remark-html) |
 | `posts/*.md` | Blog posts — currently sample/placeholder content to replace |
 | `DEPLOY.md` | Deployment (Lightsail / Bitnami nginx via GitHub Actions) |
@@ -50,7 +50,7 @@ delete `.next/`, and restart.
 - **CSS is now the single source of truth for color.** Particles are gone, so
   nothing reads colors from JS anymore.
 - **`output: 'export'` is gated to production** in `next.config.js` — leaving it on
-  in dev makes `/thoughts/[slug]` 500 with a bogus "missing generateStaticParams".
+  in dev makes `/writing/dispatches/[slug]` 500 with a bogus "missing generateStaticParams".
 - If a CSS edit does nothing: confirm you're editing `globals.scss` (not a stray
   `globals.css`), that the dev server is running, and hard-refresh (`Ctrl+Shift+R`).
 
@@ -62,8 +62,8 @@ Target aesthetic: **rugged leather journal / refined outdoorsy professional writ
 Planned sequence:
 1. ✅ **Done:** retire particles + trim dead Ceevee CSS (preloader, header/nav,
    testimonials, CTA, contact, forms, etc. — ~1,400 lines).
-2. **Establish the journal aesthetic on `/thoughts` first** — it's self-contained in
-   `thoughts.module.scss`, low-risk, and becomes the design north star.
+2. **Establish the journal aesthetic on `/writing` first** — it's self-contained in
+   `writing.module.scss`, low-risk, and becomes the design north star.
 3. **Reskin the homepage** to match, replacing the remaining Ceevee section styles
    with owned SCSS as you go (this is where the rest of `styles.css` retires).
 
@@ -73,7 +73,8 @@ Planned sequence:
       `LIGHTSAIL_SSH_KEY`, `LIGHTSAIL_TARGET` (`/opt/bitnami/nginx/html`) — see `DEPLOY.md`
       — then merging `dev` → `main` triggers the first real deploy.
 - [ ] Replace the sample posts in `posts/` with real writing.
-- [ ] Optional: rename `/thoughts` → `/writing` (rename `app/thoughts/` folder + update links).
+- [x] Rename `/thoughts` → `/writing` (now `app/writing/` with `dispatches/` + `poetry/`).
+- [ ] Dispatches is gated off via `features.dispatches` in `siteConfig.js` — flip to `true` to publish it.
 - [ ] Delete the now-dead component files `app/components/header/` and
       `app/components/testimonials/` (not rendered; their CSS is already gone).
 - [ ] `theme.colors` in `siteConfig.js` is now unused (vestigial) — remove or keep as reference.

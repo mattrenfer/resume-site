@@ -26,6 +26,7 @@ const siteConfig = {
         portfolioTilt: false, // Enable 3D tilt on portfolio cards
         soundEffects: false, // Enable sound effects on interactions
         analytics: false, // Enable analytics tracking
+        dispatches: false, // Show Dispatches on /writing (hub preview, index page, and post routes)
     },
 
     // ============================================================================
@@ -100,7 +101,7 @@ const siteConfig = {
         // Tagline/description with highlighted words
         // Use {highlight:word} syntax to mark words for highlighting
         tagline:
-            '{highlight:Collaborative} Software Engineer & UX Strategist with 15+ years industry experience building performant, {highlight:scalable} digital solutions.',
+            '{highlight:Collaborative} Front-End Engineer with 15+ years industry experience building performant, {highlight:scalable} websites and applications and connecting them to measurable business {highlight:outcomes}.',
 
         // Scroll indicator animation
         scrollIndicator: {
@@ -127,7 +128,7 @@ const siteConfig = {
     // ============================================================================
     personal: {
         name: 'Matthew Russell Renfer',
-        role: 'Software Engineer', // Default role (not used in typewriter)
+        role: 'Front-End Engineer', // Default role (not used in typewriter)
         email: 'mr.renfer [at] gmail.com',
         companyName: 'Renfer Digital Solutions LLC',
 
@@ -142,8 +143,8 @@ const siteConfig = {
 
         // Resume/CV
         resume: {
-            fileName: 'Software Engineer - Matthew Renfer - 2025.pdf',
-            version: '?v=7', // Cache-busting query param
+            fileName: 'Front-End Engineer - Matthew Renfer.pdf',
+            version: '?v=8', // Cache-busting query param
         },
     },
 
@@ -169,18 +170,18 @@ const siteConfig = {
     // 10. CAREER HISTORY
     // ============================================================================
     career: [
-        // {
-        //     id: 1,
-        //     companyName: 'Renfer Digital Solutions LLC',
-        //     specialization: 'Owner/Digital Solutions Engineer',
-        //     monthOfJoining: 'June',
-        //     yearOfJoining: '2025',
-        //     monthOfLeaving: 'Present',
-        //     description:
-        //         'I operate under Renfer Digital Solutions LLC, partnering with clients from project kickoff through post-launch support to define and implement cohesive digital presences.',
-        // },
         {
             id: 1,
+            companyName: 'Yamaha Motor Corporation, USA',
+            specialization: 'Web Developer (Contract)',
+            monthOfJoining: 'March',
+            yearOfJoining: '2026',
+            monthOfLeaving: 'July',
+            yearOfLeaving: '2026',
+            description: `I developed customer-facing features on a headless E-commerce platform (Next.js + Optimizely CMS). To help make make visible user behavior that the team was once previously blind to, I implemented persistent UTM tracking and cross-domain attribution, and built the Looker Studio dashboards that gave the team its first real view of where users came from and where they went. When the purchase flow broke in production and it wasn't clear whether it was a front-end or back-end issue, I took it, isolated it to the front end, and shipped a hotfix that got checkout working again.`,
+        },
+        {
+            id: 2,
             companyName: 'Soltech',
             specialization: 'Interface Engineer',
             monthOfJoining: 'July',
@@ -188,10 +189,10 @@ const siteConfig = {
             monthOfLeaving: 'June',
             yearOfLeaving: '2025',
             description:
-                'As an Interface Engineer at Soltech, I designed and developed responsive, user-centered websites and applications using a variety of tech stacks. I maintained high-profile sites like soltech.net on WP Engine, collaborated across teams to translate project goals into polished front-end solutions, integrated third-party tools, and contributed to scalable, maintainable codebases across a variety of client projects and industries.',
+                'As an Interface Engineer at Soltech, I developed responsive, user-centered websites and applications using a variety of tech stacks. I maintained high-profile sites like soltech.net on WP Engine, collaborated across teams to translate project goals into polished front-end solutions, integrated third-party tools, and contributed to scalable, maintainable codebases across a variety of client projects and industries.',
         },
         {
-            id: 2,
+            id: 3,
             companyName: 'Tactic Edge Solutions',
             specialization: 'Senior Web Developer',
             monthOfJoining: 'October',
@@ -202,7 +203,7 @@ const siteConfig = {
                 'The position was an opportunity to expand web knowledge and toolkit. It involved launching and maintaining multiple WordPress sites, as well as assisting in the development of features in customer-facing web applications. It also involved creating mock-ups and implementing improvements to the user experiences and interfaces of web applications.',
         },
         {
-            id: 3,
+            id: 4,
             companyName: 'Gardner-Webb University',
             specialization: 'Senior Web Developer',
             monthOfJoining: 'November',
@@ -257,28 +258,64 @@ const siteConfig = {
     technicalSkills: [
         {
             id: 1,
-            title: 'Technical Skills',
+            title: 'Front-End',
             description:
-                'JavaScript (ES6+), TypeScript, React, Next.js, Node.js (Express/Nest.js), PHP, WordPress, Laravel, REST/GraphQL APIs, Docker, CI/CD (GitHub Actions), MySQL, PostgreSQL, MongoDB, AWS',
-            skill: 100,
+                'React, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, Sass, Tailwind',
             icon: 'fas fa-code',
         },
         {
             id: 2,
-            title: 'System Design & Architecture',
+            title: 'Analytics & Measurement',
             description:
-                'API Integration, Headless CMS, Scalable Front-End Systems, Database Design, Responsive Design, Performance Optimization',
-            skill: 85,
-            icon: 'fas fa-sitemap',
+                'GA4, Google Tag Manager, Looker Studio, event tracking, conversion measurement, dashboarding',
+            icon: 'fas fa-chart-line',
         },
         {
             id: 3,
-            title: 'Soft Skills & Collaboration',
+            title: 'Architecture & Integration',
             description:
-                'Cross-Functional Collaboration, Agile Workflows, Communication & Problem Solving, Project Ownership, Adaptability, Continuous Learning, Client relations',
+                'Scalable front-end systems, REST & GraphQL APIs, headless CMS, third-party API integration, performance optimization, accessibility',
             skill: 75,
+            icon: 'fas fa-sitemap',
+        },
+        {
+            id: 4,
+            title: 'Also works with',
+            description:
+                'Node.js (Express/Nest), PHP/WordPress, Laravel, MySQL/PostgreSQL, Docker, CI/CD, AWS',
+            icon: 'fas fa-code',
+        },
+        {
+            id: 5,
+            title: 'Collaboration',
+            description:
+                'Cross-functional alignment, Agile, ownership, client relations',
             icon: 'fas fa-users',
         },
+        // {
+        //     id: 1,
+        //     title: 'Technical Skills',
+        //     description:
+        //         'JavaScript (ES6+), TypeScript, React, Next.js, Node.js (Express/Nest.js), PHP, WordPress, Laravel, REST/GraphQL APIs, Docker, CI/CD (GitHub Actions), MySQL, PostgreSQL, MongoDB, AWS',
+        //     skill: 100,
+        //     icon: 'fas fa-code',
+        // },
+        // {
+        //     id: 2,
+        //     title: 'System Design & Architecture',
+        //     description:
+        //         'API Integration, Headless CMS, Scalable Front-End Systems, Database Design, Responsive Design, Performance Optimization',
+        //     skill: 85,
+        //     icon: 'fas fa-sitemap',
+        // },
+        // {
+        //     id: 3,
+        //     title: 'Soft Skills & Collaboration',
+        //     description:
+        //         'Cross-Functional Collaboration, Agile Workflows, Communication & Problem Solving, Project Ownership, Adaptability, Continuous Learning, Client relations',
+        //     skill: 75,
+        //     icon: 'fas fa-users',
+        // },
     ],
 
     // Legacy skills (kept for compatibility)

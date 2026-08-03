@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllPosts, formatDate } from '@/lib/posts';
+import siteConfig from '@/app/siteConfig';
 import styles from './writing.module.scss';
 
 export const metadata = {
@@ -8,9 +9,10 @@ export const metadata = {
 };
 
 const HUB_LIMIT = 4; // how many items to preview per section on the hub
+const showDispatches = siteConfig.features.dispatches;
 
 export default function WritingHub() {
-    const dispatches = getAllPosts('posts'); // newest-first
+    const dispatches = showDispatches ? getAllPosts('posts') : []; // newest-first
     const poems = getAllPosts('poems');
     const totalDispatches = dispatches.length;
 
@@ -21,47 +23,66 @@ export default function WritingHub() {
                     <h1 className={styles.kicker}>Writing</h1>
                 </header>
 
-                {/* ---- Dispatches ---- */}
-                <section className={styles.hubSection}>
-                    <h2 className={styles.sectionHeading}>Dispatches</h2>
+                {/* ---- Dispatches (gated by features.dispatches) ---- */}
+                {showDispatches && (
+                    <section className={styles.hubSection}>
+                        <h2 className={styles.sectionHeading}>Dispatches</h2>
 
-                    {totalDispatches === 0 ? (
-                        <p className={styles.empty}>No dispatches filed yet.</p>
-                    ) : (
-                        <ul className={styles.postList}>
-                            {dispatches.slice(0, HUB_LIMIT).map((post, i) => (
-                                <li
-                                    key={post.slug}
-                                    className={styles.postItem}
-                                >
-                                    <Link
-                                        href={`/writing/dispatches/${post.slug}`}
-                                        className={styles.postLink}
-                                    >
-                                        <p className={styles.dispatchMeta}>
-                                            <span className={styles.dispatchNo}>
-                                                Dispatch No.{' '}
-                                                {totalDispatches - i}
-                                            </span>
-                                            <span className={styles.filed}>
-                                                Filed: {formatDate(post.date)}
-                                            </span>
-                                        </p>
-                                        <h3 className={styles.postTitle}>
-                                            {post.title}
-                                        </h3>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                        {totalDispatches === 0 ? (
+                            <p className={styles.empty}>
+                                No dispatches filed yet.
+                            </p>
+                        ) : (
+                            <ul className={styles.postList}>
+                                {dispatches
+                                    .slice(0, HUB_LIMIT)
+                                    .map((post, i) => (
+                                        <li
+                                            key={post.slug}
+                                            className={styles.postItem}
+                                        >
+                                            <Link
+                                                href={`/writing/dispatches/${post.slug}`}
+                                                className={styles.postLink}
+                                            >
+                                                <p
+                                                    className={
+                                                        styles.dispatchMeta
+                                                    }
+                                                >
+                                                    <span
+                                                        className={
+                                                            styles.dispatchNo
+                                                        }
+                                                    >
+                                                        Dispatch No.{' '}
+                                                        {totalDispatches - i}
+                                                    </span>
+                                                    <span
+                                                        className={styles.filed}
+                                                    >
+                                                        Filed:{' '}
+                                                        {formatDate(post.date)}
+                                                    </span>
+                                                </p>
+                                                <h3
+                                                    className={styles.postTitle}
+                                                >
+                                                    {post.title}
+                                                </h3>
+                                            </Link>
+                                        </li>
+                                    ))}
+                            </ul>
+                        )}
 
-                    <p className={styles.viewAll}>
-                        <Link href='/writing/dispatches'>
-                            View all dispatches →
-                        </Link>
-                    </p>
-                </section>
+                        <p className={styles.viewAll}>
+                            <Link href='/writing/dispatches'>
+                                View all dispatches →
+                            </Link>
+                        </p>
+                    </section>
+                )}
 
                 {/* ---- Poetry ---- */}
                 <section className={styles.hubSection}>
@@ -72,10 +93,7 @@ export default function WritingHub() {
                     ) : (
                         <ul className={styles.postList}>
                             {poems.slice(0, HUB_LIMIT).map(poem => (
-                                <li
-                                    key={poem.slug}
-                                    className={styles.postItem}
-                                >
+                                <li key={poem.slug} className={styles.postItem}>
                                     <Link
                                         href={`/writing/poetry/${poem.slug}`}
                                         className={styles.postLink}
