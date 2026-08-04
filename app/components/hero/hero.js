@@ -127,21 +127,30 @@ const Hero = ({ siteConfig }) => {
                             viewport={{ once: true, amount: 0.3 }}
                             variants={imageVariants}
                         >
-                            <motion.img
-                                className='s-about__pic'
-                                src={siteConfig.about.profileImage}
-                                alt='Matthew Renfer'
-                                width={300}
-                                height={300}
-                                fetchpriority='high'
-                                loading='eager'
-                                decoding='async'
-                                whileHover={{
-                                    scale: 1.05,
-                                    rotate: 2,
-                                    transition: { duration: 0.3 },
-                                }}
-                            />
+                            <picture>
+                                <source
+                                    srcSet={siteConfig.about.profileImage.replace(
+                                        /\.jpe?g$/i,
+                                        '.webp',
+                                    )}
+                                    type='image/webp'
+                                />
+                                <motion.img
+                                    className='s-about__pic'
+                                    src={siteConfig.about.profileImage}
+                                    alt='Matthew Renfer'
+                                    width={300}
+                                    height={300}
+                                    fetchpriority='high'
+                                    loading='eager'
+                                    decoding='async'
+                                    whileHover={{
+                                        scale: 1.05,
+                                        rotate: 2,
+                                        transition: { duration: 0.3 },
+                                    }}
+                                />
+                            </picture>
                         </motion.div>
 
                         <motion.h3 variants={lcpItemVariants}>

@@ -69,6 +69,20 @@ a {
     color: #a5a5a5;
 }
 
+/* a11y contrast: the resume date used --color-text-light (#929393 ≈ 3:1 on the
+   light resume background). Darken to clear 4.5:1. */
+.resume-block__header-date {
+    color: #6e6e6e;
+}
+
+/* CLS: the hero is vertically centered in a 100vh box, so any content-height
+   change reflows the whole column. The typewriter role cycles through names of
+   different lengths that wrap to 1 or 2 lines on mobile — reserve two lines so
+   the h2 height never changes (the dominant layout-shift culprit). */
+.s-hero__content h2 {
+    min-height: calc(2 * (var(--vspace-1_25) + var(--vspace-0_125)));
+}
+
 /* Typewriter cursor blink */
 .cursor-blink {
     animation: blink 1s step-end infinite;

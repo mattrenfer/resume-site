@@ -130,15 +130,23 @@ const Portfolio = ({ siteConfig }) => {
                                                 <p>{item.companyName}</p>
                                             </div>
                                         </div>
-                                        <img
-                                            src={item.thumbnail}
-                                            srcSet={item.thumbnail}
-                                            alt={item.name}
-                                            width={775}
-                                            height={581}
-                                            loading='lazy'
-                                            decoding='async'
-                                        />
+                                        <picture>
+                                            <source
+                                                srcSet={item.thumbnail.replace(
+                                                    /\.jpe?g$/i,
+                                                    '.webp',
+                                                )}
+                                                type='image/webp'
+                                            />
+                                            <img
+                                                src={item.thumbnail}
+                                                alt={item.name}
+                                                width={775}
+                                                height={581}
+                                                loading='lazy'
+                                                decoding='async'
+                                            />
+                                        </picture>
                                     </a>
                                 </TiltCard>
                             </motion.div>
@@ -166,10 +174,19 @@ const Portfolio = ({ siteConfig }) => {
                             &times;
                         </button>
                         <div className='modal-popup'>
-                            <img
-                                src={activeItem.thumbnail}
-                                alt={activeItem.name}
-                            />
+                            <picture>
+                                <source
+                                    srcSet={activeItem.thumbnail.replace(
+                                        /\.jpe?g$/i,
+                                        '.webp',
+                                    )}
+                                    type='image/webp'
+                                />
+                                <img
+                                    src={activeItem.thumbnail}
+                                    alt={activeItem.name}
+                                />
+                            </picture>
                             <div className='modal-popup__desc'>
                                 <h5>
                                     {activeItem.name} -{' '}
