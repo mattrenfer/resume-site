@@ -13,11 +13,8 @@ return false;
 </script>
 <link rel="stylesheet" href="gwu-files/jquery-ui-1.8.9.custom.css" type="text/css" media="all" />
 <link rel="stylesheet" href="gwu-files/landing-pages.css" type="text/css" media="all" />
-<script type="text/javascript" src="gwu-files/jquery.js"></script>
-<script type="text/javascript" src="gwu-files/jquery-ui.js"></script>
-<script type="text/javascript" src="gwu-files/PercGlobalVariables.js"></script>
-<script type="text/javascript" src="gwu-files/perc_common_ui.js"></script>
-<script type="text/javascript" src="gwu-files/jquery.cookie.min.js"></script>
+<!-- Removed dead local CMS/jQuery refs that 404'd in the original archive; the
+     page runs on the jQuery / Bootstrap / countdown CDN scripts below. -->
 <meta name="robots" content="noindex" />
 <meta name="description" content="Webbstock 2020" />
 <meta property="dcterms:type" content="page"/>
@@ -372,7 +369,11 @@ $(function () {
     /* =========================================
         COUNTDOWN 1
      ========================================= */
-    $('#clock').countdown('2020/7/28').on('update.countdown', function(event) {
+    // Portfolio demo: target a date ~5 years out on every load so the countdown
+    // stays perpetually live and never expires (the real 2020 event has passed).
+    var webbstockDate = new Date();
+    webbstockDate.setFullYear(webbstockDate.getFullYear() + 5);
+    $('#clock').countdown(webbstockDate).on('update.countdown', function(event) {
       var $this = $(this).html(event.strftime(''
         + '<span class="h1 font-weight-bold">%D</span> Day%!d'
         + '<span class="h1 font-weight-bold">%H</span> Hr'
