@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { Inter, IBM_Plex_Serif, Lora } from 'next/font/google';
+import Analytics from './components/analytics/Analytics';
 // Template + vendor CSS are imported here (bundled + minified into the Next CSS)
 // BEFORE globals.scss, so globals.scss remains the override layer that wins.
 import '../public/css/styles.css';
@@ -55,7 +56,14 @@ export default function RootLayout({ children }) {
                 No ss-preload class: the preloader was retired, and adding it
                 without ss-loaded would leave .s-hero permanently hidden. */}
             <body id='top'>
+                {/* Consent Mode v2 — deny by default (privacy-preserving) BEFORE
+                    GTM loads. The consent banner (Phase 4) flips these to granted
+                    on opt-in; until then GA4 sends cookieless pings only. */}
+                <Script id='consent-default' strategy='beforeInteractive'>
+                    {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});`}
+                </Script>
                 {children}
+                <Analytics />
                 <Script
                     src='/js/vendor/fontawesome/all.min.js'
                     strategy='afterInteractive'

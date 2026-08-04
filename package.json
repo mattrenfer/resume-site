@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@next/third-parties": "^16.3.0",
         "framer-motion": "^11.0.3",
         "gray-matter": "^4.0.3",
         "next": "^14.2.5",
@@ -22,8 +23,12 @@
         "optimize:images": "node scripts/optimize-images.mjs"
     },
     "devDependencies": {
+        "@types/node": "^26.1.2",
+        "@types/react": "^19.2.18",
+        "@types/react-dom": "^19.2.4",
         "eslint": "^8.57.0",
         "eslint-config-next": "^14.2.5",
-        "sharp": "^0.35.3"
+        "sharp": "^0.35.3",
+        "typescript": "5.4.5"
     }
 }
