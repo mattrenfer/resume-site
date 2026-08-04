@@ -8,6 +8,7 @@ import {
 } from '@/lib/posts';
 import siteConfig from '@/app/siteConfig';
 import styles from '../../writing.module.scss';
+import ReadTracker from '@/app/components/analytics/ReadTracker';
 
 // Static export: enumerate every published slug at build time. Any path not
 // listed here 404s (dynamicParams off) since there's no server to render them.
@@ -76,6 +77,7 @@ export default async function DispatchPage({ params }) {
                     </Link>
                 </p>
             </article>
+            <ReadTracker slug={params.slug} collection='dispatches' />
         </section>
     );
 }

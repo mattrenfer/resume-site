@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPublishedSlugs, getPostBySlug } from '@/lib/posts';
 import styles from '../../writing.module.scss';
+import ReadTracker from '@/app/components/analytics/ReadTracker';
 
 // Static export: enumerate every published poem slug at build time.
 export function generateStaticParams() {
@@ -45,6 +46,7 @@ export default async function PoemPage({ params }) {
                     </Link>
                 </p>
             </article>
+            <ReadTracker slug={params.slug} collection='poetry' />
         </section>
     );
 }
