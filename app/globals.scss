@@ -1,9 +1,6 @@
-/* Load the Ceevee template + vendor styles FIRST, so every rule below this
-   line reliably overrides them. Next.js injects this file ahead of any manual
-   <link> tags in layout.js, so importing the template here is what guarantees
-   the correct cascade (overrides last = overrides win). */
-@import url('/css/styles.css');
-@import url('/css/vendor.css');
+/* The Ceevee template + vendor CSS are imported in layout.js BEFORE this file,
+   so they're bundled/minified into one stylesheet and every rule below reliably
+   overrides them (override layer loads last = overrides win). */
 
 body {
     margin: 0;
@@ -14,8 +11,13 @@ body {
 /* CSS Overrides of public/css/styles.css */
 
 :root {
+    /* Font families now come from self-hosted next/font (see layout.js), mapped
+       onto the template's --font-1 (Inter) / --font-2 (IBM Plex Serif) tokens. */
+    --font-1: var(--font-inter), 'Inter', sans-serif;
+    --font-2: var(--font-ibm), 'IBM Plex Serif', serif;
+
     --color-1: #11abb0;
-    --color-2: #7b2d3e; /* teal — change THIS line to recolor --color-2 everywhere */
+    --color-2: #7b2d3e; /* secondary teal accent — change THIS line to recolor --color-2 everywhere */
 
     /* Theme variations — derived from the base colors above via color-mix,
        so they track --color-1 / --color-2 automatically. Tune the % to taste. */

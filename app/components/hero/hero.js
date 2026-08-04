@@ -29,10 +29,11 @@ const Hero = ({ siteConfig }) => {
         return () => clearInterval(typeInterval);
     }, [roleIndex]);
 
+    // Container no longer fades (no opacity gate) so its children — including the
+    // LCP text — are painted in the server-rendered HTML instead of waiting on JS.
     const containerVariants = {
-        hidden: { opacity: 0 },
+        hidden: {},
         visible: {
-            opacity: 1,
             transition: {
                 staggerChildren: 0.2,
                 delayChildren: 0.3,
@@ -42,6 +43,21 @@ const Hero = ({ siteConfig }) => {
 
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: 'spring',
+                stiffness: 100,
+            },
+        },
+    };
+
+    // LCP elements (name + tagline): stay fully opaque from first paint so they
+    // count as the largest contentful paint immediately; only a subtle settle
+    // animates in once JS loads.
+    const lcpItemVariants = {
+        hidden: { y: 12, opacity: 1 },
         visible: {
             y: 0,
             opacity: 1,
@@ -91,7 +107,7 @@ const Hero = ({ siteConfig }) => {
             >
                 <div className='column'>
                     <div className='s-hero__content-about'>
-                        <motion.h1 variants={itemVariants}>
+                        <motion.h1 variants={lcpItemVariants}>
                             {siteConfig.personal.name}
                         </motion.h1>
 
@@ -114,7 +130,12 @@ const Hero = ({ siteConfig }) => {
                             <motion.img
                                 className='s-about__pic'
                                 src={siteConfig.about.profileImage}
-                                alt='Profile'
+                                alt='Matthew Renfer'
+                                width={300}
+                                height={300}
+                                fetchpriority='high'
+                                loading='eager'
+                                decoding='async'
                                 whileHover={{
                                     scale: 1.05,
                                     rotate: 2,
@@ -123,7 +144,7 @@ const Hero = ({ siteConfig }) => {
                             />
                         </motion.div>
 
-                        <motion.h3 variants={itemVariants}>
+                        <motion.h3 variants={lcpItemVariants}>
                             {config.hero.tagline
                                 .split(/(\{highlight:.*?\})/)
                                 .map((part, index) => {

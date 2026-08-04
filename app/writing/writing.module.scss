@@ -15,7 +15,7 @@ $accent-navy: #2a3f5c; // filing-stamp badge (Dispatch No.)
 $accent-green: #2c4232; // decorative field-mark
 $blockquote: #343432;
 
-$serif: 'Lora', Georgia, serif;
+$serif: var(--font-lora, 'Lora', Georgia, serif);
 $sans: var(--font-1, 'Inter', sans-serif);
 
 /* ---- Page shell (every /writing page) ---- */

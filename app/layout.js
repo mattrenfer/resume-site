@@ -1,5 +1,34 @@
 import Script from 'next/script';
+import { Inter, IBM_Plex_Serif, Lora } from 'next/font/google';
+// Template + vendor CSS are imported here (bundled + minified into the Next CSS)
+// BEFORE globals.scss, so globals.scss remains the override layer that wins.
+import '../public/css/styles.css';
+import '../public/css/vendor.css';
 import './globals.scss';
+
+// Self-hosted fonts (no render-blocking third-party request). Each exposes a CSS
+// variable consumed by the stylesheets: --font-1 (Inter), --font-2 (IBM Plex
+// Serif, homepage headings), --font-lora (the /writing serif).
+const inter = Inter({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    display: 'swap',
+    variable: '--font-inter',
+});
+const ibmPlexSerif = IBM_Plex_Serif({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    style: ['normal', 'italic'],
+    display: 'swap',
+    variable: '--font-ibm',
+});
+const lora = Lora({
+    subsets: ['latin'],
+    weight: ['400', '500', '600'],
+    style: ['normal', 'italic'],
+    display: 'swap',
+    variable: '--font-lora',
+});
 
 export const metadata = {
     title: 'Matthew Russell Renfer - Front-End Engineer',
@@ -18,10 +47,10 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='en'>
-            {/* The Ceevee template + vendor CSS are imported at the top of
-                globals.css (not linked here) so that globals.css overrides
-                them correctly — see the comment in that file. */}
+        <html
+            lang='en'
+            className={`${inter.variable} ${ibmPlexSerif.variable} ${lora.variable}`}
+        >
             {/* id="top" is the anchor target for the footer "back to top" link.
                 No ss-preload class: the preloader was retired, and adding it
                 without ss-loaded would leave .s-hero permanently hidden. */}
