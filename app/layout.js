@@ -56,11 +56,12 @@ export default function RootLayout({ children }) {
                 No ss-preload class: the preloader was retired, and adding it
                 without ss-loaded would leave .s-hero permanently hidden. */}
             <body id='top'>
-                {/* Consent Mode v2 — deny by default (privacy-preserving) BEFORE
-                    GTM loads. The consent banner (Phase 4) flips these to granted
-                    on opt-in; until then GA4 sends cookieless pings only. */}
+                {/* Consent Mode v2 defaults, set BEFORE GTM loads.
+                    Interim (build phase): analytics granted so real data flows;
+                    ad storage stays denied (no ads on this site). Phase 4 adds
+                    the consent banner and revisits the opt-in vs opt-out default. */}
                 <Script id='consent-default' strategy='beforeInteractive'>
-                    {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});`}
+                    {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});`}
                 </Script>
                 {children}
                 <Analytics />
