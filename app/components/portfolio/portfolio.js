@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import VanillaTilt from 'vanilla-tilt';
+import { track } from '@/lib/analytics/events';
 
 const TiltCard = ({ children, enabled = true, options }) => {
     const tiltRef = useRef(null);
@@ -122,6 +123,11 @@ const Portfolio = ({ siteConfig }) => {
                                         onClick={e => {
                                             e.preventDefault();
                                             setActiveItem(item);
+                                            track({
+                                                event: 'portfolio_open',
+                                                item: item.name,
+                                                company: item.companyName,
+                                            });
                                         }}
                                     >
                                         <div className='folio-overlay'>
@@ -215,6 +221,13 @@ const Portfolio = ({ siteConfig }) => {
                                     className='modal-popup__details'
                                     target='_blank'
                                     rel='noreferrer'
+                                    onClick={() =>
+                                        track({
+                                            event: 'outbound_click',
+                                            url: activeItem.link,
+                                            label: activeItem.linkText,
+                                        })
+                                    }
                                 >
                                     {activeItem.linkText}
                                 </a>

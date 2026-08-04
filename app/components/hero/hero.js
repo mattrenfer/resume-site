@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import config from '../../siteConfig';
+import { track } from '@/lib/analytics/events';
 
 const Hero = ({ siteConfig }) => {
     const [displayRole, setDisplayRole] = useState('');
@@ -182,6 +183,12 @@ const Hero = ({ siteConfig }) => {
                                 target='_blank'
                                 rel='noreferrer'
                                 aria-label='LinkedIn'
+                                onClick={() =>
+                                    track({
+                                        event: 'social_click',
+                                        network: 'LinkedIn',
+                                    })
+                                }
                                 variants={socialVariants}
                                 whileHover='hover'
                             >
@@ -195,6 +202,12 @@ const Hero = ({ siteConfig }) => {
                                 target='_blank'
                                 rel='noreferrer'
                                 aria-label='GitHub'
+                                onClick={() =>
+                                    track({
+                                        event: 'social_click',
+                                        network: 'GitHub',
+                                    })
+                                }
                                 variants={socialVariants}
                                 whileHover='hover'
                             >
@@ -208,6 +221,12 @@ const Hero = ({ siteConfig }) => {
                                 target='_blank'
                                 rel='noreferrer'
                                 aria-label='Facebook'
+                                onClick={() =>
+                                    track({
+                                        event: 'social_click',
+                                        network: 'Facebook',
+                                    })
+                                }
                                 variants={socialVariants}
                                 whileHover='hover'
                             >
@@ -221,6 +240,12 @@ const Hero = ({ siteConfig }) => {
                                 target='_blank'
                                 rel='noreferrer'
                                 aria-label='Instagram'
+                                onClick={() =>
+                                    track({
+                                        event: 'social_click',
+                                        network: 'Instagram',
+                                    })
+                                }
                                 variants={socialVariants}
                                 whileHover='hover'
                             >

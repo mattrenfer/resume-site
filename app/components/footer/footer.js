@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { track } from '@/lib/analytics/events';
 
 const Footer = ({ siteConfig }) => {
     // Show the "back to top" button once the user has scrolled down a bit.
@@ -28,6 +29,12 @@ const Footer = ({ siteConfig }) => {
                                         siteConfig.personal.socialMedia.linkedin
                                     }
                                     aria-label='LinkedIn'
+                                    onClick={() =>
+                                        track({
+                                            event: 'social_click',
+                                            network: 'LinkedIn',
+                                        })
+                                    }
                                 >
                                     <i
                                         className='fab fa-linkedin-in'
@@ -43,6 +50,12 @@ const Footer = ({ siteConfig }) => {
                                     target='_blank'
                                     rel='noreferrer'
                                     aria-label='GitHub'
+                                    onClick={() =>
+                                        track({
+                                            event: 'social_click',
+                                            network: 'GitHub',
+                                        })
+                                    }
                                 >
                                     <i
                                         className='fab fa-github-square'
@@ -56,6 +69,12 @@ const Footer = ({ siteConfig }) => {
                                         siteConfig.personal.socialMedia.facebook
                                     }
                                     aria-label='Facebook'
+                                    onClick={() =>
+                                        track({
+                                            event: 'social_click',
+                                            network: 'Facebook',
+                                        })
+                                    }
                                 >
                                     <i
                                         className='fab fa-facebook-f'
@@ -70,6 +89,12 @@ const Footer = ({ siteConfig }) => {
                                             .instagram
                                     }
                                     aria-label='Instagram'
+                                    onClick={() =>
+                                        track({
+                                            event: 'social_click',
+                                            network: 'Instagram',
+                                        })
+                                    }
                                 >
                                     <i
                                         className='fab fa-instagram'

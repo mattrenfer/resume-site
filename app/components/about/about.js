@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { track } from '@/lib/analytics/events';
 
 const About = ({ siteConfig }) => {
     const contentVariants = {
@@ -102,6 +103,13 @@ const About = ({ siteConfig }) => {
                                 className='btn btn--download'
                                 target='_blank'
                                 rel='noreferrer'
+                                onClick={() =>
+                                    track({
+                                        event: 'resume_download',
+                                        file: siteConfig.personal.resume
+                                            .fileName,
+                                    })
+                                }
                                 variants={buttonVariants}
                                 whileHover='hover'
                                 whileTap='tap'
