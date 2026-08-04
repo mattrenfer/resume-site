@@ -19,6 +19,9 @@ nul
 /out/
 next-env.d.ts
 
+# Claude Code / AI tooling scratch space (local only — brief, audits, local settings)
+.claude/
+
 # misc
 .DS_Store
 .env.local
