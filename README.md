@@ -83,13 +83,13 @@ Recent Lighthouse audit (mobile, Slow 4G throttling):
 
 | Performance | Accessibility | Best Practices | SEO |
 | :---------: | :-----------: | :------------: | :-: |
-|     90      |      96       |      100       | 100 |
+|     91      |      100      |      100       | 100 |
 
-Optimizations shipped (Performance 67 → 90): self-hosted fonts to remove the
+Optimizations shipped (Performance 67 → 91): self-hosted fonts to remove the
 render-blocking font request, server-rendered hero text so the largest paint
 doesn't wait on JS, WebP images (~70–80% smaller) via `<picture>`, immutable
 cache headers, and reserved layout to cut layout shift. FCP 3.2s → 0.9s,
-LCP 6.6s → 3.0s.
+LCP 6.6s → 3.2s, CLS 0.12 → 0.03.
 
 ---
 
