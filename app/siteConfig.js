@@ -129,7 +129,10 @@ const siteConfig = {
     personal: {
         name: 'Matthew Russell Renfer',
         role: 'Front-End Engineer', // Default role (not used in typewriter)
-        email: 'mr.renfer [at] gmail.com',
+        // Split into parts so the full address isn't a plain string in source;
+        // EmailLink assembles it client-side into a clickable mailto.
+        emailUser: 'matthewrussellrenfer',
+        emailDomain: 'gmail.com',
         companyName: 'Renfer Digital Solutions LLC',
 
         // Social media links

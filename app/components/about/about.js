@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { track } from '@/lib/analytics/events';
+import EmailLink from '@/app/components/analytics/EmailLink';
 
 const About = ({ siteConfig }) => {
     const contentVariants = {
@@ -94,7 +95,10 @@ const About = ({ siteConfig }) => {
                             <h3>Contact Details</h3>
                             <p>
                                 <br />
-                                {siteConfig.personal.email}
+                                <EmailLink
+                                    user={siteConfig.personal.emailUser}
+                                    domain={siteConfig.personal.emailDomain}
+                                />
                             </p>
                         </div>
                         <div className='column w-1000-stack'>
