@@ -52,6 +52,21 @@ location / {
 
 Reload after any nginx change: `sudo /opt/bitnami/ctlscript.sh restart nginx`
 
+### 4. Static-asset cache headers (server-side)
+
+`conf/bitnami/cache-control.conf` (included inside the server block) sets long-lived
+`Cache-Control` on build assets so browsers don't re-fetch them:
+
+```nginx
+location /_next/static/ { add_header Cache-Control "public, max-age=31536000, immutable"; }
+location /images/ { add_header Cache-Control "public, max-age=2592000"; }
+location /css/ { add_header Cache-Control "public, max-age=2592000"; }
+location /js/ { add_header Cache-Control "public, max-age=2592000"; }
+```
+
+`/_next/static` is content-hashed, so it's safe to cache immutably. Validate with
+`sudo nginx -t` and reload with `sudo nginx -s reload` after editing.
+
 ---
 
 ## How it works

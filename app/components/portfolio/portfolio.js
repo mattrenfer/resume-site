@@ -134,7 +134,10 @@ const Portfolio = ({ siteConfig }) => {
                                             src={item.thumbnail}
                                             srcSet={item.thumbnail}
                                             alt={item.name}
+                                            width={775}
+                                            height={581}
                                             loading='lazy'
+                                            decoding='async'
                                         />
                                     </a>
                                 </TiltCard>
