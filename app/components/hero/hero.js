@@ -172,6 +172,7 @@ const Hero = ({ siteConfig }) => {
                                 href={siteConfig.personal.socialMedia.linkedin}
                                 target='_blank'
                                 rel='noreferrer'
+                                aria-label='LinkedIn'
                                 variants={socialVariants}
                                 whileHover='hover'
                             >
@@ -184,6 +185,7 @@ const Hero = ({ siteConfig }) => {
                                 href={siteConfig.personal.socialMedia.github}
                                 target='_blank'
                                 rel='noreferrer'
+                                aria-label='GitHub'
                                 variants={socialVariants}
                                 whileHover='hover'
                             >
@@ -196,6 +198,7 @@ const Hero = ({ siteConfig }) => {
                                 href={siteConfig.personal.socialMedia.facebook}
                                 target='_blank'
                                 rel='noreferrer'
+                                aria-label='Facebook'
                                 variants={socialVariants}
                                 whileHover='hover'
                             >
@@ -208,6 +211,7 @@ const Hero = ({ siteConfig }) => {
                                 href={siteConfig.personal.socialMedia.instagram}
                                 target='_blank'
                                 rel='noreferrer'
+                                aria-label='Instagram'
                                 variants={socialVariants}
                                 whileHover='hover'
                             >

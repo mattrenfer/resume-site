@@ -54,6 +54,21 @@ a {
     background-color: var(--color-link);
 }
 
+/* ---- Accessibility fixes ----
+   a11y: inline content links must not rely on color alone — underline the
+   certificate "View" links so they're distinguishable without color. */
+.cert-view {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* a11y contrast: the footer text inherited rgba(255,255,255,0.2) on the #141414
+   footer (~1.5:1). Lighten the copyright line to clear 4.5:1. */
+.ss-copyright,
+.ss-copyright span {
+    color: #a5a5a5;
+}
+
 /* Typewriter cursor blink */
 .cursor-blink {
     animation: blink 1s step-end infinite;

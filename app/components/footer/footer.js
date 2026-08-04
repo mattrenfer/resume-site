@@ -27,6 +27,7 @@ const Footer = ({ siteConfig }) => {
                                     href={
                                         siteConfig.personal.socialMedia.linkedin
                                     }
+                                    aria-label='LinkedIn'
                                 >
                                     <i
                                         className='fab fa-linkedin-in'
@@ -41,6 +42,7 @@ const Footer = ({ siteConfig }) => {
                                     }
                                     target='_blank'
                                     rel='noreferrer'
+                                    aria-label='GitHub'
                                 >
                                     <i
                                         className='fab fa-github-square'
@@ -53,6 +55,7 @@ const Footer = ({ siteConfig }) => {
                                     href={
                                         siteConfig.personal.socialMedia.facebook
                                     }
+                                    aria-label='Facebook'
                                 >
                                     <i
                                         className='fab fa-facebook-f'
@@ -66,6 +69,7 @@ const Footer = ({ siteConfig }) => {
                                         siteConfig.personal.socialMedia
                                             .instagram
                                     }
+                                    aria-label='Instagram'
                                 >
                                     <i
                                         className='fab fa-instagram'
@@ -83,10 +87,16 @@ const Footer = ({ siteConfig }) => {
                     </div>
                 </div>
                 <div className={`ss-go-top${showGoTop ? ' link-is-visible' : ''}`}>
-                    <a className='smoothscroll' title='Back to Top' href='#top'>
+                    <a
+                        className='smoothscroll'
+                        title='Back to Top'
+                        aria-label='Back to top'
+                        href='#top'
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             viewBox='0 0 24 24'
+                            aria-hidden='true'
                         >
                             <path d='M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z' />
                         </svg>
