@@ -2,9 +2,12 @@
 title: Complacency Calling
 date: 2026-07-04
 tags:
-  - poetry
+    - poetry
 excerpt:
 ---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Up8-EAzrIeY?si=S0LTdHYKLv5tsvXb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Happy Birthday to US
 we made it this far
 we carried the torch of liberty
@@ -39,7 +42,7 @@ with an undeserving neighbor who just wants to take it"
 
 "strive for the ease
 of conformity and control
-join us in building a monoculture 
+join us in building a monoculture
 the Tower of Babel
 of the new status quo"
 
@@ -61,12 +64,12 @@ no, sir, I reject your petty coffer
 as more than a mere harmless offer
 to be complacent is to be complicit
 you've done enough talking
-let's give the mic 
+let's give the mic
 to someone who cares
-someone who doesn't stir the pot 
+someone who doesn't stir the pot
 with division and lies
-it's past time 
-to judge you 
+it's past time
+to judge you
 you, yourself, on your own merit
 to hold you to account
 beyond any compare
@@ -107,9 +110,9 @@ that'd be outright betrayal
 
 and maybe the world changed
 just a bit too fast
-but it doesn't have to mean 
+but it doesn't have to mean
 we have to go so far back
-needing a change doesn't mean 
+needing a change doesn't mean
 we burn it all down to the ground
 without anything keeping us grounded in between
 it doesn't have to mean
@@ -133,10 +136,10 @@ when the conclusions we draw
 become a problem of caring
 of thinking of others at all
 become a problem of too much empathy
-dismissed too easily 
+dismissed too easily
 as weak sentimentality
 
-the life and the promise 
+the life and the promise
 is either for all of us, or it isn't
 which one is it, America?
 who gets in, who doesn't?
@@ -196,7 +199,7 @@ none better foretold
 
 so join me brothers and sisters
 in the battle not against flesh and blood
-but the powers that be 
+but the powers that be
 those that would lead us away from a united "we"
 to the self-defeating trap of complacency
 the world of difference we make
@@ -204,10 +207,3 @@ in a world of difference is what makes us great
 let's aim to be real in the fight for what's real
 so much more than "blood and soil"
 we're a nation of ideals
-
-
-
-
-
-
-

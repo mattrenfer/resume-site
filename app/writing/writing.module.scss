@@ -397,7 +397,32 @@ $sans: var(--font-1, 'Inter', sans-serif);
 .poemBody {
     font-size: 2rem;
     line-height: 1.7;
-    text-align: center; // verse reads centered here; switch to left if preferred
+    // Verse is left-aligned (lines share a common left edge, as the poet set
+    // them), but the block is centered as a group so it sits balanced under the
+    // centered title. For a plain flush-left column instead, drop the width /
+    // margin lines below and keep only `text-align: left`.
+    text-align: left;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+
+    // Video embeds (e.g. YouTube <iframe>): override the hardcoded width/height
+    // with a responsive 16:9 block, capped to the column and centered. Its left
+    // edge sets the verse block's, so video + verse line up.
+    iframe {
+        display: block;
+        // This video is shot vertically (9:16), so match the frame to it — a
+        // 16:9 box letterboxes portrait video into a tiny center strip. Sized
+        // by height so it stays bounded on shorter screens. For a landscape
+        // embed instead, use aspect-ratio: 16/9 + width: min(90vw, 40rem).
+        aspect-ratio: 9 / 16;
+        height: min(75vh, 60rem);
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto 2.4rem;
+        border: 0;
+        border-radius: 4px;
+    }
 
     // remark-breaks turns single newlines into <br>, so lines stay intact;
     // paragraphs (blank lines in source) become stanzas.

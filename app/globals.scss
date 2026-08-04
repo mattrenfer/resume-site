@@ -27,6 +27,29 @@ body {
     --color-2-light: color-mix(in srgb, var(--color-2), white 18%);
     --color-2-dark: color-mix(in srgb, var(--color-2), black 18%);
     --color-2-darker: color-mix(in srgb, var(--color-2), black 35%);
+
+    /* Link + section-underline accent, kept separate from --color-2 so the
+       secondary accent is untouched. Change THIS line to recolor links. */
+    --color-link: #b23a2e; /* warm brick red */
+    --color-link-hover: color-mix(in srgb, var(--color-link), white 18%);
+}
+
+/* ---- Homepage (Ceevee layer) accent fixes ----
+   styles.css hardcodes orange for links (#f06100) and the section-header
+   underline (#f02400), so nothing recolored them. Repoint both at the dedicated
+   link accent (--color-link); links brighten slightly on hover. */
+a {
+    color: var(--color-link);
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--color-link-hover);
+    }
+}
+
+.section-header-allcaps::after {
+    background-color: var(--color-link);
 }
 
 /* Typewriter cursor blink */
