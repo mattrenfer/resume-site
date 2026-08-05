@@ -17,37 +17,38 @@ bent toward the arc of justice
 but if it made you at all uncomfortable, well,
 Heed Complacency's Calling.
 
-let the lulls of the powerful soothe you
+let the lulls of the powerful soothe you...
+
 "take it from us, it's just fine not to care
 to look only after yourself and your people
-to not hear; to not dare"
+to not hear; to not dare."
 
 "in fact, don't feel anything at all
 beyond pride for success
 enjoy the priviledge we bargained
-no need for distress"
+no need for distress."
 
 "just keep your head in the sand
 as we roll back, rewrite and re-brand
 the history of human progress
 and marvel at the profits we're making
-the Dow's at 50,000"
+the Dow's at 50,000."
 
 "listen in to our program
 of un-ending outrage
 hear the claims of unfairness
 as if it were cool to be unhinged
 after all, this is your land and your rightful right
-with an undeserving neighbor who just wants to take it"
+with an undeserving neighbor who just wants to take it."
 
 "strive for the ease
 of conformity and control
 join us in building a monoculture
 the Tower of Babel
-of the new status quo"
+of the new status quo."
 
-dont ask the honest questions
-the hard look in our memory and mirror
+"don't ask the honest questions
+the hard look in our memory and mirror..."
 
 what good is any measure of success
 if we encourage hate for one another?
@@ -64,12 +65,9 @@ no, sir, I reject your petty coffer
 as more than a mere harmless offer
 to be complacent is to be complicit
 you've done enough talking
-let's give the mic
-to someone who cares
-someone who doesn't stir the pot
-with division and lies
-it's past time
-to judge you
+let's give the mic to someone who cares
+someone who doesn't stir the pot with division and lies
+it's past time to judge you
 you, yourself, on your own merit
 to hold you to account
 beyond any compare
@@ -85,15 +83,15 @@ see, I was naive
 here I was thinking we were doing the whole
 "love one another" thing
 I thought we learned the lesson of history
-that "winning" doesn't come at the cost of another
+that winning doesn't come at the cost of another
 it costs us only being true
 true to what we said we'd do
 true to our fellow man
 to extend the hand of human dignity
 and yet we have hope and possibility
 so long as we stand shoulder-to-shoulder
-apart from this we are broken
-apart from this we grow older
+apart from this, we are broken
+apart from this, we grow older
 but not wiser
 prideful and colder
 when we turn toward a sister and brother
@@ -140,7 +138,7 @@ dismissed too easily
 as weak sentimentality
 
 the life and the promise
-is either for all of us, or it isn't
+is either for us—all of us—or it isn't
 which one is it, America?
 who gets in, who doesn't?
 who gets it, who doesn't?
@@ -151,8 +149,8 @@ in a tragedy of errors
 no comedic value to be found
 in our fits and our flails
 
-how many do we deport
-prevent to abort
+how many do we deport?
+prevent to abort?
 until we're sufficiently "Christian"?
 sufficiently "us"?
 we're getting it twisted
@@ -160,10 +158,10 @@ we're getting it twisted
 now its a punching bag
 as if being aware meant being unfair
 
-let it disappoint you to seek better
+let it disappoint you to seek to do better
 to reach for higher fruit
 than low hanging juice
-cool-aid of the cult
+Kool-aid of the cult
 who've convinced themselves
 that sweet poison which goes down smooth
 is not bad for you

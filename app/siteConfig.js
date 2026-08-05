@@ -159,13 +159,13 @@ const siteConfig = {
 
         // Bio paragraphs
         bio: [
-            'I have always been a problem-solver who thinks in logical, systematic ways—engaging the creative process along the way. A big part of what I love in my career is birthing ideas into practical, impactful solutions.',
+            'I have always been a creative problem-solver. One of the most rewarding parts of my career is birthing ideas into impactful solutions.',
 
-            "I've been making websites since the early dawn of the internet. A lot has changed since then, which is why I am always eager to learn newer technologies and expand my web development toolkit, keeping clients ahead of the curve.",
+            "I've been making websites since the early dawn of the internet. A lot has changed since then, which is why I am always eager to learn new technologies to help others stay current.",
 
             'Creating intuitive user experiences is important to me. The journey a user takes to get where they need to go should be easy to follow and even enjoyable.',
 
-            "Collaboration and positivity are central to how I work. Great results come from great teams, and I value environments where efficiency meets balance. After all, it's not just about the work we do, but how we do it.",
+            'Collaboration and positivity are central to how I work. Great results come from great teams, and I value environments where efficiency, quality and a human touch are in balance.',
         ],
     },
 
@@ -181,7 +181,7 @@ const siteConfig = {
             yearOfJoining: '2026',
             monthOfLeaving: 'July',
             yearOfLeaving: '2026',
-            description: `I developed customer-facing features on a headless E-commerce platform (Next.js + Optimizely CMS). To help make visible user behavior the team was previously blind to, I implemented persistent UTM tracking and cross-domain attribution and built Looker Studio dashboards to provide a view of where users came from and where they went. When the purchase flow broke in production and it wasn't clear whether it was a front-end or back-end issue, I took it, isolated it to the front end, and shipped a hotfix that got checkout working again.`,
+            description: `I developed customer-facing features on a headless E-commerce platform (Next.js + Optimizely CMS) and fixed discovered bugs. To help make visible user behavior the team was previously blind to, I implemented persistent UTM tracking and dashboards, showing where users came from and where they went. When the purchase flow broke in production, I deployed a hotfix that got checkout working again.`,
         },
         {
             id: 2,

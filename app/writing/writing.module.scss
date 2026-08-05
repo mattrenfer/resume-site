@@ -33,12 +33,12 @@ $sans: var(--font-1, 'Inter', sans-serif);
 }
 
 .inner {
-    max-width: 50rem;
+    max-width: 60rem;
     margin: 0 auto;
 }
 
 .article {
-    max-width: 50rem; // ~68–70 characters of Lora — the long-form sweet spot
+    max-width: 60rem; // ~68–70 characters of Lora — the long-form sweet spot
     margin: 0 auto;
 }
 
@@ -226,7 +226,7 @@ $sans: var(--font-1, 'Inter', sans-serif);
 
 /* ---- Individual item (article/poem) ---- */
 .backLink {
-    margin: 0 0 2.5rem;
+    margin: 0 0 7.5rem;
     font-family: $sans;
     font-size: 1.3rem;
     letter-spacing: 0.1em;

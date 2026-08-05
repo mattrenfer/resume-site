@@ -56,19 +56,16 @@ const About = ({ siteConfig }) => {
                     <motion.h3 variants={itemVariants}>About Me</motion.h3>
 
                     <motion.p variants={itemVariants}>
-                        I have always been a problem-solver who thinks in
-                        logical, systematic ways&mdash;engaging the creative
-                        process along the way. A big part of what I love in my
-                        career is birthing ideas into practical, impactful
-                        solutions.
+                        I have always been a creative problem-solver. One of the
+                        most rewarding parts of my career is birthing ideas into
+                        impactful solutions.
                     </motion.p>
 
                     <motion.p variants={itemVariants}>
-                        I&apos;ve been making websites since the early dawn of
-                        the internet. A lot has changed since then, which is why
-                        I am always eager to learn newer technologies and expand
-                        my web development toolkit, keeping clients ahead of the
-                        curve.
+                        I've been making websites since the early dawn of the
+                        internet. A lot has changed since then, which is why I
+                        am always eager to learn new technologies to help others
+                        stay current.
                     </motion.p>
 
                     <motion.p variants={itemVariants}>
@@ -80,9 +77,8 @@ const About = ({ siteConfig }) => {
                     <motion.p variants={itemVariants}>
                         Collaboration and positivity are central to how I work.
                         Great results come from great teams, and I value
-                        environments where efficiency meets balance. After all,
-                        it&apos;s not just about the work we do, but how we do
-                        it.
+                        environments where efficiency, quality and a human touch
+                        are in balance.
                     </motion.p>
 
                     <motion.hr variants={itemVariants} />
