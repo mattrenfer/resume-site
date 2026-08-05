@@ -62,7 +62,7 @@ const About = ({ siteConfig }) => {
                     </motion.p>
 
                     <motion.p variants={itemVariants}>
-                        I've been making websites since the early dawn of the
+                        I`ve been making websites since the early dawn of the
                         internet. A lot has changed since then, which is why I
                         am always eager to learn new technologies to help others
                         stay current.
