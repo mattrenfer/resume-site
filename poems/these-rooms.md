@@ -15,14 +15,14 @@ turnkey triangle twisted fate,
 hardened heart, misshaped face,
 sunken ship, anchored place.
 
-First the oblong concave frame,
+First, the oblong concave frame,
 dimensions, angles,
 trimmed and tamed.
 
-Next an honest time of sharing,
+Next, a naked time of sharing,
 Asymmetrical mirrored pairing.
 
-Now a final circle forms,
+Now, a final circle forms,
 recited prayer, though never worn,
 asking granted knowing difference,
 between halfway in;
