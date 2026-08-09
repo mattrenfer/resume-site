@@ -6,9 +6,10 @@ tags:
 excerpt:
 ---
 
-when asked how I was.
-said what was felt.
-meant what was said.
+when asked how I was,
+said what was felt,
+meant what was said—
+
 dud as a thud.
 dying to dead.
 

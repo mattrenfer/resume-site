@@ -370,7 +370,7 @@ const siteConfig = {
             id: 3,
             name: 'Soltech.net',
             companyName: 'Soltech',
-            description: `Maintained and enhanced Soltech's flagship site, which runs on WP Engine/WordPress. Updates to the site range from regular system/plugin version upgrades to adding new blog features to implementing site-wide functionality, such as a revamped top navigation.`,
+            description: `Maintained and enhanced Soltech's flagship site, which runs on WP Engine/WordPress. Updates to the site ranged from regular system/plugin version upgrades to adding new blog features to implementing site-wide functionality, such as a revamped top navigation.`,
             thumbnail: 'images/portfolio/soltech.jpg',
             link: 'https://soltech.net',
             linkText: 'Live Site',
