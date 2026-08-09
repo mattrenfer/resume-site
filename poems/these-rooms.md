@@ -2,12 +2,15 @@
 title: These Rooms
 date: 2026-08-09
 tags:
-  - poetry
+    - poetry
 excerpt:
 ---
+
+<audio controls src="/audio/these-rooms.mp3"></audio>
+
 These rooms come in many shapes,
 holding water, thin escape,
-Fluid in its taking form,
+fluid in its taking form,
 drowning in becoming born.
 
 Squaring solid sour grapes,

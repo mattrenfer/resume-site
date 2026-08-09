@@ -2,9 +2,12 @@
 title: Complacency Calling  (America at 250)
 date: 2026-07-04
 tags:
-  - poetry
+    - poetry
 excerpt:
 ---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Up8-EAzrIeY?si=S0LTdHYKLv5tsvXb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Happy Birthday to US
 we made it this far
 we carried the torch of liberty
@@ -40,7 +43,7 @@ with an undeserving neighbor who just wants to take it."
 
 "strive for the ease
 of conformity and control
-join us in building a monoculture 
+join us in building a monoculture
 the Tower of Babel
 of the new status quo."
 
@@ -64,7 +67,7 @@ to be complacent is to be complicit
 you've done enough talking
 let's give the mic to someone who cares
 someone who doesn't stir the pot with division and lies
-it's past time to judge you 
+it's past time to judge you
 you, yourself, on your own merit
 to hold you to account
 beyond any compare
@@ -131,10 +134,10 @@ when the conclusions we draw
 become a problem of caring
 of thinking of others at all
 become a problem of too much empathy
-dismissed too easily 
+dismissed too easily
 as weak sentimentality.
 
-the life and the promise 
+the life and the promise
 is either for us—all of us—or it isn't
 which one is it, America?
 who gets in, who doesn't?
@@ -168,13 +171,13 @@ if we're getting to be so great
 why does it feel not at all wise?
 why does it feel like it was all a lie?
 
-we traded good faith engagement 
+we traded good faith engagement
 for cheap entertainment
-civil responsibility 
+civil responsibility
 for painless co-existence
-educated citizenry 
+educated citizenry
 with misinformation
-seeking hard after truth 
+seeking hard after truth
 for hot take opinions
 and if you were to ask me if this came at too high a cost
 of course, yes, just look at what we've lost
@@ -198,7 +201,7 @@ none better foretold.
 
 so join me brothers and sisters
 in the battle not against flesh and blood
-but the powers that be 
+but the powers that be
 those that would lead us away from a united "we"
 to the self-defeating trap of complacency
 the world of difference we make
@@ -206,10 +209,3 @@ in a world of difference is what makes us great!
 let's aim to be real in the fight for what's real
 so much more than "blood and soil"
 we're a nation of ideals.
-
-
-
-
-
-
-
