@@ -1,0 +1,20 @@
+{
+    "name": "matthewrenfer-analytics-lambda",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "GA4 Data API → JSON for the matthewrenfer.com live dashboard (AWS Lambda).",
+    "scripts": {
+        "build": "node build.mjs",
+        "local": "node --env-file=.env dist/local.mjs"
+    },
+    "dependencies": {
+        "google-auth-library": "^9.14.1"
+    },
+    "devDependencies": {
+        "@types/aws-lambda": "^8.10.145",
+        "@types/node": "^20.14.0",
+        "esbuild": "^0.23.1",
+        "typescript": "5.4.5"
+    }
+}

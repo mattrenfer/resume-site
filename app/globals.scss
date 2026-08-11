@@ -190,6 +190,13 @@ a {
     opacity: 0.9;
 }
 
+/* Remove the Ceevee template's leftover hover "..." indicator
+   (.folio-item__thumb::after) — it's superseded by .folio-overlay's title/company
+   and was showing through in the center behind the hover text. */
+.folio-item__thumb::after {
+    content: none;
+}
+
 /* Portfolio modal image fixes */
 .modal-popup {
     padding: 2rem 0 0 0 !important;
