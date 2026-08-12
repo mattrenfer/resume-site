@@ -101,7 +101,7 @@ const siteConfig = {
         // Tagline/description with highlighted words
         // Use {highlight:word} syntax to mark words for highlighting
         tagline:
-            '{highlight:Collaborative} Senior Front-End Engineer, 15+ years. I build {highlight:fast, accessible} interfaces, ship them end-to-end, and {highlight:instrument} them to prove they moved the needle.',
+            '{highlight:Collaborative} Senior Front-End Engineer, 15+ years. I build {highlight:fast}, {highlight:accessible} interfaces, ship them to production, and {highlight:instrument} them to prove they moved the needle.',
 
         // Scroll indicator animation
         scrollIndicator: {
