@@ -2,9 +2,11 @@
 title: been around, I guess
 date: 2026-08-06
 tags:
-  - poetry
+    - poetry
 excerpt:
 ---
+
+<audio controls src="/audio/been-around-I-guess.mp3"></audio>
 
 been around, I guess
 big small towns
