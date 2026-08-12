@@ -32,7 +32,7 @@ const lora = Lora({
 });
 
 export const metadata = {
-    title: 'Matthew Russell Renfer - Front-End Engineer',
+    title: 'Matthew Russell Renfer - Senior Front-End Engineer',
     description:
         'Collaborative Front-End Engineer & UX strategist with 15+ years industry experience delivering performant, scalable digital solutions.',
     icons: {

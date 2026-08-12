@@ -85,11 +85,11 @@ const siteConfig = {
     hero: {
         // Typewriter effect - roles that cycle through
         roles: [
-            'Creative Problem Solver',
+            'Senior Front-End Engineer',
+            'Systems Thinker',
             'User Experience Strategist',
-            'Collaborator',
-            'Bug Squasher',
-            'Continuous Learner',
+            'Performance Optimizer',
+            'Accessibility Advocate',
         ],
 
         // Typewriter settings
@@ -101,7 +101,7 @@ const siteConfig = {
         // Tagline/description with highlighted words
         // Use {highlight:word} syntax to mark words for highlighting
         tagline:
-            '{highlight:Collaborative} Front-End Engineer with 15+ years industry experience building performant, {highlight:scalable} websites and applications and connecting them to measurable business {highlight:outcomes}.',
+            '{highlight:Collaborative} Senior Front-End Engineer, 15+ years. I build {highlight:fast, accessible} interfaces, ship them end-to-end, and {highlight:instrument} them to prove they moved the needle.',
 
         // Scroll indicator animation
         scrollIndicator: {
@@ -128,7 +128,7 @@ const siteConfig = {
     // ============================================================================
     personal: {
         name: 'Matthew Russell Renfer',
-        role: 'Front-End Engineer', // Default role (not used in typewriter)
+        role: 'Senior Front-End Engineer', // Default role (not used in typewriter)
         // Split into parts so the full address isn't a plain string in source;
         // EmailLink assembles it client-side into a clickable mailto.
         emailUser: 'matthewrussellrenfer',
@@ -146,7 +146,7 @@ const siteConfig = {
 
         // Resume/CV
         resume: {
-            fileName: 'Front-End Engineer - Matthew Renfer.pdf',
+            fileName: 'Senior Front-End Engineer - Matthew Renfer.pdf',
             version: '?v=8', // Cache-busting query param
         },
     },

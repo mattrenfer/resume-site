@@ -1,6 +1,6 @@
 # matthewrenfer.com
 
-Personal portfolio and writing platform for Matthew Renfer, Front-End Engineer.
+Personal portfolio and writing platform for Matthew Renfer, Senior Front-End Engineer.
 
 **Live:** https://matthewrenfer.com
 
