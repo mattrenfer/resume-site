@@ -12,7 +12,7 @@ a sustained flame
 prevents going insane.
 
 True now as it was back when
-the high-wire, dire surival
+the highwire, dire surival
 depends on dancing,
 without and within,
 in sway, in the way,
