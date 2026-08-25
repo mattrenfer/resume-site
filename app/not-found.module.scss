@@ -1,0 +1,70 @@
+/* Custom 404. In the static export this compiles to out/404.html, which nginx
+   serves via `error_page 404 /404.html;` — otherwise unknown routes fall through
+   to nginx's built-in (unstyled) 404. */
+
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: #0f0f0f;
+    color: #f4f4f4;
+    text-align: center;
+}
+
+.inner {
+    max-width: 34rem;
+}
+
+.code {
+    font-family: var(--font-2);
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    /* teal → brick-red, echoing the homepage highlight gradient */
+    background: linear-gradient(90deg, var(--color-1), var(--color-link));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.heading {
+    font-family: var(--font-2);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+    color: #f4f4f4;
+}
+
+.copy {
+    font-family: var(--font-1);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #b8b8b8;
+    margin: 0 0 2rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.link {
+    font-family: var(--font-1);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-1);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+
+    &:hover,
+    &:focus {
+        color: var(--color-1);
+        border-bottom-color: var(--color-1);
+    }
+}
