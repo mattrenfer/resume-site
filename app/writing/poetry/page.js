@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/posts';
+import { getAllPoems } from '@/lib/contentful';
 import styles from '../writing.module.scss';
 
 export const metadata = {
@@ -7,8 +7,8 @@ export const metadata = {
     description: 'Poems by Matthew Renfer.',
 };
 
-export default function PoetryIndex() {
-    const poems = getAllPosts('poems'); // newest-first
+export default async function PoetryIndex() {
+    const poems = await getAllPoems(); // newest-first
 
     return (
         <section className={styles.page}>

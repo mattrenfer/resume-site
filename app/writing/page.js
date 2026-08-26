@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getAllPoems } from '@/lib/contentful';
 import { getAllPosts, formatDate } from '@/lib/posts';
 import siteConfig from '@/app/siteConfig';
 import styles from './writing.module.scss';
@@ -11,9 +12,9 @@ export const metadata = {
 const HUB_LIMIT = 4; // how many items to preview per section on the hub
 const showDispatches = siteConfig.features.dispatches;
 
-export default function WritingHub() {
-    const dispatches = showDispatches ? getAllPosts('posts') : []; // newest-first
-    const poems = getAllPosts('poems');
+export default async function WritingHub() {
+    const dispatches = showDispatches ? await getAllPosts('posts') : []; // newest-first
+    const poems = await getAllPoems();
     const totalDispatches = dispatches.length;
 
     return (

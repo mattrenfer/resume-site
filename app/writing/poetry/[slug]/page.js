@@ -1,27 +1,26 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPublishedSlugs, getPostBySlug } from '@/lib/posts';
+import { getPoemSlugs, getPoemBySlug } from '@/lib/contentful';
 import styles from '../../writing.module.scss';
 import ReadTracker from '@/app/components/analytics/ReadTracker';
 
 // Static export: enumerate every published poem slug at build time.
-export function generateStaticParams() {
-    return getPublishedSlugs('poems').map(slug => ({ slug }));
+export async function generateStaticParams() {
+    const slugs = await getPoemSlugs();
+    return slugs.map(slug => ({ slug }));
 }
 
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }) {
-    const poem = await getPostBySlug(params.slug, 'poems');
+    const poem = await getPoemBySlug(params.slug);
     if (!poem) return {};
     return { title: `${poem.title} — Poetry — Matthew Renfer` };
 }
 
 export default async function PoemPage({ params }) {
     // preserveLineBreaks: verse needs single newlines kept as <br>
-    const poem = await getPostBySlug(params.slug, 'poems', {
-        preserveLineBreaks: true,
-    });
+    const poem = await getPoemBySlug(params.slug);
     if (!poem) notFound();
 
     return (
