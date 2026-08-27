@@ -3,60 +3,68 @@ name: Deploy to Lightsail
 # Builds the static export and rsyncs it to the Bitnami nginx document root.
 # Runs automatically when main updates, or on demand from the Actions tab.
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+    # a Contentful Publish triggers this webhook, which rebuilds and deploys the site
+    repository_dispatch:
+        types: [contentful-publish]
 
 # Avoid overlapping deploys clobbering each other.
 concurrency:
-  group: deploy-production
-  cancel-in-progress: true
+    group: deploy-production
+    cancel-in-progress: true
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          # Match the npm 11 lockfile format generated locally (Node 24 ships
-          # npm 11); Node 20's npm 10 mis-resolves cross-platform optional deps
-          # and fails `npm ci` with bogus "missing @emnapi/* from lock file".
-          node-version: 24
-          cache: npm
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  # Match the npm 11 lockfile format generated locally (Node 24 ships
+                  # npm 11); Node 20's npm 10 mis-resolves cross-platform optional deps
+                  # and fails `npm ci` with bogus "missing @emnapi/* from lock file".
+                  node-version: 24
+                  cache: npm
 
-      - name: Install dependencies
-        # Not `npm ci`: the lockfile is generated on Windows and omits Linux-only
-        # optional deps (@emnapi/*), so a strict clean-install fails. `npm install`
-        # reconciles the lockfile on the runner instead.
-        run: npm install --no-audit --no-fund
+            - name: Install dependencies
+              # Not `npm ci`: the lockfile is generated on Windows and omits Linux-only
+              # optional deps (@emnapi/*), so a strict clean-install fails. `npm install`
+              # reconciles the lockfile on the runner instead.
+              run: npm install --no-audit --no-fund
 
-      - name: Build static export
-        run: npm run build
+            - name: Build static export
+              env:
+                  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+                  CONTENTFUL_ENVIRONMENT: ${{ secrets.CONTENTFUL_ENVIRONMENT }}
+                  CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
+              run: npm run build
 
-      - name: Configure SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.LIGHTSAIL_SSH_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.LIGHTSAIL_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+            - name: Configure SSH
+              run: |
+                  mkdir -p ~/.ssh
+                  echo "${{ secrets.LIGHTSAIL_SSH_KEY }}" > ~/.ssh/deploy_key
+                  chmod 600 ~/.ssh/deploy_key
+                  ssh-keyscan -H "${{ secrets.LIGHTSAIL_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Deploy over SSH (tar)
-        # The Lightsail box is EOL Debian with no rsync, so ship the static
-        # export as a tarball over SSH and swap it into place. The target is
-        # wiped first (equivalent to rsync --delete), so it must be a directory
-        # dedicated to this site.
-        run: |
-          tar czf site.tar.gz -C out .
-          scp -i ~/.ssh/deploy_key site.tar.gz \
-            "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}:/tmp/site.tar.gz"
-          ssh -i ~/.ssh/deploy_key \
-            "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}" \
-            "set -e; \
-             sudo mkdir -p '${{ secrets.LIGHTSAIL_TARGET }}'; \
-             sudo find '${{ secrets.LIGHTSAIL_TARGET }}' -mindepth 1 -delete; \
-             sudo tar xzf /tmp/site.tar.gz -C '${{ secrets.LIGHTSAIL_TARGET }}'; \
-             rm -f /tmp/site.tar.gz"
+            - name: Deploy over SSH (tar)
+              # The Lightsail box is EOL Debian with no rsync, so ship the static
+              # export as a tarball over SSH and swap it into place. The target is
+              # wiped first (equivalent to rsync --delete), so it must be a directory
+              # dedicated to this site.
+              run: |
+                  tar czf site.tar.gz -C out .
+                  scp -i ~/.ssh/deploy_key site.tar.gz \
+                    "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}:/tmp/site.tar.gz"
+                  ssh -i ~/.ssh/deploy_key \
+                    "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}" \
+                    "set -e; \
+                     sudo mkdir -p '${{ secrets.LIGHTSAIL_TARGET }}'; \
+                     sudo find '${{ secrets.LIGHTSAIL_TARGET }}' -mindepth 1 -delete; \
+                     sudo tar xzf /tmp/site.tar.gz -C '${{ secrets.LIGHTSAIL_TARGET }}'; \
+                     rm -f /tmp/site.tar.gz"
