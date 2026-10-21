@@ -146,7 +146,7 @@ const siteConfig = {
 
         // Resume/CV
         resume: {
-            fileName: 'Senior Front-End Engineer - Matthew Renfer.pdf',
+            fileName: 'Matthew Renfer - Resume.pdf',
             version: '?v=8', // Cache-busting query param
         },
     },
