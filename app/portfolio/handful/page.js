@@ -35,8 +35,8 @@ const newsreader = Newsreader({
 // will stop working; point them at https://handful.matthewrenfer.com/login instead.
 const DEMO_ACTION = 'https://handful.matthewrenfer.com/api/demo';
 
-// Set this to the repo URL once it's public. The link appears on its own.
-const GITHUB_URL = null;
+// Handful's code on GitHub (public). Set to null to hide the link.
+const GITHUB_URL = 'https://github.com/mattrenfer/crm-proto';
 
 const IMAGE_PATH = '/images/portfolio/handful';
 
@@ -322,7 +322,7 @@ export default function HandfulPage() {
                 </div>
 
                 {GITHUB_URL && (
-                    <p className={styles.next}>
+                    <p className={styles.codeLink}>
                         <a href={GITHUB_URL} className={styles.textLink}>
                             Read the code on GitHub
                         </a>
