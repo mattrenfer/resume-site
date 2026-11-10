@@ -294,20 +294,52 @@ $narrow: 860px;
 .shot {
     position: relative;
     width: 100%;
-    background: $paper;
     transform-origin: 50% 0;
 
-    // Start small, so the page doesn't jump before the script takes over
+    // The starting position, set here so the page doesn't jump before the script takes
+    // over: tipped back on a wide screen, slightly small on a phone.
     @media (prefers-reduced-motion: no-preference) {
-        transform: scale(0.72);
+        transform-origin: 50% 100%;
+        transform: translateY(-22%) rotateX(16deg) scale(0.84);
 
         @media (max-width: $narrow) {
+            transform-origin: 50% 0;
             transform: scale(0.9);
         }
     }
 
     > img {
         width: 100%;
+    }
+
+    // On a wide screen the dashboard stays a framed picture: rounded corners and a soft
+    // shadow keep its edges visible against the page.
+    @media (min-width: $wide) {
+        > img {
+            border-radius: 12px;
+            box-shadow: 0 2.4rem 6rem rgba(0, 0, 0, 0.35);
+        }
+    }
+}
+
+// On a wide screen the dashboard rises from the bottom of the window as the page loads,
+// then the badge lands on it. Plain CSS, so it runs from the first frame.
+@media (min-width: $wide) and (prefers-reduced-motion: no-preference) {
+    // The perspective sits on the dashboard's direct parent, which 3D tilts need.
+    .arrive {
+        perspective: 1600px;
+        animation: arrive 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    }
+
+    .shot .seal {
+        animation-delay: 1.45s;
+    }
+}
+
+@keyframes arrive {
+    from {
+        opacity: 0;
+        transform: translateY(55vh);
     }
 }
 

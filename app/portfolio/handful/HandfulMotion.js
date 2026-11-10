@@ -46,7 +46,7 @@ export default function HandfulMotion({ className, motionClass, children }) {
                 if (!motion) return undefined;
                 el.classList.add(motionClass);
 
-                // Past the header: it lifts and fades, and the page turns from charcoal to paper.
+                // Past the header: it lifts and fades.
                 const shotSec = one('shot-section');
                 gsap.to(one('hero'), {
                     yPercent: -22,
@@ -54,23 +54,46 @@ export default function HandfulMotion({ className, motionClass, children }) {
                     ease: 'none',
                     scrollTrigger: { trigger: shotSec, start: 40, end: 'top 8%', scrub: true },
                 });
-                fadeBg(shotSec, 40, 'top 2%', CHAR, PAPER);
-
-                // The dashboard grows to the edges of the window. The badge rides on it and rolls.
-                gsap.fromTo(
-                    one('shot'),
-                    { scale: wide ? 0.72 : 0.9 },
-                    {
-                        scale: 1,
-                        ease: 'none',
-                        scrollTrigger: { trigger: shotSec, start: 0, end: 'top 6%', scrub: 0.4 },
-                    },
-                );
+                // How the dashboard arrives. On a wide screen it has already risen from the
+                // bottom of the window on load (plain CSS, see .arrive), tipped back like a page
+                // on a desk. As you scroll it turns to face you. It pivots on its bottom edge,
+                // which pulls its top down, so it starts lifted by about the same amount and
+                // settles back as it turns. On a phone it grows gently from 90% to full width.
+                // The badge rides on it and rolls.
+                if (wide) {
+                    gsap.fromTo(
+                        one('shot'),
+                        // y: 0 clears the pixel offset GSAP would otherwise read from the
+                        // stylesheet's matching start position and add on top of yPercent.
+                        { scale: 0.84, rotateX: 16, y: 0, yPercent: -22, transformOrigin: '50% 100%' },
+                        {
+                            scale: 0.88,
+                            rotateX: 0,
+                            yPercent: 0,
+                            ease: 'power1.out',
+                            scrollTrigger: { trigger: shotSec, start: 0, end: 'top 10%', scrub: 0.8 },
+                        },
+                    );
+                } else {
+                    gsap.fromTo(
+                        one('shot'),
+                        { scale: 0.9 },
+                        {
+                            scale: 1,
+                            ease: 'none',
+                            scrollTrigger: { trigger: shotSec, start: 0, end: 'top 6%', scrub: 0.4 },
+                        },
+                    );
+                }
                 gsap.to(one('spin'), {
                     rotate: 28,
                     ease: 'none',
                     scrollTrigger: { trigger: shotSec, start: 0, end: 'bottom 20%', scrub: 0.6 },
                 });
+
+                // Only as the dashboard scrolls away does the page turn from charcoal to paper,
+                // so its edges never melt into the page and you don't feel dropped inside the app.
+                fadeBg(shotSec, 'bottom 80%', 'bottom 25%', CHAR, PAPER);
 
                 // The big sentence lights up word by word, then the story rises in.
                 gsap.to(all('word'), {

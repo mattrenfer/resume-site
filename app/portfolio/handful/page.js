@@ -104,7 +104,7 @@ const FEATURES = [
     },
     {
         title: "What's next",
-        text: "Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list.",
+        text: 'Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list.',
         desktop: {
             src: 'tasks.webp',
             width: 2560,
@@ -200,15 +200,10 @@ export default function HandfulPage() {
             <header data-m='hero' className={styles.hero}>
                 <h1 className={styles.title}>Handful</h1>
                 <div className={styles.ornament} aria-hidden='true' />
-                <p className={styles.tagline}>Just enough CRM.</p>
+                <p className={styles.tagline}>Just enough CRM</p>
                 <p className={styles.summary}>
                     A simple client tracker that opens on a front page telling
                     you who needs you today.
-                </p>
-                <p className={styles.side}>
-                    <a href='#how-it-was-built' className={styles.textLink}>
-                        How it was built
-                    </a>
                 </p>
             </header>
 
@@ -217,19 +212,30 @@ export default function HandfulPage() {
                 className={styles.shotSection}
                 aria-label='The Handful dashboard'
             >
-                <div data-m='shot' className={styles.shot}>
-                    <Shot shot={DASHBOARD} alt={HERO_ALT} fetchPriority='high' />
-                    <div data-m='spin' className={styles.spin}>
-                        <form action={DEMO_ACTION} method='post' className={styles.demoForm}>
-                            <button type='submit' className={styles.seal}>
-                                <img
-                                    src={`${IMAGE_PATH}/badge.webp`}
-                                    width={900}
-                                    height={900}
-                                    alt='Try the demo'
-                                />
-                            </button>
-                        </form>
+                {/* On a wide screen this rises from the bottom of the window on load. */}
+                <div className={styles.arrive}>
+                    <div data-m='shot' className={styles.shot}>
+                        <Shot
+                            shot={DASHBOARD}
+                            alt={HERO_ALT}
+                            fetchPriority='high'
+                        />
+                        <div data-m='spin' className={styles.spin}>
+                            <form
+                                action={DEMO_ACTION}
+                                method='post'
+                                className={styles.demoForm}
+                            >
+                                <button type='submit' className={styles.seal}>
+                                    <img
+                                        src={`${IMAGE_PATH}/badge.webp`}
+                                        width={900}
+                                        height={900}
+                                        alt='Try the demo'
+                                    />
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -239,7 +245,10 @@ export default function HandfulPage() {
                 className={`${styles.idea} ${styles.paper}`}
                 aria-labelledby='origin-story'
             >
-                <h2 id='origin-story' className={`${styles.kicker} ${styles.kickerOnPaper}`}>
+                <h2
+                    id='origin-story'
+                    className={`${styles.kicker} ${styles.kickerOnPaper}`}
+                >
                     Origin story
                 </h2>
                 <Words />
@@ -303,7 +312,7 @@ export default function HandfulPage() {
                     <figure>
                         <Shot
                             shot={DASHBOARD}
-                            alt="The same account in Handful: Tom Okafor is the lead story, and the counts have moved to the bottom of the page."
+                            alt='The same account in Handful: Tom Okafor is the lead story, and the counts have moved to the bottom of the page.'
                             loading='lazy'
                         />
                         <figcaption>
@@ -326,13 +335,25 @@ export default function HandfulPage() {
                 </p>
             </section>
 
-            <section data-m='close' className={styles.close} aria-label='Try Handful'>
-                <form action={DEMO_ACTION} method='post' className={styles.closeRow}>
+            <section
+                data-m='close'
+                className={styles.close}
+                aria-label='Try Handful'
+            >
+                <form
+                    action={DEMO_ACTION}
+                    method='post'
+                    className={styles.closeRow}
+                >
                     <button type='submit' className={styles.cta}>
                         Try the demo
                     </button>
                 </form>
-                <div data-m='wordmark' className={styles.wordmark} aria-hidden='true'>
+                <div
+                    data-m='wordmark'
+                    className={styles.wordmark}
+                    aria-hidden='true'
+                >
                     <span className={styles.wordmarkHand}>Hand</span>
                     <span className={styles.wordmarkFul}>ful</span>
                 </div>
