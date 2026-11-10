@@ -49,19 +49,32 @@
     font-family: $sans;
 }
 
-// Hover and focus are listed so the site-wide a:hover color can't win.
+// The demo buttons are form buttons. The template styles every form and button
+// (margins, caps, letter spacing, colors, a transition on everything), so these
+// reset them. Hover and focus are listed so the template's colors can't win.
+.demoForm {
+    margin: 0;
+}
+
 .cta,
 .cta:hover,
 .cta:focus {
     display: inline-block;
+    height: auto;
+    margin: 0;
     padding: 1.3rem 2.8rem;
+    border: 0;
     border-radius: 3px;
     background: $accent;
+    font-family: $sans;
     font-size: 1.7rem;
     font-weight: 600;
     line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: none;
     color: $bg;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .cta:hover {
@@ -82,27 +95,80 @@
 }
 
 // The browser's default focus ring is near-black here, which disappears on $bg.
-.inner a:focus-visible {
+.inner a:focus-visible,
+.inner button:focus-visible {
     outline: 2px solid $heading;
     outline-offset: 3px;
 }
 
-.note {
-    margin: 1.8rem 0 0;
-    font-family: $sans;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    color: $text;
+.heroImage {
+    position: relative;
+    margin: 4.5rem 0 0;
+
+    > img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
 }
 
-.heroImage {
-    margin: 4.5rem 0 0;
+// The "Try the demo" badge from Handful's sign-in page, on the screenshot's top right corner
+.badge {
+    position: absolute;
+    top: -5.5rem;
+    right: -3rem;
+    width: 15rem;
+    margin: 0;
+
+    @media (max-width: 1040px) {
+        right: 0.8rem;
+    }
+
+    @media (max-width: 700px) {
+        top: -4.4rem;
+        width: 10.4rem;
+    }
+}
+
+.seal,
+.seal:hover,
+.seal:focus {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    line-height: 0;
+    cursor: pointer;
+    transition: none;
 
     img {
         display: block;
         width: 100%;
         height: auto;
-        border-radius: 4px;
+        transition: transform 0.18s;
+    }
+}
+
+.seal:hover img {
+    transform: scale(1.05);
+}
+
+// It lands on the corner once the page loads, like a stamp.
+@media (prefers-reduced-motion: no-preference) {
+    .seal {
+        animation: land 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+    }
+}
+
+@keyframes land {
+    from {
+        opacity: 0;
+        transform: scale(2.1) rotate(-28deg);
     }
 }
 

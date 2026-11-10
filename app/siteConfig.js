@@ -352,7 +352,7 @@ const siteConfig = {
             id: 10,
             name: 'Handful',
             companyName: 'Personal project',
-            description: `A simple CRM that opens on a front page telling you who needs you today. Built with Claude Code: I set the product direction and design, reviewed and tested every change, and wrote parts of it myself. Next.js, React, TypeScript, Tailwind and Supabase.`,
+            description: `A simple CRM that opens on a front page telling you who needs you today. Built with AI-assisted workflows (Claude Code). Next.js, React, TypeScript, Tailwind and Supabase.`,
             thumbnail: 'images/portfolio/handful.jpg',
             alt: "Handful's dashboard, laid out like a newspaper front page, with a client's name as the lead story.",
             link: '/portfolio/handful/',

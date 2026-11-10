@@ -8,8 +8,12 @@ export const metadata = {
         'Handful is a simple CRM that opens on a front page telling you who needs you today. What it does and how it was built.',
 };
 
-// The demo button lives on Handful's sign-in page.
-const DEMO_URL = 'https://handful.matthewrenfer.com/login';
+// Both "Try the demo" buttons post here, the same way the badge on Handful's own
+// sign-in page does. Handful signs the visitor in as the demo account on its
+// server and opens the dashboard, so one click lands them in the app.
+// If Handful ever limits /api/demo to requests from its own pages, these buttons
+// will stop working; point them at https://handful.matthewrenfer.com/login instead.
+const DEMO_ACTION = 'https://handful.matthewrenfer.com/api/demo';
 
 // Set this to the repo URL once it's public. The link appears on its own.
 const GITHUB_URL = null;
@@ -30,7 +34,7 @@ const FEATURES = [
     },
     {
         title: "What's next",
-        text: "Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list. Late tasks aren't red, because that felt like being graded.",
+        text: "Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list.",
         image: 'after-tasks.png',
         width: 1265,
         height: 960,
@@ -59,7 +63,6 @@ const BUILD_NOTES = [
     "Row Level Security keeps each person's data private in the database itself, so a bug in the interface can't expose it.",
     'Urgency is a few small functions: sort by due date, break ties by priority, turn dates into words.',
     'Colors live in one set of tokens with light and dark values, so the theme changes in one place.',
-    'Anything that needs today\'s date runs in the browser, so "Today" means your today and not the server\'s.',
 ];
 
 export default function HandfulPage() {
@@ -73,18 +76,16 @@ export default function HandfulPage() {
                         A simple client tracker that opens on a front page
                         telling you who needs you today.
                     </p>
-                    <p className={styles.actions}>
-                        <a href={DEMO_URL} className={styles.cta}>
-                            Try the demo
-                        </a>
+                    <div className={styles.actions}>
+                        <form action={DEMO_ACTION} method='post' className={styles.demoForm}>
+                            <button type='submit' className={styles.cta}>
+                                Try the demo
+                            </button>
+                        </form>
                         <a href='#how-it-was-built' className={styles.textLink}>
                             How it was built
                         </a>
-                    </p>
-                    <p className={styles.note}>
-                        Early release. The demo account is filled with sample
-                        clients.
-                    </p>
+                    </div>
                 </header>
 
                 <figure className={styles.heroImage}>
@@ -94,14 +95,25 @@ export default function HandfulPage() {
                         width={1265}
                         height={977}
                     />
+                    {/* The same badge as on Handful's sign-in page, on the screenshot's corner */}
+                    <form action={DEMO_ACTION} method='post' className={styles.badge}>
+                        <button type='submit' className={styles.seal}>
+                            <img
+                                src={`${IMAGE_PATH}/badge.webp`}
+                                width={900}
+                                height={900}
+                                alt='Try the demo'
+                            />
+                        </button>
+                    </form>
                 </figure>
 
                 <section
                     className={styles.section}
-                    aria-labelledby='the-idea'
+                    aria-labelledby='origin-story'
                 >
-                    <h2 id='the-idea' className={styles.heading}>
-                        A front page, not a database
+                    <h2 id='origin-story' className={styles.heading}>
+                        Origin story
                     </h2>
                     <p className={styles.lead}>
                         Most CRMs are a database you have to read. In Handful,
@@ -109,9 +121,9 @@ export default function HandfulPage() {
                         person is the headline.
                     </p>
                     <p className={styles.body}>
-                        A cousin of mine worked somewhere that used two CRMs.
-                        One was simple but lacked features. The other had
-                        everything but was hard to use. I wanted something
+                        A small business was using two CRMs to manage its
+                        clients. One was simple but lacked features. The other
+                        had everything but was hard to use. I wanted something
                         between them: low tech, intuitive and human. A point of
                         touch with another person, not a stale tracker.
                     </p>
@@ -161,9 +173,7 @@ export default function HandfulPage() {
                         How it was built
                     </h2>
                     <p className={styles.lead}>
-                        Built with Claude Code. I set the product direction and
-                        design, reviewed and tested every change, and wrote
-                        parts of it myself.
+                        Built with AI-assisted workflows (Claude Code).
                     </p>
                     <p className={styles.stack}>
                         Next.js 15, React 19, TypeScript, Tailwind 4, Supabase
@@ -207,10 +217,6 @@ export default function HandfulPage() {
                         </figure>
                     </div>
 
-                    <p className={styles.next}>
-                        Next up: search, automated tests, reminders, account
-                        deletion and a privacy policy.
-                    </p>
                     {GITHUB_URL && (
                         <p className={styles.next}>
                             <a href={GITHUB_URL} className={styles.textLink}>
