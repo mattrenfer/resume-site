@@ -146,7 +146,7 @@ const Portfolio = ({ siteConfig }) => {
                                             />
                                             <img
                                                 src={item.thumbnail}
-                                                alt={item.name}
+                                                alt={item.alt || item.name}
                                                 width={775}
                                                 height={581}
                                                 loading='lazy'
@@ -190,7 +190,7 @@ const Portfolio = ({ siteConfig }) => {
                                 />
                                 <img
                                     src={activeItem.thumbnail}
-                                    alt={activeItem.name}
+                                    alt={activeItem.alt || activeItem.name}
                                 />
                             </picture>
                             <div className='modal-popup__desc'>
@@ -219,8 +219,9 @@ const Portfolio = ({ siteConfig }) => {
                                 <a
                                     href={activeItem.link}
                                     className='modal-popup__details'
-                                    target='_blank'
-                                    rel='noreferrer'
+                                    // Pages on this site (like /portfolio/handful/) open in the same tab.
+                                    target={activeItem.link.startsWith('/') ? undefined : '_blank'}
+                                    rel={activeItem.link.startsWith('/') ? undefined : 'noreferrer'}
                                     onClick={() =>
                                         track({
                                             event: 'outbound_click',

@@ -349,6 +349,16 @@ const siteConfig = {
     // ============================================================================
     portfolio: [
         {
+            id: 10,
+            name: 'Handful',
+            companyName: 'Personal project',
+            description: `A simple CRM that opens on a front page telling you who needs you today. Built with AI-assisted workflows (Claude Code). Next.js, React, TypeScript, Tailwind and Supabase.`,
+            thumbnail: 'images/portfolio/handful.jpg',
+            alt: "Handful's dashboard, laid out like a newspaper front page, with a client's name as the lead story.",
+            link: '/portfolio/handful/',
+            linkText: 'See the project',
+        },
+        {
             id: 1,
             name: 'Blog Expansion & Redesign',
             companyName: 'SnapCare Blog',
