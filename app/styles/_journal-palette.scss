@@ -1,0 +1,16 @@
+/* The dark "journal" palette, shared by /writing and the portfolio project pages. */
+
+$bg: #282828; // charcoal page base
+$surface: #323230; // cards, code wells
+$border: #404040; // dividers, rules
+$heading: #deded8; // titles
+$text: #c0c0ba; // body copy
+$muted: #6b6b65; // decorative only: 2.75:1 on $bg, too faint for text that must be read
+$accent: #c47a86; // links, highlights
+$accent-hover: #d49aa4; // link hover
+$accent-navy: #2a3f5c; // filing-stamp badge (Dispatch No.)
+$accent-green: #2c4232; // decorative field-mark
+$blockquote: #343432;
+
+$serif: var(--font-lora, 'Lora', Georgia, serif);
+$sans: var(--font-1, 'Inter', sans-serif);

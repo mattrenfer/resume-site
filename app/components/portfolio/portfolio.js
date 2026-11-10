@@ -146,7 +146,7 @@ const Portfolio = ({ siteConfig }) => {
                                             />
                                             <img
                                                 src={item.thumbnail}
-                                                alt={item.name}
+                                                alt={item.alt || item.name}
                                                 width={775}
                                                 height={581}
                                                 loading='lazy'
@@ -190,7 +190,7 @@ const Portfolio = ({ siteConfig }) => {
                                 />
                                 <img
                                     src={activeItem.thumbnail}
-                                    alt={activeItem.name}
+                                    alt={activeItem.alt || activeItem.name}
                                 />
                             </picture>
                             <div className='modal-popup__desc'>

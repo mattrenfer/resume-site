@@ -1,0 +1,229 @@
+import Link from 'next/link';
+import writing from '../../writing/writing.module.scss';
+import styles from './handful.module.scss';
+
+export const metadata = {
+    title: 'Handful — Matthew Renfer',
+    description:
+        'Handful is a simple CRM that opens on a front page telling you who needs you today. What it does and how it was built.',
+};
+
+// The demo button lives on Handful's sign-in page.
+const DEMO_URL = 'https://handful.matthewrenfer.com/login';
+
+// Set this to the repo URL once it's public. The link appears on its own.
+const GITHUB_URL = null;
+
+const IMAGE_PATH = '/images/portfolio/handful';
+
+const HERO_ALT =
+    "Handful's dashboard, laid out like a newspaper front page. The lead story is Tom Okafor, marked Still on your list, with the task Check in about the spring planting plan. A column headed Also next lists Dana Whitfield, Marcus Bell and Priya Nair. Counts of clients and tasks sit at the bottom.";
+
+const FEATURES = [
+    {
+        title: 'Your people',
+        text: 'Every client gets their name in headline type, with their details below it and the next thing you owe them beside it.',
+        image: 'after-clients.png',
+        width: 1265,
+        height: 830,
+        alt: "Handful's Your people page. Each client's name is a headline with company and contact details below it. The next task sits beside each name, such as Dana Whitfield, Send the proposal, Today.",
+    },
+    {
+        title: "What's next",
+        text: "Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list. Late tasks aren't red, because that felt like being graded.",
+        image: 'after-tasks.png',
+        width: 1265,
+        height: 960,
+        alt: "Handful's What's next page, listing tasks most urgent first. Check in about the spring planting plan is marked Still on your list, Send the proposal is marked Today, and later tasks show a weekday.",
+    },
+    {
+        title: 'One page per person',
+        text: 'Your notes and what comes next for that person, side by side.',
+        image: 'after-client-page.png',
+        width: 1265,
+        height: 720,
+        alt: "Handful's page for a client named Priya Nair, with the name as a large headline, a dated note on the left, and the next task with its status on the right.",
+    },
+    {
+        title: 'On your phone, day or night',
+        text: "It works on a phone and follows your device's light or dark setting.",
+        image: 'after-phone-dark.png',
+        width: 640,
+        height: 2093,
+        alt: "Handful's dashboard on a phone in dark mode, with cream type on near-black. Tom Okafor is the lead story, under a teal label reading Still on your list.",
+        narrow: true,
+    },
+];
+
+const BUILD_NOTES = [
+    "Row Level Security keeps each person's data private in the database itself, so a bug in the interface can't expose it.",
+    'Urgency is a few small functions: sort by due date, break ties by priority, turn dates into words.',
+    'Colors live in one set of tokens with light and dark values, so the theme changes in one place.',
+    'Anything that needs today\'s date runs in the browser, so "Today" means your today and not the server\'s.',
+];
+
+export default function HandfulPage() {
+    return (
+        <main className={writing.page}>
+            <div className={styles.inner}>
+                <header className={styles.hero}>
+                    <h1 className={styles.title}>Handful</h1>
+                    <p className={styles.tagline}>Just enough CRM.</p>
+                    <p className={styles.summary}>
+                        A simple client tracker that opens on a front page
+                        telling you who needs you today.
+                    </p>
+                    <p className={styles.actions}>
+                        <a href={DEMO_URL} className={styles.cta}>
+                            Try the demo
+                        </a>
+                        <a href='#how-it-was-built' className={styles.textLink}>
+                            How it was built
+                        </a>
+                    </p>
+                    <p className={styles.note}>
+                        Early release. The demo account is filled with sample
+                        clients.
+                    </p>
+                </header>
+
+                <figure className={styles.heroImage}>
+                    <img
+                        src={`${IMAGE_PATH}/after-dashboard.png`}
+                        alt={HERO_ALT}
+                        width={1265}
+                        height={977}
+                    />
+                </figure>
+
+                <section
+                    className={styles.section}
+                    aria-labelledby='the-idea'
+                >
+                    <h2 id='the-idea' className={styles.heading}>
+                        A front page, not a database
+                    </h2>
+                    <p className={styles.lead}>
+                        Most CRMs are a database you have to read. In Handful,
+                        the most urgent task becomes the lead story, and the
+                        person is the headline.
+                    </p>
+                    <p className={styles.body}>
+                        A cousin of mine worked somewhere that used two CRMs.
+                        One was simple but lacked features. The other had
+                        everything but was hard to use. I wanted something
+                        between them: low tech, intuitive and human. A point of
+                        touch with another person, not a stale tracker.
+                    </p>
+                </section>
+
+                <section
+                    className={styles.section}
+                    aria-labelledby='what-it-does'
+                >
+                    <h2 id='what-it-does' className={styles.heading}>
+                        What it does
+                    </h2>
+                    {FEATURES.map(feature => (
+                        <article
+                            key={feature.title}
+                            className={
+                                feature.narrow
+                                    ? `${styles.feature} ${styles.featureNarrow}`
+                                    : styles.feature
+                            }
+                        >
+                            <div>
+                                <h3 className={styles.featureTitle}>
+                                    {feature.title}
+                                </h3>
+                                <p className={styles.body}>{feature.text}</p>
+                            </div>
+                            <img
+                                className={styles.shot}
+                                src={`${IMAGE_PATH}/${feature.image}`}
+                                alt={feature.alt}
+                                width={feature.width}
+                                height={feature.height}
+                                loading='lazy'
+                                decoding='async'
+                            />
+                        </article>
+                    ))}
+                </section>
+
+                <section
+                    id='how-it-was-built'
+                    className={styles.section}
+                    aria-labelledby='how-it-was-built-heading'
+                >
+                    <h2 id='how-it-was-built-heading' className={styles.heading}>
+                        How it was built
+                    </h2>
+                    <p className={styles.lead}>
+                        Built with Claude Code. I set the product direction and
+                        design, reviewed and tested every change, and wrote
+                        parts of it myself.
+                    </p>
+                    <p className={styles.stack}>
+                        Next.js 15, React 19, TypeScript, Tailwind 4, Supabase
+                        (Postgres and Auth), Vercel, Resend
+                    </p>
+                    <ul className={styles.notes}>
+                        {BUILD_NOTES.map(note => (
+                            <li key={note}>{note}</li>
+                        ))}
+                    </ul>
+
+                    <div className={styles.compare}>
+                        <figure>
+                            <img
+                                className={styles.shot}
+                                src={`${IMAGE_PATH}/before-dashboard.png`}
+                                alt='The earlier version, called Simple CRM: a welcome heading, three stat cards with colored numbers, and two link cards for managing clients and tasks.'
+                                width={1265}
+                                height={560}
+                                loading='lazy'
+                                decoding='async'
+                            />
+                            <figcaption>
+                                Before: stat cards and links, and you work out
+                                who needs you.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img
+                                className={styles.shot}
+                                src={`${IMAGE_PATH}/after-dashboard.png`}
+                                alt='The same account in Handful: Tom Okafor is the lead story, and the counts have moved to the bottom of the page.'
+                                width={1265}
+                                height={977}
+                                loading='lazy'
+                                decoding='async'
+                            />
+                            <figcaption>
+                                After: the same data, and the page tells you.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <p className={styles.next}>
+                        Next up: search, automated tests, reminders, account
+                        deletion and a privacy policy.
+                    </p>
+                    {GITHUB_URL && (
+                        <p className={styles.next}>
+                            <a href={GITHUB_URL} className={styles.textLink}>
+                                Read the code on GitHub
+                            </a>
+                        </p>
+                    )}
+                </section>
+
+                <p className={writing.backHome}>
+                    <Link href='/#portfolio'>← Back to portfolio</Link>
+                </p>
+            </div>
+        </main>
+    );
+}

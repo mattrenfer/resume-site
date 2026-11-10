@@ -2,21 +2,7 @@
    (Dispatches, Poetry). Dark "journal" palette, self-contained here as the
    design north star before the homepage is reskinned to match. */
 
-/* ---- Palette ---- */
-$bg: #282828; // charcoal page base
-$surface: #323230; // cards, code wells
-$border: #404040; // dividers, rules
-$heading: #deded8; // titles
-$text: #c0c0ba; // body copy
-$muted: #6b6b65; // dates, captions
-$accent: #c47a86; // links, highlights
-$accent-hover: #d49aa4; // link hover
-$accent-navy: #2a3f5c; // filing-stamp badge (Dispatch No.)
-$accent-green: #2c4232; // decorative field-mark
-$blockquote: #343432;
-
-$serif: var(--font-lora, 'Lora', Georgia, serif);
-$sans: var(--font-1, 'Inter', sans-serif);
+@use '../styles/journal-palette' as *;
 
 /* ---- Page shell (every /writing page) ---- */
 .page {
