@@ -34,7 +34,7 @@ const FEATURES = [
     },
     {
         title: "What's next",
-        text: "Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list.",
+        text: 'Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list.',
         image: 'after-tasks.png',
         width: 1265,
         height: 960,
@@ -76,16 +76,6 @@ export default function HandfulPage() {
                         A simple client tracker that opens on a front page
                         telling you who needs you today.
                     </p>
-                    <div className={styles.actions}>
-                        <form action={DEMO_ACTION} method='post' className={styles.demoForm}>
-                            <button type='submit' className={styles.cta}>
-                                Try the demo
-                            </button>
-                        </form>
-                        <a href='#how-it-was-built' className={styles.textLink}>
-                            How it was built
-                        </a>
-                    </div>
                 </header>
 
                 <figure className={styles.heroImage}>
@@ -96,7 +86,11 @@ export default function HandfulPage() {
                         height={977}
                     />
                     {/* The same badge as on Handful's sign-in page, on the screenshot's corner */}
-                    <form action={DEMO_ACTION} method='post' className={styles.badge}>
+                    <form
+                        action={DEMO_ACTION}
+                        method='post'
+                        className={styles.badge}
+                    >
                         <button type='submit' className={styles.seal}>
                             <img
                                 src={`${IMAGE_PATH}/badge.webp`}
@@ -169,7 +163,10 @@ export default function HandfulPage() {
                     className={styles.section}
                     aria-labelledby='how-it-was-built-heading'
                 >
-                    <h2 id='how-it-was-built-heading' className={styles.heading}>
+                    <h2
+                        id='how-it-was-built-heading'
+                        className={styles.heading}
+                    >
                         How it was built
                     </h2>
                     <p className={styles.lead}>
