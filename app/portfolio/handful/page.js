@@ -209,9 +209,6 @@ export default function HandfulPage() {
                     <a href='#how-it-was-built' className={styles.textLink}>
                         How it was built
                     </a>
-                    <br />
-                    Early release. The demo account is filled with sample
-                    clients.
                 </p>
             </header>
 
