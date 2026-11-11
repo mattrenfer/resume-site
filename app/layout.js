@@ -32,6 +32,8 @@ const lora = Lora({
 });
 
 export const metadata = {
+    // Lets pages give relative share-image and page URLs.
+    metadataBase: new URL('https://matthewrenfer.com'),
     title: 'Matthew Russell Renfer - Senior Front-End Engineer',
     description:
         'Collaborative Front-End Engineer & UX strategist with 15+ years industry experience delivering performant, scalable digital solutions.',
@@ -40,6 +42,14 @@ export const metadata = {
         apple: '/logo192.png',
     },
     manifest: '/manifest.json',
+    // Defaults for link previews (LinkedIn and others). Pages can override them.
+    openGraph: {
+        type: 'website',
+        siteName: 'Matthew Renfer',
+        title: 'Matthew Russell Renfer - Senior Front-End Engineer',
+        description:
+            'Collaborative Front-End Engineer & UX strategist with 15+ years industry experience delivering performant, scalable digital solutions.',
+    },
 };
 
 export const viewport = {

@@ -84,6 +84,7 @@ const About = ({ siteConfig }) => {
                     <motion.hr variants={itemVariants} />
 
                     <motion.div
+                        id='contact'
                         className='row s-about__content-bottom'
                         variants={itemVariants}
                     >

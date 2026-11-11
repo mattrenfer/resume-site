@@ -6,11 +6,33 @@ import Features from './Features';
 import HandfulMotion from './HandfulMotion';
 import styles from './handful.module.scss';
 
+const DESCRIPTION =
+    'A simple client tracker, built for the handful of people who count on you. What it does and how it was built.';
+
+// The title, description and image LinkedIn and other sites show when the page is shared.
 export const metadata = {
     title: 'Handful — Matthew Renfer',
-    description:
-        'Handful is a simple CRM that opens on a front page telling you who needs you today. What it does and how it was built.',
+    description: DESCRIPTION,
+    alternates: { canonical: '/portfolio/handful/' },
+    openGraph: {
+        type: 'article',
+        url: '/portfolio/handful/',
+        siteName: 'Matthew Renfer',
+        title: 'Handful — Matthew Renfer',
+        description: DESCRIPTION,
+        images: [
+            {
+                url: '/images/portfolio/handful/share.jpg',
+                width: 1200,
+                height: 630,
+                alt: "Handful's dashboard, laid out like a newspaper front page, with a Try the demo badge.",
+            },
+        ],
+    },
+    twitter: { card: 'summary_large_image' },
 };
+
+const RESUME_URL = `/${siteConfig.personal.resume.fileName}${siteConfig.personal.resume.version}`;
 
 // Handful's own display faces, used for the big statements and the closing
 // wordmark. The header stays in the site's Lora.
@@ -210,6 +232,13 @@ export default function HandfulPage() {
                         A simple client tracker with a front page headlining who
                         needs you today.
                     </p>
+                    {/* Visitors from LinkedIn land here first, so the page says whose work this is. */}
+                    <p className={styles.byline}>
+                        by{' '}
+                        <Link href='/' className={styles.bylineLink}>
+                            Matthew Renfer
+                        </Link>
+                    </p>
                 </header>
 
                 <section
@@ -347,11 +376,25 @@ export default function HandfulPage() {
                         </figure>
                     </div>
 
-                    <p className={styles.back}>
-                        <Link href='/#portfolio' className={styles.textLink}>
-                            ← Back to portfolio
-                        </Link>
-                    </p>
+                    <div className={styles.signOff}>
+                        <ul className={styles.signOffLinks}>
+                            <li>
+                                <a href='/#portfolio' className={styles.textLink}>
+                                    See more of my work →
+                                </a>
+                            </li>
+                            <li>
+                                <a href={RESUME_URL} className={styles.textLink}>
+                                    Résumé →
+                                </a>
+                            </li>
+                            <li>
+                                <a href='/#contact' className={styles.textLink}>
+                                    Get in touch →
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </section>
 
                 <section

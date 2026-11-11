@@ -156,6 +156,27 @@ $narrow: 860px;
     color: $accent-hover;
 }
 
+/* ---- Byline: whose work this is, closing the header ---- */
+.byline {
+    margin: 2.4rem 0 0;
+    font-family: $sans;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: #9a9a94;
+}
+
+.bylineLink,
+.bylineLink:focus {
+    font-weight: 500;
+    color: $heading;
+    text-decoration: none;
+}
+
+.bylineLink:hover {
+    color: $accent-hover;
+}
+
 /* ---- Header: the site's own masthead, so Handful's wordmark only appears in the app ---- */
 .hero {
     padding: 9vh var(--gut) 0;
@@ -831,11 +852,28 @@ $narrow: 860px;
     color: $text;
 }
 
-.back {
-    margin: 4.8rem 0 0;
+/* ---- Sign-off: where to go next ---- */
+.signOff {
+    margin: 7.2rem 0 0;
+    padding-top: 4rem;
+    border-top: 1px solid $border;
+    text-align: center;
+}
+
+.signOffLinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem 3.2rem;
+    margin: 0;
+    padding: 0;
     font-family: $sans;
     font-size: 1.6rem;
-    text-align: center;
+
+    li {
+        margin: 0;
+        list-style: none;
+    }
 }
 
 /* ---- Close: the wordmark with the demo badge on its corner, then the site footer ---- */
