@@ -640,8 +640,10 @@ $narrow: 860px;
 
     .stage {
         position: relative;
-        height: 76vh;
-        min-height: 52rem;
+        // Tall screens, like an iPad held upright, would leave a lot of empty paper
+        // under the screenshot, so the height also follows the stage's width.
+        height: min(76vh, 48vw);
+        min-height: 36rem;
         padding: 0;
         overflow: hidden;
         border-radius: 8px 0 0 8px;
