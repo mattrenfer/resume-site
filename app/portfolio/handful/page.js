@@ -268,7 +268,7 @@ export default function HandfulPage() {
                             to build something low tech, intuitive and human. A
                             simple point of touch with another person.
                             <br />
-                            Most of us don't have thousands of contacts. We have
+                            Most of us don’t have thousands of contacts. We have
                             a handful of people who count on us.
                         </p>
                         <p data-m='flow-lines' className={styles.flowLines}>
