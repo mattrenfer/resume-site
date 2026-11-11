@@ -137,11 +137,17 @@ export default function HandfulMotion({ className, motionClass, children }) {
                 // What it does rotates on its own (see Features.js), so nothing here moves it.
                 // How it was built follows on the same charcoal and doesn't move either.
 
-                // The closing wordmark rises from the bottom edge.
+                // The closing wordmark rises from below, and its badge rolls into place.
+                const close = one('close');
                 gsap.from(one('wordmark'), {
-                    yPercent: 62,
+                    yPercent: 40,
                     ease: 'none',
-                    scrollTrigger: { trigger: one('close'), start: 'top 95%', end: 'bottom bottom', scrub: 0.5 },
+                    scrollTrigger: { trigger: close, start: 'top 95%', end: 'bottom bottom', scrub: 0.5 },
+                });
+                gsap.from(one('close-spin'), {
+                    rotate: -40,
+                    ease: 'none',
+                    scrollTrigger: { trigger: close, start: 'top 95%', end: 'bottom bottom', scrub: 0.6 },
                 });
 
                 return () => el.classList.remove(motionClass);

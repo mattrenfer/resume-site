@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Young_Serif, Newsreader } from 'next/font/google';
+import Footer from '../../components/footer/footer';
+import siteConfig from '../../siteConfig';
 import Features from './Features';
 import HandfulMotion from './HandfulMotion';
 import styles from './handful.module.scss';
@@ -28,7 +30,7 @@ const newsreader = Newsreader({
     adjustFontFallback: false,
 });
 
-// Both "Try the demo" buttons post here, the same way the badge on Handful's own
+// Both "Try the demo" badges post here, the same way the badge on Handful's own
 // sign-in page does. Handful signs the visitor in as the demo account on its
 // server and opens the dashboard, so one click lands them in the app.
 // If Handful ever limits /api/demo to requests from its own pages, these buttons
@@ -49,7 +51,7 @@ const HERO_ALT =
 // The sentence that lights up word by word. The last part is the highlight.
 const IDEA = [
     {
-        text: 'Most CRMs are a database you have to read. In Handful, the most urgent task becomes the lead story, and the',
+        text: 'CRMs can easily become spreadsheet mazes. With Handful, the most urgent task becomes the lead story, and the',
     },
     { text: 'person is the headline.', highlight: true },
 ];
@@ -104,7 +106,7 @@ const FEATURES = [
     },
     {
         title: "What's next",
-        text: 'Open tasks, most urgent first. Dates read as words, like Today, Tuesday or Still on your list.',
+        text: 'Open tasks, most urgent first. Due dates read as words: "Today," "Tuesday" or "Still on your list."',
         desktop: {
             src: 'tasks.webp',
             width: 2560,
@@ -137,7 +139,7 @@ const FEATURES = [
     },
 ];
 
-const FLOW = ['Add a client.', 'Add a task.', 'Write a note.'];
+const FLOW = ['Add your people.', 'Schedule a task.', 'Write a note.'];
 
 const BUILD_NOTES = [
     "Row Level Security keeps each person's data private in the database itself, so a bug in the interface can't expose it.",
@@ -183,44 +185,187 @@ function Words() {
 
 export default function HandfulPage() {
     return (
-        <HandfulMotion
-            className={`${styles.page} ${youngSerif.variable} ${newsreader.variable}`}
-            motionClass={styles.motion}
-        >
-            <div data-m='bg' className={styles.bg} aria-hidden='true' />
-
-            {/* Shown at the top of the page only, so visitors know there's more below. */}
-            <button type='button' data-m='cue' className={styles.cue}>
-                Scroll
-                <svg viewBox='0 0 16 16' aria-hidden='true'>
-                    <path d='M3 6l5 5 5-5' />
-                </svg>
-            </button>
-
-            <header data-m='hero' className={styles.hero}>
-                <h1 className={styles.title}>Handful</h1>
-                <div className={styles.ornament} aria-hidden='true' />
-                <p className={styles.tagline}>Just enough CRM</p>
-                <p className={styles.summary}>
-                    A simple client tracker that opens on a front page telling
-                    you who needs you today.
-                </p>
-            </header>
-
-            <section
-                data-m='shot-section'
-                className={styles.shotSection}
-                aria-label='The Handful dashboard'
+        <>
+            <HandfulMotion
+                className={`${styles.page} ${youngSerif.variable} ${newsreader.variable}`}
+                motionClass={styles.motion}
             >
-                {/* On a wide screen this rises from the bottom of the window on load. */}
-                <div className={styles.arrive}>
-                    <div data-m='shot' className={styles.shot}>
-                        <Shot
-                            shot={DASHBOARD}
-                            alt={HERO_ALT}
-                            fetchPriority='high'
-                        />
-                        <div data-m='spin' className={styles.spin}>
+                <div data-m='bg' className={styles.bg} aria-hidden='true' />
+
+                {/* Shown at the top of the page only, so visitors know there's more below. */}
+                <button type='button' data-m='cue' className={styles.cue}>
+                    Scroll
+                    <svg viewBox='0 0 16 16' aria-hidden='true'>
+                        <path d='M3 6l5 5 5-5' />
+                    </svg>
+                </button>
+
+                <header data-m='hero' className={styles.hero}>
+                    <h1 className={styles.title}>Handful</h1>
+                    <div className={styles.ornament} aria-hidden='true' />
+                    <p className={styles.tagline}>
+                        for the handful of people who count on you
+                    </p>
+                    <p className={styles.summary}>
+                        A simple client tracker with a front page headlining who
+                        needs you today.
+                    </p>
+                </header>
+
+                <section
+                    data-m='shot-section'
+                    className={styles.shotSection}
+                    aria-label='The Handful dashboard'
+                >
+                    {/* On a wide screen this rises from the bottom of the window on load. */}
+                    <div className={styles.arrive}>
+                        <div data-m='shot' className={styles.shot}>
+                            <Shot
+                                shot={DASHBOARD}
+                                alt={HERO_ALT}
+                                fetchPriority='high'
+                            />
+                            <div data-m='spin' className={styles.spin}>
+                                <form
+                                    action={DEMO_ACTION}
+                                    method='post'
+                                    className={styles.demoForm}
+                                >
+                                    <button
+                                        type='submit'
+                                        className={styles.seal}
+                                    >
+                                        <img
+                                            src={`${IMAGE_PATH}/badge.webp`}
+                                            width={900}
+                                            height={900}
+                                            alt='Try the demo'
+                                        />
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    data-m='idea'
+                    className={`${styles.idea} ${styles.paper}`}
+                    aria-labelledby='origin-story'
+                >
+                    <h2
+                        id='origin-story'
+                        className={`${styles.kicker} ${styles.kickerOnPaper}`}
+                    >
+                        Origin story
+                    </h2>
+                    <Words />
+                    <div className={styles.story}>
+                        <p data-m='story' className={styles.storyText}>
+                            A small business was using two CRMs to manage its
+                            clients. One was simple but lacked features; the
+                            other had everything but was hard to use. I wanted
+                            to build something low tech, intuitive and human. A
+                            simple point of touch with another person.
+                            <br />
+                            Most of us don’t have thousands of contacts. We have
+                            a handful of people who count on us.
+                        </p>
+                        <p data-m='flow-lines' className={styles.flowLines}>
+                            {FLOW.map(line => (
+                                <span key={line} data-m='flow-line'>
+                                    {line}{' '}
+                                </span>
+                            ))}
+                        </p>
+                    </div>
+                </section>
+
+                <Features features={FEATURES} imagePath={IMAGE_PATH} />
+
+                <section
+                    id='how-it-was-built'
+                    data-m='how'
+                    className={styles.built}
+                    aria-labelledby='how-it-was-built-heading'
+                >
+                    <h2
+                        id='how-it-was-built-heading'
+                        className={styles.heading}
+                    >
+                        How it was built
+                    </h2>
+                    <p className={styles.lead}>
+                        Built with AI-assisted workflows (Claude Code).
+                        {GITHUB_URL && (
+                            <>
+                                {' '}
+                                <a
+                                    href={GITHUB_URL}
+                                    className={styles.textLink}
+                                >
+                                    The code is on GitHub
+                                </a>
+                                .
+                            </>
+                        )}
+                    </p>
+                    <p className={styles.stack}>
+                        Next.js 15, React 19, TypeScript, Tailwind 4, Supabase
+                        (Postgres and Auth), Vercel, Resend
+                    </p>
+                    <ul className={styles.notes}>
+                        {BUILD_NOTES.map(note => (
+                            <li key={note}>{note}</li>
+                        ))}
+                    </ul>
+
+                    <div className={styles.compare}>
+                        <figure>
+                            <img
+                                src={`${IMAGE_PATH}/before-dashboard.png`}
+                                alt='The earlier version, called Simple CRM: a welcome heading, three stat cards with colored numbers, and two link cards for managing clients and tasks.'
+                                width={1265}
+                                height={560}
+                                loading='lazy'
+                                decoding='async'
+                            />
+                            <figcaption>
+                                Before: stat cards and links, and you work out
+                                who needs you.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <Shot
+                                shot={DASHBOARD}
+                                alt='The same account in Handful: Tom Okafor is the lead story, and the counts have moved to the bottom of the page.'
+                                loading='lazy'
+                            />
+                            <figcaption>
+                                After: the same data, and the page tells you.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <p className={styles.back}>
+                        <Link href='/#portfolio' className={styles.textLink}>
+                            ← Back to portfolio
+                        </Link>
+                    </p>
+                </section>
+
+                <section
+                    data-m='close'
+                    className={styles.close}
+                    aria-label='Try Handful'
+                >
+                    {/* The wordmark with the demo badge stamped on its corner, like the dashboard at the top. */}
+                    <div data-m='wordmark' className={styles.closeMark}>
+                        <div className={styles.wordmark} aria-hidden='true'>
+                            <span className={styles.wordmarkHand}>Hand</span>
+                            <span className={styles.wordmarkFul}>ful</span>
+                        </div>
+                        <div data-m='close-spin' className={styles.closeSeal}>
                             <form
                                 action={DEMO_ACTION}
                                 method='post'
@@ -232,132 +377,16 @@ export default function HandfulPage() {
                                         width={900}
                                         height={900}
                                         alt='Try the demo'
+                                        loading='lazy'
                                     />
                                 </button>
                             </form>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section
-                data-m='idea'
-                className={`${styles.idea} ${styles.paper}`}
-                aria-labelledby='origin-story'
-            >
-                <h2
-                    id='origin-story'
-                    className={`${styles.kicker} ${styles.kickerOnPaper}`}
-                >
-                    Origin story
-                </h2>
-                <Words />
-                <div className={styles.story}>
-                    <p data-m='story' className={styles.storyText}>
-                        A small business was using two CRMs to manage its
-                        clients. One was simple but lacked features. The other
-                        had everything but was hard to use. I wanted something
-                        between them: low tech, intuitive and human. A point of
-                        touch with another person, not a stale tracker.
-                    </p>
-                    <p data-m='flow-lines' className={styles.flowLines}>
-                        {FLOW.map(line => (
-                            <span key={line} data-m='flow-line'>
-                                {line}{' '}
-                            </span>
-                        ))}
-                    </p>
-                </div>
-            </section>
-
-            <Features features={FEATURES} imagePath={IMAGE_PATH} />
-
-            <section
-                id='how-it-was-built'
-                data-m='how'
-                className={styles.built}
-                aria-labelledby='how-it-was-built-heading'
-            >
-                <h2 id='how-it-was-built-heading' className={styles.heading}>
-                    How it was built
-                </h2>
-                <p className={styles.lead}>
-                    Built with AI-assisted workflows (Claude Code).
-                </p>
-                <p className={styles.stack}>
-                    Next.js 15, React 19, TypeScript, Tailwind 4, Supabase
-                    (Postgres and Auth), Vercel, Resend
-                </p>
-                <ul className={styles.notes}>
-                    {BUILD_NOTES.map(note => (
-                        <li key={note}>{note}</li>
-                    ))}
-                </ul>
-
-                <div className={styles.compare}>
-                    <figure>
-                        <img
-                            src={`${IMAGE_PATH}/before-dashboard.png`}
-                            alt='The earlier version, called Simple CRM: a welcome heading, three stat cards with colored numbers, and two link cards for managing clients and tasks.'
-                            width={1265}
-                            height={560}
-                            loading='lazy'
-                            decoding='async'
-                        />
-                        <figcaption>
-                            Before: stat cards and links, and you work out who
-                            needs you.
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <Shot
-                            shot={DASHBOARD}
-                            alt='The same account in Handful: Tom Okafor is the lead story, and the counts have moved to the bottom of the page.'
-                            loading='lazy'
-                        />
-                        <figcaption>
-                            After: the same data, and the page tells you.
-                        </figcaption>
-                    </figure>
-                </div>
-
-                {GITHUB_URL && (
-                    <p className={styles.codeLink}>
-                        <a href={GITHUB_URL} className={styles.textLink}>
-                            Read the code on GitHub
-                        </a>
-                    </p>
-                )}
-                <p className={styles.back}>
-                    <Link href='/#portfolio' className={styles.textLink}>
-                        ← Back to portfolio
-                    </Link>
-                </p>
-            </section>
-
-            <section
-                data-m='close'
-                className={styles.close}
-                aria-label='Try Handful'
-            >
-                <form
-                    action={DEMO_ACTION}
-                    method='post'
-                    className={styles.closeRow}
-                >
-                    <button type='submit' className={styles.cta}>
-                        Try the demo
-                    </button>
-                </form>
-                <div
-                    data-m='wordmark'
-                    className={styles.wordmark}
-                    aria-hidden='true'
-                >
-                    <span className={styles.wordmarkHand}>Hand</span>
-                    <span className={styles.wordmarkFul}>ful</span>
-                </div>
-            </section>
-        </HandfulMotion>
+                </section>
+            </HandfulMotion>
+            {/* The site's own footer, so the page ends the way the home page does. */}
+            <Footer siteConfig={siteConfig} />
+        </>
     );
 }

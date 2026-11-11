@@ -189,32 +189,39 @@ $narrow: 860px;
 .ornament {
     width: 7.2rem;
     height: 2px;
-    margin: 2.2rem auto 0;
+    margin: 1.8rem auto 0;
     background: $accent;
     opacity: 0.8;
 }
 
+// The tagline sits with the title, in the face of the "ful" in Handful's wordmark.
+// Lora's italic barely leans, so it read as the first line of the summary.
 .tagline {
-    margin: 2rem 0 0;
-    font-size: clamp(2.4rem, 2.1vw, 3.4rem);
+    margin: 1.8rem 0 0;
+    font-family: $display-italic;
+    font-size: clamp(2.8rem, 2.6vw, 4rem);
     font-style: italic;
+    font-weight: 600;
     line-height: 1.3;
+    letter-spacing: -0.005em;
     color: $accent;
 
     @media (max-width: $narrow) {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
 }
 
 .summary {
     max-width: 68rem;
-    margin: 1.8rem auto 0;
-    font-size: clamp(2.2rem, 1.75vw, 2.8rem);
+    margin: 5.6rem auto 0;
+    font-size: clamp(1.9rem, 1.45vw, 2.2rem);
     line-height: 1.5;
-    color: $heading;
+    text-wrap: balance;
+    color: $text;
 
     @media (max-width: $narrow) {
-        font-size: 2rem;
+        margin-top: 4rem;
+        font-size: 1.9rem;
     }
 }
 
@@ -824,73 +831,33 @@ $narrow: 860px;
     color: $text;
 }
 
-// Matches the Back to portfolio link below it.
-.codeLink {
-    margin: 4rem 0 0;
-    font-family: $sans;
-    font-size: 1.6rem;
-}
-
 .back {
     margin: 4.8rem 0 0;
     font-family: $sans;
     font-size: 1.6rem;
+    text-align: center;
 }
 
-/* ---- Close: a way into the demo, under a giant wordmark ---- */
+/* ---- Close: the wordmark with the demo badge on its corner, then the site footer ---- */
 .close {
-    margin-top: 14vh;
-    padding-bottom: 6vh;
+    margin-top: 10vh;
+    // Room above for the badge, which sits over the wordmark's top edge.
+    padding-top: 7rem;
     overflow: hidden;
 }
 
-.closeRow {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 6vh;
+.closeMark {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
 }
 
-// Hover and focus are listed so the template's button colors can't win.
-.cta,
-.cta:hover,
-.cta:focus {
-    display: inline-flex;
-    align-items: center;
-    height: auto;
-    min-height: 5.2rem;
-    margin: 0;
-    padding: 0 3.4rem;
-    border: 0;
-    border-radius: 3px;
-    background: $accent;
-    font-family: $sans;
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: 0;
-    text-transform: none;
-    color: $bg;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.cta:focus-visible {
-    outline: 2px solid $heading;
-    outline-offset: 3px;
-}
-
-.cta:hover {
-    background: $accent-hover;
-}
-
-// The italic "f" hangs well below the line, so the bottom padding is sized to it.
+// The italic "f" hangs below the line, so the bottom padding is sized to it.
 .wordmark {
     display: flex;
     justify-content: center;
-    padding-bottom: 0.3em;
-    font-size: min(19vw, 36vh);
-    // At this size the letters' invisible box reaches up over the Try the demo
-    // button and would block it. The wordmark is decoration, so clicks pass through.
+    padding-bottom: 0.22em;
+    font-size: clamp(6.4rem, 11vw, 20vh);
     pointer-events: none;
     line-height: 0.95;
     letter-spacing: -0.025em;
@@ -908,6 +875,21 @@ $narrow: 860px;
     font-style: italic;
     font-weight: 600;
     color: $mint;
+}
+
+// The demo badge, stamped over the top right of the wordmark.
+.closeSeal {
+    position: absolute;
+    top: -7rem;
+    right: -11rem;
+    z-index: 2;
+    width: clamp(11rem, 11vw, 17rem);
+
+    @media (max-width: $narrow) {
+        top: -6.4rem;
+        right: -5rem;
+        width: 10.4rem;
+    }
 }
 
 // With reduced motion, the features still switch when clicked, just without the wipe.
