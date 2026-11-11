@@ -30,7 +30,7 @@ $narrow: 860px;
     line-height: 1.5;
 
     // Sit above the color layer
-    > *:not(.bg):not(.cue) {
+    > *:not(.bg):not(.cue):not(.siteBar) {
         position: relative;
         z-index: 1;
     }
@@ -156,6 +156,55 @@ $narrow: 860px;
     color: $accent-hover;
 }
 
+/* ---- Site bar: the site's name above the page, like a newspaper's nameplate ---- */
+.siteBar {
+    // Laid over the top of the header, so the header's glow runs behind it.
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem 2.4rem;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 2rem var(--gut) 0;
+    font-family: $sans;
+    font-size: 1.4rem;
+
+    a,
+    a:focus {
+        color: $text;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $accent-hover;
+    }
+}
+
+.siteName,
+.siteName:focus {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: $heading !important;
+}
+
+.siteLinks {
+    display: flex;
+    gap: 2.4rem;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+        list-style: none;
+    }
+}
+
 /* ---- Header: the site's own masthead, so Handful's wordmark only appears in the app ---- */
 .hero {
     padding: 9vh var(--gut) 0;
@@ -167,7 +216,7 @@ $narrow: 860px;
     );
 
     @media (max-width: $narrow) {
-        padding-top: 5rem;
+        padding-top: 7.6rem;
     }
 }
 
@@ -831,11 +880,35 @@ $narrow: 860px;
     color: $text;
 }
 
-.back {
-    margin: 4.8rem 0 0;
+/* ---- Sign-off: who made this, and where to go next ---- */
+.signOff {
+    margin: 7.2rem 0 0;
+    padding-top: 4rem;
+    border-top: 1px solid $border;
+    text-align: center;
+}
+
+.madeBy {
+    margin: 0;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    color: $heading;
+}
+
+.signOffLinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem 3.2rem;
+    margin: 1.8rem 0 0;
+    padding: 0;
     font-family: $sans;
     font-size: 1.6rem;
-    text-align: center;
+
+    li {
+        margin: 0;
+        list-style: none;
+    }
 }
 
 /* ---- Close: the wordmark with the demo badge on its corner, then the site footer ---- */

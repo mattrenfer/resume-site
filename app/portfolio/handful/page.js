@@ -6,11 +6,40 @@ import Features from './Features';
 import HandfulMotion from './HandfulMotion';
 import styles from './handful.module.scss';
 
+const DESCRIPTION =
+    'A simple client tracker, built for the handful of people who count on you. What it does and how it was built.';
+
+// The title, description and image LinkedIn and other sites show when the page is shared.
 export const metadata = {
     title: 'Handful — Matthew Renfer',
-    description:
-        'Handful is a simple CRM that opens on a front page telling you who needs you today. What it does and how it was built.',
+    description: DESCRIPTION,
+    alternates: { canonical: '/portfolio/handful/' },
+    openGraph: {
+        type: 'article',
+        url: '/portfolio/handful/',
+        siteName: 'Matthew Renfer',
+        title: 'Handful — Matthew Renfer',
+        description: DESCRIPTION,
+        images: [
+            {
+                url: '/images/portfolio/handful/share.jpg',
+                width: 1200,
+                height: 630,
+                alt: "Handful's dashboard, laid out like a newspaper front page, with a Try the demo badge.",
+            },
+        ],
+    },
+    twitter: { card: 'summary_large_image' },
 };
+
+const RESUME_URL = `/${siteConfig.personal.resume.fileName}${siteConfig.personal.resume.version}`;
+
+// The way into the rest of the site, at the top of the page and again at the end.
+const SITE_LINKS = [
+    { href: '/#portfolio', label: 'Work' },
+    { href: RESUME_URL, label: 'Résumé' },
+    { href: '/#contact', label: 'Contact' },
+];
 
 // Handful's own display faces, used for the big statements and the closing
 // wordmark. The header stays in the site's Lora.
@@ -200,6 +229,20 @@ export default function HandfulPage() {
                     </svg>
                 </button>
 
+                {/* Visitors from LinkedIn land here first, so the page says whose site this is. */}
+                <nav className={styles.siteBar} aria-label='Site'>
+                    <Link href='/' className={styles.siteName}>
+                        Matthew Renfer
+                    </Link>
+                    <ul className={styles.siteLinks}>
+                        {SITE_LINKS.map(link => (
+                            <li key={link.label}>
+                                <a href={link.href}>{link.label}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
                 <header data-m='hero' className={styles.hero}>
                     <h1 className={styles.title}>Handful</h1>
                     <div className={styles.ornament} aria-hidden='true' />
@@ -347,11 +390,31 @@ export default function HandfulPage() {
                         </figure>
                     </div>
 
-                    <p className={styles.back}>
-                        <Link href='/#portfolio' className={styles.textLink}>
-                            ← Back to portfolio
-                        </Link>
-                    </p>
+                    <div className={styles.signOff}>
+                        <p className={styles.madeBy}>
+                            Made by{' '}
+                            <Link href='/' className={styles.textLink}>
+                                Matthew Renfer
+                            </Link>
+                        </p>
+                        <ul className={styles.signOffLinks}>
+                            <li>
+                                <a href='/#portfolio' className={styles.textLink}>
+                                    See more of my work →
+                                </a>
+                            </li>
+                            <li>
+                                <a href={RESUME_URL} className={styles.textLink}>
+                                    Résumé →
+                                </a>
+                            </li>
+                            <li>
+                                <a href='/#contact' className={styles.textLink}>
+                                    Get in touch →
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </section>
 
                 <section
