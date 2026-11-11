@@ -83,6 +83,68 @@ a {
     min-height: calc(2 * (var(--vspace-1_25) + var(--vspace-0_125)));
 }
 
+/* The hero was a fixed 100vh box with overflow hidden, so on short screens
+   (a 768px-tall laptop, a small phone) the buttons and social icons were cut
+   off. It now fills the screen at least, and grows when its content needs it. */
+.s-hero {
+    height: auto;
+    min-height: 100vh;
+}
+
+.s-hero__content {
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Hero buttons: "See my work" (solid) and "Résumé" (outline), in the same
+   uppercase style as the Download Resume button. */
+.s-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.6rem;
+    margin: 3.6rem 0 2.8rem;
+}
+
+.s-hero__actions .s-hero__btn {
+    margin: 0;
+    padding: 0 3rem;
+    letter-spacing: 0.2em;
+}
+
+.s-hero__btn--solid,
+.s-hero__btn--solid:visited {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+.s-hero__btn--solid:hover,
+.s-hero__btn--solid:focus {
+    background-color: rgba(255, 255, 255, 0.82);
+    border-color: transparent;
+    color: black;
+}
+
+.s-hero__btn--line,
+.s-hero__btn--line:visited {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.s-hero__btn--line:hover,
+.s-hero__btn--line:focus {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+.s-hero__btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
 /* Typewriter cursor blink */
 .cursor-blink {
     animation: blink 1s step-end infinite;

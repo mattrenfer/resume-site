@@ -345,6 +345,37 @@ const siteConfig = {
     ],
 
     // ============================================================================
+    // 12b. SELECTED WORK (home page, right after the hero)
+    // ============================================================================
+    // The first card is the large one. Each id points to a project in the
+    // portfolio list below, which supplies the name, company, image and link.
+    selectedWork: [
+        {
+            id: 10,
+            image: {
+                src: 'images/portfolio/handful/dashboard.webp',
+                width: 2560,
+                height: 2116,
+            },
+            summary:
+                'A simple client tracker with a front page headlining who needs you today. Designed and built with AI-assisted workflows (Claude Code), from the interface down to the database.',
+            linkText: 'Read the case study',
+        },
+        {
+            id: 11,
+            summary:
+                'Installation PDFs on product pages that show up on their own when IT adds them. No developer needed.',
+            linkText: 'See it live',
+        },
+        {
+            id: 12,
+            summary:
+                'Moved the public site to WordPress, then built most of the front end of a five-month donor app.',
+            linkText: 'Visit the site',
+        },
+    ],
+
+    // ============================================================================
     // 13. PORTFOLIO PROJECTS
     // ============================================================================
     portfolio: [
@@ -364,7 +395,7 @@ const siteConfig = {
             companyName: 'Yamaha Motor Corporation, USA',
             description: `Added an Installation Instructions section to product pages on Yamaha's headless storefront (Next.js + Optimizely CMS). When a product has instruction PDFs, the page lists them as links you can open or download; when it doesn't, the section stays hidden. The links come straight from the product data, so when IT attaches a new PDF it appears on the page automatically, with no developer request needed.`,
             thumbnail: 'images/portfolio/yamaha.jpg',
-            alt: 'A Yamaha product page for a motorcycle top case, with an Installation Instructions section linking to the PDF.',
+            alt: 'A Yamaha product page for the MT-10 Windscreen, with an Installation Instructions section below the product photo.',
             link: 'https://yamaha-motor.com/p/aluminum-top-case?sku=BW3-F84A8-V0-00',
             linkText: 'Live Site',
         },
