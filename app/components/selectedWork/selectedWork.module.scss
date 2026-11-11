@@ -63,12 +63,16 @@ $narrow: 800px;
     color: #fff;
 }
 
-// The whole card is one link.
+// The whole card is one link. Only the base rule sets display: a hover rule
+// that did would outrank .lead's grid and drop its text below the image.
+.card {
+    display: block;
+}
+
 .card,
 .card:visited,
 .card:hover,
 .card:focus {
-    display: block;
     color: inherit;
     text-decoration: none;
 }

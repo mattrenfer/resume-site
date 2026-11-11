@@ -396,7 +396,7 @@ const siteConfig = {
             description: `Added an Installation Instructions section to product pages on Yamaha's headless storefront (Next.js + Optimizely CMS). When a product has instruction PDFs, the page lists them as links you can open or download; when it doesn't, the section stays hidden. The links come straight from the product data, so when IT attaches a new PDF it appears on the page automatically, with no developer request needed.`,
             thumbnail: 'images/portfolio/yamaha.jpg',
             alt: 'A Yamaha product page for the MT-10 Windscreen, with an Installation Instructions section below the product photo.',
-            link: 'https://yamaha-motor.com/p/aluminum-top-case?sku=BW3-F84A8-V0-00',
+            link: 'https://yamaha-motor.com/p/yamaha-genuine-mt-10-windscreen?sku=B5Y-F83J0-V0-00',
             linkText: 'Live Site',
         },
         {
