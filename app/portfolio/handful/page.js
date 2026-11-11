@@ -34,13 +34,6 @@ export const metadata = {
 
 const RESUME_URL = `/${siteConfig.personal.resume.fileName}${siteConfig.personal.resume.version}`;
 
-// The way into the rest of the site, at the top of the page and again at the end.
-const SITE_LINKS = [
-    { href: '/#portfolio', label: 'Work' },
-    { href: RESUME_URL, label: 'Résumé' },
-    { href: '/#contact', label: 'Contact' },
-];
-
 // Handful's own display faces, used for the big statements and the closing
 // wordmark. The header stays in the site's Lora.
 const youngSerif = Young_Serif({
@@ -229,20 +222,6 @@ export default function HandfulPage() {
                     </svg>
                 </button>
 
-                {/* Visitors from LinkedIn land here first, so the page says whose site this is. */}
-                <nav className={styles.siteBar} aria-label='Site'>
-                    <Link href='/' className={styles.siteName}>
-                        Matthew Renfer
-                    </Link>
-                    <ul className={styles.siteLinks}>
-                        {SITE_LINKS.map(link => (
-                            <li key={link.label}>
-                                <a href={link.href}>{link.label}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-
                 <header data-m='hero' className={styles.hero}>
                     <h1 className={styles.title}>Handful</h1>
                     <div className={styles.ornament} aria-hidden='true' />
@@ -252,6 +231,13 @@ export default function HandfulPage() {
                     <p className={styles.summary}>
                         A simple client tracker with a front page headlining who
                         needs you today.
+                    </p>
+                    {/* Visitors from LinkedIn land here first, so the page says whose work this is. */}
+                    <p className={styles.byline}>
+                        by{' '}
+                        <Link href='/' className={styles.bylineLink}>
+                            Matthew Renfer
+                        </Link>
                     </p>
                 </header>
 
@@ -391,12 +377,6 @@ export default function HandfulPage() {
                     </div>
 
                     <div className={styles.signOff}>
-                        <p className={styles.madeBy}>
-                            Made by{' '}
-                            <Link href='/' className={styles.textLink}>
-                                Matthew Renfer
-                            </Link>
-                        </p>
                         <ul className={styles.signOffLinks}>
                             <li>
                                 <a href='/#portfolio' className={styles.textLink}>
