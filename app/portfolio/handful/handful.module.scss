@@ -824,73 +824,33 @@ $narrow: 860px;
     color: $text;
 }
 
-// Matches the Back to portfolio link below it.
-.codeLink {
-    margin: 4rem 0 0;
-    font-family: $sans;
-    font-size: 1.6rem;
-}
-
 .back {
     margin: 4.8rem 0 0;
     font-family: $sans;
     font-size: 1.6rem;
+    text-align: center;
 }
 
-/* ---- Close: a way into the demo, under a giant wordmark ---- */
+/* ---- Close: the wordmark with the demo badge on its corner, then the site footer ---- */
 .close {
-    margin-top: 14vh;
-    padding-bottom: 6vh;
+    margin-top: 10vh;
+    // Room above for the badge, which sits over the wordmark's top edge.
+    padding-top: 7rem;
     overflow: hidden;
 }
 
-.closeRow {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 6vh;
+.closeMark {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
 }
 
-// Hover and focus are listed so the template's button colors can't win.
-.cta,
-.cta:hover,
-.cta:focus {
-    display: inline-flex;
-    align-items: center;
-    height: auto;
-    min-height: 5.2rem;
-    margin: 0;
-    padding: 0 3.4rem;
-    border: 0;
-    border-radius: 3px;
-    background: $accent;
-    font-family: $sans;
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: 0;
-    text-transform: none;
-    color: $bg;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.cta:focus-visible {
-    outline: 2px solid $heading;
-    outline-offset: 3px;
-}
-
-.cta:hover {
-    background: $accent-hover;
-}
-
-// The italic "f" hangs well below the line, so the bottom padding is sized to it.
+// The italic "f" hangs below the line, so the bottom padding is sized to it.
 .wordmark {
     display: flex;
     justify-content: center;
-    padding-bottom: 0.3em;
-    font-size: min(19vw, 36vh);
-    // At this size the letters' invisible box reaches up over the Try the demo
-    // button and would block it. The wordmark is decoration, so clicks pass through.
+    padding-bottom: 0.22em;
+    font-size: clamp(6.4rem, 11vw, 20vh);
     pointer-events: none;
     line-height: 0.95;
     letter-spacing: -0.025em;
@@ -908,6 +868,21 @@ $narrow: 860px;
     font-style: italic;
     font-weight: 600;
     color: $mint;
+}
+
+// The demo badge, stamped over the top right of the wordmark.
+.closeSeal {
+    position: absolute;
+    top: -7rem;
+    right: -11rem;
+    z-index: 2;
+    width: clamp(11rem, 11vw, 17rem);
+
+    @media (max-width: $narrow) {
+        top: -6.4rem;
+        right: -5rem;
+        width: 10.4rem;
+    }
 }
 
 // With reduced motion, the features still switch when clicked, just without the wipe.
