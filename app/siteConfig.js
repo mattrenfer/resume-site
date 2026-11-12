@@ -84,24 +84,8 @@ const siteConfig = {
     // ============================================================================
     hero: {
         // Typewriter effect - roles that cycle through
-        roles: [
-            'Senior Front-End Engineer',
-            'Systems Thinker',
-            'User Experience Strategist',
-            'Performance Optimizer',
-            'Accessibility Advocate',
-        ],
-
-        // Typewriter settings
-        typewriter: {
-            typingSpeed: 100, // Milliseconds per character (50-200)
-            pauseDuration: 2000, // Pause before switching roles (milliseconds)
-        },
-
-        // Tagline/description with highlighted words
-        // Use {highlight:word} syntax to mark words for highlighting
         tagline:
-            '{highlight:Collaborative} Senior Front-End Engineer, 15+ years. I build {highlight:fast}, {highlight:accessible} interfaces, ship them to production, and {highlight:instrument} them to prove they moved the needle.',
+            '15+ years. I build {highlight:fast}, {highlight:accessible} interfaces, ship them to production, and {highlight:instrument} them to prove they moved the needle.',
 
         // Scroll indicator animation
         scrollIndicator: {
@@ -128,7 +112,7 @@ const siteConfig = {
     // ============================================================================
     personal: {
         name: 'Matthew Russell Renfer',
-        role: 'Senior Front-End Engineer', // Default role (not used in typewriter)
+        role: 'Senior Front-End Engineer', // Shown under the name in the hero
         // Split into parts so the full address isn't a plain string in source;
         // EmailLink assembles it client-side into a clickable mailto.
         emailUser: 'matthewrussellrenfer',
