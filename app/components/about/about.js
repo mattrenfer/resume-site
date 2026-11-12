@@ -61,12 +61,11 @@ const About = ({ siteConfig }) => {
 
                     <motion.p variants={itemVariants}>
                         I also build personal projects. The most recent is{' '}
-                        <Link href='/portfolio/handful/'>Handful</Link>, a client
-                        tracker I made because every CRM I tried was either too
-                        thin or too much. Before development, I worked in
-                        professional writing and journalism, and those skills
-                        still show up in how I work: asking thoughtful questions
-                        and saying things plainly.
+                        <Link href='/portfolio/handful/'>Handful</Link>, a simple
+                        client tracker that puts people first. Before
+                        development, I worked in professional writing and
+                        journalism, and it still informs how I work: asking
+                        thoughtful questions and saying things clearly.
                     </motion.p>
                 </motion.div>
             </div>
