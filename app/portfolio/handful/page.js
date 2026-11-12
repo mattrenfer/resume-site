@@ -60,7 +60,7 @@ const newsreader = Newsreader({
 const DEMO_ACTION = 'https://handful.matthewrenfer.com/api/demo';
 
 // Handful's code on GitHub (public). Set to null to hide the link.
-const GITHUB_URL = 'https://github.com/mattrenfer/crm-proto';
+const GITHUB_URL = 'https://github.com/mattrenfer/handful';
 
 const IMAGE_PATH = '/images/portfolio/handful';
 
