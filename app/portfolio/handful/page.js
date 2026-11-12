@@ -293,13 +293,13 @@ export default function HandfulPage() {
                     <div className={styles.story}>
                         <p data-m='story' className={styles.storyText}>
                             A small business was using two different apps to
-                            keep track of its clients. One was simple but lacked features; the
-                            other had everything but was hard to use. I wanted
-                            to build something low tech, intuitive and human. A
-                            simple point of touch with another person.
-                            <br />
-                            Most of us don’t have thousands of contacts. We have
-                            a handful of people who count on us.
+                            keep track of its clients. One was simple but lacked
+                            features; the other had everything but was hard to
+                            use. I wanted to build something low tech, intuitive
+                            and human. A simple point of touch with another
+                            person. Most of us don&apos;t have thousands of
+                            contacts. We have a handful of people who count on
+                            us.
                         </p>
                         <p data-m='flow-lines' className={styles.flowLines}>
                             {FLOW.map(line => (
@@ -385,7 +385,10 @@ export default function HandfulPage() {
                                 </a>
                             </li>
                             <li>
-                                <a href={RESUME_URL} className={styles.textLink}>
+                                <a
+                                    href={RESUME_URL}
+                                    className={styles.textLink}
+                                >
                                     Résumé →
                                 </a>
                             </li>
