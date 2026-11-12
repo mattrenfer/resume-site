@@ -60,17 +60,6 @@ const Hero = ({ siteConfig }) => {
         },
     };
 
-    const socialVariants = {
-        hover: {
-            scale: 1.2,
-            rotate: 360,
-            transition: {
-                type: 'spring',
-                stiffness: 300,
-            },
-        },
-    };
-
     return (
         <section id='hero' className='s-hero target-section'>
             {/* Background gradient comes from the .s-hero__bg CSS layer. */}
@@ -179,7 +168,7 @@ const Hero = ({ siteConfig }) => {
                             className='s-hero__content-social'
                             variants={itemVariants}
                         >
-                            <motion.a
+                            <a
                                 href={siteConfig.personal.socialMedia.linkedin}
                                 target='_blank'
                                 rel='noreferrer'
@@ -190,15 +179,13 @@ const Hero = ({ siteConfig }) => {
                                         network: 'LinkedIn',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-linkedin'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
-                            <motion.a
+                            </a>
+                            <a
                                 href={siteConfig.personal.socialMedia.github}
                                 target='_blank'
                                 rel='noreferrer'
@@ -209,15 +196,13 @@ const Hero = ({ siteConfig }) => {
                                         network: 'GitHub',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-github-square'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
-                            <motion.a
+                            </a>
+                            <a
                                 href={siteConfig.personal.socialMedia.facebook}
                                 target='_blank'
                                 rel='noreferrer'
@@ -228,15 +213,13 @@ const Hero = ({ siteConfig }) => {
                                         network: 'Facebook',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-facebook-square'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
-                            <motion.a
+                            </a>
+                            <a
                                 href={siteConfig.personal.socialMedia.instagram}
                                 target='_blank'
                                 rel='noreferrer'
@@ -247,14 +230,12 @@ const Hero = ({ siteConfig }) => {
                                         network: 'Instagram',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-instagram'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
+                            </a>
                         </motion.div>
                     </div>
                 </div>

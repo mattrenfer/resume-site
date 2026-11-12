@@ -542,3 +542,37 @@ html {
         font-size: 1.6rem;
     }
 }
+
+/* Social icons (hero and footer): turn rose and lift slightly on hover.
+   Replaces the old spin. */
+.s-hero__content-social a,
+.s-footer__social a {
+    display: inline-block;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.s-hero__content-social a:hover,
+.s-hero__content-social a:focus-visible,
+.s-footer__social a:hover,
+.s-footer__social a:focus-visible {
+    color: var(--color-1);
+    transform: translateY(-2px);
+}
+
+.s-hero__content-social a:focus-visible,
+.s-footer__social a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s-hero__content-social a:hover,
+    .s-hero__content-social a:focus-visible,
+    .s-footer__social a:hover,
+    .s-footer__social a:focus-visible {
+        transform: none;
+    }
+}
