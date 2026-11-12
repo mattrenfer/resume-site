@@ -73,7 +73,7 @@ const HERO_ALT =
 // The sentence that lights up word by word. The last part is the highlight.
 const IDEA = [
     {
-        text: 'CRMs can easily become spreadsheet mazes. With Handful, the most urgent task becomes the lead story, and the',
+        text: 'Client trackers can easily become spreadsheet mazes. With Handful, the most urgent task becomes the lead story, and the',
     },
     { text: 'person is the headline.', highlight: true },
 ];
@@ -292,8 +292,8 @@ export default function HandfulPage() {
                     <Words />
                     <div className={styles.story}>
                         <p data-m='story' className={styles.storyText}>
-                            A small business was using two CRMs to manage its
-                            clients. One was simple but lacked features; the
+                            A small business was using two different apps to
+                            keep track of its clients. One was simple but lacked features; the
                             other had everything but was hard to use. I wanted
                             to build something low tech, intuitive and human. A
                             simple point of touch with another person.
