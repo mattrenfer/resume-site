@@ -353,18 +353,42 @@ html {
     justify-content: center;
 }
 
-/* Career, Education and Specialties are two sections on the page but read as
-   one résumé block: no extra gap between them, and the same divider line used
-   between Career and Education. */
-#resume {
-    padding-bottom: 0;
+/* About Me: the template's text was small and 40% white on dark gray, below
+   the 4.5:1 contrast minimum. Larger and brighter. */
+.s-about__content > p {
+    max-width: 76rem; /* about 70 characters a line */
+    font-size: 2.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.78);
 }
 
-#specialties {
-    padding-top: 0;
+@media screen and (max-width: 600px) {
+    .s-about__content > p {
+        font-size: 1.9rem;
+    }
 }
 
-#specialties .s-resume__section {
-    padding-top: calc(var(--vspace-2_5) - 4rem);
-    border-top: 1px solid var(--color-border);
+/* Get in touch: centered, with the same solid and outlined buttons as the hero. */
+.s-contact {
+    padding-bottom: calc(5 * var(--space));
+    text-align: center;
+}
+
+.s-contact h3 {
+    margin-bottom: var(--vspace-1);
+}
+
+.s-contact .s-hero__actions {
+    margin: 0 0 2.4rem;
+}
+
+.s-contact__address,
+.s-contact__address a {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.s-contact__address a:hover,
+.s-contact__address a:focus {
+    color: white;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
+// One row of the résumé section, between Career and Education.
 const Specialties = ({ siteConfig }) => {
     return (
-        <section id='specialties' className='s-resume target-section'>
-            <div className='row s-resume__section'>
+        <div id='specialties' className='row s-resume__section'>
                 <div className='column large-3 tab-12'>
                     <h3 className='section-header-allcaps'>
                         <i
@@ -41,8 +41,7 @@ const Specialties = ({ siteConfig }) => {
                         </ul>
                     </div>
                 </div>
-            </div>
-        </section>
+        </div>
     );
 };
 
