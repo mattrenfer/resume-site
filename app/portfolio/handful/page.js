@@ -379,7 +379,7 @@ export default function HandfulPage() {
                     <div className={styles.signOff}>
                         <ul className={styles.signOffLinks}>
                             <li>
-                                <a href='/#portfolio' className={styles.textLink}>
+                                <a href='/#work' className={styles.textLink}>
                                     See more of my work →
                                 </a>
                             </li>

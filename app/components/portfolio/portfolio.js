@@ -46,6 +46,16 @@ const Portfolio = ({ siteConfig }) => {
         [siteConfig.portfolioTilt],
     );
 
+    // The projects in Selected work are already shown above, so leave them out.
+    const moreWork = useMemo(() => {
+        const selected = new Set(
+            (siteConfig.selectedWork || []).map(card => card.id),
+        );
+        return (siteConfig.portfolio || []).filter(
+            item => !selected.has(item.id),
+        );
+    }, [siteConfig.portfolio, siteConfig.selectedWork]);
+
     useEffect(() => {
         if (!activeItem) return;
 
@@ -94,7 +104,7 @@ const Portfolio = ({ siteConfig }) => {
                 transition={{ duration: 0.6 }}
             >
                 <div className='column large-12'>
-                    <h3>Portfolio</h3>
+                    <h3>More work</h3>
                 </div>
             </motion.div>
 
@@ -105,8 +115,7 @@ const Portfolio = ({ siteConfig }) => {
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.1 }}
             >
-                {siteConfig.portfolio &&
-                    siteConfig.portfolio.map(item => {
+                {moreWork.map(item => {
                         return (
                             <motion.div
                                 className='column folio-item'
