@@ -251,6 +251,13 @@ const siteConfig = {
             icon: 'fas fa-code',
         },
         {
+            id: 6,
+            title: 'AI-Assisted Development',
+            description:
+                'Claude Code, agentic coding workflows, prompt and context design, reviewing and testing AI-generated code, taking projects from idea to production',
+            icon: 'fas fa-robot',
+        },
+        {
             id: 2,
             title: 'Analytics & Measurement',
             description:
