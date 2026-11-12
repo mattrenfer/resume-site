@@ -84,24 +84,8 @@ const siteConfig = {
     // ============================================================================
     hero: {
         // Typewriter effect - roles that cycle through
-        roles: [
-            'Senior Front-End Engineer',
-            'Systems Thinker',
-            'User Experience Strategist',
-            'Performance Optimizer',
-            'Accessibility Advocate',
-        ],
-
-        // Typewriter settings
-        typewriter: {
-            typingSpeed: 100, // Milliseconds per character (50-200)
-            pauseDuration: 2000, // Pause before switching roles (milliseconds)
-        },
-
-        // Tagline/description with highlighted words
-        // Use {highlight:word} syntax to mark words for highlighting
         tagline:
-            '{highlight:Collaborative} Senior Front-End Engineer, 15+ years. I build {highlight:fast}, {highlight:accessible} interfaces, ship them to production, and {highlight:instrument} them to prove they moved the needle.',
+            '15+ years. I build {highlight:fast}, {highlight:accessible} interfaces, ship them to production, and {highlight:instrument} them to prove they moved the needle.',
 
         // Scroll indicator animation
         scrollIndicator: {
@@ -128,7 +112,7 @@ const siteConfig = {
     // ============================================================================
     personal: {
         name: 'Matthew Russell Renfer',
-        role: 'Senior Front-End Engineer', // Default role (not used in typewriter)
+        role: 'Senior Front-End Engineer', // Shown under the name in the hero
         // Split into parts so the full address isn't a plain string in source;
         // EmailLink assembles it client-side into a clickable mailto.
         emailUser: 'matthewrussellrenfer',
@@ -147,7 +131,7 @@ const siteConfig = {
         // Resume/CV
         resume: {
             fileName: 'Matthew Renfer - Resume.pdf',
-            version: '?v=8', // Cache-busting query param
+            version: '?v=10', // Cache-busting query param
         },
     },
 
@@ -158,14 +142,14 @@ const siteConfig = {
         profileImage: 'images/matt-profile.jpg',
 
         // Bio paragraphs
+        // The About Me text lives in app/components/about/about.js (it links to
+        // Handful); this copy is for reference.
         bio: [
-            'I have always been a creative problem-solver. One of the most rewarding parts of my career is birthing ideas into impactful solutions.',
+            "I've been building for the web for 15+ years, and in that time the work has come in every form, from detailed specs to hallway conversations. I'm comfortable with both. When the requirements are clear, I build to them. When they aren't, I help clarify them, then deliver.",
 
-            "I've been making websites since the early dawn of the internet. A lot has changed since then, which is why I am always eager to learn new technologies to help others stay current.",
+            "I learned to work both ways at a university, where requests came in from every department, from quick page updates to database-driven applications. Agency work later had me moving between tech stacks and industries to meet each client's requirements. On in-house teams, it's often meant taking a loosely defined need, digging into the codebase to work out what it actually involves, and pushing it through to production.",
 
-            'Creating intuitive user experiences is important to me. The journey a user takes to get where they need to go should be easy to follow and even enjoyable.',
-
-            'Collaboration and positivity are central to how I work. Great results come from great teams, and I value environments where efficiency, quality and a human touch are in balance.',
+            'I also build personal projects. The most recent is Handful, a simple client tracker that puts people first. Before development, I worked in professional writing and journalism, and it still informs how I work: asking thoughtful questions and saying things clearly.',
         ],
     },
 
@@ -267,6 +251,13 @@ const siteConfig = {
             icon: 'fas fa-code',
         },
         {
+            id: 6,
+            title: 'AI-Assisted Development',
+            description:
+                'Claude Code, agentic coding workflows, prompt and context design, reviewing and testing AI-generated code, taking projects from idea to production',
+            icon: 'fas fa-robot',
+        },
+        {
             id: 2,
             title: 'Analytics & Measurement',
             description:
@@ -364,7 +355,7 @@ const siteConfig = {
         {
             id: 11,
             summary:
-                'Installation PDFs on product pages that show up on their own when IT adds them. No developer needed.',
+                "Built customer-facing features on Yamaha's headless storefront (Next.js + Optimizely CMS). Pictured: product-page installation instructions that appear on their own when IT adds a PDF.",
             linkText: 'See it live',
         },
         {
@@ -391,9 +382,9 @@ const siteConfig = {
         },
         {
             id: 11,
-            name: 'Installation Instructions',
+            name: 'Web Developer (Contract)',
             companyName: 'Yamaha Motor Corporation, USA',
-            description: `Added an Installation Instructions section to product pages on Yamaha's headless storefront (Next.js + Optimizely CMS). When a product has instruction PDFs, the page lists them as links you can open or download; when it doesn't, the section stays hidden. The links come straight from the product data, so when IT attaches a new PDF it appears on the page automatically, with no developer request needed.`,
+            description: `Built customer-facing features on Yamaha's headless storefront (Next.js + Optimizely CMS). Pictured: an Installation Instructions section on product pages. When IT attaches an instruction PDF to a product, it appears on the page automatically, with no developer request needed.`,
             thumbnail: 'images/portfolio/yamaha.jpg',
             alt: 'A Yamaha product page for the MT-10 Windscreen, with an Installation Instructions section below the product photo.',
             link: 'https://yamaha-motor.com/p/yamaha-genuine-mt-10-windscreen?sku=B5Y-F83J0-V0-00',
@@ -413,7 +404,7 @@ const siteConfig = {
             id: 1,
             name: 'Blog Expansion & Redesign',
             companyName: 'SnapCare Blog',
-            description: `In an effort to increase product visibility, SnapCare sought to expand and redesign their site's blog. This included building a unique section theme, as well as adding custom functionality such as: linked author bios, related articles, category/tags, and improved search. These features were built by customizing WordPress and designing in Elementor.`,
+            description: `SnapCare wanted more visibility for its products, so I expanded and redesigned its blog: a custom section theme, linked author bios, related articles, categories and tags, and better search. Built on WordPress, designed in Elementor.`,
             thumbnail: 'images/portfolio/snapcare-blog.jpg',
             link: 'https://snapcare.com/blog',
             linkText: 'Live Site',
@@ -422,7 +413,7 @@ const siteConfig = {
             id: 2,
             name: 'Website Redesign',
             companyName: 'SnapCare',
-            description: `SnapNurse rebranded their company to SnapCare, which included a wholesale redesign of their website. The new site is sleeker, more intuitive and runs on a WPEngine/WordPress/Elementor tech stack. I was the sole web developer on the project working in collaboration with marketing efforts to finish the project from scratch within a tight deadline.`,
+            description: `When SnapNurse rebranded as SnapCare, I rebuilt its website from scratch as the sole developer, working with marketing on a tight deadline. The new site is cleaner and easier to navigate, on WordPress and Elementor, hosted on WP Engine.`,
             thumbnail: 'images/portfolio/snapcare.jpg',
             link: 'https://snapcare.com',
             linkText: 'Live Site',
@@ -431,7 +422,7 @@ const siteConfig = {
             id: 3,
             name: 'Soltech.net',
             companyName: 'Soltech',
-            description: `Maintained and enhanced Soltech's flagship site, which runs on WP Engine/WordPress. Updates to the site ranged from regular system/plugin version upgrades to adding new blog features to implementing site-wide functionality, such as a revamped top navigation.`,
+            description: `Maintained and extended Soltech's flagship WordPress site on WP Engine, from routine core and plugin upgrades to new blog features and site-wide changes like a revamped top navigation.`,
             thumbnail: 'images/portfolio/soltech.jpg',
             link: 'https://soltech.net',
             linkText: 'Live Site',
@@ -440,24 +431,16 @@ const siteConfig = {
             id: 4,
             name: 'Covenant Member Guide',
             companyName: 'Tactic Edge Solutions',
-            description: `Our client requested a redesign of their member guide site, which was much too cluttered. We simplified the design and added pagination functionality to flip through the content like a published document.`,
+            description: `The client's member guide was too cluttered to use. We simplified the design and added a table of contents and pagination, so members can page through it like a printed document.`,
             thumbnail: 'images/portfolio/covenant-member-guide.jpg',
             link: 'https://memberguide.covenantshare.org/',
             linkText: 'Live Site',
-            listTitle: 'Web Functionality Shown',
-            listItems: [
-                {
-                    id: 1,
-                    text: 'Pagination',
-                },
-                { id: 2, text: 'Table of Contents' },
-            ],
         },
         {
             id: 5,
             name: 'Member Portal UI',
             companyName: 'Tactic Edge Solutions',
-            description: `Our organization needed a redesigned back-end experience for our users that looked modern and cleanly displayed the information. The following photo is the chosen design, centering the experience and improving the design as well as information visibility.`,
+            description: `Tactic Edge's member portal needed a modern look and a clearer way to show each member's information. This is the redesign that was chosen.`,
             thumbnail: 'images/portfolio/member-portal-ui.jpg',
             link: '/portfolio/member-portal-mock-ups.pdf',
             linkText: 'View Mock-Ups',
@@ -466,40 +449,32 @@ const siteConfig = {
             id: 6,
             name: 'Tactic Edge Website',
             companyName: 'Tactic Edge Solutions',
-            description: `The Tactic Edge website was in need of a more descriptive website that also cleaned up the look and allowed the user to scroll through more content per page. The resulting redesign summarized what we offered on the homepage and categorized most of the content into two main buckets: services and solutions. It also clarified the call to action of requesting a quote and/or contacting us for more information.`,
+            description: `Redesigned Tactic Edge's site to explain more about what the company does while looking cleaner. The homepage now summarizes what it offers, most content is grouped into Services and Solutions, and the calls to action (request a quote, contact us) are clearer.`,
             thumbnail: 'images/portfolio/tactic-edge.jpg',
         },
         {
             id: 7,
             name: 'Webbstock Landing Page',
             companyName: 'Gardner-Webb University',
-            description: `Gardner-Webb University Gardner-Webb University was in need of a landing page that showcased a partnered music festival with the town of Boiling Springs.`,
+            description: `A landing page for Webbstock, a music festival Gardner-Webb put on with the town of Boiling Springs, with a live countdown to the event and expandable details.`,
             thumbnail: 'images/portfolio/webbstock.jpg',
             link: 'portfolio/webbstock.html',
             linkText: 'Live Preview',
-            listTitle: 'Web Functionality Shown',
-            listItems: [
-                {
-                    id: 1,
-                    text: 'Ticking countdown to the event date & time',
-                },
-                { id: 2, text: 'Hidden rollover and accordion content' },
-            ],
         },
         {
             id: 8,
             name: 'Program Landing Pages',
             companyName: 'Gardner-Webb University',
-            description: `University marketing requested 50+ landing pages for a number of programs—each with a call to action form providing more information to the user. Built a simple & clean reusable theme for all landing pages with drop-ins for unique program images, copy and contact form.`,
+            description: `University marketing needed 50+ landing pages, one per program, each with a request-information form. I built one clean, reusable theme with drop-in slots for each program's image, copy and form.`,
             thumbnail: 'images/portfolio/program-landing-pages.jpg',
             link: '/portfolio/rn-to-bsn.html',
             linkText: 'Live Preview',
         },
         {
             id: 9,
-            name: 'Annual Senior Show ',
+            name: 'Annual Senior Show',
             companyName: 'Gardner-Webb University',
-            description: `The university's art department was in need of a digital home to showcase 16 students' final projects due to COVID-19. The showcase needed an initial entry point per student. Once there, each students' project page includes a profile, a gallery of their work, and a video of their artist's statement.`,
+            description: `During COVID-19, the art department needed a digital home for 16 seniors' final projects. Each student got a page with a profile, a gallery of their work and a video artist's statement.`,
             thumbnail: 'images/portfolio/senior-show.jpg',
         },
     ],

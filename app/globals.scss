@@ -16,7 +16,8 @@ body {
     --font-1: var(--font-inter), 'Inter', sans-serif;
     --font-2: var(--font-ibm), 'IBM Plex Serif', serif;
 
-    --color-1: #11abb0;
+    /* One accent across the site: dusty rose (the teal is gone). */
+    --color-1: #c47a86;
     --color-2: #7b2d3e; /* secondary teal accent — change THIS line to recolor --color-2 everywhere */
 
     /* Theme variations — derived from the base colors above via color-mix,
@@ -32,7 +33,7 @@ body {
 
     /* Link + section-underline accent, kept separate from --color-2 so the
        secondary accent is untouched. Change THIS line to recolor links. */
-    --color-link: #b23a2e; /* warm brick red */
+    --color-link: #a34d5c; /* rose, darkened to pass 4.5:1 on the light sections */
     --color-link-hover: color-mix(in srgb, var(--color-link), white 18%);
 }
 
@@ -73,14 +74,6 @@ a {
    light resume background). Darken to clear 4.5:1. */
 .resume-block__header-date {
     color: #6e6e6e;
-}
-
-/* CLS: the hero is vertically centered in a 100vh box, so any content-height
-   change reflows the whole column. The typewriter role cycles through names of
-   different lengths that wrap to 1 or 2 lines on mobile — reserve two lines so
-   the h2 height never changes (the dominant layout-shift culprit). */
-.s-hero__content h2 {
-    min-height: calc(2 * (var(--vspace-1_25) + var(--vspace-0_125)));
 }
 
 /* The hero was a fixed 100vh box with overflow hidden, so on short screens
@@ -145,22 +138,6 @@ a {
     outline-offset: 3px;
 }
 
-/* Typewriter cursor blink */
-.cursor-blink {
-    animation: blink 1s step-end infinite;
-    margin-left: 4px;
-}
-
-@keyframes blink {
-    0%,
-    50% {
-        opacity: 1;
-    }
-    51%,
-    100% {
-        opacity: 0;
-    }
-}
 
 /* Highlight text animation */
 .highlight {
@@ -177,7 +154,7 @@ a {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, var(--color-1), var(--color-2));
+    background: var(--color-1);
     transform: scaleX(0);
     transform-origin: left;
     animation: underlineGrow 2s ease-in-out forwards;
@@ -190,71 +167,91 @@ a {
     }
 }
 
-/* Portfolio overlay effects */
+/* ---- More work: dark like Selected work, with a caption under each
+   screenshot (always visible, so phones get the names too). ---- */
+.s-portfolio {
+    background-color: #151515;
+}
+
+.s-portfolio h3 {
+    color: white;
+}
+
 .folio-item__thumb {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     overflow: hidden;
+    background-color: #151515;
+    text-decoration: none;
+}
+
+.folio-item__thumb picture {
     display: block;
+    overflow: hidden;
 }
 
 .folio-item__thumb img {
-    transition: transform 0.4s ease;
     display: block;
     width: 100%;
+    margin: 0;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.folio-item__thumb:hover img {
-    transform: scale(1.1);
+.folio-item__thumb:hover img,
+.folio-item__thumb:focus-visible img {
+    transform: scale(1.04);
 }
 
-.folio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--color-1) 90%, transparent),
-        color-mix(in srgb, var(--color-2) 90%, transparent)
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+/* The template darkened the card on hover; the caption replaces that. */
+.folio-item__thumb::before {
+    content: none;
 }
 
-.folio-item__thumb:hover .folio-overlay {
-    opacity: 1;
+.folio-caption {
+    padding: 1.6rem 1.2rem 3.2rem;
+    text-align: left;
 }
 
-.folio-overlay-content {
-    text-align: center;
+.folio-caption h4 {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-1);
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.3;
     color: white;
-    transform: translateY(20px);
-    transition: transform 0.4s ease;
 }
 
-.folio-item__thumb:hover .folio-overlay-content {
-    transform: translateY(0);
+.folio-caption p {
+    margin: 0;
+    font-family: var(--font-1);
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-1);
 }
 
-.folio-overlay-content h4 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
+.folio-item__thumb:focus-visible {
+    outline: 2px solid white;
+    outline-offset: -2px;
 }
 
-.folio-overlay-content p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+@media (prefers-reduced-motion: reduce) {
+    .folio-item__thumb img {
+        transition: none;
+    }
+
+    .folio-item__thumb:hover img,
+    .folio-item__thumb:focus-visible img {
+        transform: none;
+    }
 }
 
 /* Remove the Ceevee template's leftover hover "..." indicator
-   (.folio-item__thumb::after) — it's superseded by .folio-overlay's title/company
-   and was showing through in the center behind the hover text. */
+   (.folio-item__thumb::after); the caption under each screenshot replaces it. */
 .folio-item__thumb::after {
     content: none;
 }
@@ -345,4 +342,237 @@ a {
    Replaces the Ceevee main.js Jump.js / ssSmoothScroll behavior. */
 html {
     scroll-behavior: smooth;
+}
+
+/* "More work" grid: with an odd number of projects, the last card on the
+   two-column tablet layout sits centered instead of alone on the left. */
+.folio-list {
+    justify-content: center;
+}
+
+/* About Me: the template's text was small and 40% white on dark gray, below
+   the 4.5:1 contrast minimum. Larger and brighter. */
+.s-about__content > p {
+    max-width: none; /* the section itself is 84rem wide */
+    font-size: 2.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+@media screen and (max-width: 600px) {
+    .s-about__content > p {
+        font-size: 1.9rem;
+    }
+}
+
+/* Get in touch: centered, with the same solid and outlined buttons as the hero. */
+.s-contact {
+    padding-bottom: calc(5 * var(--space));
+    text-align: center;
+}
+
+.s-contact h3 {
+    margin-bottom: var(--vspace-1);
+}
+
+.s-contact .s-hero__actions {
+    margin: 0 0 2.4rem;
+}
+
+.s-contact__address,
+.s-contact__address a {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.s-contact__address a:hover,
+.s-contact__address a:focus {
+    color: white;
+}
+
+.s-about__content > p a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #c47a86;
+    text-underline-offset: 0.2em;
+}
+
+.s-about__content > p a:hover,
+.s-about__content > p a:focus {
+    text-decoration-color: white;
+}
+
+/* Hero photo: larger than the template's 16rem. */
+.s-hero .s-about__pic {
+    width: 22rem;
+    height: 22rem;
+}
+
+@media screen and (max-width: 600px) {
+    .s-hero .s-about__pic {
+        width: 17rem;
+        height: 17rem;
+    }
+}
+
+/* About Me: centered on the page, text left-aligned. A small label, then the
+   first paragraph as a larger lead in the serif. */
+.s-about:not(.s-contact) .s-about__content {
+    max-width: 84rem;
+    margin: 0 auto;
+}
+
+.s-about:not(.s-contact) .s-about__content > h3 {
+    margin-bottom: 3.2rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c47a86;
+}
+
+.s-about__content > p:first-of-type {
+    max-width: none;
+    margin-bottom: 4rem;
+    font-family: var(--font-2);
+    font-size: 3.2rem;
+    line-height: 1.45;
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .s-about__content > p:first-of-type {
+        font-size: 2.4rem;
+    }
+}
+
+/* ---- Project popup: dark like the cards. Company label, title, description,
+   then the link (it used to float over the screenshot). ---- */
+.folio-modal,
+.folio-modal .modal-popup {
+    background: #1c1c1c;
+}
+
+.folio-modal .modal-popup {
+    max-height: none; /* the popup frame scrolls, not this inner box */
+    overflow: visible;
+    padding: 4.8rem 0 0 0 !important; /* room for the close button above the image */
+}
+
+.folio-modal .modal-popup img {
+    max-height: 44vh;
+}
+
+.folio-modal__close {
+    color: white;
+}
+
+.folio-modal .modal-popup__desc {
+    padding: 1.2rem 3.2rem 3.6rem !important;
+}
+
+.folio-modal__meta {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-1);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-1);
+}
+
+.folio-modal__title {
+    margin: 0 0 1.4rem;
+    font-family: var(--font-1);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: white;
+}
+
+.folio-modal .modal-popup__desc p:not(.folio-modal__meta),
+.folio-modal .modal-popup__desc li,
+.folio-modal .modal-popup__desc div {
+    font-family: var(--font-2);
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.folio-modal__link,
+.folio-modal__link:visited {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--color-1);
+    font-family: var(--font-1);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.folio-modal__link:hover,
+.folio-modal__link:focus {
+    border-color: white;
+    color: white;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 600px) {
+    .folio-modal .modal-popup__desc {
+        padding: 1.2rem 2rem 3.2rem !important;
+    }
+
+    .folio-modal__title {
+        font-size: 2.2rem;
+    }
+
+    .folio-modal .modal-popup__desc p:not(.folio-modal__meta),
+    .folio-modal .modal-popup__desc li,
+    .folio-modal .modal-popup__desc div {
+        font-size: 1.6rem;
+    }
+}
+
+/* Social icons (hero and footer): turn rose and lift slightly on hover.
+   Replaces the old spin. */
+.s-hero__content-social a,
+.s-footer__social a {
+    display: inline-block;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.s-hero__content-social a:hover,
+.s-hero__content-social a:focus-visible,
+.s-footer__social a:hover,
+.s-footer__social a:focus-visible {
+    color: var(--color-1);
+    transform: translateY(-2px);
+}
+
+.s-hero__content-social a:focus-visible,
+.s-footer__social a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s-hero__content-social a:hover,
+    .s-hero__content-social a:focus-visible,
+    .s-footer__social a:hover,
+    .s-footer__social a:focus-visible {
+        transform: none;
+    }
 }

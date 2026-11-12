@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { track } from '@/lib/analytics/events';
-import EmailLink from '@/app/components/analytics/EmailLink';
 
 const About = ({ siteConfig }) => {
     const contentVariants = {
@@ -29,20 +28,6 @@ const About = ({ siteConfig }) => {
         },
     };
 
-    const buttonVariants = {
-        hover: {
-            scale: 1.05,
-            boxShadow: '0 10px 30px rgba(17, 171, 176, 0.3)',
-            transition: {
-                type: 'spring',
-                stiffness: 400,
-            },
-        },
-        tap: {
-            scale: 0.95,
-        },
-    };
-
     return (
         <section id='about' className='s-about target-section'>
             <div className='row'>
@@ -56,83 +41,32 @@ const About = ({ siteConfig }) => {
                     <motion.h3 variants={itemVariants}>About Me</motion.h3>
 
                     <motion.p variants={itemVariants}>
-                        I have always been a creative problem-solver. One of the
-                        most rewarding parts of my career is birthing ideas into
-                        impactful solutions.
+                        I&rsquo;ve been building for the web for 15+ years, and in
+                        that time the work has come in every form, from detailed
+                        specs to hallway conversations. I&rsquo;m comfortable with
+                        both. When the requirements are clear, I build to them.
+                        When they aren&rsquo;t, I help clarify them, then deliver.
                     </motion.p>
 
                     <motion.p variants={itemVariants}>
-                        I’ve been making websites since the early dawn of the
-                        internet. A lot has changed since then, which is why I
-                        am always eager to learn new technologies to help others
-                        stay current.
+                        I learned to work both ways at a university, where
+                        requests came in from every department, from quick page
+                        updates to database-driven applications. Agency work
+                        later had me moving between tech stacks and industries to
+                        meet each client&rsquo;s requirements. On in-house teams,
+                        it&rsquo;s often meant taking a loosely defined need,
+                        digging into the codebase to work out what it actually
+                        involves, and pushing it through to production.
                     </motion.p>
 
                     <motion.p variants={itemVariants}>
-                        Creating intuitive user experiences is important to me.
-                        The journey a user takes to get where they need to go
-                        should be easy to follow and even enjoyable.
+                        I also build personal projects. The most recent is{' '}
+                        <Link href='/portfolio/handful/'>Handful</Link>, a simple
+                        client tracker that puts people first. Before
+                        development, I worked in professional writing and
+                        journalism, and it still informs how I work: asking
+                        thoughtful questions and saying things clearly.
                     </motion.p>
-
-                    <motion.p variants={itemVariants}>
-                        Collaboration and positivity are central to how I work.
-                        Great results come from great teams, and I value
-                        environments where efficiency, quality and a human touch
-                        are in balance.
-                    </motion.p>
-
-                    <motion.hr variants={itemVariants} />
-
-                    <motion.div
-                        id='contact'
-                        className='row s-about__content-bottom'
-                        variants={itemVariants}
-                    >
-                        <div className='column w-1000-stack'>
-                            <h3>Contact Details</h3>
-                            <p>
-                                <br />
-                                <EmailLink
-                                    user={siteConfig.personal.emailUser}
-                                    domain={siteConfig.personal.emailDomain}
-                                />
-                            </p>
-                        </div>
-                        <div className='column w-1000-stack'>
-                            <motion.a
-                                href={`${siteConfig.system.publicUrl}/${siteConfig.personal.resume.fileName}${siteConfig.personal.resume.version}`}
-                                className='btn btn--download'
-                                target='_blank'
-                                rel='noreferrer'
-                                onClick={() =>
-                                    track({
-                                        event: 'resume_download',
-                                        file: siteConfig.personal.resume
-                                            .fileName,
-                                    })
-                                }
-                                variants={buttonVariants}
-                                whileHover='hover'
-                                whileTap='tap'
-                            >
-                                <svg
-                                    xmlns='http://www.w3.org/2000/svg'
-                                    width={24}
-                                    height={24}
-                                    viewBox='0 0 24 24'
-                                    style={{
-                                        fill: 'rgba(0, 0, 0, 1)',
-                                        transform: '',
-                                        msFilter: '',
-                                    }}
-                                >
-                                    <path d='M12 16L16 11 13 11 13 4 11 4 11 11 8 11z' />
-                                    <path d='M20,18H4v-7H2v7c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2v-7h-2V18z' />
-                                </svg>
-                                Download Resume
-                            </motion.a>
-                        </div>
-                    </motion.div>
                 </motion.div>
             </div>
         </section>

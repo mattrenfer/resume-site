@@ -14,9 +14,11 @@ interface EmailLinkProps {
     user: string;
     domain: string;
     className?: string;
+    // Shown instead of the address, e.g. on a button.
+    label?: string;
 }
 
-export default function EmailLink({ user, domain, className }: EmailLinkProps) {
+export default function EmailLink({ user, domain, className, label }: EmailLinkProps) {
     const [address, setAddress] = useState<string | null>(null);
 
     useEffect(() => {
@@ -27,7 +29,7 @@ export default function EmailLink({ user, domain, className }: EmailLinkProps) {
     if (!address) {
         return (
             <span className={className}>
-                {user} [at] {domain}
+                {label ?? `${user} [at] ${domain}`}
             </span>
         );
     }
@@ -38,7 +40,7 @@ export default function EmailLink({ user, domain, className }: EmailLinkProps) {
             className={className}
             onClick={() => track({ event: 'contact_click', method: 'email' })}
         >
-            {address}
+            {label ?? address}
         </a>
     );
 }
