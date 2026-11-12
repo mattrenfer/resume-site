@@ -750,10 +750,14 @@ $narrow: 860px;
         display: none;
     }
 
-    // A still view of the top of each phone screen
+    // A still view of the top of each phone screen. Capped in width so a
+    // small tablet shows a phone-sized crop, not a phone screen blown up
+    // to the full width and almost a full screen tall.
     .phoneShot {
         display: block;
-        height: 130vw;
+        max-width: 40rem;
+        aspect-ratio: 10 / 13;
+        margin: 0 auto;
         overflow: hidden;
         border-radius: 6px;
         background: $paper;
