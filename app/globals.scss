@@ -444,3 +444,101 @@ html {
         font-size: 2.4rem;
     }
 }
+
+/* ---- Project popup: dark like the cards. Company label, title, description,
+   then the link (it used to float over the screenshot). ---- */
+.folio-modal,
+.folio-modal .modal-popup {
+    background: #1c1c1c;
+}
+
+.folio-modal .modal-popup {
+    max-height: none; /* the popup frame scrolls, not this inner box */
+    overflow: visible;
+    padding: 4.8rem 0 0 0 !important; /* room for the close button above the image */
+}
+
+.folio-modal .modal-popup img {
+    max-height: 44vh;
+}
+
+.folio-modal__close {
+    color: white;
+}
+
+.folio-modal .modal-popup__desc {
+    padding: 1.2rem 3.2rem 3.6rem !important;
+}
+
+.folio-modal__meta {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-1);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-1);
+}
+
+.folio-modal__title {
+    margin: 0 0 1.4rem;
+    font-family: var(--font-1);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: white;
+}
+
+.folio-modal .modal-popup__desc p:not(.folio-modal__meta),
+.folio-modal .modal-popup__desc li,
+.folio-modal .modal-popup__desc div {
+    font-family: var(--font-2);
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.folio-modal__link,
+.folio-modal__link:visited {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--color-1);
+    font-family: var(--font-1);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.folio-modal__link:hover,
+.folio-modal__link:focus {
+    border-color: white;
+    color: white;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 600px) {
+    .folio-modal .modal-popup__desc {
+        padding: 1.2rem 2rem 3.2rem !important;
+    }
+
+    .folio-modal__title {
+        font-size: 2.2rem;
+    }
+
+    .folio-modal .modal-popup__desc p:not(.folio-modal__meta),
+    .folio-modal .modal-popup__desc li,
+    .folio-modal .modal-popup__desc div {
+        font-size: 1.6rem;
+    }
+}

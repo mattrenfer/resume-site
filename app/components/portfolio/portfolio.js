@@ -201,10 +201,12 @@ const Portfolio = ({ siteConfig }) => {
                                 />
                             </picture>
                             <div className='modal-popup__desc'>
-                                <h5>
-                                    {activeItem.name} -{' '}
-                                    <em>{activeItem.companyName}</em>
-                                </h5>
+                                <p className='folio-modal__meta'>
+                                    {activeItem.companyName}
+                                </p>
+                                <h4 className='folio-modal__title'>
+                                    {activeItem.name}
+                                </h4>
                                 <p>{activeItem.description}</p>
                                 {activeItem.listTitle && (
                                     <div>
@@ -221,25 +223,36 @@ const Portfolio = ({ siteConfig }) => {
                                         </ul>
                                     </div>
                                 )}
-                            </div>
-                            {activeItem.link && (
-                                <a
-                                    href={activeItem.link}
-                                    className='modal-popup__details'
+                                {activeItem.link && (
+                                    // Under the description, so it doesn't sit on the screenshot.
                                     // Pages on this site (like /portfolio/handful/) open in the same tab.
-                                    target={activeItem.link.startsWith('/') ? undefined : '_blank'}
-                                    rel={activeItem.link.startsWith('/') ? undefined : 'noreferrer'}
-                                    onClick={() =>
-                                        track({
-                                            event: 'outbound_click',
-                                            url: activeItem.link,
-                                            label: activeItem.linkText,
-                                        })
-                                    }
-                                >
-                                    {activeItem.linkText}
-                                </a>
-                            )}
+                                    <a
+                                        href={activeItem.link}
+                                        className='folio-modal__link'
+                                        target={activeItem.link.startsWith('/') ? undefined : '_blank'}
+                                        rel={activeItem.link.startsWith('/') ? undefined : 'noreferrer'}
+                                        onClick={() =>
+                                            track({
+                                                event: 'outbound_click',
+                                                url: activeItem.link,
+                                                label: activeItem.linkText,
+                                            })
+                                        }
+                                    >
+                                        {activeItem.link.startsWith('/') ? (
+                                            'Read the case study →'
+                                        ) : (
+                                            <>
+                                                Visit the live site ↗
+                                                <span className='visually-hidden'>
+                                                    {' '}
+                                                    (opens in a new tab)
+                                                </span>
+                                            </>
+                                        )}
+                                    </a>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
