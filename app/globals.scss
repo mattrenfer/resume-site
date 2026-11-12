@@ -392,3 +392,15 @@ html {
 .s-contact__address a:focus {
     color: white;
 }
+
+.s-about__content > p a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #c47a86;
+    text-underline-offset: 0.2em;
+}
+
+.s-about__content > p a:hover,
+.s-about__content > p a:focus {
+    text-decoration-color: white;
+}

@@ -158,14 +158,14 @@ const siteConfig = {
         profileImage: 'images/matt-profile.jpg',
 
         // Bio paragraphs
+        // The About Me text lives in app/components/about/about.js (it links to
+        // Handful); this copy is for reference.
         bio: [
-            'I have always been a creative problem-solver. One of the most rewarding parts of my career is birthing ideas into impactful solutions.',
+            "I've been building for the web for 15+ years, and in that time the work has come in every form, from detailed specs to hallway conversations. I'm comfortable with both. When the requirements are clear, I build to them. When they aren't, I help clarify them, then deliver.",
 
-            "I've been making websites since the early dawn of the internet. A lot has changed since then, which is why I am always eager to learn new technologies to help others stay current.",
+            "I learned to work both ways at a university, where requests came in from every department, from quick page updates to database-driven applications. Agency work later had me moving between tech stacks and industries to meet each client's requirements. On in-house teams, it's often meant taking a loosely defined need, digging into the codebase to work out what it actually involves, and pushing it through to production.",
 
-            'Creating intuitive user experiences is important to me. The journey a user takes to get where they need to go should be easy to follow and even enjoyable.',
-
-            'Collaboration and positivity are central to how I work. Great results come from great teams, and I value environments where efficiency, quality and a human touch are in balance.',
+            'I also build personal projects. The most recent is Handful, a client tracker I made because every CRM I tried was either too thin or too much. Outside of development, I draw on a background in professional writing and journalism to write for myself.',
         ],
     },
 
