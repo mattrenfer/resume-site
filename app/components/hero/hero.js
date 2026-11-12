@@ -174,6 +174,34 @@ const Hero = ({ siteConfig }) => {
                                 })}
                         </motion.h3>
 
+                        {/* Lead with the work: one tap to the projects, one to the résumé. */}
+                        <motion.div
+                            className='s-hero__actions'
+                            variants={itemVariants}
+                        >
+                            <a
+                                href='#work'
+                                className='btn s-hero__btn s-hero__btn--solid'
+                            >
+                                See my work
+                            </a>
+                            <a
+                                href={`${siteConfig.system.publicUrl}/${siteConfig.personal.resume.fileName}${siteConfig.personal.resume.version}`}
+                                className='btn s-hero__btn s-hero__btn--line'
+                                target='_blank'
+                                rel='noreferrer'
+                                onClick={() =>
+                                    track({
+                                        event: 'resume_download',
+                                        file: siteConfig.personal.resume
+                                            .fileName,
+                                    })
+                                }
+                            >
+                                Résumé
+                            </a>
+                        </motion.div>
+
                         <motion.div
                             className='s-hero__content-social'
                             variants={itemVariants}

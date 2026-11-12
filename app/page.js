@@ -1,4 +1,5 @@
 import Hero from './components/hero/hero';
+import SelectedWork from './components/selectedWork/selectedWork';
 import About from './components/about/about';
 import Specialties from './components/specialties/specialties';
 import Portfolio from './components/portfolio/portfolio';
@@ -12,6 +13,7 @@ export default function Home() {
         <div className='App'>
             {siteConfig.features.scrollProgress && <ScrollProgress />}
             <Hero siteConfig={siteConfig} />
+            <SelectedWork siteConfig={siteConfig} />
             <About siteConfig={siteConfig} />
             <Specialties siteConfig={siteConfig} />
             <Portfolio siteConfig={siteConfig} />
