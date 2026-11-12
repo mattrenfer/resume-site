@@ -361,7 +361,7 @@ const siteConfig = {
         {
             id: 12,
             summary:
-                'Moved the public site to WordPress, then built most of the front end of a five-month donor app.',
+                'Migrated their public website to WordPress, modeling the content to match how it was organized. I was also the front-end engineer for their donor app, where donors submit tax credit pledges, make donations and enter scholarship applications (React).',
             linkText: 'Visit the site',
         },
     ],
@@ -394,7 +394,7 @@ const siteConfig = {
             id: 12,
             name: 'Website & Donor App',
             companyName: 'Georgia Student Scholarship Organization',
-            description: `Moved GaSSO's public website from its old CMS to WordPress, modeling the content to match how it was organized before so nothing was lost in the move. I was also the front-end engineer for most of their donor app, a five-month build where donors submit tax credit pledges, make donations and follow scholarship applications.`,
+            description: `Moved GaSSO's public website from its old CMS to WordPress, modeling the content to match how it was organized before so nothing was lost in the move. I was also the interface engineer for their donor app, where donors submit tax credit pledges, make donations and submit scholarship applications (React).`,
             thumbnail: 'images/portfolio/gasso.jpg',
             alt: "GaSSO's home page, with cards for submitting a Georgia tax credit pledge, donating, and finding tax information.",
             link: 'https://georgiasso.com',
@@ -449,7 +449,7 @@ const siteConfig = {
             id: 6,
             name: 'Tactic Edge Website',
             companyName: 'Tactic Edge Solutions',
-            description: `Redesigned Tactic Edge's site to explain more about what the company does while looking cleaner. The homepage now summarizes what it offers, most content is grouped into Services and Solutions, and the calls to action (request a quote, contact us) are clearer.`,
+            description: `Redesigned Tactic Edge's site to explain more about what the company does while looking cleaner. The homepage summarizes what it offers, most content is grouped into Services and Solutions, and the calls to action (request a quote, contact us) are clearer.`,
             thumbnail: 'images/portfolio/tactic-edge.jpg',
         },
         {

@@ -35,6 +35,16 @@ body {
        secondary accent is untouched. Change THIS line to recolor links. */
     --color-link: #a34d5c; /* rose, darkened to pass 4.5:1 on the light sections */
     --color-link-hover: color-mix(in srgb, var(--color-link), white 18%);
+
+    /* The site's two neutrals. Paper for the light sections (the hero and the
+       résumé), a warm ink family for the dark ones, so light and dark match
+       the way Handful's paper and ink do. Rose (--color-1) is the one accent. */
+    --paper: #efe9df;
+    --paper-edge: #e6ddcf;
+    --ink: #1b1a17;
+    --ink-soft: rgba(27, 26, 23, 0.68);
+    --dark: #181715;
+    --dark-2: #211f1c;
 }
 
 /* ---- Homepage (Ceevee layer) accent fixes ----
@@ -71,9 +81,9 @@ a {
 }
 
 /* a11y contrast: the resume date used --color-text-light (#929393 ≈ 3:1 on the
-   light resume background). Darken to clear 4.5:1. */
+   light resume background). Darkened to clear 4.5:1 on paper. */
 .resume-block__header-date {
-    color: #6e6e6e;
+    color: #5f5d58;
 }
 
 /* The hero was a fixed 100vh box with overflow hidden, so on short screens
@@ -170,7 +180,7 @@ a {
 /* ---- More work: dark like Selected work, with a caption under each
    screenshot (always visible, so phones get the names too). ---- */
 .s-portfolio {
-    background-color: #151515;
+    background-color: var(--dark);
 }
 
 .s-portfolio h3 {
@@ -183,7 +193,7 @@ a {
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    background-color: #151515;
+    background-color: var(--dark);
     text-decoration: none;
 }
 
@@ -449,7 +459,7 @@ html {
    then the link (it used to float over the screenshot). ---- */
 .folio-modal,
 .folio-modal .modal-popup {
-    background: #1c1c1c;
+    background: var(--dark-2);
 }
 
 .folio-modal .modal-popup {
@@ -575,4 +585,100 @@ html {
     .s-footer__social a:focus-visible {
         transform: none;
     }
+}
+
+/* ---- Paper hero: a warm off-white with ink type, replacing the template's
+   dark burgundy. Rose stays the accent (the underlines). ---- */
+.s-hero {
+    background-color: var(--paper);
+}
+
+.s-hero__bg {
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, #f5f0e8, var(--paper-edge) 80%);
+}
+
+.s-hero__bg::before,
+.s-hero__bg::after {
+    display: none;
+}
+
+.s-hero__content h1,
+.s-hero__content h2,
+.s-hero__content h2 em {
+    color: var(--ink);
+}
+
+.s-hero__content h3 {
+    color: var(--ink-soft);
+}
+
+.s-hero__content h3 span,
+.s-hero__content h3 a {
+    color: var(--ink);
+}
+
+.s-hero__content h3::after {
+    background-color: rgba(27, 26, 23, 0.12);
+}
+
+.s-hero .s-about__pic {
+    border-color: rgba(27, 26, 23, 0.06);
+}
+
+/* Hero buttons in ink. Get in touch (dark) keeps the white ones. */
+.s-hero .s-hero__btn--solid,
+.s-hero .s-hero__btn--solid:visited {
+    background-color: var(--ink);
+    border-color: var(--ink);
+    color: white;
+}
+
+.s-hero .s-hero__btn--solid:hover,
+.s-hero .s-hero__btn--solid:focus {
+    background-color: #3a3833;
+    border-color: #3a3833;
+    color: white;
+}
+
+.s-hero .s-hero__btn--line,
+.s-hero .s-hero__btn--line:visited {
+    border-color: rgba(27, 26, 23, 0.45);
+    color: var(--ink);
+}
+
+.s-hero .s-hero__btn--line:hover,
+.s-hero .s-hero__btn--line:focus {
+    background-color: var(--ink);
+    border-color: var(--ink);
+    color: white;
+}
+
+.s-hero .s-hero__btn:focus-visible,
+.s-hero .s-hero__content-social a:focus-visible {
+    outline-color: var(--ink);
+}
+
+.s-hero .s-hero__content-social a {
+    color: var(--ink);
+}
+
+/* The lighter rose is too faint for icons on paper; use the link rose. */
+.s-hero .s-hero__content-social a:hover,
+.s-hero .s-hero__content-social a:focus-visible {
+    color: var(--color-link);
+}
+
+/* ---- Dark sections share one warm ink family ---- */
+.s-about {
+    background-color: var(--dark-2);
+}
+
+.s-footer {
+    background-color: var(--dark);
+}
+
+/* ---- The résumé section is paper too, so the light sections match ---- */
+.s-resume {
+    --color-border: rgba(27, 26, 23, 0.12);
+    background-color: var(--paper);
 }
