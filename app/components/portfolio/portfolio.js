@@ -139,12 +139,6 @@ const Portfolio = ({ siteConfig }) => {
                                             });
                                         }}
                                     >
-                                        <div className='folio-overlay'>
-                                            <div className='folio-overlay-content'>
-                                                <h4>{item.name}</h4>
-                                                <p>{item.companyName}</p>
-                                            </div>
-                                        </div>
                                         <picture>
                                             <source
                                                 srcSet={item.thumbnail.replace(
@@ -162,6 +156,10 @@ const Portfolio = ({ siteConfig }) => {
                                                 decoding='async'
                                             />
                                         </picture>
+                                        <div className='folio-caption'>
+                                            <h4>{item.name}</h4>
+                                            <p>{item.companyName}</p>
+                                        </div>
                                     </a>
                                 </TiltCard>
                             </motion.div>
