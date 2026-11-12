@@ -90,7 +90,7 @@ const FEATURES = [
         phone: {
             src: 'phone-dashboard.webp',
             width: 1179,
-            height: 4194,
+            height: 4278,
             alt: "Handful's dashboard on a phone. Tom Okafor is the lead story.",
         },
     },
@@ -149,13 +149,13 @@ const FEATURES = [
         desktop: {
             src: 'phone-dark.webp',
             width: 1179,
-            height: 4194,
+            height: 4278,
             alt: "Handful's dashboard on a phone in dark mode, with cream type on near-black.",
         },
         phone: {
             src: 'phone-dark.webp',
             width: 1179,
-            height: 4194,
+            height: 4278,
             alt: "Handful's dashboard on a phone in dark mode, with cream type on near-black.",
         },
     },
