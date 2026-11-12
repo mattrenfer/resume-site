@@ -1,35 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import config from '../../siteConfig';
 import { track } from '@/lib/analytics/events';
 
 const Hero = ({ siteConfig }) => {
-    const [displayRole, setDisplayRole] = useState('');
-    const [roleIndex, setRoleIndex] = useState(0);
-
-    // Typewriter effect
-    useEffect(() => {
-        const currentRole =
-            config.hero.roles[roleIndex % config.hero.roles.length];
-        let charIndex = 0;
-
-        const typeInterval = setInterval(() => {
-            if (charIndex <= currentRole.length) {
-                setDisplayRole(currentRole.slice(0, charIndex));
-                charIndex++;
-            } else {
-                clearInterval(typeInterval);
-                setTimeout(() => {
-                    setRoleIndex(prev => prev + 1);
-                }, config.hero.typewriter.pauseDuration);
-            }
-        }, config.hero.typewriter.typingSpeed);
-
-        return () => clearInterval(typeInterval);
-    }, [roleIndex]);
-
     // Container no longer fades (no opacity gate) so its children — including the
     // LCP text — are painted in the server-rendered HTML instead of waiting on JS.
     const containerVariants = {
@@ -84,17 +60,6 @@ const Hero = ({ siteConfig }) => {
         },
     };
 
-    const socialVariants = {
-        hover: {
-            scale: 1.2,
-            rotate: 360,
-            transition: {
-                type: 'spring',
-                stiffness: 300,
-            },
-        },
-    };
-
     return (
         <section id='hero' className='s-hero target-section'>
             {/* Background gradient comes from the .s-hero__bg CSS layer. */}
@@ -113,10 +78,7 @@ const Hero = ({ siteConfig }) => {
                         </motion.h1>
 
                         <motion.h2 variants={itemVariants}>
-                            <em>
-                                {displayRole}
-                                <span className='cursor-blink'>|</span>
-                            </em>
+                            <em>{siteConfig.personal.role}</em>
                         </motion.h2>
 
                         <br />
@@ -206,7 +168,7 @@ const Hero = ({ siteConfig }) => {
                             className='s-hero__content-social'
                             variants={itemVariants}
                         >
-                            <motion.a
+                            <a
                                 href={siteConfig.personal.socialMedia.linkedin}
                                 target='_blank'
                                 rel='noreferrer'
@@ -217,15 +179,13 @@ const Hero = ({ siteConfig }) => {
                                         network: 'LinkedIn',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-linkedin'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
-                            <motion.a
+                            </a>
+                            <a
                                 href={siteConfig.personal.socialMedia.github}
                                 target='_blank'
                                 rel='noreferrer'
@@ -236,15 +196,13 @@ const Hero = ({ siteConfig }) => {
                                         network: 'GitHub',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-github-square'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
-                            <motion.a
+                            </a>
+                            <a
                                 href={siteConfig.personal.socialMedia.facebook}
                                 target='_blank'
                                 rel='noreferrer'
@@ -255,15 +213,13 @@ const Hero = ({ siteConfig }) => {
                                         network: 'Facebook',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-facebook-square'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
-                            <motion.a
+                            </a>
+                            <a
                                 href={siteConfig.personal.socialMedia.instagram}
                                 target='_blank'
                                 rel='noreferrer'
@@ -274,14 +230,12 @@ const Hero = ({ siteConfig }) => {
                                         network: 'Instagram',
                                     })
                                 }
-                                variants={socialVariants}
-                                whileHover='hover'
                             >
                                 <i
                                     className='fab fa-instagram'
                                     aria-hidden='true'
                                 />
-                            </motion.a>
+                            </a>
                         </motion.div>
                     </div>
                 </div>

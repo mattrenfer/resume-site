@@ -46,6 +46,16 @@ const Portfolio = ({ siteConfig }) => {
         [siteConfig.portfolioTilt],
     );
 
+    // The projects in Selected work are already shown above, so leave them out.
+    const moreWork = useMemo(() => {
+        const selected = new Set(
+            (siteConfig.selectedWork || []).map(card => card.id),
+        );
+        return (siteConfig.portfolio || []).filter(
+            item => !selected.has(item.id),
+        );
+    }, [siteConfig.portfolio, siteConfig.selectedWork]);
+
     useEffect(() => {
         if (!activeItem) return;
 
@@ -94,7 +104,7 @@ const Portfolio = ({ siteConfig }) => {
                 transition={{ duration: 0.6 }}
             >
                 <div className='column large-12'>
-                    <h3>Portfolio</h3>
+                    <h3>More work</h3>
                 </div>
             </motion.div>
 
@@ -105,8 +115,7 @@ const Portfolio = ({ siteConfig }) => {
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.1 }}
             >
-                {siteConfig.portfolio &&
-                    siteConfig.portfolio.map(item => {
+                {moreWork.map(item => {
                         return (
                             <motion.div
                                 className='column folio-item'
@@ -130,12 +139,6 @@ const Portfolio = ({ siteConfig }) => {
                                             });
                                         }}
                                     >
-                                        <div className='folio-overlay'>
-                                            <div className='folio-overlay-content'>
-                                                <h4>{item.name}</h4>
-                                                <p>{item.companyName}</p>
-                                            </div>
-                                        </div>
                                         <picture>
                                             <source
                                                 srcSet={item.thumbnail.replace(
@@ -153,6 +156,10 @@ const Portfolio = ({ siteConfig }) => {
                                                 decoding='async'
                                             />
                                         </picture>
+                                        <div className='folio-caption'>
+                                            <h4>{item.name}</h4>
+                                            <p>{item.companyName}</p>
+                                        </div>
                                     </a>
                                 </TiltCard>
                             </motion.div>
@@ -194,10 +201,12 @@ const Portfolio = ({ siteConfig }) => {
                                 />
                             </picture>
                             <div className='modal-popup__desc'>
-                                <h5>
-                                    {activeItem.name} -{' '}
-                                    <em>{activeItem.companyName}</em>
-                                </h5>
+                                <p className='folio-modal__meta'>
+                                    {activeItem.companyName}
+                                </p>
+                                <h4 className='folio-modal__title'>
+                                    {activeItem.name}
+                                </h4>
                                 <p>{activeItem.description}</p>
                                 {activeItem.listTitle && (
                                     <div>
@@ -214,25 +223,36 @@ const Portfolio = ({ siteConfig }) => {
                                         </ul>
                                     </div>
                                 )}
-                            </div>
-                            {activeItem.link && (
-                                <a
-                                    href={activeItem.link}
-                                    className='modal-popup__details'
+                                {activeItem.link && (
+                                    // Under the description, so it doesn't sit on the screenshot.
                                     // Pages on this site (like /portfolio/handful/) open in the same tab.
-                                    target={activeItem.link.startsWith('/') ? undefined : '_blank'}
-                                    rel={activeItem.link.startsWith('/') ? undefined : 'noreferrer'}
-                                    onClick={() =>
-                                        track({
-                                            event: 'outbound_click',
-                                            url: activeItem.link,
-                                            label: activeItem.linkText,
-                                        })
-                                    }
-                                >
-                                    {activeItem.linkText}
-                                </a>
-                            )}
+                                    <a
+                                        href={activeItem.link}
+                                        className='folio-modal__link'
+                                        target={activeItem.link.startsWith('/') ? undefined : '_blank'}
+                                        rel={activeItem.link.startsWith('/') ? undefined : 'noreferrer'}
+                                        onClick={() =>
+                                            track({
+                                                event: 'outbound_click',
+                                                url: activeItem.link,
+                                                label: activeItem.linkText,
+                                            })
+                                        }
+                                    >
+                                        {activeItem.link.startsWith('/') ? (
+                                            'Read the case study →'
+                                        ) : (
+                                            <>
+                                                Visit the live site ↗
+                                                <span className='visually-hidden'>
+                                                    {' '}
+                                                    (opens in a new tab)
+                                                </span>
+                                            </>
+                                        )}
+                                    </a>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

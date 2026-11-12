@@ -6,7 +6,7 @@ import { track } from '@/lib/analytics/events';
 import styles from './selectedWork.module.scss';
 
 // "Selected work": three projects right after the hero, so the work comes first.
-// The first is the large card. The full grid is still further down at #portfolio.
+// The first is the large card. The rest of the work follows in the grid at #portfolio.
 
 const isExternal = href => /^https?:\/\//.test(href);
 
@@ -83,7 +83,7 @@ const SelectedWork = ({ siteConfig }) => {
                         Selected work
                     </h2>
                     <a href='#portfolio' className={styles.all}>
-                        All projects ↓
+                        More work ↓
                     </a>
                 </div>
 
