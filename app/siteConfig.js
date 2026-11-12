@@ -165,7 +165,7 @@ const siteConfig = {
 
             "I learned to work both ways at a university, where requests came in from every department, from quick page updates to database-driven applications. Agency work later had me moving between tech stacks and industries to meet each client's requirements. On in-house teams, it's often meant taking a loosely defined need, digging into the codebase to work out what it actually involves, and pushing it through to production.",
 
-            'I also build personal projects. The most recent is Handful, a client tracker I made because every CRM I tried was either too thin or too much. Outside of development, I draw on a background in professional writing and journalism to write for myself.',
+            'I also build personal projects. The most recent is Handful, a client tracker I made because every CRM I tried was either too thin or too much. Before development, I worked in professional writing and journalism, and those skills still show up in how I work: asking thoughtful questions and saying things plainly.',
         ],
     },
 

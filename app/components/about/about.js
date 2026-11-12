@@ -63,9 +63,10 @@ const About = ({ siteConfig }) => {
                         I also build personal projects. The most recent is{' '}
                         <Link href='/portfolio/handful/'>Handful</Link>, a client
                         tracker I made because every CRM I tried was either too
-                        thin or too much. Outside of development, I draw on a
-                        background in professional writing and journalism to
-                        write for myself.
+                        thin or too much. Before development, I worked in
+                        professional writing and journalism, and those skills
+                        still show up in how I work: asking thoughtful questions
+                        and saying things plainly.
                     </motion.p>
                 </motion.div>
             </div>
