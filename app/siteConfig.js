@@ -131,7 +131,7 @@ const siteConfig = {
         // Resume/CV
         resume: {
             fileName: 'Matthew Renfer - Resume.pdf',
-            version: '?v=9', // Cache-busting query param
+            version: '?v=10', // Cache-busting query param
         },
     },
 

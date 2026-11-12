@@ -164,9 +164,10 @@ const FEATURES = [
 const FLOW = ['Add your people.', 'Schedule a task.', 'Write a note.'];
 
 const BUILD_NOTES = [
-    "Row Level Security keeps each person's data private in the database itself, so a bug in the interface can't expose it.",
-    'Urgency is a few small functions: sort by due date, break ties by priority, turn dates into words.',
-    'Colors live in one set of tokens with light and dark values, so the theme changes in one place.',
+    'Every change makes the same round trip. A form collects and validates the input (React Hook Form and Zod), a submit handler passes it to a data layer, and the data layer sends it to Supabase. The database checks it and stores it, and the saved row comes back up to update the screen.',
+    "The database has the final say. Zod gives quick feedback in the browser, but it can be bypassed. Row Level Security and constraints in Postgres decide who can touch a row and what's valid, so a bug in the interface can't expose another person's data.",
+    'The schema lives in versioned migrations, and a two-user SQL test checks every Row Level Security rule.',
+    "It's deployed on Vercel with a custom domain and email through Resend, and the public demo resets every night.",
 ];
 
 function Shot({ shot, alt = shot.alt, ...rest }) {
