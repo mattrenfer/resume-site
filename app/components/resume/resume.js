@@ -4,6 +4,7 @@ import Specialties from '../specialties/specialties';
 const Resume = ({ siteConfig }) => {
     return (
         <section id='resume' className='s-resume target-section'>
+            <Specialties siteConfig={siteConfig} />
             <div className='row s-resume__section'>
                 <div className='column large-3 tab-12'>
                     <h3 className='section-header-allcaps'>
@@ -42,7 +43,6 @@ const Resume = ({ siteConfig }) => {
                         })}
                 </div>
             </div>
-            <Specialties siteConfig={siteConfig} />
             <div className='row s-resume__section'>
                 <div className='column large-3 tab-12'>
                     <h3 className='section-header-allcaps'>
