@@ -1,6 +1,6 @@
 import React from 'react';
 
-// One row of the résumé section, between Career and Education.
+// The first row of the résumé section, before Career and Education.
 const Specialties = ({ siteConfig }) => {
     return (
         <div id='specialties' className='row s-resume__section'>
