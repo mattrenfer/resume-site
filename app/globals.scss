@@ -607,10 +607,15 @@ html {
     display: none;
 }
 
-.s-hero__content h1,
+.s-hero__content h1 {
+    color: var(--ink);
+}
+
+/* Rose in two places, the title and the three key words, so the accent reads
+   as part of the hero. The darker link rose keeps it readable on paper. */
 .s-hero__content h2,
 .s-hero__content h2 em {
-    color: var(--ink);
+    color: var(--color-link);
 }
 
 .s-hero__content h3 {
@@ -619,7 +624,11 @@ html {
 
 .s-hero__content h3 span,
 .s-hero__content h3 a {
-    color: var(--ink);
+    color: var(--color-link);
+}
+
+.s-hero__content h3 .highlight::after {
+    background: var(--color-link);
 }
 
 .s-hero__content h3::after {
