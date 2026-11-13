@@ -32,8 +32,6 @@ export const metadata = {
     twitter: { card: 'summary_large_image' },
 };
 
-const RESUME_URL = `/${siteConfig.personal.resume.fileName}${siteConfig.personal.resume.version}`;
-
 // Handful's own display faces, used for the big statements and the closing
 // wordmark. The header stays in the site's Lora.
 const youngSerif = Young_Serif({
@@ -380,16 +378,8 @@ export default function HandfulPage() {
                     <div className={styles.signOff}>
                         <ul className={styles.signOffLinks}>
                             <li>
-                                <a href='/#work' className={styles.textLink}>
-                                    See more of my work →
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href={RESUME_URL}
-                                    className={styles.textLink}
-                                >
-                                    Résumé →
+                                <a href='/' className={styles.textLink}>
+                                    Visit my portfolio →
                                 </a>
                             </li>
                             <li>
