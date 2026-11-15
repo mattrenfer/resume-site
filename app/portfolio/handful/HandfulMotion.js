@@ -55,8 +55,8 @@ export default function HandfulMotion({ className, motionClass, children }) {
                     scrollTrigger: { trigger: shotSec, start: 40, end: 'top 8%', scrub: true },
                 });
                 // How the dashboard arrives. On a wide screen it has already risen from the
-                // bottom of the window on load (plain CSS, see .arrive), tipped back like a page
-                // on a desk. As you scroll it turns to face you. It pivots on its bottom edge,
+                // bottom of the window on load (plain CSS, see .arrive), tipped back a little
+                // like a page on a desk (a soft tilt: 7deg, decided 2026-11-15). As you scroll it turns to face you. It pivots on its bottom edge,
                 // which pulls its top down, so it starts lifted by about the same amount and
                 // settles back as it turns. On a phone it grows gently from 90% to full width.
                 // The badge rides on it and rolls.
@@ -65,9 +65,9 @@ export default function HandfulMotion({ className, motionClass, children }) {
                         one('shot'),
                         // y: 0 clears the pixel offset GSAP would otherwise read from the
                         // stylesheet's matching start position and add on top of yPercent.
-                        { scale: 0.84, rotateX: 16, y: 0, yPercent: -22, transformOrigin: '50% 100%' },
+                        { scale: 0.9, rotateX: 7, y: 0, yPercent: -9, transformOrigin: '50% 100%' },
                         {
-                            scale: 0.88,
+                            scale: 0.96,
                             rotateX: 0,
                             yPercent: 0,
                             ease: 'power1.out',

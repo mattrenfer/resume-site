@@ -324,11 +324,18 @@ $narrow: 860px;
     width: 100%;
     transform-origin: 50% 0;
 
+    // On a wide screen the dashboard is capped, so it reads as a page on the
+    // table rather than filling the window and looming toward you.
+    @media (min-width: $wide) {
+        max-width: 104rem;
+        margin: 0 auto;
+    }
+
     // The starting position, set here so the page doesn't jump before the script takes
     // over: tipped back on a wide screen, slightly small on a phone.
     @media (prefers-reduced-motion: no-preference) {
         transform-origin: 50% 100%;
-        transform: translateY(-22%) rotateX(16deg) scale(0.84);
+        transform: translateY(-9%) rotateX(7deg) scale(0.9);
 
         @media (max-width: $narrow) {
             transform-origin: 50% 0;
@@ -373,11 +380,12 @@ $narrow: 860px;
 
 .spin {
     position: absolute;
-    top: -6vw;
-    right: 2.5vw;
     z-index: 2;
-    width: 18vw;
-    max-width: 32rem;
+    // Sized and placed relative to the dashboard, so it sits on the same
+    // corner at any width.
+    top: -8%;
+    right: 3%;
+    width: 21%;
 
     @media (max-width: $narrow) {
         top: -8.2rem;
