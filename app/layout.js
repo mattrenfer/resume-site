@@ -1,10 +1,9 @@
 import Script from 'next/script';
 import { lora, sourceSans } from './fonts/fonts';
 import Analytics from './components/analytics/Analytics';
-// Template + vendor CSS are imported here (bundled + minified into the Next CSS)
-// BEFORE globals.scss, so globals.scss remains the override layer that wins.
-import '../public/css/styles.css';
-import '../public/css/vendor.css';
+// Site-wide styles: design tokens, a small base, and links (see globals.scss).
+// Everything else is in component CSS modules. The old Ceevee template CSS is
+// no longer loaded.
 import './globals.scss';
 
 // Fonts are bundled in app/fonts (see fonts.js). Each exposes a CSS variable:

@@ -1,17 +1,9 @@
 @use './styles/tokens';
+@use './styles/base';
 
-/* The Ceevee template + vendor CSS are imported in layout.js BEFORE this file,
-   so they're bundled into one stylesheet and every rule below overrides them.
-
-   Most styling now lives in each component's CSS module, built on the design
+/* Most styling lives in each component's CSS module, built on the design
    tokens (app/styles/_tokens.scss) and the shared section mixins
    (app/styles/_section.scss). What's left here is site-wide. */
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
 
 :root {
     /* Fonts are bundled in app/fonts and mapped onto the template's two slots:
@@ -27,7 +19,7 @@ body {
     --color-link-hover: color-mix(in srgb, var(--color-link), white 18%);
 }
 
-/* The template hardcodes orange links (#f06100); point them at the link rose. */
+/* Default link color for pages that don't set their own. */
 a {
     color: var(--color-link);
 
