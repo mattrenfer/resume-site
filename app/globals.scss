@@ -1,3 +1,5 @@
+@use './styles/tokens';
+
 /* The Ceevee template + vendor CSS are imported in layout.js BEFORE this file,
    so they're bundled/minified into one stylesheet and every rule below reliably
    overrides them (override layer loads last = overrides win). */
