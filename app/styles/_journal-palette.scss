@@ -1,4 +1,7 @@
-/* The dark "journal" palette, shared by /writing and the portfolio project pages. */
+/* The dark "journal" palette, shared by /writing and the portfolio project pages.
+   These values match the dark set in _tokens.scss (data-surface="dark"); new
+   work should use the CSS tokens. These stay as Sass variables because some
+   styles pass them to Sass color functions. */
 
 $bg: #282828; // charcoal page base
 $surface: #323230; // cards, code wells

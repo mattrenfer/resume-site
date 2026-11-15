@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Design tokens: "PNW Professional"
+
+   Muted, earthy, put together. One primary accent (burgundy on light, dusty
+   rose on dark); secondary colors used sparingly, never more than one per
+   component. Neutrals run warm, not blue-gray. Borders over shadows.
+
+   How to use
+   - Components use the semantic tokens (--color-*, --space-*, --radius*,
+     --dur*, --ease-out), never the raw palette.
+   - Color tokens apply inside an element with `data-surface="light"` or
+     `data-surface="dark"` (usually a section). Scoping them this way keeps
+     them from overriding the old Ceevee template's own --color-text and
+     --color-border while sections move over one at a time. Once the template
+     is gone, the light set can move to :root.
+
+   Contrast (WCAG AA: 4.5:1 body text, 3:1 large text and UI), measured
+   2026-11-15 against each surface and its raised surface:
+   - Light: text 15.5 / 17.0, secondary 8.9 / 9.8, muted 5.4 / 5.9,
+     accent 8.4 / 9.2, accent-hover 6.3 / 7.0, visited 11.5 / 12.6,
+     secondary-accent 7.2 / 7.9, meta 6.2 / 6.8.
+   - Dark: text 11.6 / 10.2, secondary 8.4 / 7.4, muted 5.4 / 4.8,
+     accent 4.6 / 4.0 (large text only on raised: use --color-accent-strong,
+     5.4 / 4.7, for small text there), accent-hover 6.3 / 5.5,
+     visited 5.0 / 4.4, secondary-accent 6.4 / 5.6, meta 5.9 / 5.2.
+   - Borders are decorative (2–3:1): fine for rules and dividers, not for
+     input outlines.
+   ========================================================================== */
+
+:root {
+    /* ---- Palette (raw). Don't use these in components. ---- */
+    --pnw-charcoal: #282828;
+    --pnw-charcoal-raised: #323130;
+    --pnw-stone: #f5f4f1;
+    --pnw-ink: #1e1c19;
+    --pnw-cream: #e8e4dc;
+    --pnw-burgundy: #7b2d3e;
+    --pnw-burgundy-hover: #963a4d;
+    --pnw-maroon: #5a1f2c;
+    --pnw-rose: #c47a86;
+    --pnw-rose-strong: #d08893;
+    --pnw-rose-hover: #d49aa4;
+    --pnw-rose-visited: #b98a92;
+    --pnw-forest: #2f5a43;
+    --pnw-forest-light: #8db39a;
+    --pnw-olive: #5f5c3a;
+    --pnw-olive-light: #a9a57e;
+    --pnw-navy: #1f2c3d;
+    --pnw-navy-dark: #22303f;
+
+    /* ---- Type ---- */
+    --font-serif: var(--font-lora), 'Lora', Georgia, serif;
+    --font-sans: var(--font-source-sans, var(--font-inter)), 'Source Sans 3', system-ui, sans-serif;
+
+    --text-meta: 1.3rem;
+    --text-ui: 1.5rem;
+    --text-small: 1.8rem;
+    --text-body: 2rem;
+    --text-lead: 2.4rem;
+    --text-h3: 3.2rem;
+    --text-h2: 4.4rem;
+    --text-display: clamp(6.4rem, 8vw, 12rem);
+
+    --leading-tight: 1.1;
+    --leading-snug: 1.35;
+    --leading-body: 1.6;
+    --measure: 64rem; /* about 68–72 characters of Lora */
+
+    /* ---- Space (rem, at the site's 62.5% root) ---- */
+    --space-1: 0.4rem;
+    --space-2: 0.8rem;
+    --space-3: 1.2rem;
+    --space-4: 1.6rem;
+    --space-5: 2.4rem;
+    --space-6: 3.2rem;
+    --space-7: 4.8rem;
+    --space-8: 6.4rem;
+    --space-9: 9.6rem;
+    --space-10: 12.8rem;
+
+    /* ---- Shape ---- */
+    --radius-sm: 2px;
+    --radius: 4px;
+    --radius-lg: 6px;
+    --border-width: 1px;
+
+    /* ---- Motion: minimal, ease-out, under 250ms ---- */
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --dur-fast: 150ms;
+    --dur: 220ms;
+
+    /* ---- Images: matte, slightly warm ---- */
+    --image-filter: saturate(0.88) sepia(0.06);
+}
+
+/* ---- Semantic: light surfaces ---- */
+[data-surface='light'] {
+    --color-surface: var(--pnw-stone);
+    --color-surface-raised: #ffffff;
+    --color-surface-deep: var(--pnw-navy); /* code blocks, media wells */
+    --color-text: var(--pnw-ink);
+    --color-text-secondary: #48433c;
+    --color-text-muted: #6a6359;
+    --color-text-on-deep: var(--pnw-stone);
+    --color-accent: var(--pnw-burgundy);
+    --color-accent-strong: var(--pnw-burgundy);
+    --color-accent-hover: var(--pnw-burgundy-hover);
+    --color-accent-visited: var(--pnw-maroon);
+    --color-secondary: var(--pnw-forest); /* tags, categories, hover */
+    --color-meta: var(--pnw-olive); /* metadata text */
+    --color-border: rgba(95, 92, 58, 0.25); /* olive rules */
+    --color-border-strong: rgba(95, 92, 58, 0.45);
+    --color-button: var(--pnw-ink);
+    --color-button-text: var(--pnw-stone);
+    --color-focus: var(--pnw-ink);
+
+    /* ---- Texture: subtle paper grain, light ---- */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Semantic: dark surfaces ---- */
+[data-surface='dark'] {
+    --color-surface: var(--pnw-charcoal);
+    --color-surface-raised: var(--pnw-charcoal-raised);
+    --color-surface-deep: var(--pnw-navy-dark);
+    --color-text: var(--pnw-cream);
+    --color-text-secondary: #c9c3b8;
+    --color-text-muted: #a39c91;
+    --color-text-on-deep: var(--pnw-cream);
+    --color-accent: var(--pnw-rose);
+    --color-accent-strong: var(--pnw-rose-strong);
+    --color-accent-hover: var(--pnw-rose-hover);
+    --color-accent-visited: var(--pnw-rose-visited);
+    --color-secondary: var(--pnw-forest-light);
+    --color-meta: var(--pnw-olive-light);
+    --color-border: rgba(169, 165, 126, 0.3);
+    --color-border-strong: rgba(169, 165, 126, 0.55);
+    --color-button: var(--pnw-cream);
+    --color-button-text: var(--pnw-ink);
+    --color-focus: var(--pnw-cream);
+
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --dur-fast: 0ms;
+        --dur: 0ms;
+    }
+}
