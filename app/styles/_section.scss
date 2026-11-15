@@ -116,6 +116,24 @@ $narrow: 860px;
     }
 }
 
+// The outlined companion to the solid button (secondary actions).
+@mixin button-outline {
+    @include button;
+    border-color: var(--color-border-strong);
+    background-color: transparent;
+    color: var(--color-text);
+
+    &:visited {
+        color: var(--color-text);
+    }
+
+    &:hover {
+        border-color: var(--color-button);
+        background-color: var(--color-button);
+        color: var(--color-button-text);
+    }
+}
+
 @mixin focus-ring($offset: 4px) {
     &:focus-visible {
         outline: 2px solid var(--color-focus);

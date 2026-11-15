@@ -6,8 +6,8 @@ import EmailLink from '@/app/components/analytics/EmailLink';
 import styles from './contact.module.scss';
 
 // "Get in touch": the end of the home page. The Handful page's "Get in touch"
-// link lands here (#contact). Email is the one button; LinkedIn and the résumé
-// are text links, like the hero. The address is repeated so it can be copied.
+// link lands here (#contact). Email is the solid button; LinkedIn and the
+// résumé are outlined buttons. The address is repeated so it can be copied.
 const Contact = ({ siteConfig }) => {
     const { personal } = siteConfig;
     const resumeUrl = `${siteConfig.system.publicUrl}/${personal.resume.fileName}${personal.resume.version}`;
@@ -33,24 +33,24 @@ const Contact = ({ siteConfig }) => {
                     />
                     <a
                         href={personal.socialMedia.linkedin}
-                        className={styles.textLink}
+                        className={styles.buttonOutline}
                         target='_blank'
                         rel='noreferrer'
                         onClick={() => track({ event: 'social_click', network: 'LinkedIn' })}
                     >
-                        LinkedIn <span aria-hidden='true'>↗</span>
+                        LinkedIn
                         <span className={styles.srOnly}> (opens in a new tab)</span>
                     </a>
                     <a
                         href={resumeUrl}
-                        className={styles.textLink}
+                        className={styles.buttonOutline}
                         target='_blank'
                         rel='noreferrer'
                         onClick={() =>
                             track({ event: 'resume_download', file: personal.resume.fileName })
                         }
                     >
-                        Résumé <span aria-hidden='true'>→</span>
+                        Résumé
                         <span className={styles.srOnly}> (PDF, opens in a new tab)</span>
                     </a>
                 </div>
