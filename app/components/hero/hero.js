@@ -85,7 +85,6 @@ const Hero = ({ siteConfig }) => {
                                 GitHub
                             </a>
                         </li>
-                        <li>{hero.experience}</li>
                     </ul>
                 </div>
             </div>

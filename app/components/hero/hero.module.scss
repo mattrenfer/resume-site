@@ -120,6 +120,7 @@ $narrow: 860px;
     font-size: clamp(1.9rem, 1.5vw, 2.2rem);
     line-height: var(--leading-body);
     color: var(--color-text-secondary);
+    text-wrap: pretty; // no single word left alone on the last line
 
     em {
         font-style: italic;

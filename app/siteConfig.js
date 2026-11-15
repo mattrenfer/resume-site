@@ -84,9 +84,8 @@ const siteConfig = {
     // ============================================================================
     hero: {
         // The opening line under the name. {em:...} marks the words set in italic.
-        lead: 'From detailed specs to hallway conversations, I build {em:fast}, {em:accessible} interfaces, ship them, and {em:measure} whether they worked.',
+        lead: '15+ years building {em:fast}, {em:accessible} interfaces for real people, and {em:measuring} whether they actually help.',
         location: 'Atlanta, Georgia',
-        experience: '15+ years',
         photo: {
             // Warm-graded from the 4k Aragon original (#21, denim shirt).
             src: '/images/matthew-renfer',
