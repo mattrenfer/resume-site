@@ -1,71 +1,63 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { track } from '@/lib/analytics/events';
 import EmailLink from '@/app/components/analytics/EmailLink';
+import styles from './contact.module.scss';
 
-// "Get in touch": the end of the home page, after the work and the experience.
-// The Handful page's "Get in touch" link lands here (#contact). Email is the
-// main action (solid button); LinkedIn and the résumé are outlined, like the
-// hero's buttons. The address is repeated as text so it can be copied.
+// "Get in touch": the end of the home page. The Handful page's "Get in touch"
+// link lands here (#contact). Email is the solid button; LinkedIn and the
+// résumé are outlined buttons. The address is repeated so it can be copied.
 const Contact = ({ siteConfig }) => {
     const { personal } = siteConfig;
     const resumeUrl = `${siteConfig.system.publicUrl}/${personal.resume.fileName}${personal.resume.version}`;
 
     return (
-        <section id='contact' className='s-about s-contact target-section'>
-            <div className='row'>
-                <motion.div
-                    className='column large-12 tab-12'
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ type: 'spring', stiffness: 100 }}
-                >
-                    <h3>Get in touch</h3>
+        <section
+            id='contact'
+            className={`${styles.contact} target-section`}
+            data-surface='dark'
+            aria-labelledby='contact-heading'
+        >
+            <div className={styles.wrap}>
+                <h2 id='contact-heading' className={styles.heading}>
+                    Get in touch
+                </h2>
 
-                    <div className='s-hero__actions'>
-                        <EmailLink
-                            user={personal.emailUser}
-                            domain={personal.emailDomain}
-                            label='Email me'
-                            className='btn s-hero__btn s-hero__btn--solid'
-                        />
-                        <a
-                            href={personal.socialMedia.linkedin}
-                            className='btn s-hero__btn s-hero__btn--line'
-                            target='_blank'
-                            rel='noreferrer'
-                            onClick={() =>
-                                track({ event: 'social_click', network: 'LinkedIn' })
-                            }
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            href={resumeUrl}
-                            className='btn s-hero__btn s-hero__btn--line'
-                            target='_blank'
-                            rel='noreferrer'
-                            onClick={() =>
-                                track({
-                                    event: 'resume_download',
-                                    file: personal.resume.fileName,
-                                })
-                            }
-                        >
-                            Résumé
-                        </a>
-                    </div>
+                <div className={styles.actions}>
+                    <EmailLink
+                        user={personal.emailUser}
+                        domain={personal.emailDomain}
+                        label='Email me'
+                        className={styles.button}
+                    />
+                    <a
+                        href={personal.socialMedia.linkedin}
+                        className={styles.buttonOutline}
+                        target='_blank'
+                        rel='noreferrer'
+                        onClick={() => track({ event: 'social_click', network: 'LinkedIn' })}
+                    >
+                        LinkedIn
+                        <span className={styles.srOnly}> (opens in a new tab)</span>
+                    </a>
+                    <a
+                        href={resumeUrl}
+                        className={styles.buttonOutline}
+                        target='_blank'
+                        rel='noreferrer'
+                        onClick={() =>
+                            track({ event: 'resume_download', file: personal.resume.fileName })
+                        }
+                    >
+                        Résumé
+                        <span className={styles.srOnly}> (PDF, opens in a new tab)</span>
+                    </a>
+                </div>
 
-                    <p className='s-contact__address'>
-                        <EmailLink
-                            user={personal.emailUser}
-                            domain={personal.emailDomain}
-                        />
-                    </p>
-                </motion.div>
+                <p className={styles.address}>
+                    <EmailLink user={personal.emailUser} domain={personal.emailDomain} />
+                </p>
             </div>
         </section>
     );

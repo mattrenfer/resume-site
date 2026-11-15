@@ -1,0 +1,140 @@
+// The résumé section (Specialties, Career, Education): light surface,
+// dense rows separated by thin warm rules.
+@use '../../styles/section' as *;
+
+.resume {
+    @include section(var(--space-9));
+}
+
+.wrap {
+    @include wrap;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 22rem minmax(0, 1fr);
+    gap: var(--space-4) var(--space-7);
+    padding: var(--space-8) 0;
+    border-top: var(--border-width) solid var(--color-border);
+
+    &:first-of-type {
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    @media (max-width: $narrow) {
+        grid-template-columns: 1fr;
+        padding: var(--space-7) 0;
+    }
+}
+
+.label {
+    @include kicker;
+    align-self: start;
+    // Lines up with the first entry's title.
+    padding-top: 0.9rem;
+}
+
+/* ---- Specialties ---- */
+.skills {
+    display: grid;
+    gap: var(--space-6) var(--space-7);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.skillTitle {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    color: var(--color-text);
+}
+
+.skillList {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 1.7rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+}
+
+/* ---- Career / Education ---- */
+.entries {
+    display: grid;
+    gap: var(--space-7);
+}
+
+.entry {
+    margin: 0;
+}
+
+.entryTitle {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 2vw, 2.8rem);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    color: var(--color-text);
+}
+
+.entryMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+    margin: var(--space-2) 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+.dates {
+    color: var(--color-meta);
+}
+
+.entryText {
+    @include prose(1.8rem);
+    max-width: var(--measure);
+}
+
+.certs {
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+
+    li {
+        margin: 0 0 var(--space-2);
+        padding: 0;
+    }
+}
+
+.certLink {
+    @include text-link;
+    @include focus-ring(2px);
+    font-size: 1.5rem;
+}
+
+.srOnly {
+    @include sr-only;
+}

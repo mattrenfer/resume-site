@@ -1,0 +1,220 @@
+// "More work": the rest of the portfolio as a grid, plus the project popup.
+@use '../../styles/section' as *;
+
+.portfolio {
+    @include section(var(--space-9));
+    border-top: var(--border-width) solid var(--color-border);
+}
+
+.wrap {
+    @include wrap;
+}
+
+.heading {
+    @include heading;
+    margin-bottom: var(--space-7);
+    padding-bottom: var(--space-4);
+    border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-7) var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 560px) {
+        grid-template-columns: 1fr;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// Each card is a button that opens the popup. The template styles every
+// button, so this resets it to a plain block.
+.card,
+.card:hover,
+.card:focus {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font: inherit;
+    letter-spacing: normal;
+    text-align: left;
+    text-transform: none;
+    white-space: normal;
+    color: inherit;
+    cursor: pointer;
+}
+
+.card {
+    @include focus-ring(6px);
+}
+
+.media,
+.name,
+.company {
+    display: block;
+}
+
+.media {
+    @include framed-image;
+    aspect-ratio: 4 / 3;
+    transition: border-color var(--dur) var(--ease-out);
+
+    img {
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+.card:hover .media {
+    border-color: var(--color-border-strong);
+}
+
+.name {
+    margin: var(--space-4) 0 var(--space-1);
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    color: var(--color-text);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+.card:hover .name {
+    color: var(--color-accent-strong);
+}
+
+.company {
+    @include kicker; // rose, like the labels in Selected work
+}
+
+/* ---- Popup ---- */
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-5);
+    background: rgba(20, 19, 17, 0.82);
+}
+
+.dialog {
+    position: relative;
+    width: min(72rem, 100%);
+    max-height: 90vh;
+    max-height: 90svh;
+    overflow-y: auto;
+    border: var(--border-width) solid var(--color-border-strong);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-raised);
+    color: var(--color-text);
+}
+
+.close,
+.close:hover,
+.close:focus {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0;
+    padding: 0;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-surface-raised);
+    font-family: var(--font-sans);
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: normal;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.close:hover {
+    border-color: var(--color-border-strong);
+}
+
+.close {
+    @include focus-ring(2px);
+}
+
+.dialogMedia {
+    margin: 0;
+    padding: var(--space-8) var(--space-6) 0;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 44vh;
+        margin: 0;
+        object-fit: contain;
+        border-radius: var(--radius);
+    }
+}
+
+.dialogBody {
+    padding: var(--space-5) var(--space-6) var(--space-7);
+
+    @media (max-width: 600px) {
+        padding: var(--space-4) var(--space-5) var(--space-6);
+    }
+}
+
+.dialogMeta {
+    @include kicker;
+    margin-bottom: var(--space-2);
+}
+
+.dialogTitle {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 2.4vw, 3rem);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+}
+
+.dialogText {
+    @include prose(1.8rem);
+
+    @media (max-width: 600px) {
+        font-size: 1.7rem;
+    }
+}
+
+.dialogLink {
+    @include text-link;
+    @include focus-ring;
+    display: inline-block;
+    margin-top: var(--space-5);
+    font-size: 1.6rem;
+}
+
+.srOnly {
+    @include sr-only;
+}

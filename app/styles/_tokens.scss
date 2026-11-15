@@ -18,13 +18,16 @@
    2026-11-15 against each surface and its raised surface:
    - Light: text 15.5 / 17.0, secondary 8.9 / 9.8, muted 5.4 / 5.9,
      accent 8.4 / 9.2, accent-hover 6.3 / 7.0, visited 11.5 / 12.6,
-     secondary-accent 7.2 / 7.9, meta 6.2 / 6.8.
+     secondary-accent 7.2 / 7.9, meta 5.4 / 5.9.
    - Dark: text 11.6 / 10.2, secondary 8.4 / 7.4, muted 5.4 / 4.8,
      accent 4.6 / 4.0 (large text only on raised: use --color-accent-strong,
      5.4 / 4.7, for small text there), accent-hover 6.3 / 5.5,
-     visited 5.0 / 4.4, secondary-accent 6.4 / 5.6, meta 5.9 / 5.2.
-   - Borders are decorative (2–3:1): fine for rules and dividers, not for
-     input outlines.
+     visited 5.0 / 4.4, secondary-accent 6.4 / 5.6, meta 5.4 / 4.8.
+   - Borders are decorative (well under 3:1): fine for rules and dividers,
+     not for input outlines.
+   - Metadata and rules are warm neutrals, not olive (changed 2026-11-15):
+     olive read as a second accent next to the rose. Forest and olive stay
+     in the palette for tags, unused for now.
    ========================================================================== */
 
 :root {
@@ -107,9 +110,9 @@
     --color-accent-hover: var(--pnw-burgundy-hover);
     --color-accent-visited: var(--pnw-maroon);
     --color-secondary: var(--pnw-forest); /* tags, categories, hover */
-    --color-meta: var(--pnw-olive); /* metadata text */
-    --color-border: rgba(95, 92, 58, 0.25); /* olive rules */
-    --color-border-strong: rgba(95, 92, 58, 0.45);
+    --color-meta: #6a6359; /* metadata text: warm gray */
+    --color-border: rgba(30, 28, 25, 0.14); /* warm neutral rules */
+    --color-border-strong: rgba(30, 28, 25, 0.3);
     --color-button: var(--pnw-ink);
     --color-button-text: var(--pnw-stone);
     --color-focus: var(--pnw-ink);
@@ -132,9 +135,9 @@
     --color-accent-hover: var(--pnw-rose-hover);
     --color-accent-visited: var(--pnw-rose-visited);
     --color-secondary: var(--pnw-forest-light);
-    --color-meta: var(--pnw-olive-light);
-    --color-border: rgba(169, 165, 126, 0.3);
-    --color-border-strong: rgba(169, 165, 126, 0.55);
+    --color-meta: #a39c91;
+    --color-border: rgba(232, 228, 220, 0.14);
+    --color-border-strong: rgba(232, 228, 220, 0.32);
     --color-button: var(--pnw-cream);
     --color-button-text: var(--pnw-ink);
     --color-focus: var(--pnw-cream);

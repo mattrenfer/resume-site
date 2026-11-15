@@ -1,0 +1,165 @@
+// Shared building blocks for the home page sections (PNW Professional).
+// Everything reads the design tokens, so a section only has to set
+// data-surface="light" or "dark" and these follow.
+//
+// The old template styles every link, button, heading and list, so these
+// mixins set every property they rely on.
+
+$narrow: 860px;
+
+// The page column: same width and side padding as the hero's text.
+@mixin wrap {
+    max-width: 124rem;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+
+    @media (max-width: $narrow) {
+        padding: 0 var(--space-5);
+    }
+}
+
+// A section's vertical rhythm. Dense and airy sections alternate.
+@mixin section($space: var(--space-10)) {
+    padding: $space 0;
+    background-color: var(--color-surface);
+    background-image: var(--grain);
+    color: var(--color-text);
+
+    @media (max-width: $narrow) {
+        padding: var(--space-9) 0;
+    }
+}
+
+// Section title (h2): Lora, weight and spacing do the work, not size.
+@mixin heading {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 2.6vw, 3.8rem);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+}
+
+// Small uppercase label (company names, row labels).
+@mixin kicker {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-meta);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent-strong);
+}
+
+// Body copy in Lora.
+@mixin prose($size: 1.8rem) {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: $size;
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+}
+
+// Underlined text link. Hover changes the color only (decided 2026-11-15).
+@mixin text-link {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+    transition: color var(--dur-fast) var(--ease-out);
+
+    &:visited {
+        color: var(--color-text);
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: var(--color-accent-strong);
+    }
+}
+
+// The one solid button style.
+@mixin button {
+    display: inline-flex;
+    align-items: center;
+    height: 4.8rem;
+    margin: 0;
+    padding: 0 2.6rem;
+    border: var(--border-width) solid var(--color-button);
+    border-radius: var(--radius);
+    background-color: var(--color-button);
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    color: var(--color-button-text);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color var(--dur) var(--ease-out),
+        color var(--dur) var(--ease-out);
+
+    &:visited {
+        color: var(--color-button-text);
+    }
+
+    &:hover {
+        background-color: transparent;
+        color: var(--color-text);
+    }
+}
+
+// The outlined companion to the solid button (secondary actions).
+@mixin button-outline {
+    @include button;
+    border-color: var(--color-border-strong);
+    background-color: transparent;
+    color: var(--color-text);
+
+    &:visited {
+        color: var(--color-text);
+    }
+
+    &:hover {
+        border-color: var(--color-button);
+        background-color: var(--color-button);
+        color: var(--color-button-text);
+    }
+}
+
+@mixin focus-ring($offset: 4px) {
+    &:focus-visible {
+        outline: 2px solid var(--color-focus);
+        outline-offset: $offset;
+    }
+}
+
+// Images: thin rule, no shadow, small radius.
+@mixin framed-image {
+    overflow: hidden;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius);
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+}
+
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}

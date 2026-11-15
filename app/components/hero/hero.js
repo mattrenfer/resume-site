@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './hero.module.scss';
 
 // The first screen: name, what I do, one way to the work, and the photo.
-// PNW Professional: warm light surface, Lora name, a thin olive rule, no
+// PNW Professional: warm light surface, Lora name, a thin warm rule, no
 // shadows. No animation here; the page's one flourish lives elsewhere.
 //
 // It's a server component on purpose: everything renders in the HTML, so the

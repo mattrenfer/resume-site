@@ -1,0 +1,63 @@
+// Get in touch: a raised dark surface, centered, one button.
+@use '../../styles/section' as *;
+
+.contact {
+    @include section(var(--space-10));
+    background-color: var(--color-surface-raised);
+    text-align: center;
+}
+
+.wrap {
+    @include wrap;
+}
+
+.heading {
+    @include heading;
+    font-size: clamp(3.4rem, 3.2vw, 4.6rem);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4) var(--space-6);
+    margin-top: var(--space-6);
+}
+
+.button {
+    @include button;
+    @include focus-ring;
+}
+
+.buttonOutline {
+    @include button-outline;
+    @include focus-ring;
+}
+
+.address {
+    margin: var(--space-6) 0 0;
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+    color: var(--color-accent-strong);
+
+    a,
+    a:visited {
+        color: var(--color-accent-strong);
+        text-decoration: none;
+        transition: color var(--dur-fast) var(--ease-out);
+    }
+
+    a:hover {
+        color: var(--color-text);
+    }
+
+    a {
+        @include focus-ring(2px);
+    }
+}
+
+.srOnly {
+    @include sr-only;
+}

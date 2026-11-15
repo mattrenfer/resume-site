@@ -1,123 +1,87 @@
 import React from 'react';
 import Specialties from '../specialties/specialties';
+import styles from './resume.module.scss';
 
-const Resume = ({ siteConfig }) => {
-    return (
-        <section id='resume' className='s-resume target-section'>
+// The résumé on the page: Specialties, Career, Education. A light surface,
+// label on the left, entries on the right, thin warm rules between rows.
+const dates = (...parts) => parts.filter(Boolean).join(' ');
+
+const Resume = ({ siteConfig }) => (
+    <section
+        id='resume'
+        className={`${styles.resume} target-section`}
+        data-surface='light'
+        aria-labelledby='resume-heading'
+    >
+        <div className={styles.wrap}>
+            <h2 id='resume-heading' className={styles.srOnly}>
+                Experience
+            </h2>
+
             <Specialties siteConfig={siteConfig} />
-            <div className='row s-resume__section'>
-                <div className='column large-3 tab-12'>
-                    <h3 className='section-header-allcaps'>
-                        <i
-                            className='fas fa-briefcase'
-                            style={{ marginRight: '10px' }}
-                        ></i>
-                        Career
-                    </h3>
-                </div>
-                <div className='column large-9 tab-12'>
-                    {siteConfig.career &&
-                        siteConfig.career.map(item => {
-                            return (
-                                <div className='resume-block' key={item.id}>
-                                    <div className='resume-block__header'>
-                                        <h4 className='h3'>
-                                            {item.companyName}
-                                        </h4>
-                                        <p className='resume-block__header-meta'>
-                                            <span> {item.specialization}</span>{' '}
-                                            <span className='resume-block__header-date'>
-                                                {' '}
-                                                <em className='date'>
-                                                    {item.monthOfJoining}{' '}
-                                                    {item.yearOfJoining} -{' '}
-                                                    {item.monthOfLeaving}{' '}
-                                                    {item.yearOfLeaving}
-                                                </em>
-                                            </span>
-                                        </p>
-                                    </div>
-                                    <p>{item.description}</p>
-                                </div>
-                            );
-                        })}
+
+            <div className={styles.row}>
+                <h3 className={styles.label}>Career</h3>
+                <div className={styles.entries}>
+                    {(siteConfig.career || []).map(item => (
+                        <article key={item.id} className={styles.entry}>
+                            <h4 className={styles.entryTitle}>{item.companyName}</h4>
+                            <p className={styles.entryMeta}>
+                                <span>{item.specialization}</span>
+                                <span className={styles.dates}>
+                                    {dates(item.monthOfJoining, item.yearOfJoining)} –{' '}
+                                    {dates(item.monthOfLeaving, item.yearOfLeaving)}
+                                </span>
+                            </p>
+                            <p className={styles.entryText}>{item.description}</p>
+                        </article>
+                    ))}
                 </div>
             </div>
-            <div className='row s-resume__section'>
-                <div className='column large-3 tab-12'>
-                    <h3 className='section-header-allcaps'>
-                        <i
-                            className='fas fa-graduation-cap'
-                            style={{ marginRight: '10px' }}
-                        ></i>
-                        Education
-                    </h3>
-                </div>
-                <div className='column large-9 tab-12'>
-                    {siteConfig.education &&
-                        siteConfig.education.map(item => {
-                            return (
-                                <div className='resume-block' key={item.id}>
-                                    <div className='resume-block__header'>
-                                        <h4 className='h3'>
-                                            {item.institutionName}
-                                        </h4>
-                                        <div className='resume-block__header-meta'>
-                                            <span>
-                                                {' '}
-                                                {item.specialization}
-                                                {item.certificates &&
-                                                    item.certificates.map(
-                                                        item => {
-                                                            return (
-                                                                <p
-                                                                    key={
-                                                                        item.id
-                                                                    }
-                                                                >
-                                                                    &bull;{' '}
-                                                                    {item.name}{' '}
-                                                                    (
-                                                                    <a
-                                                                        className='cert-view'
-                                                                        href={
-                                                                            item.url
-                                                                        }
-                                                                        target='_blank'
-                                                                        rel='noreferrer'
-                                                                    >
-                                                                        View
-                                                                    </a>
-                                                                    )
-                                                                </p>
-                                                            );
-                                                        },
-                                                    )}
-                                            </span>
 
-                                            {typeof item.monthOfEarning !==
-                                                'undefined' &&
-                                            typeof item.yearOfEarning !==
-                                                'undefined' ? (
-                                                <span className='resume-block__header-date'>
+            <div className={styles.row}>
+                <h3 className={styles.label}>Education</h3>
+                <div className={styles.entries}>
+                    {(siteConfig.education || []).map(item => (
+                        <article key={item.id} className={styles.entry}>
+                            <h4 className={styles.entryTitle}>{item.institutionName}</h4>
+                            {(item.specialization || item.yearOfEarning) && (
+                                <p className={styles.entryMeta}>
+                                    {item.specialization && <span>{item.specialization}</span>}
+                                    {item.yearOfEarning && (
+                                        <span className={styles.dates}>
+                                            {dates(item.monthOfEarning, item.yearOfEarning)}
+                                        </span>
+                                    )}
+                                </p>
+                            )}
+                            {item.certificates && (
+                                <ul className={styles.certs}>
+                                    {item.certificates.map(cert => (
+                                        <li key={cert.id}>
+                                            <span>{cert.name}</span>{' '}
+                                            <a
+                                                className={styles.certLink}
+                                                href={cert.url}
+                                                target='_blank'
+                                                rel='noreferrer'
+                                            >
+                                                View
+                                                <span className={styles.srOnly}>
                                                     {' '}
-                                                    <em className='date'>
-                                                        {item.monthOfEarning}{' '}
-                                                        {item.yearOfEarning}
-                                                    </em>
+                                                    {cert.name} certificate (opens in a new tab)
                                                 </span>
-                                            ) : (
-                                                <span></span>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </article>
+                    ))}
                 </div>
-            </div>{' '}
-        </section>
-    );
-};
+            </div>
+        </div>
+    </section>
+);
 
 export default Resume;

@@ -233,7 +233,7 @@ const siteConfig = {
                 {
                     id: 5,
                     name: 'Structured Vibe Coding with AI Coding Agents',
-                    url: '/images/certificate-vibe-coding.pdf',
+                    url: '/images/certificate-vibe-coding.jpg',
                 },
             ],
         },

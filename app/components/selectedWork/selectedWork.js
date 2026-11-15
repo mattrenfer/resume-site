@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { track } from '@/lib/analytics/events';
 import styles from './selectedWork.module.scss';
 
@@ -21,17 +20,13 @@ function Card({ project, card, lead }) {
     };
 
     return (
-        <motion.a
+        <a
             href={project.link}
             className={lead ? `${styles.card} ${styles.lead}` : styles.card}
             {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
             onClick={() =>
                 track({ event: 'selected_work_click', project: project.name })
             }
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ type: 'spring', stiffness: 80, damping: 18 }}
         >
             <div className={styles.media}>
                 <picture>
@@ -60,7 +55,7 @@ function Card({ project, card, lead }) {
                     )}
                 </span>
             </div>
-        </motion.a>
+        </a>
     );
 }
 
@@ -76,7 +71,12 @@ const SelectedWork = ({ siteConfig }) => {
     const [first, ...rest] = cards;
 
     return (
-        <section id='work' className={styles.work} aria-labelledby='selected-work'>
+        <section
+            id='work'
+            className={styles.work}
+            data-surface='dark'
+            aria-labelledby='selected-work'
+        >
             <div className={styles.wrap}>
                 <div className={styles.head}>
                     <h2 id='selected-work' className={styles.heading}>
