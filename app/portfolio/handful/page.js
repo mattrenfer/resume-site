@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Young_Serif, Newsreader } from 'next/font/google';
+import { youngSerif, newsreader } from '../../fonts/fonts';
 import Footer from '../../components/footer/footer';
 import siteConfig from '../../siteConfig';
 import Features from './Features';
@@ -32,23 +32,8 @@ export const metadata = {
     twitter: { card: 'summary_large_image' },
 };
 
-// Handful's own display faces, used for the big statements and the closing
-// wordmark. The header stays in the site's Lora.
-const youngSerif = Young_Serif({
-    subsets: ['latin'],
-    weight: '400',
-    display: 'swap',
-    variable: '--font-young-serif',
-});
-const newsreader = Newsreader({
-    subsets: ['latin'],
-    weight: '600',
-    style: 'italic',
-    display: 'swap',
-    variable: '--font-newsreader',
-    // Next has no fallback metrics for Newsreader and logs an error without this.
-    adjustFontFallback: false,
-});
+// Handful's own display faces (Young Serif, Newsreader) come from app/fonts,
+// for the big statements and the closing wordmark. The header stays in Lora.
 
 // Both "Try the demo" badges post here, the same way the badge on Handful's own
 // sign-in page does. Handful signs the visitor in as the demo account on its
