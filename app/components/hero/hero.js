@@ -1,245 +1,93 @@
-'use client';
-
 import React from 'react';
-import { motion } from 'framer-motion';
-import config from '../../siteConfig';
-import { track } from '@/lib/analytics/events';
+import styles from './hero.module.scss';
+
+// The first screen: name, what I do, one way to the work, and the photo.
+// PNW Professional: warm light surface, Lora name, a thin olive rule, no
+// shadows. No animation here; the page's one flourish lives elsewhere.
+//
+// It's a server component on purpose: everything renders in the HTML, so the
+// name and photo paint without waiting for JavaScript.
+
+// Turns "{em:word}" in the lead into <em>word</em>.
+function Lead({ text }) {
+    return text.split(/(\{em:.*?\})/).map((part, i) => {
+        const match = part.match(/^\{em:(.*)\}$/);
+        return match ? <em key={i}>{match[1]}</em> : part;
+    });
+}
 
 const Hero = ({ siteConfig }) => {
-    // Container no longer fades (no opacity gate) so its children — including the
-    // LCP text — are painted in the server-rendered HTML instead of waiting on JS.
-    const containerVariants = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: 'spring',
-                stiffness: 100,
-            },
-        },
-    };
-
-    // LCP elements (name + tagline): stay fully opaque from first paint so they
-    // count as the largest contentful paint immediately; only a subtle settle
-    // animates in once JS loads.
-    const lcpItemVariants = {
-        hidden: { y: 12, opacity: 1 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: 'spring',
-                stiffness: 100,
-            },
-        },
-    };
-
-    const imageVariants = {
-        hidden: { opacity: 0, scale: 0.8, rotate: -10 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-            transition: {
-                type: 'spring',
-                stiffness: 100,
-                damping: 10,
-                duration: 0.8,
-            },
-        },
-    };
+    const { personal, hero } = siteConfig;
+    const { photo } = hero;
+    const resumeUrl = `${siteConfig.system.publicUrl}/${personal.resume.fileName}${personal.resume.version}`;
+    // Display name without the middle name, as on the résumé and LinkedIn.
+    const name = personal.name.replace(/\s+Russell\s+/, ' ');
 
     return (
-        <section id='hero' className='s-hero target-section'>
-            {/* Background gradient comes from the .s-hero__bg CSS layer. */}
-            <div className='s-hero__bg'></div>
+        <section
+            id='hero'
+            className={`${styles.hero} target-section`}
+            data-surface='light'
+            aria-labelledby='hero-name'
+        >
+            <picture className={styles.photo}>
+                <source
+                    type='image/webp'
+                    srcSet={`${photo.src}-900.webp 900w, ${photo.src}-1600.webp 1600w`}
+                    sizes='(max-width: 860px) 100vw, 42vw'
+                />
+                <img
+                    src={`${photo.src}-1600.jpg`}
+                    srcSet={`${photo.src}-900.jpg 900w, ${photo.src}-1600.jpg 1600w`}
+                    sizes='(max-width: 860px) 100vw, 42vw'
+                    width={photo.width}
+                    height={photo.height}
+                    alt={photo.alt}
+                    fetchPriority='high'
+                    decoding='async'
+                />
+            </picture>
 
-            <motion.div
-                className='row s-hero__content'
-                variants={containerVariants}
-                initial='hidden'
-                animate='visible'
-            >
-                <div className='column'>
-                    <div className='s-hero__content-about'>
-                        <motion.h1 variants={lcpItemVariants}>
-                            {siteConfig.personal.name}
-                        </motion.h1>
+            <div className={styles.inner}>
+                <div className={styles.text}>
+                    <p className={styles.kicker}>{personal.role}</p>
+                    <h1 id='hero-name' className={styles.name}>
+                        {name}
+                    </h1>
+                    <p className={styles.lead}>
+                        <Lead text={hero.lead} />
+                    </p>
 
-                        <motion.h2 variants={itemVariants}>
-                            <em>{siteConfig.personal.role}</em>
-                        </motion.h2>
-
-                        <br />
-
-                        <motion.div
-                            className='column tab-12'
-                            initial='hidden'
-                            whileInView='visible'
-                            viewport={{ once: true, amount: 0.3 }}
-                            variants={imageVariants}
+                    <div className={styles.actions}>
+                        <a href='#work' className={styles.button}>
+                            See my work
+                        </a>
+                        <a
+                            href={resumeUrl}
+                            className={styles.textLink}
+                            target='_blank'
+                            rel='noreferrer'
                         >
-                            <picture>
-                                <source
-                                    srcSet={siteConfig.about.profileImage.replace(
-                                        /\.jpe?g$/i,
-                                        '.webp',
-                                    )}
-                                    type='image/webp'
-                                />
-                                <motion.img
-                                    className='s-about__pic'
-                                    src={siteConfig.about.profileImage}
-                                    alt='Matthew Renfer'
-                                    width={300}
-                                    height={300}
-                                    fetchpriority='high'
-                                    loading='eager'
-                                    decoding='async'
-                                    whileHover={{
-                                        scale: 1.05,
-                                        rotate: 2,
-                                        transition: { duration: 0.3 },
-                                    }}
-                                />
-                            </picture>
-                        </motion.div>
-
-                        <motion.h3 variants={lcpItemVariants}>
-                            {config.hero.tagline
-                                .split(/(\{highlight:.*?\})/)
-                                .map((part, index) => {
-                                    const highlightMatch =
-                                        part.match(/\{highlight:(.*?)\}/);
-                                    if (highlightMatch) {
-                                        return (
-                                            <span
-                                                key={index}
-                                                className='highlight'
-                                            >
-                                                {highlightMatch[1]}
-                                            </span>
-                                        );
-                                    }
-                                    return part;
-                                })}
-                        </motion.h3>
-
-                        {/* Lead with the work: one tap to the projects, one to the résumé. */}
-                        <motion.div
-                            className='s-hero__actions'
-                            variants={itemVariants}
-                        >
-                            <a
-                                href='#work'
-                                className='btn s-hero__btn s-hero__btn--solid'
-                            >
-                                See my work
-                            </a>
-                            <a
-                                href={`${siteConfig.system.publicUrl}/${siteConfig.personal.resume.fileName}${siteConfig.personal.resume.version}`}
-                                className='btn s-hero__btn s-hero__btn--line'
-                                target='_blank'
-                                rel='noreferrer'
-                                onClick={() =>
-                                    track({
-                                        event: 'resume_download',
-                                        file: siteConfig.personal.resume
-                                            .fileName,
-                                    })
-                                }
-                            >
-                                Résumé
-                            </a>
-                        </motion.div>
-
-                        <motion.div
-                            className='s-hero__content-social'
-                            variants={itemVariants}
-                        >
-                            <a
-                                href={siteConfig.personal.socialMedia.linkedin}
-                                target='_blank'
-                                rel='noreferrer'
-                                aria-label='LinkedIn'
-                                onClick={() =>
-                                    track({
-                                        event: 'social_click',
-                                        network: 'LinkedIn',
-                                    })
-                                }
-                            >
-                                <i
-                                    className='fab fa-linkedin'
-                                    aria-hidden='true'
-                                />
-                            </a>
-                            <a
-                                href={siteConfig.personal.socialMedia.github}
-                                target='_blank'
-                                rel='noreferrer'
-                                aria-label='GitHub'
-                                onClick={() =>
-                                    track({
-                                        event: 'social_click',
-                                        network: 'GitHub',
-                                    })
-                                }
-                            >
-                                <i
-                                    className='fab fa-github-square'
-                                    aria-hidden='true'
-                                />
-                            </a>
-                            <a
-                                href={siteConfig.personal.socialMedia.facebook}
-                                target='_blank'
-                                rel='noreferrer'
-                                aria-label='Facebook'
-                                onClick={() =>
-                                    track({
-                                        event: 'social_click',
-                                        network: 'Facebook',
-                                    })
-                                }
-                            >
-                                <i
-                                    className='fab fa-facebook-square'
-                                    aria-hidden='true'
-                                />
-                            </a>
-                            <a
-                                href={siteConfig.personal.socialMedia.instagram}
-                                target='_blank'
-                                rel='noreferrer'
-                                aria-label='Instagram'
-                                onClick={() =>
-                                    track({
-                                        event: 'social_click',
-                                        network: 'Instagram',
-                                    })
-                                }
-                            >
-                                <i
-                                    className='fab fa-instagram'
-                                    aria-hidden='true'
-                                />
-                            </a>
-                        </motion.div>
+                            Résumé <span aria-hidden='true'>→</span>
+                            <span className={styles.srOnly}> (PDF, opens in a new tab)</span>
+                        </a>
                     </div>
+
+                    <ul className={styles.meta}>
+                        <li>{hero.location}</li>
+                        <li>
+                            <a href={personal.socialMedia.linkedin} target='_blank' rel='noreferrer'>
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href={personal.socialMedia.github} target='_blank' rel='noreferrer'>
+                                GitHub
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 };

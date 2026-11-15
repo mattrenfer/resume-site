@@ -83,15 +83,15 @@ const siteConfig = {
     // 4. HERO SECTION - Landing page configuration
     // ============================================================================
     hero: {
-        // Typewriter effect - roles that cycle through
-        tagline:
-            '15+ years. I build {highlight:fast}, {highlight:accessible} interfaces, ship them to production, and {highlight:instrument} them to prove they moved the needle.',
-
-        // Scroll indicator animation
-        scrollIndicator: {
-            bounceHeight: 10, // Pixels to bounce up/down
-            bounceDuration: 2, // Seconds for full bounce cycle
-            fadeInDelay: 1.5, // Seconds before appearing
+        // The opening line under the name. {em:...} marks the words set in italic.
+        lead: '15+ years building {em:fast}, {em:accessible} interfaces for real people, and {em:measuring} whether they actually help.',
+        location: 'Atlanta, Georgia',
+        photo: {
+            // Warm-graded from the 4k Aragon original (#21, denim shirt).
+            src: '/images/matthew-renfer',
+            alt: 'Matthew Renfer in a denim shirt, standing in a bright office.',
+            width: 1600,
+            height: 1959,
         },
     },
 
