@@ -1,0 +1,46 @@
+// About me: a raised dark surface, so it reads as its own room after the work.
+@use '../../styles/section' as *;
+
+.about {
+    @include section;
+    background-color: var(--color-surface-raised);
+}
+
+.wrap {
+    @include wrap;
+    max-width: calc(var(--measure) + 2 * var(--space-8));
+}
+
+.label {
+    @include kicker;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    display: inline-block;
+    border-bottom: var(--border-width) solid var(--color-border-strong);
+}
+
+.lead {
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 2.2vw, 3rem);
+    line-height: 1.45;
+    color: var(--color-text);
+    text-wrap: pretty;
+}
+
+.text {
+    @include prose(clamp(1.8rem, 1.4vw, 2rem));
+    margin-bottom: var(--space-5);
+    text-wrap: pretty;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.link {
+    @include text-link;
+    @include focus-ring(2px);
+    font-family: var(--font-serif);
+    font-weight: inherit;
+}

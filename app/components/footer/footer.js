@@ -1,134 +1,62 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { track } from '@/lib/analytics/events';
+import styles from './footer.module.scss';
+
+// Site footer (home page and the Handful page): social links, copyright, and
+// a back-to-top link that appears once you've scrolled.
+const SOCIAL = [
+    { key: 'linkedin', label: 'LinkedIn', icon: 'fab fa-linkedin-in', external: true },
+    { key: 'github', label: 'GitHub', icon: 'fab fa-github', external: true },
+    { key: 'facebook', label: 'Facebook', icon: 'fab fa-facebook-f', external: true },
+    { key: 'instagram', label: 'Instagram', icon: 'fab fa-instagram', external: true },
+];
 
 const Footer = ({ siteConfig }) => {
-    // Show the "back to top" button once the user has scrolled down a bit.
-    // Replaces the Ceevee main.js ssBackToTop() behavior.
-    const [showGoTop, setShowGoTop] = useState(false);
+    const [showTop, setShowTop] = useState(false);
 
     useEffect(() => {
-        const pxShow = 900;
-        const onScroll = () => setShowGoTop(window.scrollY >= pxShow);
-
-        onScroll(); // sync on mount in case the page loads already scrolled
+        const onScroll = () => setShowTop(window.scrollY >= 900);
+        onScroll(); // in case the page loads already scrolled
         window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     return (
-        <React.Fragment>
-            <footer className='s-footer'>
-                <div className='row'>
-                    <div className='column large-4 medium-6 w-1000-stack s-footer__social-block'>
-                        <ul className='s-footer__social'>
-                            <li>
-                                <a
-                                    href={
-                                        siteConfig.personal.socialMedia.linkedin
-                                    }
-                                    aria-label='LinkedIn'
-                                    onClick={() =>
-                                        track({
-                                            event: 'social_click',
-                                            network: 'LinkedIn',
-                                        })
-                                    }
-                                >
-                                    <i
-                                        className='fab fa-linkedin-in'
-                                        aria-hidden='true'
-                                    />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href={
-                                        siteConfig.personal.socialMedia.github
-                                    }
-                                    target='_blank'
-                                    rel='noreferrer'
-                                    aria-label='GitHub'
-                                    onClick={() =>
-                                        track({
-                                            event: 'social_click',
-                                            network: 'GitHub',
-                                        })
-                                    }
-                                >
-                                    <i
-                                        className='fab fa-github-square'
-                                        aria-hidden='true'
-                                    />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href={
-                                        siteConfig.personal.socialMedia.facebook
-                                    }
-                                    aria-label='Facebook'
-                                    onClick={() =>
-                                        track({
-                                            event: 'social_click',
-                                            network: 'Facebook',
-                                        })
-                                    }
-                                >
-                                    <i
-                                        className='fab fa-facebook-f'
-                                        aria-hidden='true'
-                                    />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href={
-                                        siteConfig.personal.socialMedia
-                                            .instagram
-                                    }
-                                    aria-label='Instagram'
-                                    onClick={() =>
-                                        track({
-                                            event: 'social_click',
-                                            network: 'Instagram',
-                                        })
-                                    }
-                                >
-                                    <i
-                                        className='fab fa-instagram'
-                                        aria-hidden='true'
-                                    />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className='column large-7 medium-6 w-1000-stack ss-copyright'>
-                        <span>
-                            &copy; {new Date().getFullYear()} Matthew Renfer |
-                            All rights reserved
-                        </span>
-                    </div>
-                </div>
-                <div className={`ss-go-top${showGoTop ? ' link-is-visible' : ''}`}>
-                    <a
-                        className='smoothscroll'
-                        title='Back to Top'
-                        aria-label='Back to top'
-                        href='#top'
-                    >
-                        <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            viewBox='0 0 24 24'
-                            aria-hidden='true'
-                        >
-                            <path d='M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z' />
-                        </svg>
-                    </a>
-                </div>{' '}
-            </footer>
-        </React.Fragment>
+        <footer className={styles.footer} data-surface='dark'>
+            <div className={styles.wrap}>
+                <p className={styles.copyright}>
+                    &copy; {new Date().getFullYear()} Matthew Renfer
+                </p>
+                <ul className={styles.social}>
+                    {SOCIAL.map(s => (
+                        <li key={s.key}>
+                            <a
+                                href={siteConfig.personal.socialMedia[s.key]}
+                                aria-label={s.label}
+                                target='_blank'
+                                rel='noreferrer'
+                                onClick={() => track({ event: 'social_click', network: s.label })}
+                            >
+                                <i className={s.icon} aria-hidden='true' />
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <a
+                href='#top'
+                className={`${styles.top}${showTop ? ` ${styles.topVisible}` : ''}`}
+                aria-label='Back to top'
+                tabIndex={showTop ? 0 : -1}
+            >
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true'>
+                    <path d='M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z' />
+                </svg>
+            </a>
+        </footer>
     );
 };
 
