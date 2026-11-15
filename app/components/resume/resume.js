@@ -3,7 +3,7 @@ import Specialties from '../specialties/specialties';
 import styles from './resume.module.scss';
 
 // The résumé on the page: Specialties, Career, Education. A light surface,
-// label on the left, entries on the right, thin olive rules between rows.
+// label on the left, entries on the right, thin warm rules between rows.
 const dates = (...parts) => parts.filter(Boolean).join(' ');
 
 const Resume = ({ siteConfig }) => (

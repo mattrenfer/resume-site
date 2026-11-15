@@ -102,8 +102,7 @@
 }
 
 .company {
-    @include kicker;
-    color: var(--color-meta);
+    @include kicker; // rose, like the labels in Selected work
 }
 
 /* ---- Popup ---- */
