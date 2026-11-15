@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { Inter, IBM_Plex_Serif, Lora } from 'next/font/google';
+import { lora, sourceSans } from './fonts/fonts';
 import Analytics from './components/analytics/Analytics';
 // Template + vendor CSS are imported here (bundled + minified into the Next CSS)
 // BEFORE globals.scss, so globals.scss remains the override layer that wins.
@@ -7,29 +7,9 @@ import '../public/css/styles.css';
 import '../public/css/vendor.css';
 import './globals.scss';
 
-// Self-hosted fonts (no render-blocking third-party request). Each exposes a CSS
-// variable consumed by the stylesheets: --font-1 (Inter), --font-2 (IBM Plex
-// Serif, homepage headings), --font-lora (the /writing serif).
-const inter = Inter({
-    subsets: ['latin'],
-    weight: ['400', '500', '600', '700'],
-    display: 'swap',
-    variable: '--font-inter',
-});
-const ibmPlexSerif = IBM_Plex_Serif({
-    subsets: ['latin'],
-    weight: ['400', '500', '600', '700'],
-    style: ['normal', 'italic'],
-    display: 'swap',
-    variable: '--font-ibm',
-});
-const lora = Lora({
-    subsets: ['latin'],
-    weight: ['400', '500', '600'],
-    style: ['normal', 'italic'],
-    display: 'swap',
-    variable: '--font-lora',
-});
+// Fonts are bundled in app/fonts (see fonts.js). Each exposes a CSS variable:
+// --font-source-sans (UI, mapped to --font-1) and --font-lora (reading and
+// headings, mapped to --font-2), both set in globals.scss.
 
 export const metadata = {
     // Lets pages give relative share-image and page URLs.
@@ -60,7 +40,7 @@ export default function RootLayout({ children }) {
     return (
         <html
             lang='en'
-            className={`${inter.variable} ${ibmPlexSerif.variable} ${lora.variable}`}
+            className={`${sourceSans.variable} ${lora.variable}`}
         >
             {/* id="top" is the anchor target for the footer "back to top" link.
                 No ss-preload class: the preloader was retired, and adding it

@@ -13,10 +13,10 @@ body {
 /* CSS Overrides of public/css/styles.css */
 
 :root {
-    /* Font families now come from self-hosted next/font (see layout.js), mapped
-       onto the template's --font-1 (Inter) / --font-2 (IBM Plex Serif) tokens. */
-    --font-1: var(--font-inter), 'Inter', sans-serif;
-    --font-2: var(--font-ibm), 'IBM Plex Serif', serif;
+    /* Fonts are bundled in app/fonts and mapped onto the template's two slots:
+       --font-1 is the UI sans (Source Sans 3), --font-2 the serif (Lora). */
+    --font-1: var(--font-source-sans), 'Source Sans 3', system-ui, sans-serif;
+    --font-2: var(--font-lora), 'Lora', Georgia, serif;
 
     /* One accent across the site: dusty rose (the teal is gone). */
     --color-1: #c47a86;
