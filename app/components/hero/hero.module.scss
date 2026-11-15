@@ -175,13 +175,12 @@ $narrow: 860px;
     text-decoration-color: var(--color-accent);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.35em;
-    transition: text-underline-offset var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+    transition: color var(--dur-fast) var(--ease-out);
 }
 
 .textLink:hover,
 .textLink:focus-visible {
-    color: var(--color-accent);
-    text-underline-offset: 0.5em;
+    color: var(--color-accent); // color only: the underline stays put
 }
 
 .button:focus-visible,
