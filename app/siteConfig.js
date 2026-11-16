@@ -385,7 +385,7 @@ const siteConfig = {
             name: 'Web Developer (Contract)',
             companyName: 'Yamaha Motor Corporation, USA',
             description: `Built customer-facing features on Yamaha's headless storefront (Next.js + Optimizely CMS). Pictured: an Installation Instructions section on product pages. When IT attaches an instruction PDF to a product, it appears on the page automatically, with no developer request needed.`,
-            thumbnail: 'images/portfolio/yamaha.jpg',
+            thumbnail: 'images/portfolio/yamaha-windscreen.jpg',
             alt: 'A Yamaha product page for the MT-10 Windscreen, with an Installation Instructions section below the product photo.',
             link: 'https://yamaha-motor.com/p/yamaha-genuine-mt-10-windscreen?sku=B5Y-F83J0-V0-00',
             linkText: 'Live Site',
