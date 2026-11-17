@@ -22,7 +22,7 @@ export const metadata = {
         description: DESCRIPTION,
         images: [
             {
-                url: '/images/portfolio/handful/share.jpg',
+                url: '/images/portfolio/handful/share-v2.jpg',
                 width: 1200,
                 height: 630,
                 alt: "Handful's dashboard, laid out like a newspaper front page, with a Try the demo badge.",
@@ -48,7 +48,7 @@ const GITHUB_URL = 'https://github.com/mattrenfer/handful';
 const IMAGE_PATH = '/images/portfolio/handful';
 
 // Desktop screenshots are 2560 wide (1280 at 2x); phone screenshots are 1179 wide (393 at 3x).
-const DASHBOARD = { src: 'dashboard.webp', width: 2560, height: 2116 };
+const DASHBOARD = { src: 'dashboard-v2.webp', width: 2560, height: 2116 };
 
 const HERO_ALT =
     "Handful's dashboard, laid out like a newspaper front page. The lead story is Tom Okafor, marked Still on your list, with the task Check in about the spring planting plan. A column headed Also next lists Dana Whitfield, Marcus Bell and Priya Nair. Counts of clients and tasks sit at the bottom.";
@@ -71,7 +71,7 @@ const FEATURES = [
             alt: "Handful's dashboard, with Tom Okafor as the lead story.",
         },
         phone: {
-            src: 'phone-dashboard.webp',
+            src: 'phone-dashboard-v2.webp',
             width: 1179,
             height: 4278,
             alt: "Handful's dashboard on a phone. Tom Okafor is the lead story.",
@@ -81,13 +81,13 @@ const FEATURES = [
         title: 'Your people',
         text: 'Every client gets their name in headline type, with their details below it and the next thing you owe them beside it.',
         desktop: {
-            src: 'clients.webp',
+            src: 'clients-v2.webp',
             width: 2560,
             height: 3010,
             alt: "Handful's Your people page. Each client's name is a headline with contact details below it and the next task beside it.",
         },
         phone: {
-            src: 'phone-clients.webp',
+            src: 'phone-clients-v2.webp',
             width: 1179,
             height: 6183,
             alt: "Handful's Your people page on a phone, listing each client with the next task.",
@@ -97,13 +97,13 @@ const FEATURES = [
         title: 'One page per person',
         text: 'Your notes and what comes next for that person, side by side.',
         desktop: {
-            src: 'client-page.webp',
+            src: 'client-page-v2.webp',
             width: 2560,
             height: 2122,
             alt: "Handful's page for Priya Nair, with a dated note on the left and her next task on the right.",
         },
         phone: {
-            src: 'phone-client-page.webp',
+            src: 'phone-client-page-v2.webp',
             width: 1179,
             height: 3684,
             alt: "Handful's page for Priya Nair on a phone, with a dated note and her next task.",
@@ -113,13 +113,13 @@ const FEATURES = [
         title: "What's next",
         text: 'Open tasks, most urgent first. Due dates read as words: "Today," "Tuesday" or "Still on your list."',
         desktop: {
-            src: 'tasks.webp',
+            src: 'tasks-v2.webp',
             width: 2560,
             height: 3268,
             alt: "Handful's What's next page, listing tasks most urgent first with due dates written as words.",
         },
         phone: {
-            src: 'phone-tasks.webp',
+            src: 'phone-tasks-v2.webp',
             width: 1179,
             height: 7569,
             alt: "Handful's What's next page on a phone, with tasks most urgent first.",
@@ -130,13 +130,13 @@ const FEATURES = [
         text: "It works on a phone and follows your device's light or dark setting.",
         dark: true,
         desktop: {
-            src: 'phone-dark.webp',
+            src: 'phone-dark-v2.webp',
             width: 1179,
             height: 4278,
             alt: "Handful's dashboard on a phone in dark mode, with cream type on near-black.",
         },
         phone: {
-            src: 'phone-dark.webp',
+            src: 'phone-dark-v2.webp',
             width: 1179,
             height: 4278,
             alt: "Handful's dashboard on a phone in dark mode, with cream type on near-black.",
