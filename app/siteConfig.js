@@ -344,7 +344,7 @@ const siteConfig = {
         {
             id: 10,
             image: {
-                src: 'images/portfolio/handful/dashboard.webp',
+                src: 'images/portfolio/handful/dashboard-v2.webp',
                 width: 2560,
                 height: 2116,
             },
@@ -375,7 +375,7 @@ const siteConfig = {
             name: 'Handful',
             companyName: 'Personal project',
             description: `A simple client tracker that opens on a front page telling you who needs you today. Built with AI-assisted workflows (Claude Code). Next.js, React, TypeScript, Tailwind and Supabase.`,
-            thumbnail: 'images/portfolio/handful.jpg',
+            thumbnail: 'images/portfolio/handful-v2.jpg',
             alt: "Handful's dashboard, laid out like a newspaper front page, with a client's name as the lead story.",
             link: '/portfolio/handful/',
             linkText: 'See the project',
