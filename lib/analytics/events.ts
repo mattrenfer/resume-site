@@ -19,7 +19,7 @@ export type AnalyticsEvent =
     | { event: 'scroll_depth'; page: string; percent: number }
     | { event: 'writing_read'; slug: string; collection: 'dispatches' | 'poetry' }
     // From data-track attributes (see ClickTracker): any event name, string details.
-    | { event: string; [detail: string]: string | number | undefined };
+    | { event: string; [detail: string]: string | number | undefined | (() => void) };
 
 declare global {
     interface Window {
