@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { track } from '@/lib/analytics/events';
+import { trackLink } from '@/lib/analytics/events';
 import styles from './selectedWork.module.scss';
 
 // "Selected work": three projects right after the hero, so the work comes first.
@@ -24,8 +24,8 @@ function Card({ project, card, lead }) {
             href={project.link}
             className={lead ? `${styles.card} ${styles.lead}` : styles.card}
             {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-            onClick={() =>
-                track({ event: 'selected_work_click', project: project.name })
+            onClick={e =>
+                trackLink({ event: 'selected_work_click', project: project.name }, e)
             }
         >
             <div className={styles.media}>
