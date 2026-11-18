@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { youngSerif, newsreader } from '../../fonts/fonts';
+import ScrollDepth from '../../components/analytics/ScrollDepth';
 import Footer from '../../components/footer/footer';
 import siteConfig from '../../siteConfig';
 import Features from './Features';
@@ -219,7 +220,13 @@ export default function HandfulPage() {
                     {/* Visitors from LinkedIn land here first, so the page says whose work this is. */}
                     <p className={styles.byline}>
                         by{' '}
-                        <Link href='/' className={styles.bylineLink}>
+                        <Link
+                            href='/'
+                            className={styles.bylineLink}
+                            data-track='nav_click'
+                            data-track-label='Byline'
+                            data-track-location='handful'
+                        >
                             Matthew Renfer
                         </Link>
                     </p>
@@ -247,6 +254,8 @@ export default function HandfulPage() {
                                     <button
                                         type='submit'
                                         className={styles.seal}
+                                        data-track='demo_start'
+                                        data-track-location='top'
                                     >
                                         <img
                                             src={`${IMAGE_PATH}/badge.webp`}
@@ -316,6 +325,10 @@ export default function HandfulPage() {
                                 <a
                                     href={GITHUB_URL}
                                     className={styles.textLink}
+                                    data-track='outbound_click'
+                                    data-track-url={GITHUB_URL}
+                                    data-track-label='The code is on GitHub'
+                                    data-track-location='handful'
                                 >
                                     The code is on GitHub
                                 </a>
@@ -363,12 +376,24 @@ export default function HandfulPage() {
                     <div className={styles.signOff}>
                         <ul className={styles.signOffLinks}>
                             <li>
-                                <a href='/' className={styles.textLink}>
+                                <a
+                                    href='/'
+                                    className={styles.textLink}
+                                    data-track='nav_click'
+                                    data-track-label='Visit my portfolio'
+                                    data-track-location='handful'
+                                >
                                     Visit my portfolio →
                                 </a>
                             </li>
                             <li>
-                                <a href='/#contact' className={styles.textLink}>
+                                <a
+                                    href='/#contact'
+                                    className={styles.textLink}
+                                    data-track='nav_click'
+                                    data-track-label='Get in touch'
+                                    data-track-location='handful'
+                                >
                                     Get in touch →
                                 </a>
                             </li>
@@ -393,7 +418,12 @@ export default function HandfulPage() {
                                 method='post'
                                 className={styles.demoForm}
                             >
-                                <button type='submit' className={styles.seal}>
+                                <button
+                                    type='submit'
+                                    className={styles.seal}
+                                    data-track='demo_start'
+                                    data-track-location='end'
+                                >
                                     <img
                                         src={`${IMAGE_PATH}/badge.webp`}
                                         width={900}
@@ -409,6 +439,7 @@ export default function HandfulPage() {
             </HandfulMotion>
             {/* The site's own footer, so the page ends the way the home page does. */}
             <Footer siteConfig={siteConfig} />
+            <ScrollDepth page='handful' />
         </>
     );
 }
