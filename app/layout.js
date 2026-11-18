@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import { lora, sourceSans } from './fonts/fonts';
 import Analytics from './components/analytics/Analytics';
+import ClickTracker from './components/analytics/ClickTracker';
 // Site-wide styles: design tokens, a small base, and links (see globals.scss).
 // Everything else is in component CSS modules. The old Ceevee template CSS is
 // no longer loaded.
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
                 </Script>
                 {children}
                 <Analytics />
+                <ClickTracker />
                 <Script
                     src='/js/vendor/fontawesome/all.min.js'
                     strategy='afterInteractive'

@@ -59,7 +59,13 @@ const Hero = ({ siteConfig }) => {
                     </p>
 
                     <div className={styles.actions}>
-                        <a href='#work' className={styles.button}>
+                        <a
+                            href='#work'
+                            className={styles.button}
+                            data-track='cta_click'
+                            data-track-label='See my work'
+                            data-track-location='hero'
+                        >
                             See my work
                         </a>
                         <a
@@ -67,6 +73,9 @@ const Hero = ({ siteConfig }) => {
                             className={styles.textLink}
                             target='_blank'
                             rel='noreferrer'
+                            data-track='resume_download'
+                            data-track-file={personal.resume.fileName}
+                            data-track-location='hero'
                         >
                             Résumé <span aria-hidden='true'>→</span>
                             <span className={styles.srOnly}> (PDF, opens in a new tab)</span>
@@ -76,12 +85,26 @@ const Hero = ({ siteConfig }) => {
                     <ul className={styles.meta}>
                         <li>{hero.location}</li>
                         <li>
-                            <a href={personal.socialMedia.linkedin} target='_blank' rel='noreferrer'>
+                            <a
+                                href={personal.socialMedia.linkedin}
+                                target='_blank'
+                                rel='noreferrer'
+                                data-track='social_click'
+                                data-track-network='LinkedIn'
+                                data-track-location='hero'
+                            >
                                 LinkedIn
                             </a>
                         </li>
                         <li>
-                            <a href={personal.socialMedia.github} target='_blank' rel='noreferrer'>
+                            <a
+                                href={personal.socialMedia.github}
+                                target='_blank'
+                                rel='noreferrer'
+                                data-track='social_click'
+                                data-track-network='GitHub'
+                                data-track-location='hero'
+                            >
                                 GitHub
                             </a>
                         </li>

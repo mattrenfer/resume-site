@@ -7,13 +7,19 @@
 import { getAttribution } from './utm';
 
 export type AnalyticsEvent =
-    | { event: 'nav_click'; section: string }
+    | { event: 'nav_click'; section?: string; label?: string; location?: string }
+    | { event: 'cta_click'; label: string; location?: string }
     | { event: 'portfolio_open'; item: string; company?: string }
-    | { event: 'outbound_click'; url: string; label?: string }
-    | { event: 'resume_download'; file: string }
+    | { event: 'selected_work_click'; project: string }
+    | { event: 'outbound_click'; url: string; label?: string; location?: string }
+    | { event: 'resume_download'; file: string; location?: string }
     | { event: 'contact_click'; method: string }
-    | { event: 'social_click'; network: string }
-    | { event: 'writing_read'; slug: string; collection: 'dispatches' | 'poetry' };
+    | { event: 'social_click'; network: string; location?: string }
+    | { event: 'demo_start'; location: string }
+    | { event: 'scroll_depth'; page: string; percent: number }
+    | { event: 'writing_read'; slug: string; collection: 'dispatches' | 'poetry' }
+    // From data-track attributes (see ClickTracker): any event name, string details.
+    | { event: string; [detail: string]: string | number | undefined };
 
 declare global {
     interface Window {
