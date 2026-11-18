@@ -248,6 +248,7 @@ export default function HandfulPage() {
                             <div data-m='spin' className={styles.spin}>
                                 <form
                                     action={DEMO_ACTION}
+                                    target='_blank'
                                     method='post'
                                     className={styles.demoForm}
                                 >
@@ -261,7 +262,7 @@ export default function HandfulPage() {
                                             src={`${IMAGE_PATH}/badge.webp`}
                                             width={900}
                                             height={900}
-                                            alt='Try the demo'
+                                            alt='Try the demo (opens in a new tab)'
                                         />
                                     </button>
                                 </form>
@@ -415,6 +416,7 @@ export default function HandfulPage() {
                         <div data-m='close-spin' className={styles.closeSeal}>
                             <form
                                 action={DEMO_ACTION}
+                                    target='_blank'
                                 method='post'
                                 className={styles.demoForm}
                             >
@@ -428,7 +430,7 @@ export default function HandfulPage() {
                                         src={`${IMAGE_PATH}/badge.webp`}
                                         width={900}
                                         height={900}
-                                        alt='Try the demo'
+                                        alt='Try the demo (opens in a new tab)'
                                         loading='lazy'
                                     />
                                 </button>

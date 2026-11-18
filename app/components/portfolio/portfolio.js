@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { track } from '@/lib/analytics/events';
+import { track, trackLink } from '@/lib/analytics/events';
 import styles from './portfolio.module.scss';
 
 // "More work": every project not already in Selected work, as a grid. Each
@@ -62,12 +62,12 @@ function Popup({ item, onClose }) {
                             href={item.link}
                             className={styles.dialogLink}
                             {...(internal ? {} : { target: '_blank', rel: 'noreferrer' })}
-                            onClick={() =>
-                                track({
+                            onClick={e =>
+                                trackLink({
                                     event: 'outbound_click',
                                     url: item.link,
                                     label: item.linkText,
-                                })
+                                }, e)
                             }
                         >
                             {internal ? (

@@ -12,49 +12,33 @@
 // pushes { event: 'cta_click', label: 'See my work', location: 'hero' } to the
 // GTM dataLayer (with attribution, via track()).
 //
-// Submit buttons (like "Try the demo") leave the site the moment the form
-// submits, which can cut the event off. For those, the submit waits until GTM
-// confirms the event was handled, or 800ms at most, then goes ahead.
+// GA4 sends events in batches a few seconds later, so a click that loads another
+// page in the same tab would lose its event. For links to other pages of this
+// site, the event is saved and sent when the next page loads. Actions that
+// leave the site (like "Try the demo") open in a new tab instead.
 
 import { useEffect } from 'react';
-import { track } from '@/lib/analytics/events';
-
-const WAIT_MS = 800;
-
-function detailsOf(el) {
-    const details = {};
-    for (const [key, value] of Object.entries(el.dataset)) {
-        if (key.startsWith('track') && key !== 'track') {
-            details[key[5].toLowerCase() + key.slice(6)] = value;
-        }
-    }
-    return details;
-}
+import { leavesPageInSameTab, sendPendingEvents, track, trackAfterNavigation } from '@/lib/analytics/events';
 
 export default function ClickTracker() {
     useEffect(() => {
+        sendPendingEvents();
+
         const onClick = e => {
             const el = e.target.closest?.('[data-track]');
             if (!el) return;
-            const payload = { event: el.dataset.track, ...detailsOf(el) };
-
-            const form = el.type === 'submit' ? el.form : null;
-            const gtmReady = typeof window !== 'undefined' && window.google_tag_manager;
-            if (!form || !gtmReady || e.defaultPrevented) {
-                track(payload);
-                return;
+            const details = {};
+            for (const [key, value] of Object.entries(el.dataset)) {
+                if (key.startsWith('track') && key !== 'track') {
+                    details[key[5].toLowerCase() + key.slice(6)] = value;
+                }
             }
-
-            // Hold the submit until GTM has handled the event (or time runs out).
-            e.preventDefault();
-            let done = false;
-            const go = () => {
-                if (done) return;
-                done = true;
-                form.submit();
-            };
-            track({ ...payload, eventCallback: go, eventTimeout: WAIT_MS });
-            setTimeout(go, WAIT_MS + 100);
+            const payload = { event: el.dataset.track, ...details };
+            if (el.tagName === 'A' && leavesPageInSameTab(el, e)) {
+                trackAfterNavigation(payload);
+            } else {
+                track(payload);
+            }
         };
         // Capture phase, so it runs even if a component stops the click.
         document.addEventListener('click', onClick, true);
