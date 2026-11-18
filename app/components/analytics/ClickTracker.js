@@ -18,12 +18,19 @@
 // leave the site (like "Try the demo") open in a new tab instead.
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { leavesPageInSameTab, sendPendingEvents, track, trackAfterNavigation } from '@/lib/analytics/events';
 
 export default function ClickTracker() {
+    const pathname = usePathname();
+
+    // Send events saved by the previous page. Runs on a full page load and on
+    // client-side navigation (Next's <Link>), where the tracker stays mounted.
     useEffect(() => {
         sendPendingEvents();
+    }, [pathname]);
 
+    useEffect(() => {
         const onClick = e => {
             const el = e.target.closest?.('[data-track]');
             if (!el) return;
