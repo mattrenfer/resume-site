@@ -41,7 +41,8 @@ export const metadata = {
 // server and opens the dashboard, so one click lands them in the app.
 // If Handful ever limits /api/demo to requests from its own pages, these buttons
 // will stop working; point them at https://handful.matthewrenfer.com/login instead.
-const DEMO_ACTION = 'https://handful.matthewrenfer.com/api/demo';
+const APP_URL = 'https://handful.matthewrenfer.com';
+const DEMO_ACTION = `${APP_URL}/api/demo`;
 
 // Handful's code on GitHub (public). Set to null to hide the link.
 const GITHUB_URL = 'https://github.com/mattrenfer/handful';
@@ -436,6 +437,45 @@ export default function HandfulPage() {
                                 </button>
                             </form>
                         </div>
+                    </div>
+
+                    {/* Two ways in: the demo (sample data, signs in for you) or the app
+                        itself (sign in or create an account). Both open in a new tab. */}
+                    <div className={styles.closeActions}>
+                        <div className={styles.closeButtons}>
+                            <form
+                                action={DEMO_ACTION}
+                                target='_blank'
+                                method='post'
+                                className={styles.demoForm}
+                            >
+                                <button
+                                    type='submit'
+                                    className={styles.buttonPrimary}
+                                    data-track='demo_start'
+                                    data-track-location='end-button'
+                                >
+                                    Try the demo <span aria-hidden='true'>↗</span>
+                                    <span className={styles.srOnly}> (opens in a new tab)</span>
+                                </button>
+                            </form>
+                            <a
+                                href={APP_URL}
+                                target='_blank'
+                                rel='noreferrer'
+                                className={styles.buttonSecondary}
+                                data-track='outbound_click'
+                                data-track-url={APP_URL}
+                                data-track-label='Open Handful'
+                                data-track-location='end-button'
+                            >
+                                Open Handful <span aria-hidden='true'>↗</span>
+                                <span className={styles.srOnly}> (opens in a new tab)</span>
+                            </a>
+                        </div>
+                        <p className={styles.closeNote}>
+                            Try the demo with sample data, or create a free account.
+                        </p>
                     </div>
                 </section>
             </HandfulMotion>
