@@ -958,3 +958,106 @@ $narrow: 860px;
         }
     }
 }
+
+/* ---- Close: the two ways in, under the wordmark ---- */
+.closeActions {
+    position: relative;
+    z-index: 3;
+    margin: 4.8rem auto 0;
+    padding: 0 2rem 8rem;
+    text-align: center;
+}
+
+.closeButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem 2rem;
+
+    @media (max-width: 560px) {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 32rem;
+        margin: 0 auto;
+    }
+}
+
+// The template's button reset isn't loaded any more, but forms and buttons
+// still need their browser defaults cleared.
+.buttonPrimary,
+.buttonSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    height: 4.8rem;
+    margin: 0;
+    padding: 0 2.6rem;
+    border-radius: 4px;
+    font-family: $sans;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease-out,
+        border-color 0.2s ease-out,
+        color 0.2s ease-out;
+
+    &:focus-visible {
+        outline: 2px solid $heading;
+        outline-offset: 4px;
+    }
+}
+
+.buttonPrimary {
+    border: 1px solid $mint;
+    background-color: $mint;
+    color: $ink;
+
+    &:hover {
+        border-color: $heading;
+        background-color: $heading;
+    }
+}
+
+.buttonSecondary,
+.buttonSecondary:visited {
+    border: 1px solid rgba(222, 222, 216, 0.4);
+    background-color: transparent;
+    color: $heading;
+}
+
+.buttonSecondary:hover {
+    border-color: $heading;
+    color: $heading;
+}
+
+@media (max-width: 560px) {
+    .closeButtons .demoForm,
+    .buttonPrimary,
+    .buttonSecondary {
+        width: 100%;
+    }
+}
+
+.closeNote {
+    margin: 1.8rem 0 0;
+    text-wrap: balance;
+    font-family: $sans;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: $text;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
